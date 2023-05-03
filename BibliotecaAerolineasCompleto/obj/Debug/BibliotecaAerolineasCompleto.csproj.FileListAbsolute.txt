@@ -1,0 +1,6 @@
+C:\Users\User\source\repos\Romero.Francis\BibliotecaAerolineasCompleto\obj\Debug\BibliotecaAerolineasCompleto.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\Romero.Francis\BibliotecaAerolineasCompleto\obj\Debug\BibliotecaAerolineasCompleto.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Romero.Francis\BibliotecaAerolineasCompleto\bin\Debug\BibliotecaAerolineasCompleto.dll
+C:\Users\User\source\repos\Romero.Francis\BibliotecaAerolineasCompleto\bin\Debug\BibliotecaAerolineasCompleto.pdb
+C:\Users\User\source\repos\Romero.Francis\BibliotecaAerolineasCompleto\obj\Debug\BibliotecaAerolineasCompleto.dll
+C:\Users\User\source\repos\Romero.Francis\BibliotecaAerolineasCompleto\obj\Debug\BibliotecaAerolineasCompleto.pdb
