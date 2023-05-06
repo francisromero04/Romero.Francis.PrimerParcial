@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gbxModificarAvion = new System.Windows.Forms.GroupBox();
+            this.gbxModificarAeronave = new System.Windows.Forms.GroupBox();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnCerrarDos = new System.Windows.Forms.Button();
             this.txtBodega = new System.Windows.Forms.TextBox();
             this.lblBodega = new System.Windows.Forms.Label();
             this.chkComida = new System.Windows.Forms.CheckBox();
             this.chkWifi = new System.Windows.Forms.CheckBox();
-            this.lblListaViajes = new System.Windows.Forms.Label();
+            this.lblListaAeronaves = new System.Windows.Forms.Label();
             this.cmbxAviones = new System.Windows.Forms.ComboBox();
             this.txtMatricula = new System.Windows.Forms.TextBox();
             this.lblCantAsientos = new System.Windows.Forms.Label();
@@ -47,36 +49,66 @@
             this.lblTituloCroodAviones = new System.Windows.Forms.Label();
             this.lbldentificador = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
-            this.lstAviones = new System.Windows.Forms.ListBox();
-            this.txtIngresar = new System.Windows.Forms.TextBox();
-            this.lblIngresar = new System.Windows.Forms.Label();
-            this.gbxCrearAvion = new System.Windows.Forms.GroupBox();
-            this.gbxModificarAvion.SuspendLayout();
+            this.gbxEliminarAeronave = new System.Windows.Forms.GroupBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnCerrarTres = new System.Windows.Forms.Button();
+            this.lblConfirmacion = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbxAvionesDos = new System.Windows.Forms.ComboBox();
+            this.gbxCrearAvionAleatorio = new System.Windows.Forms.GroupBox();
+            this.btnCerrarUno = new System.Windows.Forms.Button();
+            this.btnCrearAleatorio = new System.Windows.Forms.Button();
+            this.lstAeronaves = new System.Windows.Forms.ListBox();
+            this.gbxModificarAeronave.SuspendLayout();
+            this.gbxEliminarAeronave.SuspendLayout();
+            this.gbxCrearAvionAleatorio.SuspendLayout();
             this.SuspendLayout();
             // 
-            // gbxModificarAvion
+            // gbxModificarAeronave
             // 
-            this.gbxModificarAvion.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.gbxModificarAvion.Controls.Add(this.txtBodega);
-            this.gbxModificarAvion.Controls.Add(this.lblBodega);
-            this.gbxModificarAvion.Controls.Add(this.chkComida);
-            this.gbxModificarAvion.Controls.Add(this.chkWifi);
-            this.gbxModificarAvion.Controls.Add(this.lblListaViajes);
-            this.gbxModificarAvion.Controls.Add(this.cmbxAviones);
-            this.gbxModificarAvion.Controls.Add(this.txtMatricula);
-            this.gbxModificarAvion.Controls.Add(this.lblCantAsientos);
-            this.gbxModificarAvion.Controls.Add(this.txtCantAsientos);
-            this.gbxModificarAvion.Controls.Add(this.lblMatricula);
-            this.gbxModificarAvion.Controls.Add(this.lblCantBaños);
-            this.gbxModificarAvion.Controls.Add(this.txtCantBaños);
-            this.gbxModificarAvion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbxModificarAvion.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxModificarAvion.Location = new System.Drawing.Point(461, 303);
-            this.gbxModificarAvion.Name = "gbxModificarAvion";
-            this.gbxModificarAvion.Size = new System.Drawing.Size(367, 212);
-            this.gbxModificarAvion.TabIndex = 34;
-            this.gbxModificarAvion.TabStop = false;
-            this.gbxModificarAvion.Text = "Modificar un avión";
+            this.gbxModificarAeronave.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.gbxModificarAeronave.Controls.Add(this.btnModificar);
+            this.gbxModificarAeronave.Controls.Add(this.btnCerrarDos);
+            this.gbxModificarAeronave.Controls.Add(this.txtBodega);
+            this.gbxModificarAeronave.Controls.Add(this.lblBodega);
+            this.gbxModificarAeronave.Controls.Add(this.chkComida);
+            this.gbxModificarAeronave.Controls.Add(this.chkWifi);
+            this.gbxModificarAeronave.Controls.Add(this.lblListaAeronaves);
+            this.gbxModificarAeronave.Controls.Add(this.cmbxAviones);
+            this.gbxModificarAeronave.Controls.Add(this.txtMatricula);
+            this.gbxModificarAeronave.Controls.Add(this.lblCantAsientos);
+            this.gbxModificarAeronave.Controls.Add(this.txtCantAsientos);
+            this.gbxModificarAeronave.Controls.Add(this.lblMatricula);
+            this.gbxModificarAeronave.Controls.Add(this.lblCantBaños);
+            this.gbxModificarAeronave.Controls.Add(this.txtCantBaños);
+            this.gbxModificarAeronave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.gbxModificarAeronave.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxModificarAeronave.Location = new System.Drawing.Point(332, 822);
+            this.gbxModificarAeronave.Name = "gbxModificarAeronave";
+            this.gbxModificarAeronave.Size = new System.Drawing.Size(367, 251);
+            this.gbxModificarAeronave.TabIndex = 34;
+            this.gbxModificarAeronave.TabStop = false;
+            this.gbxModificarAeronave.Text = "Modificar un avión";
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(14, 209);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(162, 28);
+            this.btnModificar.TabIndex = 51;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnCerrarDos
+            // 
+            this.btnCerrarDos.Location = new System.Drawing.Point(198, 209);
+            this.btnCerrarDos.Name = "btnCerrarDos";
+            this.btnCerrarDos.Size = new System.Drawing.Size(162, 28);
+            this.btnCerrarDos.TabIndex = 50;
+            this.btnCerrarDos.Text = "Guardar y cerrar";
+            this.btnCerrarDos.UseVisualStyleBackColor = true;
+            this.btnCerrarDos.Click += new System.EventHandler(this.btnCerrarDos_Click);
             // 
             // txtBodega
             // 
@@ -115,15 +147,15 @@
             this.chkWifi.Text = "¿Tiene servicio de Internet?";
             this.chkWifi.UseVisualStyleBackColor = true;
             // 
-            // lblListaViajes
+            // lblListaAeronaves
             // 
-            this.lblListaViajes.AutoSize = true;
-            this.lblListaViajes.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F);
-            this.lblListaViajes.Location = new System.Drawing.Point(4, 22);
-            this.lblListaViajes.Name = "lblListaViajes";
-            this.lblListaViajes.Size = new System.Drawing.Size(242, 19);
-            this.lblListaViajes.TabIndex = 39;
-            this.lblListaViajes.Text = "Lista de aviones disponibles a modificar:";
+            this.lblListaAeronaves.AutoSize = true;
+            this.lblListaAeronaves.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F);
+            this.lblListaAeronaves.Location = new System.Drawing.Point(4, 22);
+            this.lblListaAeronaves.Name = "lblListaAeronaves";
+            this.lblListaAeronaves.Size = new System.Drawing.Size(242, 19);
+            this.lblListaAeronaves.TabIndex = 39;
+            this.lblListaAeronaves.Text = "Lista de aviones disponibles a modificar:";
             // 
             // cmbxAviones
             // 
@@ -195,9 +227,9 @@
             this.btnOpcionTres.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnOpcionTres.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnOpcionTres.Font = new System.Drawing.Font("Sitka Subheading", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionTres.Location = new System.Drawing.Point(741, 257);
+            this.btnOpcionTres.Location = new System.Drawing.Point(516, 367);
             this.btnOpcionTres.Name = "btnOpcionTres";
-            this.btnOpcionTres.Size = new System.Drawing.Size(234, 40);
+            this.btnOpcionTres.Size = new System.Drawing.Size(225, 44);
             this.btnOpcionTres.TabIndex = 32;
             this.btnOpcionTres.Text = "3. Eliminar un avión.";
             this.btnOpcionTres.UseVisualStyleBackColor = false;
@@ -210,9 +242,9 @@
             this.btnOpcionDos.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnOpcionDos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnOpcionDos.Font = new System.Drawing.Font("Sitka Subheading", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionDos.Location = new System.Drawing.Point(512, 257);
+            this.btnOpcionDos.Location = new System.Drawing.Point(516, 317);
             this.btnOpcionDos.Name = "btnOpcionDos";
-            this.btnOpcionDos.Size = new System.Drawing.Size(223, 40);
+            this.btnOpcionDos.Size = new System.Drawing.Size(225, 44);
             this.btnOpcionDos.TabIndex = 31;
             this.btnOpcionDos.Text = "2. Modificar un avión.";
             this.btnOpcionDos.UseVisualStyleBackColor = false;
@@ -225,9 +257,9 @@
             this.btnOpcionUno.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnOpcionUno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnOpcionUno.Font = new System.Drawing.Font("Sitka Subheading", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionUno.Location = new System.Drawing.Point(281, 257);
+            this.btnOpcionUno.Location = new System.Drawing.Point(516, 267);
             this.btnOpcionUno.Name = "btnOpcionUno";
-            this.btnOpcionUno.Size = new System.Drawing.Size(225, 40);
+            this.btnOpcionUno.Size = new System.Drawing.Size(225, 44);
             this.btnOpcionUno.TabIndex = 30;
             this.btnOpcionUno.Text = "1. Crear un avión.";
             this.btnOpcionUno.UseVisualStyleBackColor = false;
@@ -238,10 +270,10 @@
             this.lblTituloCroodAviones.AutoSize = true;
             this.lblTituloCroodAviones.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.lblTituloCroodAviones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTituloCroodAviones.Font = new System.Drawing.Font("Sitka Subheading", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloCroodAviones.Location = new System.Drawing.Point(281, 174);
+            this.lblTituloCroodAviones.Font = new System.Drawing.Font("Sitka Subheading", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloCroodAviones.Location = new System.Drawing.Point(378, 212);
             this.lblTituloCroodAviones.Name = "lblTituloCroodAviones";
-            this.lblTituloCroodAviones.Size = new System.Drawing.Size(694, 70);
+            this.lblTituloCroodAviones.Size = new System.Drawing.Size(519, 52);
             this.lblTituloCroodAviones.TabIndex = 29;
             this.lblTituloCroodAviones.Text = "ADMINISTRACIÓN DE AVIONES";
             // 
@@ -259,7 +291,7 @@
             // 
             this.btnRegresar.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.btnRegresar.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegresar.Location = new System.Drawing.Point(547, 538);
+            this.btnRegresar.Location = new System.Drawing.Point(535, 417);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(188, 38);
             this.btnRegresar.TabIndex = 36;
@@ -267,41 +299,116 @@
             this.btnRegresar.UseVisualStyleBackColor = false;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
-            // lstAviones
+            // gbxEliminarAeronave
             // 
-            this.lstAviones.FormattingEnabled = true;
-            this.lstAviones.Location = new System.Drawing.Point(865, 303);
-            this.lstAviones.Name = "lstAviones";
-            this.lstAviones.Size = new System.Drawing.Size(208, 173);
-            this.lstAviones.TabIndex = 37;
+            this.gbxEliminarAeronave.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.gbxEliminarAeronave.Controls.Add(this.btnEliminar);
+            this.gbxEliminarAeronave.Controls.Add(this.btnCerrarTres);
+            this.gbxEliminarAeronave.Controls.Add(this.lblConfirmacion);
+            this.gbxEliminarAeronave.Controls.Add(this.label4);
+            this.gbxEliminarAeronave.Controls.Add(this.cmbxAvionesDos);
+            this.gbxEliminarAeronave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.gbxEliminarAeronave.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxEliminarAeronave.Location = new System.Drawing.Point(771, 822);
+            this.gbxEliminarAeronave.Name = "gbxEliminarAeronave";
+            this.gbxEliminarAeronave.Size = new System.Drawing.Size(417, 151);
+            this.gbxEliminarAeronave.TabIndex = 43;
+            this.gbxEliminarAeronave.TabStop = false;
+            this.gbxEliminarAeronave.Text = "Eliminar";
             // 
-            // txtIngresar
+            // btnEliminar
             // 
-            this.txtIngresar.Location = new System.Drawing.Point(925, 495);
-            this.txtIngresar.Name = "txtIngresar";
-            this.txtIngresar.Size = new System.Drawing.Size(100, 20);
-            this.txtIngresar.TabIndex = 38;
+            this.btnEliminar.Location = new System.Drawing.Point(64, 89);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(148, 28);
+            this.btnEliminar.TabIndex = 49;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // lblIngresar
+            // btnCerrarTres
             // 
-            this.lblIngresar.AutoSize = true;
-            this.lblIngresar.Location = new System.Drawing.Point(881, 479);
-            this.lblIngresar.Name = "lblIngresar";
-            this.lblIngresar.Size = new System.Drawing.Size(192, 13);
-            this.lblIngresar.TabIndex = 39;
-            this.lblIngresar.Text = "Ingrese la matricula que desea eliminar:";
+            this.btnCerrarTres.Location = new System.Drawing.Point(218, 89);
+            this.btnCerrarTres.Name = "btnCerrarTres";
+            this.btnCerrarTres.Size = new System.Drawing.Size(148, 28);
+            this.btnCerrarTres.TabIndex = 48;
+            this.btnCerrarTres.Text = "Guardar y cerrar";
+            this.btnCerrarTres.UseVisualStyleBackColor = true;
+            this.btnCerrarTres.Click += new System.EventHandler(this.btnCerrarTres_Click);
             // 
-            // gbxCrearAvion
+            // lblConfirmacion
             // 
-            this.gbxCrearAvion.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.gbxCrearAvion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbxCrearAvion.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxCrearAvion.Location = new System.Drawing.Point(161, 303);
-            this.gbxCrearAvion.Name = "gbxCrearAvion";
-            this.gbxCrearAvion.Size = new System.Drawing.Size(280, 171);
-            this.gbxCrearAvion.TabIndex = 33;
-            this.gbxCrearAvion.TabStop = false;
-            this.gbxCrearAvion.Text = "Crear un Avión";
+            this.lblConfirmacion.AutoSize = true;
+            this.lblConfirmacion.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirmacion.Location = new System.Drawing.Point(27, 67);
+            this.lblConfirmacion.Name = "lblConfirmacion";
+            this.lblConfirmacion.Size = new System.Drawing.Size(384, 19);
+            this.lblConfirmacion.TabIndex = 41;
+            this.lblConfirmacion.Text = "La aeronave seleccionada se eliminará. Si asi lo desea, confirmar.";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F);
+            this.label4.Location = new System.Drawing.Point(2, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(250, 19);
+            this.label4.TabIndex = 39;
+            this.label4.Text = "Lista de aeronaves disponibles a eliminar:";
+            // 
+            // cmbxAvionesDos
+            // 
+            this.cmbxAvionesDos.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.cmbxAvionesDos.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxAvionesDos.FormattingEnabled = true;
+            this.cmbxAvionesDos.Location = new System.Drawing.Point(258, 16);
+            this.cmbxAvionesDos.Name = "cmbxAvionesDos";
+            this.cmbxAvionesDos.Size = new System.Drawing.Size(153, 27);
+            this.cmbxAvionesDos.TabIndex = 38;
+            // 
+            // gbxCrearAvionAleatorio
+            // 
+            this.gbxCrearAvionAleatorio.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.gbxCrearAvionAleatorio.Controls.Add(this.btnCerrarUno);
+            this.gbxCrearAvionAleatorio.Controls.Add(this.btnCrearAleatorio);
+            this.gbxCrearAvionAleatorio.Controls.Add(this.lstAeronaves);
+            this.gbxCrearAvionAleatorio.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.gbxCrearAvionAleatorio.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxCrearAvionAleatorio.Location = new System.Drawing.Point(49, 822);
+            this.gbxCrearAvionAleatorio.Name = "gbxCrearAvionAleatorio";
+            this.gbxCrearAvionAleatorio.Size = new System.Drawing.Size(223, 356);
+            this.gbxCrearAvionAleatorio.TabIndex = 44;
+            this.gbxCrearAvionAleatorio.TabStop = false;
+            this.gbxCrearAvionAleatorio.Text = "Crear Aeronave Aleatoria";
+            // 
+            // btnCerrarUno
+            // 
+            this.btnCerrarUno.Location = new System.Drawing.Point(31, 313);
+            this.btnCerrarUno.Name = "btnCerrarUno";
+            this.btnCerrarUno.Size = new System.Drawing.Size(162, 28);
+            this.btnCerrarUno.TabIndex = 40;
+            this.btnCerrarUno.Text = "Guardar y cerrar";
+            this.btnCerrarUno.UseVisualStyleBackColor = true;
+            this.btnCerrarUno.Click += new System.EventHandler(this.btnCerrarUno_Click);
+            // 
+            // btnCrearAleatorio
+            // 
+            this.btnCrearAleatorio.Location = new System.Drawing.Point(31, 29);
+            this.btnCrearAleatorio.Name = "btnCrearAleatorio";
+            this.btnCrearAleatorio.Size = new System.Drawing.Size(162, 28);
+            this.btnCrearAleatorio.TabIndex = 39;
+            this.btnCrearAleatorio.Text = "Crear aeronave aleatoria";
+            this.btnCrearAleatorio.UseVisualStyleBackColor = true;
+            this.btnCrearAleatorio.Click += new System.EventHandler(this.btnCrearAleatorio_Click);
+            // 
+            // lstAeronaves
+            // 
+            this.lstAeronaves.FormattingEnabled = true;
+            this.lstAeronaves.ItemHeight = 16;
+            this.lstAeronaves.Location = new System.Drawing.Point(31, 63);
+            this.lstAeronaves.Name = "lstAeronaves";
+            this.lstAeronaves.Size = new System.Drawing.Size(162, 244);
+            this.lstAeronaves.TabIndex = 38;
             // 
             // CroodAeronaves
             // 
@@ -309,21 +416,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1235, 845);
-            this.Controls.Add(this.lblIngresar);
-            this.Controls.Add(this.txtIngresar);
-            this.Controls.Add(this.lstAviones);
+            this.Controls.Add(this.gbxCrearAvionAleatorio);
+            this.Controls.Add(this.gbxEliminarAeronave);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.lbldentificador);
-            this.Controls.Add(this.gbxModificarAvion);
-            this.Controls.Add(this.gbxCrearAvion);
+            this.Controls.Add(this.gbxModificarAeronave);
             this.Controls.Add(this.btnOpcionTres);
             this.Controls.Add(this.btnOpcionDos);
             this.Controls.Add(this.btnOpcionUno);
             this.Controls.Add(this.lblTituloCroodAviones);
             this.Name = "CroodAeronaves";
             this.Text = "Administrador Aeronaves";
-            this.gbxModificarAvion.ResumeLayout(false);
-            this.gbxModificarAvion.PerformLayout();
+            this.gbxModificarAeronave.ResumeLayout(false);
+            this.gbxModificarAeronave.PerformLayout();
+            this.gbxEliminarAeronave.ResumeLayout(false);
+            this.gbxEliminarAeronave.PerformLayout();
+            this.gbxCrearAvionAleatorio.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,8 +439,8 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox gbxModificarAvion;
-        private System.Windows.Forms.Label lblListaViajes;
+        private System.Windows.Forms.GroupBox gbxModificarAeronave;
+        private System.Windows.Forms.Label lblListaAeronaves;
         private System.Windows.Forms.ComboBox cmbxAviones;
         private System.Windows.Forms.Button btnOpcionTres;
         private System.Windows.Forms.Button btnOpcionDos;
@@ -340,9 +448,6 @@
         private System.Windows.Forms.Label lblTituloCroodAviones;
         private System.Windows.Forms.Label lbldentificador;
         private System.Windows.Forms.Button btnRegresar;
-        private System.Windows.Forms.ListBox lstAviones;
-        private System.Windows.Forms.TextBox txtIngresar;
-        private System.Windows.Forms.Label lblIngresar;
         private System.Windows.Forms.TextBox txtMatricula;
         private System.Windows.Forms.Label lblCantAsientos;
         private System.Windows.Forms.TextBox txtCantAsientos;
@@ -352,7 +457,18 @@
         private System.Windows.Forms.CheckBox chkWifi;
         private System.Windows.Forms.TextBox txtBodega;
         private System.Windows.Forms.Label lblBodega;
-        private System.Windows.Forms.GroupBox gbxCrearAvion;
         private System.Windows.Forms.CheckBox chkComida;
+        private System.Windows.Forms.GroupBox gbxEliminarAeronave;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnCerrarTres;
+        private System.Windows.Forms.Label lblConfirmacion;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbxAvionesDos;
+        private System.Windows.Forms.GroupBox gbxCrearAvionAleatorio;
+        private System.Windows.Forms.Button btnCerrarUno;
+        private System.Windows.Forms.Button btnCrearAleatorio;
+        private System.Windows.Forms.ListBox lstAeronaves;
+        private System.Windows.Forms.Button btnCerrarDos;
+        private System.Windows.Forms.Button btnModificar;
     }
 }

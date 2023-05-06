@@ -96,8 +96,15 @@ namespace FormsAerolinea
         private void btnCrearAleatorio_Click(object sender, EventArgs e)
         {
             Pasajero pasajero = new Pasajero().GenerarPasajeroAleatorio();
-            aerolinea.agregarPasajero(pasajero);
-            ActualizarListas();
+            if (aerolinea.VerificarDniExistente(pasajero.dni) == false)
+            {
+                aerolinea.agregarPasajero(pasajero);
+                ActualizarListas();
+            }
+            else
+            {
+                MessageBox.Show("El pasajero tiene un dni perteneciente a otro pasajero.");
+            }
         }
         
         private void btnCrearPasajero_Click(object sender, EventArgs e)
@@ -109,24 +116,43 @@ namespace FormsAerolinea
             if (int.TryParse(dniPasajero, out int dni))
             {
                 Pasajero pasajero = new Pasajero(dni, nombrePasajero, apellidoPasajero);
-                aerolinea.agregarPasajero(pasajero);
-                MessageBox.Show("El pasajero ha sido dado de alta.");
-                ActualizarListas();
+                if (aerolinea.VerificarDniExistente(pasajero.dni) == false)
+                { 
+                    aerolinea.agregarPasajero(pasajero);
+                    MessageBox.Show("El pasajero ha sido dado de alta.");
+                    ActualizarListas();
+                }
+                else
+                {
+                    MessageBox.Show("El pasajero tiene un dni perteneciente a otro pasajero.");
+                }
             }
         }        
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            // Obtener el objeto avión seleccionado en el ComboBox
-            Pasajero pasajeroSeleccionado = (Pasajero)cmbxPasajeros.SelectedItem;
 
-            // Actualizar las propiedades del objeto con los valores de los TextBoxes y CheckBoxes
-            if (actualizarNombre(pasajeroSeleccionado) && actualizarApellido(pasajeroSeleccionado) &&
-                actualizarDni(pasajeroSeleccionado))
+            // Obtener el objeto pasajero seleccionado en el ComboBox
+            Pasajero pasajeroSeleccionado = (Pasajero)cmbxPasajeros.SelectedItem;
+            // Verificar si el nuevo DNI ingresado ya existe en la lista de pasajeros
+            bool dniExistente = aerolinea.VerificarDniExistente(pasajeroSeleccionado.dni);
+            int dni;
+            int.TryParse(txtDniPasajeroDos.Text, out dni);
+
+            if (dniExistente && pasajeroSeleccionado.dni != dni)
             {
-                ActualizarListas();
-                LimpiarTextBoxes();
-                MessageBox.Show("Modificacion Exitosa");
+                MessageBox.Show("El pasajero tiene un DNI perteneciente a otro pasajero.");
+            }
+            else if ((pasajeroSeleccionado.nombres != txtNombrePasajeroDos.Text || pasajeroSeleccionado.apellidos != txtApellidoDos.Text) && pasajeroSeleccionado.dni == dni)
+            {
+                // Actualizar las propiedades del objeto con los valores de los TextBoxes y CheckBoxes
+                if (actualizarNombre(pasajeroSeleccionado) && actualizarApellido(pasajeroSeleccionado))
+                {
+                    aerolinea.ReemplazarPasajeroSeleccionado(pasajeroSeleccionado);
+                    ActualizarListas();
+                    LimpiarTextBoxes();
+                    MessageBox.Show("Modificacion Exitosa");
+                }
             }
         }
 
@@ -206,6 +232,7 @@ namespace FormsAerolinea
         #endregion
         
         #region
+     
         private bool actualizarNombre(Pasajero pasajero)
         {
             if (Validador.ValidarCadena(txtNombrePasajeroDos.Text))
@@ -255,12 +282,15 @@ namespace FormsAerolinea
             lstPasajeros.DataSource = null;
             cmbxPasajeros.DataSource = null;
             cmbxPasajerosDos.DataSource = null;
+
             lstPasajeros.DataSource = aerolinea.listaPasajeros;
             cmbxPasajeros.DataSource = aerolinea.listaPasajeros;
             cmbxPasajerosDos.DataSource = aerolinea.listaPasajeros;
+
             lstPasajeros.DisplayMember = "nombreCompletoYdni";
             cmbxPasajeros.DisplayMember = "nombreCompletoYdni";
             cmbxPasajerosDos.DisplayMember = "nombreCompletoYdni";
+
             lstPasajeros.Refresh();
             cmbxPasajeros.Refresh();
             cmbxPasajerosDos.Refresh();

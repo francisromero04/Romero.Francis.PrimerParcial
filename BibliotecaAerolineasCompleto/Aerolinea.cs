@@ -33,12 +33,40 @@ namespace BibliotecaAerolineasCompleto
 
         public void agregarPasajero(Pasajero pasajero)
         {
-            listaPasajeros.Add(pasajero);
+            if (VerificarDniExistente(pasajero.dni) == false)
+            {
+                listaPasajeros.Add(pasajero);
+            }
+        }
+
+        public void ReemplazarPasajeroSeleccionado(Pasajero pasajeroSeleccionado)
+        {
+            for (int i = 0; i < listaPasajeros.Count; i++)
+            {
+                if (listaPasajeros[i].dni == pasajeroSeleccionado.dni)
+                {
+                    listaPasajeros[i] = pasajeroSeleccionado;
+                    break;
+                }
+            }
         }
 
         public void eliminarPasajero(Pasajero pasajero)
         {
             listaPasajeros.Remove(pasajero);
+        }
+
+        public bool VerificarDniExistente(int dni)
+        {
+            // Verificar si el DNI ya existe en la lista de pasajeros
+            foreach (Pasajero pasajero in listaPasajeros)
+            {
+                if (pasajero.dni == dni)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

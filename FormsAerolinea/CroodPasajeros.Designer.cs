@@ -194,7 +194,7 @@
             this.gbxCrearPasajeroAleatorio.Controls.Add(this.lstPasajeros);
             this.gbxCrearPasajeroAleatorio.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxCrearPasajeroAleatorio.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxCrearPasajeroAleatorio.Location = new System.Drawing.Point(29, 836);
+            this.gbxCrearPasajeroAleatorio.Location = new System.Drawing.Point(12, 836);
             this.gbxCrearPasajeroAleatorio.Name = "gbxCrearPasajeroAleatorio";
             this.gbxCrearPasajeroAleatorio.Size = new System.Drawing.Size(223, 356);
             this.gbxCrearPasajeroAleatorio.TabIndex = 27;
@@ -319,7 +319,7 @@
             this.gbxEliminarPasajero.Controls.Add(this.cmbxPasajerosDos);
             this.gbxEliminarPasajero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxEliminarPasajero.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxEliminarPasajero.Location = new System.Drawing.Point(954, 836);
+            this.gbxEliminarPasajero.Location = new System.Drawing.Point(942, 836);
             this.gbxEliminarPasajero.Name = "gbxEliminarPasajero";
             this.gbxEliminarPasajero.Size = new System.Drawing.Size(417, 151);
             this.gbxEliminarPasajero.TabIndex = 42;
