@@ -48,11 +48,11 @@ namespace FormsAerolinea
             switch (usuario.cargo)
             {
                 case "Administrador":
-                    btnOpcionUno.Enabled = false;
+                  /*  btnOpcionUno.Enabled = false;
                     btnOpcionDos.Enabled = false;
                     btnOpcionTres.Enabled = false;
                     btnOpcionCinco.Enabled = false;
-                    btnOpcionUno.ForeColor = btnOpcionDos.ForeColor = btnOpcionTres.ForeColor = btnOpcionCinco.ForeColor = Color.Gray;
+                    btnOpcionUno.ForeColor = btnOpcionDos.ForeColor = btnOpcionTres.ForeColor = btnOpcionCinco.ForeColor = Color.Gray;*/
                     break;
                 case "Supervisor":
                     btnOpcionUno.Enabled = false;
@@ -105,7 +105,7 @@ namespace FormsAerolinea
 
         private void btnOpcionCuatro_Click(object sender, EventArgs e)
         {
-            CroodViajes formCroodUno = new CroodViajes(usuario);
+            CroodViajes formCroodUno = new CroodViajes(usuario, aerolinea);
             AbrirFormulario(formCroodUno);
         }
         private void btnOpcionCinco_Click(object sender, EventArgs e)

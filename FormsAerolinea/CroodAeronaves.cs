@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,7 +30,7 @@ namespace FormsAerolinea
             gbxEliminarAeronave.Visible = false;
         }
 
-        #region
+        #region VISIBILIDAD GROUPBOX
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
@@ -84,12 +85,19 @@ namespace FormsAerolinea
 
         #endregion
 
-        #region
+        #region ACCIONES CLICK BOTONES
         
         private void btnCrearAleatorio_Click(object sender, EventArgs e)
         {
-            Avion avion = new Avion().DevolverAvion();
-            aerolinea.agregarAvion(avion);
+            for(int i = 0; i < 20; i++) //TEMPORAL
+            {
+                System.Threading.Thread.Sleep(50);
+                Avion avion = new Avion().DevolverAvion();
+                if (aerolinea.VerificarMatriculaExistente(avion.Matricula) == false)
+                {
+                    aerolinea.agregarAvion(avion);
+                }
+            }
             ActualizarListas();
         }
 
@@ -137,7 +145,7 @@ namespace FormsAerolinea
 
         #endregion
 
-        #region
+        #region VISIBILIDAD BOTONES
 
         private void btnCerrarUno_Click(object sender, EventArgs e)
         {
@@ -168,7 +176,7 @@ namespace FormsAerolinea
 
         #endregion       
     
-        #region
+        #region ACTUALIZADORES
 
         private bool ActualizarMatricula(Avion avion)
         {
@@ -262,9 +270,9 @@ namespace FormsAerolinea
             cmbxAviones.DataSource = aerolinea.listaAviones;
             cmbxAvionesDos.DataSource = aerolinea.listaAviones;
 
-            lstAeronaves.DisplayMember = "Matricula";
-            cmbxAviones.DisplayMember = "Matricula";
-            cmbxAvionesDos.DisplayMember = "Matricula";
+            lstAeronaves.DisplayMember = "ObtenerEstadoAvion";
+            cmbxAviones.DisplayMember = "ObtenerEstadoAvion";
+            cmbxAvionesDos.DisplayMember = "ObtenerEstadoAvion";
 
             chkComida.Checked = false;
             chkWifi.Checked = false;

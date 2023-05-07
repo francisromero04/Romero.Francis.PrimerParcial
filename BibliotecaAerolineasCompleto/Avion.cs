@@ -14,6 +14,7 @@ namespace BibliotecaAerolineasCompleto
         public bool ServicioInternet { get; set; }
         public bool OfreceComida { get; set; }
         public int CapacidadBodega { get; set; }
+        public bool OcupadoEnVuelo { get; set; }
 
         public Avion()
         {
@@ -32,7 +33,7 @@ namespace BibliotecaAerolineasCompleto
 
         public Avion DevolverAvion()
         {
-            Random rnd = new Random();
+            Random rnd = new Random(DateTime.Now.Millisecond); //lee los milisegundos de la pc y en base a eso genera el random
             const string letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             string matricula = new string(
                 Enumerable.Range(1, 8)
@@ -44,10 +45,17 @@ namespace BibliotecaAerolineasCompleto
             bool servicioInternet = rnd.Next(2) == 1;
             bool ofreceComida = rnd.Next(2) == 1;
             int capacidadBodega = rnd.Next(1000, 10000);
-
-            Console.WriteLine(matricula);
-
+            OcupadoEnVuelo = false;
             return new Avion(matricula, cantidadAsientos, cantidadBanos, servicioInternet, ofreceComida, capacidadBodega);
+        }
+
+        public string ObtenerEstadoAvion
+        {
+            get
+            {
+                string ocupado = OcupadoEnVuelo ? "ocupado" : "disponible";
+                return $"Avión con matrícula {Matricula}, estado: {ocupado}.";
+            }
         }
     }
 }

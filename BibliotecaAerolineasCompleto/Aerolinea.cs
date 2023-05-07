@@ -68,5 +68,23 @@ namespace BibliotecaAerolineasCompleto
             }
             return false;
         }
+
+        public bool VerificarMatriculaExistente(string matricula)
+        {
+            // Verificar si el DNI ya existe en la lista de pasajeros
+            foreach (Avion avion in listaAviones)
+            {
+                if (avion.Matricula == matricula)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void agregarVuelo(Vuelo vuelo)
+        {
+            listaVuelos.Add(vuelo);
+        }
     }
 }

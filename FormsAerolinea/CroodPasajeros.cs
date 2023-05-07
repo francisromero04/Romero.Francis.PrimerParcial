@@ -95,15 +95,18 @@ namespace FormsAerolinea
 
         private void btnCrearAleatorio_Click(object sender, EventArgs e)
         {
-            Pasajero pasajero = new Pasajero().GenerarPasajeroAleatorio();
-            if (aerolinea.VerificarDniExistente(pasajero.dni) == false)
+            for(int i = 0; i < 50; i++)
             {
-                aerolinea.agregarPasajero(pasajero);
-                ActualizarListas();
-            }
-            else
-            {
-                MessageBox.Show("El pasajero tiene un dni perteneciente a otro pasajero.");
+                Pasajero pasajero = new Pasajero().GenerarPasajeroAleatorio();
+                if (aerolinea.VerificarDniExistente(pasajero.dni) == false)
+                {
+                    aerolinea.agregarPasajero(pasajero);
+                    ActualizarListas();
+                }
+                else
+                {
+                  //  MessageBox.Show("El pasajero tiene un dni perteneciente a otro pasajero.");
+                }
             }
         }
         

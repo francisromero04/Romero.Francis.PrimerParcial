@@ -15,7 +15,7 @@ namespace FormsAerolinea
     public partial class Login : Form
     {
         private BaseDeDatos baseDeDatos = new BaseDeDatos();
-        private Aerolinea aerolinea = new Aerolinea();
+        private static Aerolinea aerolinea = new Aerolinea(); //mantiene siempre la misma aerolinea
 
         public Login()
         {

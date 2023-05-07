@@ -58,6 +58,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lbldentificador = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
+            this.lstViajes = new System.Windows.Forms.ListBox();
             this.gbxCrearViaje.SuspendLayout();
             this.gbxModificarViaje.SuspendLayout();
             this.SuspendLayout();
@@ -115,6 +116,7 @@
             this.btnOpcionUno.TabIndex = 17;
             this.btnOpcionUno.Text = "1. Crear un viaje.";
             this.btnOpcionUno.UseVisualStyleBackColor = false;
+            this.btnOpcionUno.Click += new System.EventHandler(this.btnOpcionUno_Click);
             // 
             // gbxCrearViaje
             // 
@@ -392,12 +394,21 @@
             this.btnRegresar.UseVisualStyleBackColor = false;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
+            // lstViajes
+            // 
+            this.lstViajes.FormattingEnabled = true;
+            this.lstViajes.Location = new System.Drawing.Point(12, 505);
+            this.lstViajes.Name = "lstViajes";
+            this.lstViajes.Size = new System.Drawing.Size(1216, 238);
+            this.lstViajes.TabIndex = 29;
+            // 
             // CroodViajes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1240, 846);
+            this.Controls.Add(this.lstViajes);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.lbldentificador);
             this.Controls.Add(this.gbxModificarViaje);
@@ -449,5 +460,6 @@
         private System.Windows.Forms.Label lblListaViajes;
         private System.Windows.Forms.Label lbldentificador;
         private System.Windows.Forms.Button btnRegresar;
+        private System.Windows.Forms.ListBox lstViajes;
     }
 }
