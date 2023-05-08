@@ -5,6 +5,8 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Media;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,8 +26,6 @@ namespace FormsAerolinea
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-
-            Debug.WriteLine("mensaje de prueba");
             if (string.IsNullOrEmpty(txtCorreo.Text))
             {
                 MessageBox.Show("Debe ingresar un correo electrónico.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -41,9 +41,7 @@ namespace FormsAerolinea
             // Verificar si los valores de correo y contraseña son correctos
             if(baseDeDatos.buscarUsuario(correo, contraseña) != null)
             {
-                // Los valores de correo y contraseña son correctos
-                // Realizar la acción correspondiente, como abrir una nueva ventana o mostrar un mensaje de bienvenida
-                MessageBox.Show("CORREO INGRESADO CORRECTAMENTE", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("CORREO INGRESADO CORRECTAMENTE", "SESION INICIADA", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
                 MenuPrincipal menuPrincipal = new MenuPrincipal(baseDeDatos.buscarUsuario(correo, contraseña), aerolinea);
                 menuPrincipal.Show();

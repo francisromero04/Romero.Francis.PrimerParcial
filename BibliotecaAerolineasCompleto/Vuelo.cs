@@ -35,7 +35,7 @@ namespace BibliotecaAerolineasCompleto
             {
                 CiudadPartida = "Buenos Aires", // Ciudad de partida fija
                 CiudadDestinoNacional = vueloNacional ? destinoNacional : DestinosNacionales.SantaRosa, // Si es internacional, asignar Santa Rosa como destino nacional
-                CiudadDestinoInternacional = vueloNacional ? DestinosInternacionales.RecifeBrasil : destinoInternacional, // Si es nacional, asignar Recife como destino internacional
+                //CiudadDestinoInternacional = vueloNacional ? DestinosInternacionales.RecifeBrasil : destinoInternacional, // Si es nacional, asignar Recife como destino internacional
                 FechaVuelo = DateTime.Now.AddDays(random.Next(1, 30)), // Fecha de vuelo aleatoria en los próximos 30 días
                 AsientosPremiumDisponibles = random.Next(10, 21), // Asientos premium aleatorios entre 10 y 20
                 AsientosTuristaDisponibles = random.Next(100, 201), // Asientos turista aleatorios entre 100 y 200
@@ -51,7 +51,7 @@ namespace BibliotecaAerolineasCompleto
             do
             {
                 int indexAvion = random.Next(listaAviones.Count);
-                avion = listaAviones[indexAvion];
+                avion = listaAviones[indexAvion]; //da error si no se crearon aviones ni pasajeros
 
             } while (avion.OcupadoEnVuelo == true);
 

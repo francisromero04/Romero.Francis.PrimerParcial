@@ -16,11 +16,17 @@ namespace FormsAerolinea
         private Persona usuario;
         private Aerolinea aerolinea;
 
-        public VenderViaje(Persona usuario)
+        public VenderViaje(Persona usuario, Aerolinea aerolinea)
         {
             this.usuario = usuario;
+            this.aerolinea = aerolinea;
             InitializeComponent();
             lbldentificador.Text = usuario.cargo + " - " + DateTime.Now.ToString();
+
+            cmbxListaViajes.DataSource = null;
+            cmbxListaViajes.DataSource = aerolinea.listaVuelos;
+            cmbxListaViajes.DisplayMember = "ObtenerInformacionVuelo";
+            cmbxListaViajes.Refresh();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)

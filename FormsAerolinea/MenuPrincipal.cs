@@ -87,19 +87,19 @@ namespace FormsAerolinea
 
         private void btnOpcionUno_Click(object sender, EventArgs e)
         {
-            ViajesDisponibles formListaViajes = new ViajesDisponibles(usuario);
+            ViajesDisponibles formListaViajes = new ViajesDisponibles(usuario, aerolinea);
             AbrirFormulario(formListaViajes);
         }
 
         private void btnOpcionDos_Click(object sender, EventArgs e)
         {
-            VenderViaje formVender = new VenderViaje(usuario);
+            VenderViaje formVender = new VenderViaje(usuario, aerolinea);
             AbrirFormulario(formVender);
         }
 
         private void btnOpcionTres_Click(object sender, EventArgs e)
         {
-            ConsultarEstadisticas formConsultar = new ConsultarEstadisticas(usuario);
+            ConsultarEstadisticas formConsultar = new ConsultarEstadisticas(usuario, aerolinea);
             AbrirFormulario(formConsultar);
         }
 

@@ -32,7 +32,7 @@ namespace FormsAerolinea
             gbxEliminarPasajero.Visible = false;
         }
 
-        #region
+        #region CONFIGURACION GROUPBOX
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
@@ -91,7 +91,7 @@ namespace FormsAerolinea
 
         #endregion
 
-        #region
+        #region ACCIONES CLICK BOTONES
 
         private void btnCrearAleatorio_Click(object sender, EventArgs e)
         {
@@ -116,46 +116,57 @@ namespace FormsAerolinea
             string apellidoPasajero = txtApellidoPasajeroTres.Text;
             string dniPasajero = txtDniPasajeroTres.Text;
 
-            if (int.TryParse(dniPasajero, out int dni))
+            if (int.TryParse(dniPasajero, out int dni) && Validador.ValidarCadena(nombrePasajero) && Validador.ValidarCadena(apellidoPasajero))
             {
                 Pasajero pasajero = new Pasajero(dni, nombrePasajero, apellidoPasajero);
-                if (aerolinea.VerificarDniExistente(pasajero.dni) == false)
-                { 
-                    aerolinea.agregarPasajero(pasajero);
-                    MessageBox.Show("El pasajero ha sido dado de alta.");
-                    ActualizarListas();
+
+                if (!aerolinea.VerificarDniExistente(pasajero.dni))
+                {
+                    if(Validador.ValidarDNI(dni))
+                    {
+                        aerolinea.agregarPasajero(pasajero);
+                        MessageBox.Show("El pasajero ha sido dado de alta.", "¡Felicitaciones!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ActualizarListas();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El Dni no esta dentro del rango permitido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("El pasajero tiene un dni perteneciente a otro pasajero.");
+                    MessageBox.Show("El pasajero tiene un dni perteneciente a otro pasajero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, ingrese valores válidos para el nombre, apellido y dni del pasajero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }        
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
-            // Obtener el objeto pasajero seleccionado en el ComboBox
             Pasajero pasajeroSeleccionado = (Pasajero)cmbxPasajeros.SelectedItem;
-            // Verificar si el nuevo DNI ingresado ya existe en la lista de pasajeros
-            bool dniExistente = aerolinea.VerificarDniExistente(pasajeroSeleccionado.dni);
-            int dni;
-            int.TryParse(txtDniPasajeroDos.Text, out dni);
 
-            if (dniExistente && pasajeroSeleccionado.dni != dni)
+            if (pasajeroSeleccionado == null)
             {
-                MessageBox.Show("El pasajero tiene un DNI perteneciente a otro pasajero.");
+                MessageBox.Show("Debe seleccionar un pasajero para modificar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else if ((pasajeroSeleccionado.nombres != txtNombrePasajeroDos.Text || pasajeroSeleccionado.apellidos != txtApellidoDos.Text) && pasajeroSeleccionado.dni == dni)
+
+            bool nombreActualizado = actualizarNombre(pasajeroSeleccionado);
+            bool apellidoActualizado = actualizarApellido(pasajeroSeleccionado);
+            bool dniActualizado = actualizarDni(pasajeroSeleccionado);
+
+            if(nombreActualizado == false ||  apellidoActualizado == false || dniActualizado == false)
             {
-                // Actualizar las propiedades del objeto con los valores de los TextBoxes y CheckBoxes
-                if (actualizarNombre(pasajeroSeleccionado) && actualizarApellido(pasajeroSeleccionado))
-                {
-                    aerolinea.ReemplazarPasajeroSeleccionado(pasajeroSeleccionado);
-                    ActualizarListas();
-                    LimpiarTextBoxes();
-                    MessageBox.Show("Modificacion Exitosa");
-                }
+                return;
+            }else
+            {
+                aerolinea.ReemplazarPasajeroSeleccionado(pasajeroSeleccionado);
+                MessageBox.Show("Modificación Exitosa", "¡Felicitaciones!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ActualizarListas();
+                LimpiarTextBoxes();
             }
         }
 
@@ -163,7 +174,6 @@ namespace FormsAerolinea
         {
             string nombreAEliminar = cmbxPasajerosDos.Text; // Obtener el nombre de la combobox
             Pasajero pasajeroAEliminar = null; //buscar el pasajero con el nombre seleccionado en la cmbx
-
 
             foreach (Pasajero pasajero in aerolinea.listaPasajeros)
             {
@@ -179,18 +189,18 @@ namespace FormsAerolinea
             {
                 aerolinea.eliminarPasajero(pasajeroAEliminar);
                 cmbxPasajerosDos.Items.Remove(nombreAEliminar);
-                MessageBox.Show("El pasajero ha sido eliminado.");
+                MessageBox.Show("El pasajero ha sido eliminado.", "¡Felicitaciones!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ActualizarListas();
             }
             else
             {
-                MessageBox.Show("No se encontró ningún pasajero con el nombre seleccionado.");
+                MessageBox.Show("No se encontró ningún pasajero con el nombre seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         #endregion
 
-        #region
+        #region VISIBILIDAD BOTONES
 
         private void btnCerrarUno_Click(object sender, EventArgs e)
         {
@@ -234,7 +244,7 @@ namespace FormsAerolinea
 
         #endregion
         
-        #region
+        #region ACTUALIZADORES
      
         private bool actualizarNombre(Pasajero pasajero)
         {

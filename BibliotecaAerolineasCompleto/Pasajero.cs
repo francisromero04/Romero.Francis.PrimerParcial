@@ -16,19 +16,21 @@ namespace BibliotecaAerolineasCompleto
         public string segundoNombre { get; set; }
         public string segundoApellido { get; set; }
         public int estado { get; set; }
+        public bool tipoPasajero { get; set; }
 
         public Pasajero()
         {
 
         }
 
-        public Pasajero(int dni, string nombres, string apellidos, string segundoNombre = null, string segundoApellido = null)
+        public Pasajero(int dni, string nombres, string apellidos, string segundoNombre = null, string segundoApellido = null, bool tipoDePasajero = true)
         {
             this.dni = dni;
             this.nombres = nombres;
             this.apellidos = apellidos;
             this.segundoNombre = segundoNombre;
             this.segundoApellido = segundoApellido;
+            this.tipoPasajero = tipoDePasajero;
         }
 
         public Pasajero GenerarPasajeroAleatorio()
@@ -53,8 +55,10 @@ namespace BibliotecaAerolineasCompleto
                 segundoApellido = ((Apellidos[])Enum.GetValues(typeof(Apellidos))).GetValue(random.Next(Enum.GetValues(typeof(Apellidos)).Length)).ToString();
             }
 
+            bool tipoPasajero = (random.Next(2) == 0); // Generar el tipo de pasajero con una probabilidad del 50%
+
             estado = 0; // ESTADO INICIAL (no realizo ningun viaje anteriormente ni esta en un viaje en curso)
-            return new Pasajero(dni, nombre, apellido, segundoNombre, segundoApellido); // Crear un nuevo objeto Pasajero con los datos aleatorios
+            return new Pasajero(dni, nombre, apellido, segundoNombre, segundoApellido, tipoPasajero); // Crear un nuevo objeto Pasajero con los datos aleatorios
         }
 
         public string nombreCompletoyDni
@@ -73,6 +77,16 @@ namespace BibliotecaAerolineasCompleto
                     nombreCompleto += " " + segundoApellido;
                 }
                 nombreCompleto += " " + dni;
+
+                if (tipoPasajero == true)
+                {
+                    nombreCompleto += " (turista)";
+                }
+                else
+                {
+                    nombreCompleto += " (premium)";
+                }
+
                 return nombreCompleto;
             }
         }

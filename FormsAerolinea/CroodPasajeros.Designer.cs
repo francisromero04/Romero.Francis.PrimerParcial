@@ -196,14 +196,14 @@
             this.gbxCrearPasajeroAleatorio.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxCrearPasajeroAleatorio.Location = new System.Drawing.Point(12, 836);
             this.gbxCrearPasajeroAleatorio.Name = "gbxCrearPasajeroAleatorio";
-            this.gbxCrearPasajeroAleatorio.Size = new System.Drawing.Size(223, 356);
+            this.gbxCrearPasajeroAleatorio.Size = new System.Drawing.Size(356, 354);
             this.gbxCrearPasajeroAleatorio.TabIndex = 27;
             this.gbxCrearPasajeroAleatorio.TabStop = false;
             this.gbxCrearPasajeroAleatorio.Text = "Crear Aleatorio";
             // 
             // btnCerrarUno
             // 
-            this.btnCerrarUno.Location = new System.Drawing.Point(31, 313);
+            this.btnCerrarUno.Location = new System.Drawing.Point(99, 313);
             this.btnCerrarUno.Name = "btnCerrarUno";
             this.btnCerrarUno.Size = new System.Drawing.Size(162, 28);
             this.btnCerrarUno.TabIndex = 40;
@@ -213,7 +213,7 @@
             // 
             // btnCrearAleatorio
             // 
-            this.btnCrearAleatorio.Location = new System.Drawing.Point(31, 29);
+            this.btnCrearAleatorio.Location = new System.Drawing.Point(99, 32);
             this.btnCrearAleatorio.Name = "btnCrearAleatorio";
             this.btnCrearAleatorio.Size = new System.Drawing.Size(162, 28);
             this.btnCrearAleatorio.TabIndex = 39;
@@ -227,7 +227,7 @@
             this.lstPasajeros.ItemHeight = 16;
             this.lstPasajeros.Location = new System.Drawing.Point(31, 63);
             this.lstPasajeros.Name = "lstPasajeros";
-            this.lstPasajeros.Size = new System.Drawing.Size(162, 244);
+            this.lstPasajeros.Size = new System.Drawing.Size(293, 244);
             this.lstPasajeros.TabIndex = 38;
             // 
             // btnOpcionTres
@@ -241,7 +241,7 @@
             this.btnOpcionTres.Name = "btnOpcionTres";
             this.btnOpcionTres.Size = new System.Drawing.Size(246, 40);
             this.btnOpcionTres.TabIndex = 26;
-            this.btnOpcionTres.Text = "3. Eliminar un pasajero";
+            this.btnOpcionTres.Text = "3. Eliminar un pasajero.";
             this.btnOpcionTres.UseVisualStyleBackColor = false;
             this.btnOpcionTres.Click += new System.EventHandler(this.btnOpcionTres_Click);
             // 
@@ -256,7 +256,7 @@
             this.btnOpcionDos.Name = "btnOpcionDos";
             this.btnOpcionDos.Size = new System.Drawing.Size(246, 40);
             this.btnOpcionDos.TabIndex = 25;
-            this.btnOpcionDos.Text = "2. Modificar un pasajero";
+            this.btnOpcionDos.Text = "2. Modificar un pasajero.";
             this.btnOpcionDos.UseVisualStyleBackColor = false;
             this.btnOpcionDos.Click += new System.EventHandler(this.btnOpcionDos_Click);
             // 

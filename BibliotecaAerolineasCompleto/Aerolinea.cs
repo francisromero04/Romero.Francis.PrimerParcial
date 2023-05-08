@@ -26,9 +26,9 @@ namespace BibliotecaAerolineasCompleto
            listaAviones.Add(avion);
         }
 
-        public void eliminarAvion(Avion objetoABajar)
+        public void eliminarAvion(Avion avion)
         {
-            listaAviones.Remove(objetoABajar);
+            listaAviones.Remove(avion);
         }
 
         public void agregarPasajero(Pasajero pasajero)

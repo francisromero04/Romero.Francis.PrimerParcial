@@ -16,9 +16,10 @@ namespace FormsAerolinea
         private Persona usuario;
         private Aerolinea aerolinea;
 
-        public ViajesDisponibles(Persona usuario)
+        public ViajesDisponibles(Persona usuario, Aerolinea aerolinea)
         {
             this.usuario = usuario;
+            this.aerolinea = aerolinea;
             InitializeComponent();
             lbldentificador.Text = usuario.cargo + " - " + DateTime.Now.ToString();
         }
