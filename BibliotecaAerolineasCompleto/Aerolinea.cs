@@ -14,6 +14,8 @@ namespace BibliotecaAerolineasCompleto
 
         public List<Pasajero> listaPasajeros { get; set; }
 
+        public decimal dineroTotal { get; set; }
+
         public Aerolinea()
         {
             listaAviones = new List<Avion>();

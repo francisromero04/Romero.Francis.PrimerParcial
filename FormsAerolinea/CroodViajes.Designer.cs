@@ -33,6 +33,7 @@
             this.btnOpcionDos = new System.Windows.Forms.Button();
             this.btnOpcionUno = new System.Windows.Forms.Button();
             this.gbxCrearViaje = new System.Windows.Forms.GroupBox();
+            this.chbVerificarVueloNacional = new System.Windows.Forms.CheckBox();
             this.txtAsientosTuristaDos = new System.Windows.Forms.TextBox();
             this.lblAsientosTuristaDos = new System.Windows.Forms.Label();
             this.txtCostoPremiumDos = new System.Windows.Forms.TextBox();
@@ -71,6 +72,8 @@
             this.btnCerrarCuatro = new System.Windows.Forms.Button();
             this.btnCrearViajeAleatorio = new System.Windows.Forms.Button();
             this.btnOpcionCuatro = new System.Windows.Forms.Button();
+            this.lblAvionAUtilizar = new System.Windows.Forms.Label();
+            this.cmbxMatriculaAvion = new System.Windows.Forms.ComboBox();
             this.gbxCrearViaje.SuspendLayout();
             this.gbxModificarViaje.SuspendLayout();
             this.gbxCrearViajeAleatorio.SuspendLayout();
@@ -82,7 +85,7 @@
             this.lblTituloMenu.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.lblTituloMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTituloMenu.Font = new System.Drawing.Font("Sitka Subheading", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloMenu.Location = new System.Drawing.Point(321, 121);
+            this.lblTituloMenu.Location = new System.Drawing.Point(374, 208);
             this.lblTituloMenu.Name = "lblTituloMenu";
             this.lblTituloMenu.Size = new System.Drawing.Size(646, 70);
             this.lblTituloMenu.TabIndex = 4;
@@ -95,7 +98,7 @@
             this.btnOpcionTres.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnOpcionTres.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnOpcionTres.Font = new System.Drawing.Font("Sitka Subheading", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionTres.Location = new System.Drawing.Point(520, 286);
+            this.btnOpcionTres.Location = new System.Drawing.Point(573, 373);
             this.btnOpcionTres.Name = "btnOpcionTres";
             this.btnOpcionTres.Size = new System.Drawing.Size(196, 40);
             this.btnOpcionTres.TabIndex = 19;
@@ -109,7 +112,7 @@
             this.btnOpcionDos.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnOpcionDos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnOpcionDos.Font = new System.Drawing.Font("Sitka Subheading", 13F);
-            this.btnOpcionDos.Location = new System.Drawing.Point(520, 240);
+            this.btnOpcionDos.Location = new System.Drawing.Point(573, 327);
             this.btnOpcionDos.Name = "btnOpcionDos";
             this.btnOpcionDos.Size = new System.Drawing.Size(196, 40);
             this.btnOpcionDos.TabIndex = 18;
@@ -123,7 +126,7 @@
             this.btnOpcionUno.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnOpcionUno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnOpcionUno.Font = new System.Drawing.Font("Sitka Subheading", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionUno.Location = new System.Drawing.Point(520, 194);
+            this.btnOpcionUno.Location = new System.Drawing.Point(573, 281);
             this.btnOpcionUno.Name = "btnOpcionUno";
             this.btnOpcionUno.Size = new System.Drawing.Size(196, 40);
             this.btnOpcionUno.TabIndex = 17;
@@ -134,6 +137,9 @@
             // gbxCrearViaje
             // 
             this.gbxCrearViaje.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.gbxCrearViaje.Controls.Add(this.cmbxMatriculaAvion);
+            this.gbxCrearViaje.Controls.Add(this.lblAvionAUtilizar);
+            this.gbxCrearViaje.Controls.Add(this.chbVerificarVueloNacional);
             this.gbxCrearViaje.Controls.Add(this.txtAsientosTuristaDos);
             this.gbxCrearViaje.Controls.Add(this.lblAsientosTuristaDos);
             this.gbxCrearViaje.Controls.Add(this.txtCostoPremiumDos);
@@ -152,17 +158,28 @@
             this.gbxCrearViaje.Controls.Add(this.lblCiudadOrigenDos);
             this.gbxCrearViaje.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxCrearViaje.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxCrearViaje.Location = new System.Drawing.Point(51, 831);
+            this.gbxCrearViaje.Location = new System.Drawing.Point(32, 892);
             this.gbxCrearViaje.Name = "gbxCrearViaje";
-            this.gbxCrearViaje.Size = new System.Drawing.Size(285, 290);
+            this.gbxCrearViaje.Size = new System.Drawing.Size(285, 342);
             this.gbxCrearViaje.TabIndex = 21;
             this.gbxCrearViaje.TabStop = false;
             this.gbxCrearViaje.Text = "Crear un viaje";
             // 
+            // chbVerificarVueloNacional
+            // 
+            this.chbVerificarVueloNacional.AutoSize = true;
+            this.chbVerificarVueloNacional.Location = new System.Drawing.Point(21, 39);
+            this.chbVerificarVueloNacional.Name = "chbVerificarVueloNacional";
+            this.chbVerificarVueloNacional.Size = new System.Drawing.Size(136, 20);
+            this.chbVerificarVueloNacional.TabIndex = 46;
+            this.chbVerificarVueloNacional.Text = "¿Es un vuelo nacional?";
+            this.chbVerificarVueloNacional.UseVisualStyleBackColor = true;
+            this.chbVerificarVueloNacional.CheckedChanged += new System.EventHandler(this.chbVerificarVueloNacional_CheckedChanged);
+            // 
             // txtAsientosTuristaDos
             // 
             this.txtAsientosTuristaDos.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtAsientosTuristaDos.Location = new System.Drawing.Point(149, 169);
+            this.txtAsientosTuristaDos.Location = new System.Drawing.Point(155, 202);
             this.txtAsientosTuristaDos.Name = "txtAsientosTuristaDos";
             this.txtAsientosTuristaDos.Size = new System.Drawing.Size(116, 21);
             this.txtAsientosTuristaDos.TabIndex = 45;
@@ -171,7 +188,7 @@
             // 
             this.lblAsientosTuristaDos.AutoSize = true;
             this.lblAsientosTuristaDos.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAsientosTuristaDos.Location = new System.Drawing.Point(11, 170);
+            this.lblAsientosTuristaDos.Location = new System.Drawing.Point(17, 203);
             this.lblAsientosTuristaDos.Name = "lblAsientosTuristaDos";
             this.lblAsientosTuristaDos.Size = new System.Drawing.Size(104, 19);
             this.lblAsientosTuristaDos.TabIndex = 44;
@@ -180,7 +197,7 @@
             // txtCostoPremiumDos
             // 
             this.txtCostoPremiumDos.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtCostoPremiumDos.Location = new System.Drawing.Point(149, 61);
+            this.txtCostoPremiumDos.Location = new System.Drawing.Point(155, 94);
             this.txtCostoPremiumDos.Name = "txtCostoPremiumDos";
             this.txtCostoPremiumDos.Size = new System.Drawing.Size(116, 21);
             this.txtCostoPremiumDos.TabIndex = 43;
@@ -189,7 +206,7 @@
             // 
             this.lblCostoPremiumDos.AutoSize = true;
             this.lblCostoPremiumDos.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCostoPremiumDos.Location = new System.Drawing.Point(11, 62);
+            this.lblCostoPremiumDos.Location = new System.Drawing.Point(17, 95);
             this.lblCostoPremiumDos.Name = "lblCostoPremiumDos";
             this.lblCostoPremiumDos.Size = new System.Drawing.Size(97, 19);
             this.lblCostoPremiumDos.TabIndex = 42;
@@ -197,7 +214,7 @@
             // 
             // btnCerrarUno
             // 
-            this.btnCerrarUno.Location = new System.Drawing.Point(140, 243);
+            this.btnCerrarUno.Location = new System.Drawing.Point(149, 291);
             this.btnCerrarUno.Name = "btnCerrarUno";
             this.btnCerrarUno.Size = new System.Drawing.Size(125, 32);
             this.btnCerrarUno.TabIndex = 41;
@@ -207,7 +224,7 @@
             // 
             // btnCrear
             // 
-            this.btnCrear.Location = new System.Drawing.Point(9, 243);
+            this.btnCrear.Location = new System.Drawing.Point(18, 291);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(125, 32);
             this.btnCrear.TabIndex = 40;
@@ -218,7 +235,7 @@
             // dtpFechaVueloDos
             // 
             this.dtpFechaVueloDos.CalendarMonthBackground = System.Drawing.SystemColors.ScrollBar;
-            this.dtpFechaVueloDos.Location = new System.Drawing.Point(149, 142);
+            this.dtpFechaVueloDos.Location = new System.Drawing.Point(155, 175);
             this.dtpFechaVueloDos.Name = "dtpFechaVueloDos";
             this.dtpFechaVueloDos.Size = new System.Drawing.Size(116, 21);
             this.dtpFechaVueloDos.TabIndex = 23;
@@ -228,7 +245,7 @@
             this.cmbxOrigenDos.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.cmbxOrigenDos.Font = new System.Drawing.Font("Sitka Subheading", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxOrigenDos.FormattingEnabled = true;
-            this.cmbxOrigenDos.Location = new System.Drawing.Point(149, 88);
+            this.cmbxOrigenDos.Location = new System.Drawing.Point(155, 121);
             this.cmbxOrigenDos.Name = "cmbxOrigenDos";
             this.cmbxOrigenDos.Size = new System.Drawing.Size(116, 21);
             this.cmbxOrigenDos.TabIndex = 35;
@@ -238,7 +255,7 @@
             this.cmbxDestinoDos.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.cmbxDestinoDos.Font = new System.Drawing.Font("Sitka Subheading", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxDestinoDos.FormattingEnabled = true;
-            this.cmbxDestinoDos.Location = new System.Drawing.Point(149, 115);
+            this.cmbxDestinoDos.Location = new System.Drawing.Point(155, 148);
             this.cmbxDestinoDos.Name = "cmbxDestinoDos";
             this.cmbxDestinoDos.Size = new System.Drawing.Size(116, 21);
             this.cmbxDestinoDos.TabIndex = 23;
@@ -246,7 +263,7 @@
             // txtAsientosPremiumDos
             // 
             this.txtAsientosPremiumDos.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtAsientosPremiumDos.Location = new System.Drawing.Point(149, 196);
+            this.txtAsientosPremiumDos.Location = new System.Drawing.Point(155, 229);
             this.txtAsientosPremiumDos.Name = "txtAsientosPremiumDos";
             this.txtAsientosPremiumDos.Size = new System.Drawing.Size(116, 21);
             this.txtAsientosPremiumDos.TabIndex = 34;
@@ -255,7 +272,7 @@
             // 
             this.lblAsientosPremiumDos.AutoSize = true;
             this.lblAsientosPremiumDos.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAsientosPremiumDos.Location = new System.Drawing.Point(11, 197);
+            this.lblAsientosPremiumDos.Location = new System.Drawing.Point(17, 230);
             this.lblAsientosPremiumDos.Name = "lblAsientosPremiumDos";
             this.lblAsientosPremiumDos.Size = new System.Drawing.Size(113, 19);
             this.lblAsientosPremiumDos.TabIndex = 33;
@@ -265,7 +282,7 @@
             // 
             this.lblFechaVueloDos.AutoSize = true;
             this.lblFechaVueloDos.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaVueloDos.Location = new System.Drawing.Point(11, 142);
+            this.lblFechaVueloDos.Location = new System.Drawing.Point(17, 175);
             this.lblFechaVueloDos.Name = "lblFechaVueloDos";
             this.lblFechaVueloDos.Size = new System.Drawing.Size(93, 19);
             this.lblFechaVueloDos.TabIndex = 31;
@@ -274,7 +291,7 @@
             // txtCostoTuristaDos
             // 
             this.txtCostoTuristaDos.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtCostoTuristaDos.Location = new System.Drawing.Point(149, 35);
+            this.txtCostoTuristaDos.Location = new System.Drawing.Point(155, 68);
             this.txtCostoTuristaDos.Name = "txtCostoTuristaDos";
             this.txtCostoTuristaDos.Size = new System.Drawing.Size(116, 21);
             this.txtCostoTuristaDos.TabIndex = 30;
@@ -283,7 +300,7 @@
             // 
             this.lblCostoTuristaDos.AutoSize = true;
             this.lblCostoTuristaDos.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCostoTuristaDos.Location = new System.Drawing.Point(11, 35);
+            this.lblCostoTuristaDos.Location = new System.Drawing.Point(17, 68);
             this.lblCostoTuristaDos.Name = "lblCostoTuristaDos";
             this.lblCostoTuristaDos.Size = new System.Drawing.Size(88, 19);
             this.lblCostoTuristaDos.TabIndex = 29;
@@ -293,7 +310,7 @@
             // 
             this.lblDestinoViaje.AutoSize = true;
             this.lblDestinoViaje.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDestinoViaje.Location = new System.Drawing.Point(11, 116);
+            this.lblDestinoViaje.Location = new System.Drawing.Point(17, 149);
             this.lblDestinoViaje.Name = "lblDestinoViaje";
             this.lblDestinoViaje.Size = new System.Drawing.Size(112, 19);
             this.lblDestinoViaje.TabIndex = 27;
@@ -303,7 +320,7 @@
             // 
             this.lblCiudadOrigenDos.AutoSize = true;
             this.lblCiudadOrigenDos.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCiudadOrigenDos.Location = new System.Drawing.Point(11, 90);
+            this.lblCiudadOrigenDos.Location = new System.Drawing.Point(17, 123);
             this.lblCiudadOrigenDos.Name = "lblCiudadOrigenDos";
             this.lblCiudadOrigenDos.Size = new System.Drawing.Size(107, 19);
             this.lblCiudadOrigenDos.TabIndex = 25;
@@ -328,7 +345,7 @@
             this.gbxModificarViaje.Controls.Add(this.label5);
             this.gbxModificarViaje.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxModificarViaje.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxModificarViaje.Location = new System.Drawing.Point(398, 831);
+            this.gbxModificarViaje.Location = new System.Drawing.Point(416, 892);
             this.gbxModificarViaje.Name = "gbxModificarViaje";
             this.gbxModificarViaje.Size = new System.Drawing.Size(353, 240);
             this.gbxModificarViaje.TabIndex = 22;
@@ -472,7 +489,7 @@
             // 
             this.lbldentificador.AutoSize = true;
             this.lbldentificador.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldentificador.Location = new System.Drawing.Point(1006, 50);
+            this.lbldentificador.Location = new System.Drawing.Point(1059, 137);
             this.lbldentificador.Name = "lbldentificador";
             this.lbldentificador.Size = new System.Drawing.Size(14, 19);
             this.lbldentificador.TabIndex = 23;
@@ -482,7 +499,7 @@
             // 
             this.btnRegresar.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.btnRegresar.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegresar.Location = new System.Drawing.Point(522, 378);
+            this.btnRegresar.Location = new System.Drawing.Point(575, 465);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(188, 38);
             this.btnRegresar.TabIndex = 28;
@@ -494,9 +511,9 @@
             // 
             this.lstViajes.FormattingEnabled = true;
             this.lstViajes.ItemHeight = 16;
-            this.lstViajes.Location = new System.Drawing.Point(6, 105);
+            this.lstViajes.Location = new System.Drawing.Point(39, 77);
             this.lstViajes.Name = "lstViajes";
-            this.lstViajes.Size = new System.Drawing.Size(882, 260);
+            this.lstViajes.Size = new System.Drawing.Size(628, 452);
             this.lstViajes.TabIndex = 29;
             // 
             // gbxCrearViajeAleatorio
@@ -507,9 +524,9 @@
             this.gbxCrearViajeAleatorio.Controls.Add(this.btnCrearViajeAleatorio);
             this.gbxCrearViajeAleatorio.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxCrearViajeAleatorio.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxCrearViajeAleatorio.Location = new System.Drawing.Point(1217, 338);
+            this.gbxCrearViajeAleatorio.Location = new System.Drawing.Point(859, 892);
             this.gbxCrearViajeAleatorio.Name = "gbxCrearViajeAleatorio";
-            this.gbxCrearViajeAleatorio.Size = new System.Drawing.Size(894, 448);
+            this.gbxCrearViajeAleatorio.Size = new System.Drawing.Size(709, 603);
             this.gbxCrearViajeAleatorio.TabIndex = 42;
             this.gbxCrearViajeAleatorio.TabStop = false;
             this.gbxCrearViajeAleatorio.Text = "Crear un viaje";
@@ -517,7 +534,7 @@
             // btnCerrarCuatro
             // 
             this.btnCerrarCuatro.Font = new System.Drawing.Font("Sitka Subheading", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarCuatro.Location = new System.Drawing.Point(280, 371);
+            this.btnCerrarCuatro.Location = new System.Drawing.Point(190, 535);
             this.btnCerrarCuatro.Name = "btnCerrarCuatro";
             this.btnCerrarCuatro.Size = new System.Drawing.Size(302, 42);
             this.btnCerrarCuatro.TabIndex = 41;
@@ -528,7 +545,7 @@
             // btnCrearViajeAleatorio
             // 
             this.btnCrearViajeAleatorio.Font = new System.Drawing.Font("Sitka Subheading", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearViajeAleatorio.Location = new System.Drawing.Point(280, 56);
+            this.btnCrearViajeAleatorio.Location = new System.Drawing.Point(190, 29);
             this.btnCrearViajeAleatorio.Name = "btnCrearViajeAleatorio";
             this.btnCrearViajeAleatorio.Size = new System.Drawing.Size(302, 42);
             this.btnCrearViajeAleatorio.TabIndex = 40;
@@ -543,7 +560,7 @@
             this.btnOpcionCuatro.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnOpcionCuatro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnOpcionCuatro.Font = new System.Drawing.Font("Sitka Subheading", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionCuatro.Location = new System.Drawing.Point(520, 332);
+            this.btnOpcionCuatro.Location = new System.Drawing.Point(573, 419);
             this.btnOpcionCuatro.Name = "btnOpcionCuatro";
             this.btnOpcionCuatro.Size = new System.Drawing.Size(196, 40);
             this.btnOpcionCuatro.TabIndex = 43;
@@ -551,12 +568,32 @@
             this.btnOpcionCuatro.UseVisualStyleBackColor = false;
             this.btnOpcionCuatro.Click += new System.EventHandler(this.btnOpcionCuatro_Click);
             // 
+            // lblAvionAUtilizar
+            // 
+            this.lblAvionAUtilizar.AutoSize = true;
+            this.lblAvionAUtilizar.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvionAUtilizar.Location = new System.Drawing.Point(17, 258);
+            this.lblAvionAUtilizar.Name = "lblAvionAUtilizar";
+            this.lblAvionAUtilizar.Size = new System.Drawing.Size(98, 19);
+            this.lblAvionAUtilizar.TabIndex = 47;
+            this.lblAvionAUtilizar.Text = "Avion a utilizar";
+            // 
+            // cmbxMatriculaAvion
+            // 
+            this.cmbxMatriculaAvion.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.cmbxMatriculaAvion.Font = new System.Drawing.Font("Sitka Subheading", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxMatriculaAvion.FormattingEnabled = true;
+            this.cmbxMatriculaAvion.Location = new System.Drawing.Point(155, 256);
+            this.cmbxMatriculaAvion.Name = "cmbxMatriculaAvion";
+            this.cmbxMatriculaAvion.Size = new System.Drawing.Size(116, 21);
+            this.cmbxMatriculaAvion.TabIndex = 48;
+            // 
             // CroodViajes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1240, 846);
+            this.ClientSize = new System.Drawing.Size(1336, 909);
             this.Controls.Add(this.btnOpcionCuatro);
             this.Controls.Add(this.gbxCrearViajeAleatorio);
             this.Controls.Add(this.btnRegresar);
@@ -569,7 +606,6 @@
             this.Controls.Add(this.lblTituloMenu);
             this.Name = "CroodViajes";
             this.Text = "ADMINISTRADOR DE VIAJES";
-            this.Load += new System.EventHandler(this.CroodViajes_Load);
             this.gbxCrearViaje.ResumeLayout(false);
             this.gbxCrearViaje.PerformLayout();
             this.gbxModificarViaje.ResumeLayout(false);
@@ -625,5 +661,8 @@
         private System.Windows.Forms.Label lblCostoPremiumDos;
         private System.Windows.Forms.TextBox txtAsientosTuristaDos;
         private System.Windows.Forms.Label lblAsientosTuristaDos;
+        private System.Windows.Forms.CheckBox chbVerificarVueloNacional;
+        private System.Windows.Forms.ComboBox cmbxMatriculaAvion;
+        private System.Windows.Forms.Label lblAvionAUtilizar;
     }
 }

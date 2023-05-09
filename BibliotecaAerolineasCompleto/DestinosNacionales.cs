@@ -14,5 +14,6 @@
     Trelew,
     Tucuman,
     PuertoMadryn,
-    Ushuaia
+    Ushuaia,
+    BuenosAires
 }

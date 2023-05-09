@@ -35,8 +35,6 @@ namespace FormsAerolinea
 
             string correo = txtCorreo.Text;
             string contraseña = txtContraseña.Text;
-            Console.WriteLine(correo);
-            Console.WriteLine(contraseña);
 
             // Verificar si los valores de correo y contraseña son correctos
             if(baseDeDatos.buscarUsuario(correo, contraseña) != null)

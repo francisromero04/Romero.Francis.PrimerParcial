@@ -46,8 +46,8 @@ namespace FormsAerolinea
 
             if (pasajeroSeleccionado != null)
             {
-                txtNombrePasajeroDos.Text = pasajeroSeleccionado.nombres;
-                txtApellidoDos.Text = pasajeroSeleccionado.apellidos;
+                txtNombrePasajeroDos.Text = pasajeroSeleccionado.nombre;
+                txtApellidoDos.Text = pasajeroSeleccionado.apellido;
                 txtDniPasajeroDos.Text = pasajeroSeleccionado.dni.ToString();
             }
         }
@@ -95,19 +95,22 @@ namespace FormsAerolinea
 
         private void btnCrearAleatorio_Click(object sender, EventArgs e)
         {
-            for(int i = 0; i < 50; i++)
+            Random random = new Random();
+
+            for (int i = 0; i < 50; i++)
             {
-                Pasajero pasajero = new Pasajero().GenerarPasajeroAleatorio();
+                Pasajero pasajero = new Pasajero().GenerarPasajeroAleatorio(random);
+                
                 if (aerolinea.VerificarDniExistente(pasajero.dni) == false)
                 {
                     aerolinea.agregarPasajero(pasajero);
-                    ActualizarListas();
                 }
                 else
                 {
-                  //  MessageBox.Show("El pasajero tiene un dni perteneciente a otro pasajero.");
+                    MessageBox.Show("El pasajero tiene un dni perteneciente a otro pasajero.");
                 }
             }
+            ActualizarListas();
         }
         
         private void btnCrearPasajero_Click(object sender, EventArgs e)
@@ -250,7 +253,7 @@ namespace FormsAerolinea
         {
             if (Validador.ValidarCadena(txtNombrePasajeroDos.Text))
             {
-                pasajero.nombres = txtNombrePasajeroDos.Text;
+                pasajero.nombre = txtNombrePasajeroDos.Text;
                 return true;
             }
             else
@@ -264,7 +267,7 @@ namespace FormsAerolinea
         {
             if (Validador.ValidarCadena(txtApellidoDos.Text))
             {
-                pasajero.apellidos = txtApellidoDos.Text;
+                pasajero.apellido = txtApellidoDos.Text;
                 return true;
             }
             else

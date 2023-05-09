@@ -49,7 +49,8 @@
     <Compile Include="BaseDeDatos.cs" />
     <Compile Include="DestinosNacionales.cs" />
     <Compile Include="DestinosInternacionales.cs" />
-    <Compile Include="Nombres.cs" />
+    <Compile Include="NombresDeHombre.cs" />
+    <Compile Include="NombresDeMujer.cs" />
     <Compile Include="Pasajero.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

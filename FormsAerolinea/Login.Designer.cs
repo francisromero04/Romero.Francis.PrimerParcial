@@ -34,7 +34,6 @@
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.btnIniciarSesion = new System.Windows.Forms.Button();
-            this.cbRecordarInfo = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lblTituloLogin
@@ -94,7 +93,7 @@
             this.btnIniciarSesion.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.btnIniciarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnIniciarSesion.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIniciarSesion.Location = new System.Drawing.Point(537, 436);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(549, 391);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
             this.btnIniciarSesion.Size = new System.Drawing.Size(152, 35);
             this.btnIniciarSesion.TabIndex = 5;
@@ -102,24 +101,12 @@
             this.btnIniciarSesion.UseVisualStyleBackColor = false;
             this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
             // 
-            // cbRecordarInfo
-            // 
-            this.cbRecordarInfo.AutoSize = true;
-            this.cbRecordarInfo.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbRecordarInfo.Location = new System.Drawing.Point(504, 403);
-            this.cbRecordarInfo.Name = "cbRecordarInfo";
-            this.cbRecordarInfo.Size = new System.Drawing.Size(241, 27);
-            this.cbRecordarInfo.TabIndex = 6;
-            this.cbRecordarInfo.Text = "¿Desea recordar información?";
-            this.cbRecordarInfo.UseVisualStyleBackColor = true;
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1238, 848);
-            this.Controls.Add(this.cbRecordarInfo);
             this.Controls.Add(this.btnIniciarSesion);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtCorreo);
@@ -141,7 +128,6 @@
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Button btnIniciarSesion;
-        private System.Windows.Forms.CheckBox cbRecordarInfo;
     }
 }
 
