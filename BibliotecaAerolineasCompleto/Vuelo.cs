@@ -17,6 +17,7 @@ namespace BibliotecaAerolineasCompleto
         public Avion Avion { get; set; }
         public int AsientosPremiumDisponibles { get; set; }
         public int AsientosTuristaDisponibles { get; set; }
+        public int CantidadPasajeros { get; set; }
         public decimal CostoPremium { get; set; }
         public decimal CostoTurista { get; set; }
         public TimeSpan DuracionVuelo { get; set; }
@@ -24,7 +25,6 @@ namespace BibliotecaAerolineasCompleto
         public bool vueloNacional { get; set; }
 
         private Aerolinea aerolinea;
-
 
         public Vuelo(Aerolinea aerolinea)
         {
@@ -97,6 +97,30 @@ namespace BibliotecaAerolineasCompleto
             }
         }
 
+        public void VenderPasaje(Pasajero pasajero, bool esPremium)
+        {
+            if (esPremium && AsientosPremiumDisponibles > 0 && Avion.CapacidadBodega > pasajero.pesoEquipaje)
+            {
+                Pasajeros.Add(pasajero);
+                aerolinea.listaPasajeros.Add(pasajero);
+                AsientosPremiumDisponibles--;
+                aerolinea.dineroTotal += CostoPremium;
+                CantidadPasajeros++;
+            }
+            else if (!esPremium && AsientosTuristaDisponibles > 0 && Avion.CapacidadBodega > pasajero.pesoEquipaje)
+            {
+                Pasajeros.Add(pasajero);
+                aerolinea.listaPasajeros.Add(pasajero);
+                AsientosTuristaDisponibles--;
+                aerolinea.dineroTotal += CostoTurista;
+                CantidadPasajeros++;
+            }
+            else
+            {
+                throw new Exception("No se puede vender el pasaje.");
+            }
+        }
+
         public string ObtenerInformacionVuelo
         {
             get
@@ -119,6 +143,7 @@ namespace BibliotecaAerolineasCompleto
                     info += $"\nAvión: {Avion.Matricula}, ";
                 }
 
+                info += $"\nCant. pasajeros: {CantidadPasajeros}, ";
                 info += $"\nFecha: {FechaVuelo.ToString("dd/MM/yyyy")}, ";
                 info += $"\nDuración: {DuracionVuelo.ToString()}, ";
                 info += $"\nAsientos premium disponibles: {AsientosPremiumDisponibles}, ";

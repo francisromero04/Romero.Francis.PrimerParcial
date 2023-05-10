@@ -13,7 +13,7 @@ namespace BibliotecaAerolineasCompleto
         public int CantidadBanos { get; set; }
         public bool ServicioInternet { get; set; }
         public bool OfreceComida { get; set; }
-        public int CapacidadBodega { get; set; }
+        public decimal CapacidadBodega { get; set; } //kilogramos (decimal)
         public bool OcupadoEnVuelo { get; set; }
 
         public Avion()
@@ -21,7 +21,7 @@ namespace BibliotecaAerolineasCompleto
 
         }
 
-        public Avion(string matricula, int cantidadAsientos, int cantidadBanos, bool servicioInternet, bool ofreceComida, int capacidadBodega)
+        public Avion(string matricula, int cantidadAsientos, int cantidadBanos, bool servicioInternet, bool ofreceComida, decimal capacidadBodega)
         {
             Matricula = matricula;
             CantidadAsientos = cantidadAsientos;
@@ -44,7 +44,7 @@ namespace BibliotecaAerolineasCompleto
             int cantidadBanos = rnd.Next(1, 5);
             bool servicioInternet = rnd.Next(2) == 1;
             bool ofreceComida = rnd.Next(2) == 1;
-            int capacidadBodega = rnd.Next(1000, 10000);
+            decimal capacidadBodega = rnd.Next(1000, 10000);
             OcupadoEnVuelo = false;
             return new Avion(matricula, cantidadAsientos, cantidadBanos, servicioInternet, ofreceComida, capacidadBodega);
         }

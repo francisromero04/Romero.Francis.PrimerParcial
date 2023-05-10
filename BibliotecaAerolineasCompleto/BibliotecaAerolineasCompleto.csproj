@@ -51,6 +51,7 @@
     <Compile Include="DestinosInternacionales.cs" />
     <Compile Include="NombresDeHombre.cs" />
     <Compile Include="NombresDeMujer.cs" />
+    <Compile Include="Pasaje.cs" />
     <Compile Include="Pasajero.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

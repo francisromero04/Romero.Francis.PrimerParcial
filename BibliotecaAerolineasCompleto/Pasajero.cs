@@ -18,13 +18,14 @@ namespace BibliotecaAerolineasCompleto
         public int estado { get; set; }
         public bool tipoPasajero { get; set; }
         public bool Genero { get; set; }
+        public decimal pesoEquipaje { get; set; }
 
         public Pasajero()
         {
 
         }
 
-        public Pasajero(int dni, string nombre, string apellido, string segundoNombre = null, string segundoApellido = null, bool tipoDePasajero = true, bool genero = true)
+        public Pasajero(int dni, string nombre, string apellido, string segundoNombre = null, string segundoApellido = null, bool tipoDePasajero = true, bool genero = true, decimal pesoEquipaje = 0)
         {
             this.dni = dni;
             this.nombre = nombre;
@@ -33,6 +34,7 @@ namespace BibliotecaAerolineasCompleto
             this.segundoApellido = segundoApellido;
             this.tipoPasajero = tipoDePasajero;
             this.Genero = genero; //true = masculino | false = femenino 
+            this.pesoEquipaje = pesoEquipaje;
         }
 
         public Pasajero GenerarPasajeroAleatorio(Random random)
@@ -101,8 +103,9 @@ namespace BibliotecaAerolineasCompleto
 
             bool tipoPasajero = (random.Next(2) == 0); // Generar el tipo de pasajero con una probabilidad del 50%
             estado = 0; // ESTADO INICIAL (no realizo ningun viaje anteriormente ni esta en un viaje en curso)
+            decimal pesoEquipaje = (decimal)(random.Next(500, 2300)) / 100.0M;
 
-            return new Pasajero(dni, nombre, apellido, segundoNombre, segundoApellido, tipoPasajero, genero); // Crear un nuevo objeto Pasajero con los datos aleatorios
+            return new Pasajero(dni, nombre, apellido, segundoNombre, segundoApellido, tipoPasajero, genero, pesoEquipaje); // Crear un nuevo objeto Pasajero con los datos aleatorios
         }
 
         public string nombreCompletoyDni

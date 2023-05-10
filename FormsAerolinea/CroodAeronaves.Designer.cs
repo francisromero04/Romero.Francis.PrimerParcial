@@ -59,20 +59,20 @@
             this.btnCerrarUno = new System.Windows.Forms.Button();
             this.btnCrearAleatorio = new System.Windows.Forms.Button();
             this.lstAeronaves = new System.Windows.Forms.ListBox();
-            this.gbxCrearAvion = new System.Windows.Forms.GroupBox();
-            this.btnCerrarCuatro = new System.Windows.Forms.Button();
-            this.txtBodegaDos = new System.Windows.Forms.TextBox();
-            this.lblBodegaDos = new System.Windows.Forms.Label();
-            this.chbComidaDos = new System.Windows.Forms.CheckBox();
-            this.chbWifiDos = new System.Windows.Forms.CheckBox();
-            this.txtMatriculaDos = new System.Windows.Forms.TextBox();
-            this.lblCantAsientosDos = new System.Windows.Forms.Label();
-            this.txtCantAsientosDos = new System.Windows.Forms.TextBox();
-            this.lblMatriculaDos = new System.Windows.Forms.Label();
-            this.lblCantBañosDos = new System.Windows.Forms.Label();
-            this.txtCantBañosDos = new System.Windows.Forms.TextBox();
-            this.btnCrearAvionDos = new System.Windows.Forms.Button();
             this.btnOpcionCuatro = new System.Windows.Forms.Button();
+            this.btnCrearAvionDos = new System.Windows.Forms.Button();
+            this.txtCantBañosDos = new System.Windows.Forms.TextBox();
+            this.lblCantBañosDos = new System.Windows.Forms.Label();
+            this.lblMatriculaDos = new System.Windows.Forms.Label();
+            this.txtCantAsientosDos = new System.Windows.Forms.TextBox();
+            this.lblCantAsientosDos = new System.Windows.Forms.Label();
+            this.txtMatriculaDos = new System.Windows.Forms.TextBox();
+            this.chbWifiDos = new System.Windows.Forms.CheckBox();
+            this.chbComidaDos = new System.Windows.Forms.CheckBox();
+            this.lblBodegaDos = new System.Windows.Forms.Label();
+            this.txtBodegaDos = new System.Windows.Forms.TextBox();
+            this.btnCerrarCuatro = new System.Windows.Forms.Button();
+            this.gbxCrearAvion = new System.Windows.Forms.GroupBox();
             this.gbxModificarAeronave.SuspendLayout();
             this.gbxEliminarAeronave.SuspendLayout();
             this.gbxCrearAvionAleatorio.SuspendLayout();
@@ -425,6 +425,129 @@
             this.lstAeronaves.Size = new System.Drawing.Size(296, 244);
             this.lstAeronaves.TabIndex = 38;
             // 
+            // btnOpcionCuatro
+            // 
+            this.btnOpcionCuatro.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnOpcionCuatro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpcionCuatro.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnOpcionCuatro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnOpcionCuatro.Font = new System.Drawing.Font("Sitka Subheading", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcionCuatro.Location = new System.Drawing.Point(507, 367);
+            this.btnOpcionCuatro.Name = "btnOpcionCuatro";
+            this.btnOpcionCuatro.Size = new System.Drawing.Size(225, 44);
+            this.btnOpcionCuatro.TabIndex = 46;
+            this.btnOpcionCuatro.Text = "4. Crear un avion manual.";
+            this.btnOpcionCuatro.UseVisualStyleBackColor = false;
+            this.btnOpcionCuatro.Click += new System.EventHandler(this.btnOpcionCuatro_Click);
+            // 
+            // btnCrearAvionDos
+            // 
+            this.btnCrearAvionDos.Location = new System.Drawing.Point(47, 206);
+            this.btnCrearAvionDos.Name = "btnCrearAvionDos";
+            this.btnCrearAvionDos.Size = new System.Drawing.Size(162, 28);
+            this.btnCrearAvionDos.TabIndex = 39;
+            this.btnCrearAvionDos.Text = "CrearAvion";
+            this.btnCrearAvionDos.UseVisualStyleBackColor = true;
+            this.btnCrearAvionDos.Click += new System.EventHandler(this.btnCrearAvionDos_Click);
+            // 
+            // txtCantBañosDos
+            // 
+            this.txtCantBañosDos.Location = new System.Drawing.Point(126, 88);
+            this.txtCantBañosDos.Name = "txtCantBañosDos";
+            this.txtCantBañosDos.Size = new System.Drawing.Size(99, 21);
+            this.txtCantBañosDos.TabIndex = 53;
+            // 
+            // lblCantBañosDos
+            // 
+            this.lblCantBañosDos.AutoSize = true;
+            this.lblCantBañosDos.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantBañosDos.Location = new System.Drawing.Point(4, 90);
+            this.lblCantBañosDos.Name = "lblCantBañosDos";
+            this.lblCantBañosDos.Size = new System.Drawing.Size(99, 19);
+            this.lblCantBañosDos.TabIndex = 52;
+            this.lblCantBañosDos.Text = "Cantidad Baños";
+            // 
+            // lblMatriculaDos
+            // 
+            this.lblMatriculaDos.AutoSize = true;
+            this.lblMatriculaDos.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMatriculaDos.Location = new System.Drawing.Point(4, 38);
+            this.lblMatriculaDos.Name = "lblMatriculaDos";
+            this.lblMatriculaDos.Size = new System.Drawing.Size(66, 19);
+            this.lblMatriculaDos.TabIndex = 54;
+            this.lblMatriculaDos.Text = "Matricula";
+            // 
+            // txtCantAsientosDos
+            // 
+            this.txtCantAsientosDos.Location = new System.Drawing.Point(126, 62);
+            this.txtCantAsientosDos.Name = "txtCantAsientosDos";
+            this.txtCantAsientosDos.Size = new System.Drawing.Size(99, 21);
+            this.txtCantAsientosDos.TabIndex = 51;
+            // 
+            // lblCantAsientosDos
+            // 
+            this.lblCantAsientosDos.AutoSize = true;
+            this.lblCantAsientosDos.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantAsientosDos.Location = new System.Drawing.Point(4, 64);
+            this.lblCantAsientosDos.Name = "lblCantAsientosDos";
+            this.lblCantAsientosDos.Size = new System.Drawing.Size(113, 19);
+            this.lblCantAsientosDos.TabIndex = 50;
+            this.lblCantAsientosDos.Text = "Cantidad Asientos";
+            // 
+            // txtMatriculaDos
+            // 
+            this.txtMatriculaDos.Location = new System.Drawing.Point(126, 36);
+            this.txtMatriculaDos.Name = "txtMatriculaDos";
+            this.txtMatriculaDos.Size = new System.Drawing.Size(99, 21);
+            this.txtMatriculaDos.TabIndex = 55;
+            // 
+            // chbWifiDos
+            // 
+            this.chbWifiDos.AutoSize = true;
+            this.chbWifiDos.Location = new System.Drawing.Point(47, 176);
+            this.chbWifiDos.Name = "chbWifiDos";
+            this.chbWifiDos.Size = new System.Drawing.Size(159, 20);
+            this.chbWifiDos.TabIndex = 56;
+            this.chbWifiDos.Text = "¿Tiene servicio de Internet?";
+            this.chbWifiDos.UseVisualStyleBackColor = true;
+            // 
+            // chbComidaDos
+            // 
+            this.chbComidaDos.AutoSize = true;
+            this.chbComidaDos.Location = new System.Drawing.Point(47, 151);
+            this.chbComidaDos.Name = "chbComidaDos";
+            this.chbComidaDos.Size = new System.Drawing.Size(160, 20);
+            this.chbComidaDos.TabIndex = 57;
+            this.chbComidaDos.Text = "¿Tiene servicio de comidas?";
+            this.chbComidaDos.UseVisualStyleBackColor = true;
+            // 
+            // lblBodegaDos
+            // 
+            this.lblBodegaDos.AutoSize = true;
+            this.lblBodegaDos.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBodegaDos.Location = new System.Drawing.Point(4, 117);
+            this.lblBodegaDos.Name = "lblBodegaDos";
+            this.lblBodegaDos.Size = new System.Drawing.Size(111, 19);
+            this.lblBodegaDos.TabIndex = 58;
+            this.lblBodegaDos.Text = "CapacidadBodega";
+            // 
+            // txtBodegaDos
+            // 
+            this.txtBodegaDos.Location = new System.Drawing.Point(126, 115);
+            this.txtBodegaDos.Name = "txtBodegaDos";
+            this.txtBodegaDos.Size = new System.Drawing.Size(99, 21);
+            this.txtBodegaDos.TabIndex = 59;
+            // 
+            // btnCerrarCuatro
+            // 
+            this.btnCerrarCuatro.Location = new System.Drawing.Point(47, 240);
+            this.btnCerrarCuatro.Name = "btnCerrarCuatro";
+            this.btnCerrarCuatro.Size = new System.Drawing.Size(162, 28);
+            this.btnCerrarCuatro.TabIndex = 52;
+            this.btnCerrarCuatro.Text = "Guardar y cerrar";
+            this.btnCerrarCuatro.UseVisualStyleBackColor = true;
+            this.btnCerrarCuatro.Click += new System.EventHandler(this.btnCerrarCuatro_Click);
+            // 
             // gbxCrearAvion
             // 
             this.gbxCrearAvion.BackColor = System.Drawing.SystemColors.ScrollBar;
@@ -448,129 +571,6 @@
             this.gbxCrearAvion.TabIndex = 45;
             this.gbxCrearAvion.TabStop = false;
             this.gbxCrearAvion.Text = "Crear un Avion";
-            // 
-            // btnCerrarCuatro
-            // 
-            this.btnCerrarCuatro.Location = new System.Drawing.Point(47, 240);
-            this.btnCerrarCuatro.Name = "btnCerrarCuatro";
-            this.btnCerrarCuatro.Size = new System.Drawing.Size(162, 28);
-            this.btnCerrarCuatro.TabIndex = 52;
-            this.btnCerrarCuatro.Text = "Guardar y cerrar";
-            this.btnCerrarCuatro.UseVisualStyleBackColor = true;
-            this.btnCerrarCuatro.Click += new System.EventHandler(this.btnCerrarCuatro_Click);
-            // 
-            // txtBodegaDos
-            // 
-            this.txtBodegaDos.Location = new System.Drawing.Point(126, 115);
-            this.txtBodegaDos.Name = "txtBodegaDos";
-            this.txtBodegaDos.Size = new System.Drawing.Size(99, 21);
-            this.txtBodegaDos.TabIndex = 59;
-            // 
-            // lblBodegaDos
-            // 
-            this.lblBodegaDos.AutoSize = true;
-            this.lblBodegaDos.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBodegaDos.Location = new System.Drawing.Point(4, 117);
-            this.lblBodegaDos.Name = "lblBodegaDos";
-            this.lblBodegaDos.Size = new System.Drawing.Size(111, 19);
-            this.lblBodegaDos.TabIndex = 58;
-            this.lblBodegaDos.Text = "CapacidadBodega";
-            // 
-            // chbComidaDos
-            // 
-            this.chbComidaDos.AutoSize = true;
-            this.chbComidaDos.Location = new System.Drawing.Point(47, 151);
-            this.chbComidaDos.Name = "chbComidaDos";
-            this.chbComidaDos.Size = new System.Drawing.Size(160, 20);
-            this.chbComidaDos.TabIndex = 57;
-            this.chbComidaDos.Text = "¿Tiene servicio de comidas?";
-            this.chbComidaDos.UseVisualStyleBackColor = true;
-            // 
-            // chbWifiDos
-            // 
-            this.chbWifiDos.AutoSize = true;
-            this.chbWifiDos.Location = new System.Drawing.Point(47, 176);
-            this.chbWifiDos.Name = "chbWifiDos";
-            this.chbWifiDos.Size = new System.Drawing.Size(159, 20);
-            this.chbWifiDos.TabIndex = 56;
-            this.chbWifiDos.Text = "¿Tiene servicio de Internet?";
-            this.chbWifiDos.UseVisualStyleBackColor = true;
-            // 
-            // txtMatriculaDos
-            // 
-            this.txtMatriculaDos.Location = new System.Drawing.Point(126, 36);
-            this.txtMatriculaDos.Name = "txtMatriculaDos";
-            this.txtMatriculaDos.Size = new System.Drawing.Size(99, 21);
-            this.txtMatriculaDos.TabIndex = 55;
-            // 
-            // lblCantAsientosDos
-            // 
-            this.lblCantAsientosDos.AutoSize = true;
-            this.lblCantAsientosDos.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantAsientosDos.Location = new System.Drawing.Point(4, 64);
-            this.lblCantAsientosDos.Name = "lblCantAsientosDos";
-            this.lblCantAsientosDos.Size = new System.Drawing.Size(113, 19);
-            this.lblCantAsientosDos.TabIndex = 50;
-            this.lblCantAsientosDos.Text = "Cantidad Asientos";
-            // 
-            // txtCantAsientosDos
-            // 
-            this.txtCantAsientosDos.Location = new System.Drawing.Point(126, 62);
-            this.txtCantAsientosDos.Name = "txtCantAsientosDos";
-            this.txtCantAsientosDos.Size = new System.Drawing.Size(99, 21);
-            this.txtCantAsientosDos.TabIndex = 51;
-            // 
-            // lblMatriculaDos
-            // 
-            this.lblMatriculaDos.AutoSize = true;
-            this.lblMatriculaDos.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMatriculaDos.Location = new System.Drawing.Point(4, 38);
-            this.lblMatriculaDos.Name = "lblMatriculaDos";
-            this.lblMatriculaDos.Size = new System.Drawing.Size(66, 19);
-            this.lblMatriculaDos.TabIndex = 54;
-            this.lblMatriculaDos.Text = "Matricula";
-            // 
-            // lblCantBañosDos
-            // 
-            this.lblCantBañosDos.AutoSize = true;
-            this.lblCantBañosDos.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantBañosDos.Location = new System.Drawing.Point(4, 90);
-            this.lblCantBañosDos.Name = "lblCantBañosDos";
-            this.lblCantBañosDos.Size = new System.Drawing.Size(99, 19);
-            this.lblCantBañosDos.TabIndex = 52;
-            this.lblCantBañosDos.Text = "Cantidad Baños";
-            // 
-            // txtCantBañosDos
-            // 
-            this.txtCantBañosDos.Location = new System.Drawing.Point(126, 88);
-            this.txtCantBañosDos.Name = "txtCantBañosDos";
-            this.txtCantBañosDos.Size = new System.Drawing.Size(99, 21);
-            this.txtCantBañosDos.TabIndex = 53;
-            // 
-            // btnCrearAvionDos
-            // 
-            this.btnCrearAvionDos.Location = new System.Drawing.Point(47, 206);
-            this.btnCrearAvionDos.Name = "btnCrearAvionDos";
-            this.btnCrearAvionDos.Size = new System.Drawing.Size(162, 28);
-            this.btnCrearAvionDos.TabIndex = 39;
-            this.btnCrearAvionDos.Text = "CrearAvion";
-            this.btnCrearAvionDos.UseVisualStyleBackColor = true;
-            this.btnCrearAvionDos.Click += new System.EventHandler(this.btnCrearAvionDos_Click);
-            // 
-            // btnOpcionCuatro
-            // 
-            this.btnOpcionCuatro.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOpcionCuatro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpcionCuatro.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOpcionCuatro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOpcionCuatro.Font = new System.Drawing.Font("Sitka Subheading", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionCuatro.Location = new System.Drawing.Point(507, 367);
-            this.btnOpcionCuatro.Name = "btnOpcionCuatro";
-            this.btnOpcionCuatro.Size = new System.Drawing.Size(225, 44);
-            this.btnOpcionCuatro.TabIndex = 46;
-            this.btnOpcionCuatro.Text = "4. Crear un avion manual.";
-            this.btnOpcionCuatro.UseVisualStyleBackColor = false;
-            this.btnOpcionCuatro.Click += new System.EventHandler(this.btnOpcionCuatro_Click);
             // 
             // CroodAeronaves
             // 
@@ -636,19 +636,19 @@
         private System.Windows.Forms.ListBox lstAeronaves;
         private System.Windows.Forms.Button btnCerrarDos;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.GroupBox gbxCrearAvion;
-        private System.Windows.Forms.Button btnCerrarCuatro;
-        private System.Windows.Forms.TextBox txtBodegaDos;
-        private System.Windows.Forms.Label lblBodegaDos;
-        private System.Windows.Forms.CheckBox chbComidaDos;
-        private System.Windows.Forms.CheckBox chbWifiDos;
-        private System.Windows.Forms.TextBox txtMatriculaDos;
-        private System.Windows.Forms.Label lblCantAsientosDos;
-        private System.Windows.Forms.TextBox txtCantAsientosDos;
-        private System.Windows.Forms.Label lblMatriculaDos;
-        private System.Windows.Forms.Label lblCantBañosDos;
-        private System.Windows.Forms.TextBox txtCantBañosDos;
-        private System.Windows.Forms.Button btnCrearAvionDos;
         private System.Windows.Forms.Button btnOpcionCuatro;
+        private System.Windows.Forms.Button btnCrearAvionDos;
+        private System.Windows.Forms.TextBox txtCantBañosDos;
+        private System.Windows.Forms.Label lblCantBañosDos;
+        private System.Windows.Forms.Label lblMatriculaDos;
+        private System.Windows.Forms.TextBox txtCantAsientosDos;
+        private System.Windows.Forms.Label lblCantAsientosDos;
+        private System.Windows.Forms.TextBox txtMatriculaDos;
+        private System.Windows.Forms.CheckBox chbWifiDos;
+        private System.Windows.Forms.CheckBox chbComidaDos;
+        private System.Windows.Forms.Label lblBodegaDos;
+        private System.Windows.Forms.TextBox txtBodegaDos;
+        private System.Windows.Forms.Button btnCerrarCuatro;
+        private System.Windows.Forms.GroupBox gbxCrearAvion;
     }
 }
