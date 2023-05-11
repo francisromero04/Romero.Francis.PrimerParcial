@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BibliotecaAerolineasCompleto
 {
@@ -16,11 +17,49 @@ namespace BibliotecaAerolineasCompleto
 
         public decimal dineroTotal { get; set; }
 
+//      public string destino
+
         public Aerolinea()
         {
             listaAviones = new List<Avion>();
             listaVuelos = new List<Vuelo>();
             listaPasajeros = new List<Pasajero>();
+
+            //AVIONES
+            for (int i = 0; i < 100; i++) 
+            {
+                System.Threading.Thread.Sleep(5);
+                Avion avion = new Avion().DevolverAvion();
+                if (VerificarMatriculaExistente(avion.Matricula) == false)
+                {
+                    agregarAvion(avion);
+                }
+            }
+
+            //PASAJEROS
+            for (int i = 0; i < 100; i++)
+            {
+                System.Threading.Thread.Sleep(5);
+                Random random = new Random(DateTime.Now.Millisecond); //lee los milisegundos de la pc y en base a eso genera el random
+                Pasajero pasajero = new Pasajero().GenerarPasajeroAleatorio(random);
+
+                if (VerificarDniExistente(pasajero.dni) == false)
+                {
+                    agregarPasajero(pasajero);
+                }                
+            }
+
+            //VUELOS
+            for(int i = 0;i < 25; i++)
+            {
+                System.Threading.Thread.Sleep(5);
+                Vuelo vuelo = new Vuelo(this).CrearVueloAleatorio(this);
+                if (vuelo != null)
+                {
+                    agregarVuelo(vuelo);
+                }
+            }
+
         }
 
         public void agregarAvion(Avion avion)

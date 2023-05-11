@@ -10,7 +10,7 @@ namespace BibliotecaAerolineasCompleto
     {
         public Pasajero Pasajero { get; set; }
         public Vuelo Vuelo { get; set; }
-        public bool TipoAsiento { get; set; } // true = premium
+        public bool TipoAsiento { get; set; } // false = premium
         public decimal Costo { get; set; }
 
         public Pasaje(Pasajero pasajero, Vuelo vuelo, bool tipoAsiento, decimal costo)

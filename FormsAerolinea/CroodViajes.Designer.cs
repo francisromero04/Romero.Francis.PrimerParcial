@@ -33,6 +33,8 @@
             this.btnOpcionDos = new System.Windows.Forms.Button();
             this.btnOpcionUno = new System.Windows.Forms.Button();
             this.gbxCrearViaje = new System.Windows.Forms.GroupBox();
+            this.cmbxMatriculaAvion = new System.Windows.Forms.ComboBox();
+            this.lblAvionAUtilizar = new System.Windows.Forms.Label();
             this.chbVerificarVueloNacional = new System.Windows.Forms.CheckBox();
             this.txtAsientosTuristaDos = new System.Windows.Forms.TextBox();
             this.lblAsientosTuristaDos = new System.Windows.Forms.Label();
@@ -72,8 +74,7 @@
             this.btnCerrarCuatro = new System.Windows.Forms.Button();
             this.btnCrearViajeAleatorio = new System.Windows.Forms.Button();
             this.btnOpcionCuatro = new System.Windows.Forms.Button();
-            this.lblAvionAUtilizar = new System.Windows.Forms.Label();
-            this.cmbxMatriculaAvion = new System.Windows.Forms.ComboBox();
+            this.lstVuelosDos = new System.Windows.Forms.ListBox();
             this.gbxCrearViaje.SuspendLayout();
             this.gbxModificarViaje.SuspendLayout();
             this.gbxCrearViajeAleatorio.SuspendLayout();
@@ -158,12 +159,32 @@
             this.gbxCrearViaje.Controls.Add(this.lblCiudadOrigenDos);
             this.gbxCrearViaje.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxCrearViaje.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxCrearViaje.Location = new System.Drawing.Point(32, 892);
+            this.gbxCrearViaje.Location = new System.Drawing.Point(22, 892);
             this.gbxCrearViaje.Name = "gbxCrearViaje";
             this.gbxCrearViaje.Size = new System.Drawing.Size(285, 342);
             this.gbxCrearViaje.TabIndex = 21;
             this.gbxCrearViaje.TabStop = false;
             this.gbxCrearViaje.Text = "Crear un viaje";
+            // 
+            // cmbxMatriculaAvion
+            // 
+            this.cmbxMatriculaAvion.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.cmbxMatriculaAvion.Font = new System.Drawing.Font("Sitka Subheading", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxMatriculaAvion.FormattingEnabled = true;
+            this.cmbxMatriculaAvion.Location = new System.Drawing.Point(155, 256);
+            this.cmbxMatriculaAvion.Name = "cmbxMatriculaAvion";
+            this.cmbxMatriculaAvion.Size = new System.Drawing.Size(116, 21);
+            this.cmbxMatriculaAvion.TabIndex = 48;
+            // 
+            // lblAvionAUtilizar
+            // 
+            this.lblAvionAUtilizar.AutoSize = true;
+            this.lblAvionAUtilizar.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvionAUtilizar.Location = new System.Drawing.Point(17, 258);
+            this.lblAvionAUtilizar.Name = "lblAvionAUtilizar";
+            this.lblAvionAUtilizar.Size = new System.Drawing.Size(98, 19);
+            this.lblAvionAUtilizar.TabIndex = 47;
+            this.lblAvionAUtilizar.Text = "Avion a utilizar";
             // 
             // chbVerificarVueloNacional
             // 
@@ -524,7 +545,7 @@
             this.gbxCrearViajeAleatorio.Controls.Add(this.btnCrearViajeAleatorio);
             this.gbxCrearViajeAleatorio.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxCrearViajeAleatorio.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxCrearViajeAleatorio.Location = new System.Drawing.Point(859, 892);
+            this.gbxCrearViajeAleatorio.Location = new System.Drawing.Point(821, 892);
             this.gbxCrearViajeAleatorio.Name = "gbxCrearViajeAleatorio";
             this.gbxCrearViajeAleatorio.Size = new System.Drawing.Size(709, 603);
             this.gbxCrearViajeAleatorio.TabIndex = 42;
@@ -568,25 +589,13 @@
             this.btnOpcionCuatro.UseVisualStyleBackColor = false;
             this.btnOpcionCuatro.Click += new System.EventHandler(this.btnOpcionCuatro_Click);
             // 
-            // lblAvionAUtilizar
+            // lstVuelosDos
             // 
-            this.lblAvionAUtilizar.AutoSize = true;
-            this.lblAvionAUtilizar.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAvionAUtilizar.Location = new System.Drawing.Point(17, 258);
-            this.lblAvionAUtilizar.Name = "lblAvionAUtilizar";
-            this.lblAvionAUtilizar.Size = new System.Drawing.Size(98, 19);
-            this.lblAvionAUtilizar.TabIndex = 47;
-            this.lblAvionAUtilizar.Text = "Avion a utilizar";
-            // 
-            // cmbxMatriculaAvion
-            // 
-            this.cmbxMatriculaAvion.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.cmbxMatriculaAvion.Font = new System.Drawing.Font("Sitka Subheading", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbxMatriculaAvion.FormattingEnabled = true;
-            this.cmbxMatriculaAvion.Location = new System.Drawing.Point(155, 256);
-            this.cmbxMatriculaAvion.Name = "cmbxMatriculaAvion";
-            this.cmbxMatriculaAvion.Size = new System.Drawing.Size(116, 21);
-            this.cmbxMatriculaAvion.TabIndex = 48;
+            this.lstVuelosDos.FormattingEnabled = true;
+            this.lstVuelosDos.Location = new System.Drawing.Point(1, 509);
+            this.lstVuelosDos.Name = "lstVuelosDos";
+            this.lstVuelosDos.Size = new System.Drawing.Size(1338, 329);
+            this.lstVuelosDos.TabIndex = 44;
             // 
             // CroodViajes
             // 
@@ -594,6 +603,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1336, 909);
+            this.Controls.Add(this.lstVuelosDos);
             this.Controls.Add(this.btnOpcionCuatro);
             this.Controls.Add(this.gbxCrearViajeAleatorio);
             this.Controls.Add(this.btnRegresar);
@@ -664,5 +674,6 @@
         private System.Windows.Forms.CheckBox chbVerificarVueloNacional;
         private System.Windows.Forms.ComboBox cmbxMatriculaAvion;
         private System.Windows.Forms.Label lblAvionAUtilizar;
+        private System.Windows.Forms.ListBox lstVuelosDos;
     }
 }

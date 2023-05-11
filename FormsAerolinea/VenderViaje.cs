@@ -50,75 +50,93 @@ namespace FormsAerolinea
             if (chbTipoPasajero.Checked == true)
             {
                 pasajeroSeleccionado = (Pasajero)cmbxListaPasajeros.SelectedItem;
-                pasajeroSeleccionado.tipoPasajero = true;
-                vueloSeleccionado = (Vuelo)cmbxListaVuelos.SelectedItem;
-                costoPasaje = vueloSeleccionado.CostoPremium;
-
-                // Verificar si el vuelo seleccionado no es nulo
-                if (vueloSeleccionado != null)
-                {
-                    // Actualizar el valor del Label con el costo premium del vuelo seleccionado
-                    lblPrecioPasaje.Text = "$" + vueloSeleccionado.CostoPremium.ToString();
-                }
-                else
-                {
-                    // Si el vuelo seleccionado es nulo, asignar un valor predeterminado al Label
-                    lblPrecioPasaje.Text = "N/A";
-                }
-
-                // Obtener el vuelo seleccionado y el pasajero ingresado
-                vueloSeleccionado = (Vuelo)cmbxListaVuelos.SelectedItem;
-
-                // Verificar si el avión tiene capacidad disponible para el pasajero
-                if (pasajeroSeleccionado.tipoPasajero == true && vueloSeleccionado.AsientosPremiumDisponibles == 0)
-                {
-                    MessageBox.Show("Lo sentimos, no quedan más asientos premium disponibles en este vuelo.");
-                    return;
-                }
-                else if (pasajeroSeleccionado.tipoPasajero == false && vueloSeleccionado.AsientosTuristaDisponibles == 0)
-                {
-                    MessageBox.Show("Lo sentimos, no quedan más asientos turista disponibles en este vuelo.");
-                    return;
-                }
-
-                // Verificar si la capacidad de la bodega del avión es suficiente
-                decimal pesoEquipaje = Convert.ToDecimal(vueloSeleccionado.Avion.CapacidadBodega);
-
-                if (pasajeroSeleccionado.pesoEquipaje > pesoEquipaje)
-                {
-                    MessageBox.Show("El peso del equipaje del pasjero supera la capacidad de la bodega del avión.");
-                    return;
-                }
-
-                // Verificar si el vuelo está disponible para la fecha actual
-                if (vueloSeleccionado.FechaVuelo.Date < DateTime.Today)
-                {
-                    MessageBox.Show("El vuelo seleccionado no está disponible para la fecha actual.");
-                    return;
-                }
-
-                // Crear un nuevo pasaje y agregarlo a las listas correspondientes
-                new Pasaje(pasajeroSeleccionado, vueloSeleccionado, true, costoPasaje);
-                vueloSeleccionado.Pasajeros.Add(pasajeroSeleccionado);
-                vueloSeleccionado.VenderPasaje(pasajeroSeleccionado, true);
-                aerolinea.listaPasajeros.Add(pasajeroSeleccionado);
-
-                // Actualizar la cantidad de asientos disponibles y el dinero total de la aerolínea
-                if (pasajeroSeleccionado.tipoPasajero == true)
-                {
-                    vueloSeleccionado.AsientosPremiumDisponibles--;
-                    aerolinea.dineroTotal += vueloSeleccionado.CostoPremium;
-                }
-                else
-                {
-                    vueloSeleccionado.AsientosTuristaDisponibles--;
-                    aerolinea.dineroTotal += vueloSeleccionado.CostoTurista;
-                }
-
-                // Mostrar un mensaje de confirmación al usuario
-                MessageBox.Show($"¡Pasaje vendido! \nNombre del pasajero: {pasajeroSeleccionado.nombre} {pasajeroSeleccionado.apellido} \nCiudad de partida: {vueloSeleccionado.CiudadPartida} \nCiudad de destino: {(vueloSeleccionado.vueloNacional == false ? vueloSeleccionado.CiudadDestinoNacional.ToString() : vueloSeleccionado.CiudadDestinoInternacional.ToString())} \nFecha de vuelo: {vueloSeleccionado.FechaVuelo.ToString("dd/MM/yyyy")} \nTipo: {pasajeroSeleccionado.tipoPasajero} \nCosto del pasaje: {(pasajeroSeleccionado.tipoPasajero == true ? vueloSeleccionado.CostoPremium : vueloSeleccionado.CostoTurista)}");
+                pasajeroSeleccionado.tipoPasajero = false; //premium
             }
-            //else{agregar porcion de codigo la cual realice lo mismo pero con el precio turista}
+            else
+            {
+                pasajeroSeleccionado = (Pasajero)cmbxListaPasajeros.SelectedItem;
+                pasajeroSeleccionado.tipoPasajero = true; //turista
+            }
+
+            vueloSeleccionado = (Vuelo)cmbxListaVuelos.SelectedItem;
+            costoPasaje = vueloSeleccionado.CostoPremium;
+
+            // Verificar si el vuelo seleccionado no es nulo
+            if (vueloSeleccionado != null)
+            {
+                // Actualizar el valor del Label con el costo premium del vuelo seleccionado
+                lblPrecioPasaje.Text = "$" + vueloSeleccionado.CostoPremium.ToString();
+            }
+            else
+            {
+                // Si el vuelo seleccionado es nulo, asignar un valor predeterminado al Label
+                lblPrecioPasaje.Text = "N/A";
+            }
+
+            // Obtener el vuelo seleccionado y el pasajero ingresado
+            vueloSeleccionado = (Vuelo)cmbxListaVuelos.SelectedItem;
+
+            // Verificar si el avión tiene capacidad disponible para el pasajero
+            if (pasajeroSeleccionado.tipoPasajero == false && vueloSeleccionado.AsientosPremiumDisponibles == 0)
+            {
+                MessageBox.Show("Lo sentimos, no quedan más asientos premium disponibles en este vuelo.");
+                return;
+            }
+            else if (pasajeroSeleccionado.tipoPasajero == true && vueloSeleccionado.AsientosTuristaDisponibles == 0)
+            {
+                MessageBox.Show("Lo sentimos, no quedan más asientos turista disponibles en este vuelo.");
+                return;
+            }
+
+            // Verificar si la capacidad de la bodega del avión es suficiente
+            decimal pesoEquipaje = Convert.ToDecimal(vueloSeleccionado.Avion.CapacidadBodega);
+
+            if (pasajeroSeleccionado.pesoEquipaje > pesoEquipaje)
+            {
+                MessageBox.Show("El peso del equipaje del pasjero supera la capacidad de la bodega del avión.");
+                return;
+            }
+
+            // Verificar si el vuelo está disponible para la fecha actual
+            if (vueloSeleccionado.FechaVuelo.Date < DateTime.Today)
+            {
+                MessageBox.Show("El vuelo seleccionado no está disponible para la fecha actual.");
+                return;
+            }
+
+            // Crear un nuevo pasaje y agregarlo a las listas correspondientes
+            new Pasaje(pasajeroSeleccionado, vueloSeleccionado, true, costoPasaje);
+
+            if(vueloSeleccionado.contienePasajero(pasajeroSeleccionado) == false)
+            {
+                if((pasajeroSeleccionado.tipoPasajero == false && vueloSeleccionado.AsientosPremiumDisponibles > 0) ||
+                (pasajeroSeleccionado.tipoPasajero == true && vueloSeleccionado.AsientosTuristaDisponibles > 0))
+                {
+                    if (vueloSeleccionado.Pasajeros != null)
+                    {
+                        vueloSeleccionado.Pasajeros.Add(pasajeroSeleccionado);
+                        // Mostrar un mensaje de confirmación al usuario
+                        MessageBox.Show($"¡Pasaje vendido! \nNombre del pasajero: {pasajeroSeleccionado.nombre} {pasajeroSeleccionado.apellido} \nCiudad de partida: {vueloSeleccionado.CiudadPartida} " +
+                                        $"\nCiudad de destino: {(vueloSeleccionado.vueloNacional == true ? vueloSeleccionado.CiudadDestinoNacional.ToString() : vueloSeleccionado.CiudadDestinoInternacional.ToString())} " +
+                                        $"\nFecha de vuelo: {vueloSeleccionado.FechaVuelo.ToString("dd/MM/yyyy")} \nTipo: {(pasajeroSeleccionado.tipoPasajero == true ? "Turista" : "Premium")} \nCosto del pasaje: {(pasajeroSeleccionado.tipoPasajero == false ? vueloSeleccionado.CostoPremium : vueloSeleccionado.CostoTurista)}");
+                    }               
+
+                    vueloSeleccionado.VenderPasaje(pasajeroSeleccionado, true);
+
+                    if (pasajeroSeleccionado.tipoPasajero == false)
+                    {
+                        aerolinea.dineroTotal += vueloSeleccionado.CostoPremium;
+                    }
+                    else
+                    {
+                        aerolinea.dineroTotal += vueloSeleccionado.CostoTurista;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("El pasajero ya fue incorporado a la lista de pasajeros perteneciente al vuelo seleccionado.");
+            }
         }
 
         private void chbDestino_CheckedChanged(object sender, EventArgs e)
@@ -146,9 +164,40 @@ namespace FormsAerolinea
             }
         }
 
-        private void btnCerrarCuatro_Click(object sender, EventArgs e)
+        private void chbTipoPasajero_CheckedChanged(object sender, EventArgs e)
         {
-                
+            if (chbTipoPasajero.Checked)
+            {
+                // Obtener la lista de pasajeros turistas
+                List<Pasajero> listaTuristas = new List<Pasajero>();
+
+                foreach (Pasajero pasajero in aerolinea.listaPasajeros)
+                {
+                    if (!pasajero.tipoPasajero)
+                    {
+                        listaTuristas.Add(pasajero);
+                    }
+                }
+
+                // Asignar la lista de pasajeros turistas al DataSource del ComboBox
+                cmbxListaPasajeros.DataSource = listaTuristas;
+            }
+            else
+            {
+                List<Pasajero> listaPremium = new List<Pasajero>();
+
+                foreach (Pasajero pasajero in aerolinea.listaPasajeros)
+                {
+                    if (pasajero.tipoPasajero)
+                    {
+                        listaPremium.Add(pasajero);
+                    }
+                }
+
+                // Asignar la lista de pasajeros turistas al DataSource del ComboBox
+                cmbxListaPasajeros.DataSource = listaPremium;
+
+            }
         }
     }
 }

@@ -29,95 +29,225 @@ namespace BibliotecaAerolineasCompleto
         public Vuelo(Aerolinea aerolinea)
         {
             this.aerolinea = aerolinea;
+            Pasajeros = new List<Pasajero>();
         }
 
         public Vuelo CrearVueloAleatorio(Aerolinea aerolinea)
         {
             Random random = new Random();
-            // Generar destino aleatorio
-            DestinosNacionales destinoNacional = (DestinosNacionales)random.Next(Enum.GetNames(typeof(DestinosNacionales)).Length);
-            DestinosInternacionales destinoInternacional = (DestinosInternacionales)random.Next(Enum.GetNames(typeof(DestinosInternacionales)).Length);
+
+            // Verificar si hay aviones disponibles
+            bool hayAvionesDisponibles = false;
+
+            foreach (Avion avion in aerolinea.listaAviones)
+            {
+                if (!avion.OcupadoEnVuelo)
+                {
+                    hayAvionesDisponibles = true;
+                    break;
+                }
+            }
+
+            if (!hayAvionesDisponibles)
+            {
+                throw new Exception("No hay aviones disponibles para asignar al vuelo.");
+            }
+
+            // Crear objeto Vuelo
+            Vuelo vuelo = new Vuelo(aerolinea);
+
+            // Seleccionar un 75% de probabilidad de vuelo nacional
             bool vueloNacional = random.NextDouble() < 0.75;
 
-            // Verificar si hay aviones y pasajeros creados
-            if (aerolinea.listaAviones.Count == 0)
+            // Seleccionar destino
+            if (vueloNacional)
             {
-                throw new Exception("Primero debe dar de alta aviones para poder crear un vuelo.");
+                vuelo.CiudadPartida = "Buenos Aires";
+                // Destino nacional
+                int indexDestinoNacional = random.Next(Enum.GetNames(typeof(DestinosNacionales)).Length);
+                vuelo.CiudadDestinoNacional = (DestinosNacionales)indexDestinoNacional;
+                vuelo.vueloNacional = true;
             }
             else
             {
-                // Verificar si hay aviones disponibles
-                bool hayAvionesDisponibles = false;
-                foreach (Avion avion in aerolinea.listaAviones)
+                vuelo.CiudadPartida = "Buenos Aires";
+                // Destino internacional
+                int indexDestinoInternacional = random.Next(Enum.GetNames(typeof(DestinosInternacionales)).Length);
+                vuelo.CiudadDestinoInternacional = (DestinosInternacionales)indexDestinoInternacional;
+                vuelo.vueloNacional = false;
+            }
+
+            // Seleccionar fecha
+            vuelo.FechaVuelo = DateTime.Now.AddDays(random.Next(60));
+
+            // Seleccionar avión
+            Avion avionSeleccionado = new Avion();
+            do
+            {
+                int indexAvion = random.Next(aerolinea.listaAviones.Count);
+                avionSeleccionado = aerolinea.listaAviones[indexAvion];
+            } while (avionSeleccionado.OcupadoEnVuelo == true);
+
+            // Asignar avión al vuelo y marcar como ocupado
+            vuelo.Avion = avionSeleccionado;
+            avionSeleccionado.OcupadoEnVuelo = true;
+
+            // Calcular cantidad de asientos turista y premium
+            int totalAsientos = avionSeleccionado.CantidadAsientos;
+            int asientosTurista = (int)Math.Ceiling(totalAsientos * 0.8);
+            int asientosPremium = totalAsientos - asientosTurista;
+
+            // Asignar cantidad de asientos disponibles por clase
+            vuelo.AsientosTuristaDisponibles = asientosTurista;
+            vuelo.AsientosPremiumDisponibles = asientosPremium;
+
+            // Calcular duración del vuelo en horas
+            double duracionVueloHoras;
+            if (vueloNacional == true)
+            {
+                // Duración de vuelo nacional entre 2 y 4 horas
+                duracionVueloHoras = random.Next(2, 5);
+            }
+            else
+            {
+                // Duración de vuelo internacional entre 8 y 12 horas
+                duracionVueloHoras = random.Next(8, 13);
+            }
+
+            // Asignar duración del vuelo
+            vuelo.DuracionVuelo = TimeSpan.FromHours(duracionVueloHoras);
+
+            // Calcular costo por hora de vuelo
+            decimal costoHoraVuelo;
+            if (vueloNacional)
+            {
+                costoHoraVuelo = 50;
+            }
+            else
+            {
+                costoHoraVuelo = 100;
+            }
+
+            // Calcular costo turista
+            decimal costoTurista = costoHoraVuelo * (decimal)vuelo.DuracionVuelo.TotalHours;
+
+            // Calcular costo premium
+            decimal costoPremium = costoTurista * 1.35m;
+
+            // Asignar costos al vuelo
+            vuelo.CostoTurista = costoTurista;
+            vuelo.CostoPremium = costoPremium;
+
+            // Asignar avión al vuelo y marcar como ocupado
+            avionSeleccionado = new Avion();
+
+            do
+            {
+                int indexAvion = random.Next(aerolinea.listaAviones.Count);
+                avionSeleccionado = aerolinea.listaAviones[indexAvion];
+            } while (avionSeleccionado.OcupadoEnVuelo == true);
+
+            vuelo.Avion = avionSeleccionado;
+            avionSeleccionado.OcupadoEnVuelo = true;
+            return vuelo;
+        }
+        /* {
+             Random random = new Random();
+             // Generar destino aleatorio
+             DestinosNacionales destinoNacional = (DestinosNacionales)random.Next(Enum.GetNames(typeof(DestinosNacionales)).Length);
+             DestinosInternacionales destinoInternacional = (DestinosInternacionales)random.Next(Enum.GetNames(typeof(DestinosInternacionales)).Length);
+             bool vueloNacional = random.NextDouble() < 0.75;
+
+             // Verificar si hay aviones y pasajeros creados
+             if (aerolinea.listaAviones.Count == 0)
+             {
+                 throw new Exception("Primero debe dar de alta aviones para poder crear un vuelo.");
+             }
+             else
+             {
+                 // Verificar si hay aviones disponibles
+                 bool hayAvionesDisponibles = false;
+                 foreach (Avion avion in aerolinea.listaAviones)
+                 {
+                     if (!avion.OcupadoEnVuelo)
+                     {
+                         hayAvionesDisponibles = true;
+                         break;
+                     }
+                 }
+
+                 if (!hayAvionesDisponibles)
+                 {
+                     MessageBox.Show("No hay aviones disponibles para crear un vuelo.");
+                     return null;
+                 }
+                 else
+                 {
+                     // Crear vuelo
+                     Vuelo vuelo = new Vuelo(aerolinea)
+                     {
+                         CiudadPartida = "Buenos Aires", // Ciudad de partida fija
+                         CiudadDestinoNacional = vueloNacional ? destinoNacional : DestinosNacionales.SantaRosa, // Si es internacional, asignar Santa Rosa como destino nacional
+                         CiudadDestinoInternacional = vueloNacional ? DestinosInternacionales.RecifeBrasil : destinoInternacional, // Si es nacional, asignar Recife como destino internacional
+                         FechaVuelo = DateTime.Now.AddDays(random.Next(1, 30)), // Fecha de vuelo aleatoria en los próximos 30 días
+                         AsientosPremiumDisponibles = random.Next(10, 21), // Asientos premium aleatorios entre 10 y 20
+                         AsientosTuristaDisponibles = random.Next(100, 201), // Asientos turista aleatorios entre 100 y 200
+                         CostoPremium = (decimal)(random.NextDouble() * 500 + 1000), // Costo premium aleatorio entre 1000 y 1500
+                         CostoTurista = (decimal)(random.NextDouble() * 300 + 500), // Costo turista aleatorio entre 500 y 800
+                         DuracionVuelo = new TimeSpan(random.Next(1, 5), random.Next(0, 60), 0), // Duración de vuelo aleatoria entre 1 y 5 horas
+                         Pasajeros = new List<Pasajero>(), // Lista de pasajeros vacía
+                         vueloNacional = vueloNacional // Asignar si es un vuelo nacional o internacional
+                     };
+
+                     Avion avionSeleccionado = new Avion();
+
+                     do
+                     {
+                         int indexAvion = random.Next(aerolinea.listaAviones.Count);
+                         avionSeleccionado = aerolinea.listaAviones[indexAvion];
+                     } while (avionSeleccionado.OcupadoEnVuelo == true);
+
+                     // Asignar avión al vuelo y marcar como ocupado
+                     vuelo.Avion = avionSeleccionado;
+                     avionSeleccionado.OcupadoEnVuelo = true;
+
+                     return vuelo;
+                 }
+             }
+         }*/
+
+        public bool contienePasajero(Pasajero pasajero)
+        {
+            foreach(Pasajero p in Pasajeros)
+            {
+                if(p == pasajero)
                 {
-                    if (!avion.OcupadoEnVuelo)
-                    {
-                        hayAvionesDisponibles = true;
-                        break;
-                    }
-                }
-
-                if (!hayAvionesDisponibles)
-                {
-                    MessageBox.Show("No hay aviones disponibles para crear un vuelo.");
-                    return null;
-                }
-                else
-                {
-                    // Crear vuelo
-                    Vuelo vuelo = new Vuelo(aerolinea)
-                    {
-                        CiudadPartida = "Buenos Aires", // Ciudad de partida fija
-                        CiudadDestinoNacional = vueloNacional ? destinoNacional : DestinosNacionales.SantaRosa, // Si es internacional, asignar Santa Rosa como destino nacional
-                        CiudadDestinoInternacional = vueloNacional ? DestinosInternacionales.RecifeBrasil : destinoInternacional, // Si es nacional, asignar Recife como destino internacional
-                        FechaVuelo = DateTime.Now.AddDays(random.Next(1, 30)), // Fecha de vuelo aleatoria en los próximos 30 días
-                        AsientosPremiumDisponibles = random.Next(10, 21), // Asientos premium aleatorios entre 10 y 20
-                        AsientosTuristaDisponibles = random.Next(100, 201), // Asientos turista aleatorios entre 100 y 200
-                        CostoPremium = (decimal)(random.NextDouble() * 500 + 1000), // Costo premium aleatorio entre 1000 y 1500
-                        CostoTurista = (decimal)(random.NextDouble() * 300 + 500), // Costo turista aleatorio entre 500 y 800
-                        DuracionVuelo = new TimeSpan(random.Next(1, 5), random.Next(0, 60), 0), // Duración de vuelo aleatoria entre 1 y 5 horas
-                        Pasajeros = new List<Pasajero>(), // Lista de pasajeros vacía
-                        vueloNacional = vueloNacional // Asignar si es un vuelo nacional o internacional
-                    };
-
-                    Avion avionSeleccionado = new Avion();
-
-                    do
-                    {
-                        int indexAvion = random.Next(aerolinea.listaAviones.Count);
-                        avionSeleccionado = aerolinea.listaAviones[indexAvion];
-                    } while (avionSeleccionado.OcupadoEnVuelo == true);
-
-                    // Asignar avión al vuelo y marcar como ocupado
-                    vuelo.Avion = avionSeleccionado;
-                    avionSeleccionado.OcupadoEnVuelo = true;
-
-                    return vuelo;
+                    return true;
                 }
             }
+            return false;
         }
 
         public void VenderPasaje(Pasajero pasajero, bool esPremium)
         {
-            if (esPremium && AsientosPremiumDisponibles > 0 && Avion.CapacidadBodega > pasajero.pesoEquipaje)
+            if (pasajero == null)
             {
-                Pasajeros.Add(pasajero);
-                aerolinea.listaPasajeros.Add(pasajero);
-                AsientosPremiumDisponibles--;
-                aerolinea.dineroTotal += CostoPremium;
+                throw new ArgumentNullException("El objeto pasajero es nulo.");
+            }
+
+            if (esPremium && AsientosPremiumDisponibles > 0 && Avion.CapacidadBodega > pasajero.pesoEquipaje) //verificar con el avion
+            {
                 CantidadPasajeros++;
+                AsientosPremiumDisponibles--;
             }
             else if (!esPremium && AsientosTuristaDisponibles > 0 && Avion.CapacidadBodega > pasajero.pesoEquipaje)
             {
-                Pasajeros.Add(pasajero);
-                aerolinea.listaPasajeros.Add(pasajero);
+                CantidadPasajeros++;                
                 AsientosTuristaDisponibles--;
-                aerolinea.dineroTotal += CostoTurista;
-                CantidadPasajeros++;
             }
             else
             {
-                throw new Exception("No se puede vender el pasaje.");
+                MessageBox.Show("No se puede vender el pasaje.");
             }
         }
 

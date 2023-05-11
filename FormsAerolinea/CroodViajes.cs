@@ -39,7 +39,7 @@ namespace FormsAerolinea
 
         private void btnOpcionUno_Click(object sender, EventArgs e)
         {
-            lblTituloMenu.Visible = btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = btnRegresar.Visible = false;
+            lstVuelosDos.Visible = lblTituloMenu.Visible = btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = btnRegresar.Visible = false;
             int posX = (Width - gbxCrearViajeAleatorio.Width) / 2;
             int posY = (Height - gbxCrearViajeAleatorio.Height) / 2;
             gbxCrearViajeAleatorio.Location = new Point(posX, posY);
@@ -48,7 +48,7 @@ namespace FormsAerolinea
 
         private void btnOpcionCuatro_Click(object sender, EventArgs e)
         {
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = btnRegresar.Visible = false;
+            lstVuelosDos.Visible = btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = btnRegresar.Visible = false;
             int posX = (Width - gbxCrearViaje.Width) / 2;
             int posY = (Height - gbxCrearViaje.Height) / 2;
             gbxCrearViaje.Location = new Point(posX, posY);
@@ -181,19 +181,19 @@ namespace FormsAerolinea
         private void btnCerrarUno_Click(object sender, EventArgs e)
         {
             gbxCrearViaje.Visible = false;
-            btnOpcionUno.Visible = btnOpcionDos.Visible =  btnOpcionTres.Visible =  btnOpcionCuatro.Visible =  btnRegresar.Visible = true;
+            lstVuelosDos.Visible = btnOpcionUno.Visible = btnOpcionDos.Visible =  btnOpcionTres.Visible =  btnOpcionCuatro.Visible =  btnRegresar.Visible = true;
         }
 
         private void btnCerrarDos_Click(object sender, EventArgs e)
         {
             gbxModificarViaje.Visible = false;
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = btnRegresar.Visible = true;
+            lstVuelosDos.Visible = btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = btnRegresar.Visible = true;
         }
 
         private void btnCerrarCuatro_Click(object sender, EventArgs e)
         {
             gbxCrearViajeAleatorio.Visible = false;
-            lblTituloMenu.Visible = btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = btnRegresar.Visible = true;
+            lstVuelosDos.Visible = lblTituloMenu.Visible = btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = btnRegresar.Visible = true;
         }
 
         #endregion
@@ -202,6 +202,11 @@ namespace FormsAerolinea
 
         private void ActualizarListas()
         {
+            lstVuelosDos.DataSource = null;
+            lstVuelosDos.DataSource = aerolinea.listaVuelos;
+            lstVuelosDos.DisplayMember = "ObtenerInformacionVuelo";
+            lstVuelosDos.Refresh();
+
             lstViajes.DataSource = null;
             lstViajes.DataSource = aerolinea.listaVuelos;
             lstViajes.DisplayMember = "ObtenerInformacionVuelo";

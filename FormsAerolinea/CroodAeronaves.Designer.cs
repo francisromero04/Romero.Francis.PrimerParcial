@@ -389,7 +389,7 @@
             this.gbxCrearAvionAleatorio.Controls.Add(this.lstAeronaves);
             this.gbxCrearAvionAleatorio.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxCrearAvionAleatorio.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxCrearAvionAleatorio.Location = new System.Drawing.Point(282, 828);
+            this.gbxCrearAvionAleatorio.Location = new System.Drawing.Point(284, 828);
             this.gbxCrearAvionAleatorio.Name = "gbxCrearAvionAleatorio";
             this.gbxCrearAvionAleatorio.Size = new System.Drawing.Size(360, 406);
             this.gbxCrearAvionAleatorio.TabIndex = 44;
@@ -420,7 +420,7 @@
             // 
             this.lstAeronaves.FormattingEnabled = true;
             this.lstAeronaves.ItemHeight = 16;
-            this.lstAeronaves.Location = new System.Drawing.Point(31, 63);
+            this.lstAeronaves.Location = new System.Drawing.Point(26, 63);
             this.lstAeronaves.Name = "lstAeronaves";
             this.lstAeronaves.Size = new System.Drawing.Size(296, 244);
             this.lstAeronaves.TabIndex = 38;
