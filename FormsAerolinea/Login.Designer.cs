@@ -28,106 +28,199 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblTituloLogin = new System.Windows.Forms.Label();
-            this.lblCorreo = new System.Windows.Forms.Label();
-            this.lblContraseña = new System.Windows.Forms.Label();
-            this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.txtContraseña = new System.Windows.Forms.TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            this.barraVertical = new System.Windows.Forms.Panel();
+            this.pbxLogin = new System.Windows.Forms.PictureBox();
+            this.panelContenedor = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.btnMinimizarPestaña = new System.Windows.Forms.PictureBox();
             this.btnIniciarSesion = new System.Windows.Forms.Button();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
+            this.btnCerrarPestaña = new System.Windows.Forms.PictureBox();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.barraVertical.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLogin)).BeginInit();
+            this.panelContenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarPestaña)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarPestaña)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblTituloLogin
+            // barraVertical
             // 
-            this.lblTituloLogin.AutoSize = true;
-            this.lblTituloLogin.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.lblTituloLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTituloLogin.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lblTituloLogin.Font = new System.Drawing.Font("Sitka Subheading", 44.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloLogin.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTituloLogin.Location = new System.Drawing.Point(406, 221);
-            this.lblTituloLogin.Name = "lblTituloLogin";
-            this.lblTituloLogin.Size = new System.Drawing.Size(465, 88);
-            this.lblTituloLogin.TabIndex = 0;
-            this.lblTituloLogin.Text = "INICIAR SESIÓN";
+            this.barraVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.barraVertical.Controls.Add(this.pbxLogin);
+            this.barraVertical.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barraVertical.Location = new System.Drawing.Point(0, 0);
+            this.barraVertical.Name = "barraVertical";
+            this.barraVertical.Size = new System.Drawing.Size(279, 330);
+            this.barraVertical.TabIndex = 7;
+            this.barraVertical.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barraVertical_MouseDown);
             // 
-            // lblCorreo
+            // pbxLogin
             // 
-            this.lblCorreo.AutoSize = true;
-            this.lblCorreo.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lblCorreo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblCorreo.Font = new System.Drawing.Font("Sitka Subheading", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorreo.Location = new System.Drawing.Point(449, 321);
-            this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(191, 30);
-            this.lblCorreo.TabIndex = 1;
-            this.lblCorreo.Text = "Correo Electrónico:";
+            this.pbxLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.pbxLogin.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogin.Image")));
+            this.pbxLogin.Location = new System.Drawing.Point(12, 64);
+            this.pbxLogin.Name = "pbxLogin";
+            this.pbxLogin.Size = new System.Drawing.Size(234, 164);
+            this.pbxLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxLogin.TabIndex = 0;
+            this.pbxLogin.TabStop = false;
             // 
-            // lblContraseña
+            // panelContenedor
             // 
-            this.lblContraseña.AutoSize = true;
-            this.lblContraseña.Font = new System.Drawing.Font("Sitka Subheading", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContraseña.Location = new System.Drawing.Point(478, 358);
-            this.lblContraseña.Name = "lblContraseña";
-            this.lblContraseña.Size = new System.Drawing.Size(125, 30);
-            this.lblContraseña.TabIndex = 2;
-            this.lblContraseña.Text = "Contraseña:";
+            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.panelContenedor.Controls.Add(this.linkLabel1);
+            this.panelContenedor.Controls.Add(this.lblTitulo);
+            this.panelContenedor.Controls.Add(this.btnMinimizarPestaña);
+            this.panelContenedor.Controls.Add(this.btnIniciarSesion);
+            this.panelContenedor.Controls.Add(this.txtContraseña);
+            this.panelContenedor.Controls.Add(this.btnCerrarPestaña);
+            this.panelContenedor.Controls.Add(this.txtCorreo);
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(279, 0);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(501, 330);
+            this.panelContenedor.TabIndex = 8;
+            this.panelContenedor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelContenedor_MouseDown);
             // 
-            // txtCorreo
+            // linkLabel1
             // 
-            this.txtCorreo.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreo.Location = new System.Drawing.Point(651, 326);
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(142, 21);
-            this.txtCorreo.TabIndex = 3;
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.linkLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.DimGray;
+            this.linkLabel1.Location = new System.Drawing.Point(184, 296);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(143, 15);
+            this.linkLabel1.TabIndex = 0;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "¿Ha olvidado su contraseña?";
             // 
-            // txtContraseña
+            // lblTitulo
             // 
-            this.txtContraseña.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseña.Location = new System.Drawing.Point(651, 363);
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(142, 21);
-            this.txtContraseña.TabIndex = 4;
+            this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTitulo.Location = new System.Drawing.Point(181, 9);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(114, 36);
+            this.lblTitulo.TabIndex = 10;
+            this.lblTitulo.Text = "LOGIN";
+            // 
+            // btnMinimizarPestaña
+            // 
+            this.btnMinimizarPestaña.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimizarPestaña.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimizarPestaña.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizarPestaña.Image")));
+            this.btnMinimizarPestaña.Location = new System.Drawing.Point(453, 12);
+            this.btnMinimizarPestaña.Name = "btnMinimizarPestaña";
+            this.btnMinimizarPestaña.Size = new System.Drawing.Size(15, 15);
+            this.btnMinimizarPestaña.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMinimizarPestaña.TabIndex = 2;
+            this.btnMinimizarPestaña.TabStop = false;
+            this.btnMinimizarPestaña.Click += new System.EventHandler(this.btnMinimizarPestaña_Click);
             // 
             // btnIniciarSesion
             // 
-            this.btnIniciarSesion.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnIniciarSesion.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnIniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnIniciarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIniciarSesion.FlatAppearance.BorderSize = 0;
+            this.btnIniciarSesion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btnIniciarSesion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciarSesion.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIniciarSesion.Location = new System.Drawing.Point(549, 391);
+            this.btnIniciarSesion.ForeColor = System.Drawing.Color.LightGray;
+            this.btnIniciarSesion.Location = new System.Drawing.Point(52, 253);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
-            this.btnIniciarSesion.Size = new System.Drawing.Size(152, 35);
-            this.btnIniciarSesion.TabIndex = 5;
-            this.btnIniciarSesion.Text = "Iniciar Sesión";
+            this.btnIniciarSesion.Size = new System.Drawing.Size(408, 40);
+            this.btnIniciarSesion.TabIndex = 3;
+            this.btnIniciarSesion.Text = "ACCEDER";
             this.btnIniciarSesion.UseVisualStyleBackColor = false;
             this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
+            // 
+            // txtContraseña
+            // 
+            this.txtContraseña.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtContraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtContraseña.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtContraseña.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContraseña.ForeColor = System.Drawing.Color.DimGray;
+            this.txtContraseña.Location = new System.Drawing.Point(52, 155);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.Size = new System.Drawing.Size(142, 19);
+            this.txtContraseña.TabIndex = 2;
+            this.txtContraseña.Text = "CONTRASEÑA";
+            this.txtContraseña.Enter += new System.EventHandler(this.txtContraseña_Enter);
+            this.txtContraseña.Leave += new System.EventHandler(this.txtContraseña_Leave);
+            // 
+            // btnCerrarPestaña
+            // 
+            this.btnCerrarPestaña.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrarPestaña.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrarPestaña.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarPestaña.Image")));
+            this.btnCerrarPestaña.Location = new System.Drawing.Point(474, 12);
+            this.btnCerrarPestaña.Name = "btnCerrarPestaña";
+            this.btnCerrarPestaña.Size = new System.Drawing.Size(15, 15);
+            this.btnCerrarPestaña.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrarPestaña.TabIndex = 0;
+            this.btnCerrarPestaña.TabStop = false;
+            this.btnCerrarPestaña.Click += new System.EventHandler(this.btnCerrarPestaña_Click);
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtCorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCorreo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreo.ForeColor = System.Drawing.Color.DimGray;
+            this.txtCorreo.Location = new System.Drawing.Point(52, 113);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(345, 19);
+            this.txtCorreo.TabIndex = 1;
+            this.txtCorreo.Text = "USUARIO";
+            this.txtCorreo.Enter += new System.EventHandler(this.txtCorreo_Enter);
+            this.txtCorreo.Leave += new System.EventHandler(this.txtCorreo_Leave);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1238, 848);
-            this.Controls.Add(this.btnIniciarSesion);
-            this.Controls.Add(this.txtContraseña);
-            this.Controls.Add(this.txtCorreo);
-            this.Controls.Add(this.lblContraseña);
-            this.Controls.Add(this.lblCorreo);
-            this.Controls.Add(this.lblTituloLogin);
+            this.ClientSize = new System.Drawing.Size(780, 330);
+            this.Controls.Add(this.panelContenedor);
+            this.Controls.Add(this.barraVertical);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
+            this.Opacity = 0.9D;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Login_MouseDown);
+            this.barraVertical.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLogin)).EndInit();
+            this.panelContenedor.ResumeLayout(false);
+            this.panelContenedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarPestaña)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarPestaña)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblTituloLogin;
-        private System.Windows.Forms.Label lblCorreo;
-        private System.Windows.Forms.Label lblContraseña;
-        private System.Windows.Forms.TextBox txtCorreo;
-        private System.Windows.Forms.TextBox txtContraseña;
+        private System.Windows.Forms.Panel barraVertical;
+        private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.Button btnIniciarSesion;
+        private System.Windows.Forms.TextBox txtContraseña;
+        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.PictureBox btnMinimizarPestaña;
+        private System.Windows.Forms.PictureBox btnCerrarPestaña;
+        private System.Windows.Forms.PictureBox pbxLogin;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

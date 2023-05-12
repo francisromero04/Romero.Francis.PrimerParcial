@@ -126,6 +126,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ViajesDisponibles.resx">
       <DependentUpon>ViajesDisponibles.cs</DependentUpon>
@@ -148,6 +149,9 @@
       <Project>{f4a6ebc5-9140-4154-aede-694f465567a7}</Project>
       <Name>BibliotecaAerolineasCompleto</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Download premium png of Account png line icon user symbol by Aew about profile icon, person icon, person icon png, profile, and profile png 3012376.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

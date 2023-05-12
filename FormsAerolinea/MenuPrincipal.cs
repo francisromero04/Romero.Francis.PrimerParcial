@@ -9,6 +9,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace FormsAerolinea
 {
@@ -33,6 +34,11 @@ namespace FormsAerolinea
             timer.Start();
         }
 
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+
         private void timer_Tick(object sender, EventArgs e)
         {
             ActualizarFechaHora();
@@ -40,7 +46,7 @@ namespace FormsAerolinea
 
         private void ActualizarFechaHora()
         {
-            lbldentificador.Text = usuario.cargo + " - " + DateTime.Now.ToString();
+            lbldentificador.Text = usuario.cargo + "\n" + DateTime.Now.ToString();
         }
 
         private void InhabilitarBotones()
@@ -48,7 +54,7 @@ namespace FormsAerolinea
             switch (usuario.cargo)
             {
                 case "Administrador":
-                  /*  btnOpcionUno.Enabled = false;
+                 /*   btnOpcionUno.Enabled = false;
                     btnOpcionDos.Enabled = false;
                     btnOpcionTres.Enabled = false;
                     btnOpcionCinco.Enabled = false;
@@ -68,7 +74,7 @@ namespace FormsAerolinea
                     btnOpcionSeis.Enabled = false;
                     btnOpcionCuatro.ForeColor = btnOpcionCuatro.ForeColor = btnOpcionSeis.ForeColor = Color.Gray;
                     break;
-            }
+            } 
         }
 
         private void AbrirFormulario(Form formulario)
@@ -83,7 +89,7 @@ namespace FormsAerolinea
             AbrirFormulario(formLogin);
         }
 
-        #region
+        #region OPCIONES CLICK
 
         private void btnOpcionUno_Click(object sender, EventArgs e)
         {
@@ -121,5 +127,45 @@ namespace FormsAerolinea
         }
 
         #endregion
+
+        #region BOTONES MANEJO FORMULARIO
+
+        private void btnCerrarPestaña_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMaximizarPestaña_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            btnMaximizar.Visible = false;
+            btnRestaurar.Visible = true;
+        }
+
+        private void btnRestaurarPestaña_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            btnRestaurar.Visible = false;
+            btnMaximizar.Visible = true;
+
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        #endregion
+
+        private void barraTop_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
