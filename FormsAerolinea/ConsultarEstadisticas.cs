@@ -21,7 +21,9 @@ namespace FormsAerolinea
             this.usuario = usuario;
             this.aerolinea = aerolinea;
             InitializeComponent();
+            lblDineroTotal.Text = "El dinero total recaudado es de: " + aerolinea.dineroTotal;
             lbldentificador.Text = usuario.cargo + " - " + DateTime.Now.ToString();
+            lblDestino.Text = "El destino mas seleccionado es: " + aerolinea.DestinoMasSeleccionado();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)

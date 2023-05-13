@@ -17,13 +17,14 @@ namespace BibliotecaAerolineasCompleto
 
         public decimal dineroTotal { get; set; }
 
-//      public string destino
+        public string destinoMasSeleccionado { get; set; }
 
         public Aerolinea()
         {
             listaAviones = new List<Avion>();
             listaVuelos = new List<Vuelo>();
             listaPasajeros = new List<Pasajero>();
+            dineroTotal = 1000000;
 
             //AVIONES
             for (int i = 0; i < 100; i++) 
@@ -126,6 +127,46 @@ namespace BibliotecaAerolineasCompleto
         public void agregarVuelo(Vuelo vuelo)
         {
             listaVuelos.Add(vuelo);
+        }
+
+        public string DestinoMasSeleccionado()
+        {
+            Dictionary<string, int> destinosContador = new Dictionary<string, int>();
+
+            foreach (Vuelo vuelo in listaVuelos)
+            {
+                string destino = "";
+                if (vuelo.vueloNacional)
+                {
+                    destino = vuelo.CiudadDestinoNacional.ToString();
+                }
+                else
+                {
+                    destino = vuelo.CiudadDestinoInternacional.ToString();
+                }
+
+                if (destinosContador.ContainsKey(destino))
+                {
+                    destinosContador[destino]++;
+                }
+                else
+                {
+                    destinosContador.Add(destino, 1);
+                }
+            }
+
+            int maxContador = 0;
+            string destinoMasSeleccionado = "";
+            foreach (KeyValuePair<string, int> destinoContador in destinosContador)
+            {
+                if (destinoContador.Value > maxContador)
+                {
+                    maxContador = destinoContador.Value;
+                    destinoMasSeleccionado = destinoContador.Key;
+                }
+            }
+
+            return destinoMasSeleccionado;
         }
     }
 }

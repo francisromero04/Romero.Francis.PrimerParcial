@@ -163,9 +163,14 @@ namespace FormsAerolinea
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void pictureBox8_Click(object sender, EventArgs e)
+        private void btnApagar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnInicioApagado_Click(object sender, EventArgs e)
+        {
+            SubmenuApagado.Visible = true;
         }
     }
 }

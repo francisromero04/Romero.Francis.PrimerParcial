@@ -1,0 +1,29 @@
+{
+  "administrador": {
+    "cargo": "Administrador",
+    "correo": "admin@mail.com",
+    "contraseña": "1234"
+  },
+  "supervisor": {
+    "cargo": "Supervisor",
+    "correo": "supervisor@mail.com",
+    "contraseña": "5678"
+  },
+  "vendedores": [
+    {
+      "cargo": "Vendedor 1",
+      "correo": "vendedor1@mail.com",
+      "contraseña": "abcd"
+    },
+    {
+      "cargo": "Vendedor 2",
+      "correo": "vendedor2@mail.com",
+      "contraseña": "efgh"
+    },
+    {
+      "cargo": "Vendedor 3",
+      "correo": "vendedor3@mail.com",
+      "contraseña": "zzzz"
+    }
+  ]
+}

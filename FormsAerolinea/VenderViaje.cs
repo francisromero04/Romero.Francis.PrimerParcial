@@ -65,7 +65,7 @@ namespace FormsAerolinea
             if (vueloSeleccionado != null)
             {
                 // Actualizar el valor del Label con el costo premium del vuelo seleccionado
-                lblPrecioPasaje.Text = "$" + vueloSeleccionado.CostoPremium.ToString();
+                lblPrecioPasaje.Text = "US $" + vueloSeleccionado.CostoPremium.ToString() + "PRECIO + IVA =" + (vueloSeleccionado.CostoPremium*vueloSeleccionado.IVA).ToString();
             }
             else
             {
@@ -118,18 +118,19 @@ namespace FormsAerolinea
                         // Mostrar un mensaje de confirmación al usuario
                         MessageBox.Show($"¡Pasaje vendido! \nNombre del pasajero: {pasajeroSeleccionado.nombre} {pasajeroSeleccionado.apellido} \nCiudad de partida: {vueloSeleccionado.CiudadPartida} " +
                                         $"\nCiudad de destino: {(vueloSeleccionado.vueloNacional == true ? vueloSeleccionado.CiudadDestinoNacional.ToString() : vueloSeleccionado.CiudadDestinoInternacional.ToString())} " +
-                                        $"\nFecha de vuelo: {vueloSeleccionado.FechaVuelo.ToString("dd/MM/yyyy")} \nTipo: {(pasajeroSeleccionado.tipoPasajero == true ? "Turista" : "Premium")} \nCosto del pasaje: {(pasajeroSeleccionado.tipoPasajero == false ? vueloSeleccionado.CostoPremium : vueloSeleccionado.CostoTurista)}");
+                                        $"\nFecha de vuelo: {vueloSeleccionado.FechaVuelo.ToString("dd/MM/yyyy")} \nTipo: {(pasajeroSeleccionado.tipoPasajero == true ? "Turista" : "Premium")} \nCosto del pasaje: {(pasajeroSeleccionado.tipoPasajero == false ? vueloSeleccionado.CostoPremium : vueloSeleccionado.CostoTurista)} \nCosto del pasaje + IVA: {(pasajeroSeleccionado.tipoPasajero == false ? vueloSeleccionado.CostoPremium*vueloSeleccionado.IVA : vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA)}");
                     }               
 
                     vueloSeleccionado.VenderPasaje(pasajeroSeleccionado, true);
 
                     if (pasajeroSeleccionado.tipoPasajero == false)
                     {
-                        aerolinea.dineroTotal += vueloSeleccionado.CostoPremium;
+                        aerolinea.dineroTotal += vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
+                       
                     }
                     else
                     {
-                        aerolinea.dineroTotal += vueloSeleccionado.CostoTurista;
+                        aerolinea.dineroTotal += vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
                     }
                 }
             }

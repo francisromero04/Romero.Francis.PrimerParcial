@@ -23,6 +23,7 @@ namespace BibliotecaAerolineasCompleto
         public TimeSpan DuracionVuelo { get; set; }
         public List<Pasajero> Pasajeros { get; set; }
         public bool vueloNacional { get; set; }
+        public decimal IVA { get; set; }
 
         private Aerolinea aerolinea;
 
@@ -30,6 +31,7 @@ namespace BibliotecaAerolineasCompleto
         {
             this.aerolinea = aerolinea;
             Pasajeros = new List<Pasajero>();
+            IVA = 1.21m;
         }
 
         public Vuelo CrearVueloAleatorio(Aerolinea aerolinea)

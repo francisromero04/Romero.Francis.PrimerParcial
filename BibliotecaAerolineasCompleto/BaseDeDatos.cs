@@ -4,6 +4,9 @@ using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using Newtonsoft.Json;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace BibliotecaAerolineasCompleto
 {
@@ -15,12 +18,8 @@ namespace BibliotecaAerolineasCompleto
 
         public BaseDeDatos()
         {
-            this.administrador = new Administrador("Administrador", "admin@mail.com", "1234");
-            this.supervisor = new Supervisor("Supervisor", "supervisor@mail.com", "5678");
             vendedores = new List<Vendedor>(3);
-            vendedores.Add(new Vendedor("Vendedor 1", "vendedor1@mail.com", "abcd"));
-            vendedores.Add(new Vendedor("Vendedor 2", "vendedor2@mail.com", "efgh"));
-            vendedores.Add(new Vendedor("Vendedor 3", "vendedor3@mail.com", "zzzz"));
+            ExtraerDeArchivoJSON();
         }
 
         public Persona buscarUsuario(string correo, string contraseña)
@@ -44,6 +43,25 @@ namespace BibliotecaAerolineasCompleto
             }
 
             return null;
+        }
+
+        public void ExtraerDeArchivoJSON()
+        {
+            // Leemos el archivo JSON y lo almacenamos en una cadena de texto
+            string json = File.ReadAllText("baseDatosUsuarios.json");
+
+            // Deserializamos el JSON en un objeto anónimo con la misma estructura que utilizamos para serializar
+            var datos = JsonConvert.DeserializeAnonymousType(json, new
+            {
+                administrador = new {Cargo = "", Correo = "", Contraseña = "" },
+                supervisor = new { Cargo = "", Correo = "", Contraseña = "" },
+                vendedores = new[] { new { Cargo = "", Correo = "", Contraseña = "" } }
+            });
+
+            // Creamos los objetos Administrador, Supervisor y Vendedores a partir de los datos deserializados
+            administrador = new Administrador(datos.administrador.Cargo,datos.administrador.Correo, datos.administrador.Contraseña);
+            supervisor = new Supervisor(datos.supervisor.Cargo, datos.supervisor.Correo, datos.supervisor.Contraseña);
+            vendedores = datos.vendedores.Select(v => new Vendedor(v.Cargo, v.Correo, v.Contraseña)).ToList();
         }
     }
 }

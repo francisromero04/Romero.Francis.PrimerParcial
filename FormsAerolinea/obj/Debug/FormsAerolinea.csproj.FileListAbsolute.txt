@@ -19,3 +19,5 @@ C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\obj\Debug\FormsAeroline
 C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\bin\Debug\BibliotecaAerolineasCompleto.dll
 C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\bin\Debug\BibliotecaAerolineasCompleto.pdb
 C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\obj\Debug\FormsAerolinea.csproj.CopyComplete
+C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\bin\Debug\Newtonsoft.Json.dll
+C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\bin\Debug\Newtonsoft.Json.xml

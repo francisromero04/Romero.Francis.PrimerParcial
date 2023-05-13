@@ -4,3 +4,6 @@ C:\Users\User\source\repos\Romero.Francis\BibliotecaAerolineasCompleto\bin\Debug
 C:\Users\User\source\repos\Romero.Francis\BibliotecaAerolineasCompleto\bin\Debug\BibliotecaAerolineasCompleto.pdb
 C:\Users\User\source\repos\Romero.Francis\BibliotecaAerolineasCompleto\obj\Debug\BibliotecaAerolineasCompleto.dll
 C:\Users\User\source\repos\Romero.Francis\BibliotecaAerolineasCompleto\obj\Debug\BibliotecaAerolineasCompleto.pdb
+C:\Users\User\source\repos\Romero.Francis\BibliotecaAerolineasCompleto\bin\Debug\Newtonsoft.Json.dll
+C:\Users\User\source\repos\Romero.Francis\BibliotecaAerolineasCompleto\bin\Debug\Newtonsoft.Json.xml
+C:\Users\User\source\repos\Romero.Francis\BibliotecaAerolineasCompleto\obj\Debug\BibliotecaAerolineasCompleto.csproj.CopyComplete
