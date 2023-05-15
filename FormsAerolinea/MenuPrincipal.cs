@@ -25,30 +25,52 @@ namespace FormsAerolinea
             InitializeComponent();
             ActualizarFechaHora();
             InhabilitarBotones();
-
-            //CREAR CLASE PARA TIMER
-            // Inicializar el temporizador para actualizar la fecha y hora cada segundo
-            Timer timer = new Timer();
+            this.WindowState = FormWindowState.Maximized;
+            Timer timer = new Timer(); // Inicializar el temporizador para actualizar la fecha y hora cada segundo
             timer.Interval = 1000; // Intervalo en milisegundos
             timer.Tick += new EventHandler(timer_Tick);
             timer.Start();
-        }
+        }   
+                    
+        #region OPCIONES CLICK
 
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
-        private void timer_Tick(object sender, EventArgs e)
+        private void btnOpcionUno_Click(object sender, EventArgs e)
         {
-            ActualizarFechaHora();
+            AbrirFormularios(new ViajesDisponibles(usuario, aerolinea));
         }
 
-        private void ActualizarFechaHora()
+        private void btnOpcionDos_Click(object sender, EventArgs e)
         {
-            lbldentificador.Text = usuario.cargo + "\n" + DateTime.Now.ToString();
+            VenderViaje formVender = new VenderViaje(usuario, aerolinea);
+            AbrirFormularios(formVender);
         }
 
+        private void btnOpcionTres_Click(object sender, EventArgs e)
+        {
+            ConsultarEstadisticas formConsultar = new ConsultarEstadisticas(usuario, aerolinea);
+            AbrirFormularios(formConsultar);
+        }
+
+        private void btnOpcionCuatro_Click(object sender, EventArgs e)
+        {
+            CrudViajes formCroodUno = new CrudViajes(usuario, aerolinea);
+            AbrirFormularios(formCroodUno);
+        }
+        private void btnOpcionCinco_Click(object sender, EventArgs e)
+        {
+            CrudPasajeros formCroodDos = new CrudPasajeros(usuario, aerolinea);
+            AbrirFormularios(formCroodDos);
+        }
+
+        private void btnOpcionSeis_Click(object sender, EventArgs e)
+        {
+            CrudAviones formCroodTres = new CrudAviones(usuario, aerolinea);
+            AbrirFormularios(formCroodTres);
+        }
+
+        #endregion
+
+        #region MANEJO FORMULARIO
         private void InhabilitarBotones()
         {
             switch (usuario.cargo)
@@ -75,60 +97,16 @@ namespace FormsAerolinea
                     btnOpcionCuatro.ForeColor = btnOpcionCuatro.ForeColor = btnOpcionSeis.ForeColor = Color.Gray;
                     break;
             } 
-        }
-
-        private void AbrirFormulario(Form formulario)
+        }       
+        private void timer_Tick(object sender, EventArgs e)
         {
-            this.Hide();
-            formulario.Show();
+            ActualizarFechaHora();
         }
 
-        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        private void ActualizarFechaHora()
         {
-            Login formLogin = new Login();
-            AbrirFormulario(formLogin);
+            lblIdentificador.Text = usuario.cargo + "\n" + usuario.nombre + "\n" + DateTime.Now.ToString();
         }
-
-        #region OPCIONES CLICK
-
-        private void btnOpcionUno_Click(object sender, EventArgs e)
-        {
-            ViajesDisponibles formListaViajes = new ViajesDisponibles(usuario, aerolinea);
-            AbrirFormulario(formListaViajes);
-        }
-
-        private void btnOpcionDos_Click(object sender, EventArgs e)
-        {
-            VenderViaje formVender = new VenderViaje(usuario, aerolinea);
-            AbrirFormulario(formVender);
-        }
-
-        private void btnOpcionTres_Click(object sender, EventArgs e)
-        {
-            ConsultarEstadisticas formConsultar = new ConsultarEstadisticas(usuario, aerolinea);
-            AbrirFormulario(formConsultar);
-        }
-
-        private void btnOpcionCuatro_Click(object sender, EventArgs e)
-        {
-            CroodViajes formCroodUno = new CroodViajes(usuario, aerolinea);
-            AbrirFormulario(formCroodUno);
-        }
-        private void btnOpcionCinco_Click(object sender, EventArgs e)
-        {
-            CroodPasajeros formCroodDos = new CroodPasajeros(usuario, aerolinea);
-            AbrirFormulario(formCroodDos);
-        }
-
-        private void btnOpcionSeis_Click(object sender, EventArgs e)
-        {
-            CroodAeronaves formCroodTres = new CroodAeronaves(usuario, aerolinea);
-            AbrirFormulario(formCroodTres);
-        }
-
-        #endregion
-
-        #region BOTONES MANEJO FORMULARIO
 
         private void btnCerrarPestaña_Click(object sender, EventArgs e)
         {
@@ -147,7 +125,6 @@ namespace FormsAerolinea
             this.WindowState = FormWindowState.Normal;
             btnRestaurar.Visible = false;
             btnMaximizar.Visible = true;
-
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -155,22 +132,38 @@ namespace FormsAerolinea
             this.WindowState = FormWindowState.Minimized;
         }
 
-        #endregion
-
         private void barraTop_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void btnApagar_Click(object sender, EventArgs e)
+        public void AbrirFormularios(object formAUtilizar)
         {
-            Application.Exit();
+           if(this.panelContenedor.Controls.Count > 0)
+            {
+                this.panelContenedor.Controls.RemoveAt(0);
+            }
+            Form fh = formAUtilizar as Form;
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            this.panelContenedor.Controls.Add(fh);
+            fh.Show();
         }
 
-        private void btnInicioApagado_Click(object sender, EventArgs e)
+        private void pictureBox8_Click(object sender, EventArgs e)
         {
-            SubmenuApagado.Visible = true;
+            Login formLogin = new Login();
+            this.Hide();
+            formLogin.Show();
         }
+
+        //CODIGO PARA MOVER EL FORMULARIO CON EL MOUSE
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+
+        #endregion
     }
 }

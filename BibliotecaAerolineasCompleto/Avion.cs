@@ -13,12 +13,12 @@ namespace BibliotecaAerolineasCompleto
         public int CantidadBanos { get; set; }
         public bool ServicioInternet { get; set; }
         public bool OfreceComida { get; set; }
-        public decimal CapacidadBodega { get; set; } //kilogramos (decimal)
+        public decimal CapacidadBodega { get; set; }
         public bool OcupadoEnVuelo { get; set; }
 
         public Avion()
         {
-
+            //CONSTRUCTOR VACIO
         }
 
         public Avion(string matricula, int cantidadAsientos, int cantidadBanos, bool servicioInternet, bool ofreceComida, decimal capacidadBodega)
@@ -31,7 +31,7 @@ namespace BibliotecaAerolineasCompleto
             CapacidadBodega = capacidadBodega;
         }
 
-        public Avion DevolverAvion()
+        public Avion GenerarAvionAleatorio()
         {
             Random rnd = new Random(DateTime.Now.Millisecond); //lee los milisegundos de la pc y en base a eso genera el random
             const string letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

@@ -11,9 +11,11 @@ namespace BibliotecaAerolineasCompleto
         public string cargo { get; set; }
         public string correo { get; set; }
         public string contraseña { get; set; }
+        public string nombre { get; set; }
 
-        public Persona(string cargo, string correo, string contraseña)
+        public Persona(string nombre, string cargo, string correo, string contraseña)
         {
+            this.nombre = nombre;
             this.cargo = cargo;
             this.correo = correo;
             this.contraseña = contraseña;

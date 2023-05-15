@@ -1,67 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace BibliotecaAerolineasCompleto
 {
     public class Aerolinea
     {
         public List<Vuelo> listaVuelos { get; set;}
-
         public List<Avion> listaAviones { get; set;}
-
         public List<Pasajero> listaPasajeros { get; set; }
-
         public decimal dineroTotal { get; set; }
-
-        public string destinoMasSeleccionado { get; set; }
 
         public Aerolinea()
         {
             listaAviones = new List<Avion>();
             listaVuelos = new List<Vuelo>();
             listaPasajeros = new List<Pasajero>();
-            dineroTotal = 1000000;
+            dineroTotal = 1000000; //DINERO INICIAL DE LA AEROLINEA
 
-            //AVIONES
-            for (int i = 0; i < 100; i++) 
-            {
-                System.Threading.Thread.Sleep(5);
-                Avion avion = new Avion().DevolverAvion();
-                if (VerificarMatriculaExistente(avion.Matricula) == false)
-                {
-                    agregarAvion(avion);
-                }
-            }
+            string json = File.ReadAllText("avionesDeAerolinea.json");
+            listaAviones = JsonConvert.DeserializeObject<List<Avion>>(json);
 
+            string jsonDos = File.ReadAllText("vuelosDeAerolinea.json");
+            listaVuelos = JsonConvert.DeserializeObject<List<Vuelo>>(jsonDos);
+
+
+            string jsonTres = File.ReadAllText("pasajerosDeAerolinea.json");
+            listaPasajeros = JsonConvert.DeserializeObject<List<Pasajero>>(jsonTres);
+            
             //PASAJEROS
-            for (int i = 0; i < 100; i++)
-            {
-                System.Threading.Thread.Sleep(5);
-                Random random = new Random(DateTime.Now.Millisecond); //lee los milisegundos de la pc y en base a eso genera el random
-                Pasajero pasajero = new Pasajero().GenerarPasajeroAleatorio(random);
-
-                if (VerificarDniExistente(pasajero.dni) == false)
+            /*    for (int i = 0; i < 100; i++)
                 {
-                    agregarPasajero(pasajero);
-                }                
-            }
+                    System.Threading.Thread.Sleep(5);
+                    Random random = new Random(DateTime.Now.Millisecond); //lee los milisegundos de la pc y en base a eso genera el random
+                    Pasajero pasajero = new Pasajero().GenerarPasajeroAleatorio(random);
 
-            //VUELOS
-            for(int i = 0;i < 25; i++)
-            {
-                System.Threading.Thread.Sleep(5);
-                Vuelo vuelo = new Vuelo(this).CrearVueloAleatorio(this);
-                if (vuelo != null)
-                {
-                    agregarVuelo(vuelo);
-                }
-            }
-
+                    if (VerificarDniExistente(pasajero.dni) == false)
+                    {
+                        agregarPasajero(pasajero);
+                    }
+                } */
         }
+
+        #region METODOS DE AVION
 
         public void agregarAvion(Avion avion)
         {
@@ -72,45 +59,6 @@ namespace BibliotecaAerolineasCompleto
         {
             listaAviones.Remove(avion);
         }
-
-        public void agregarPasajero(Pasajero pasajero)
-        {
-            if (VerificarDniExistente(pasajero.dni) == false)
-            {
-                listaPasajeros.Add(pasajero);
-            }
-        }
-
-        public void ReemplazarPasajeroSeleccionado(Pasajero pasajeroSeleccionado)
-        {
-            for (int i = 0; i < listaPasajeros.Count; i++)
-            {
-                if (listaPasajeros[i].dni == pasajeroSeleccionado.dni)
-                {
-                    listaPasajeros[i] = pasajeroSeleccionado;
-                    break;
-                }
-            }
-        }
-
-        public void eliminarPasajero(Pasajero pasajero)
-        {
-            listaPasajeros.Remove(pasajero);
-        }
-
-        public bool VerificarDniExistente(int dni)
-        {
-            // Verificar si el DNI ya existe en la lista de pasajeros
-            foreach (Pasajero pasajero in listaPasajeros)
-            {
-                if (pasajero.dni == dni)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
         public bool VerificarMatriculaExistente(string matricula)
         {
             // Verificar si el DNI ya existe en la lista de pasajeros
@@ -124,9 +72,74 @@ namespace BibliotecaAerolineasCompleto
             return false;
         }
 
+        #endregion
+
+        #region METODOS DE PASAJERO
+
+        public void agregarPasajero(Pasajero pasajero)
+        {
+            if (VerificarDniExistente(pasajero.dni) == false)
+            {
+                listaPasajeros.Add(pasajero);
+            }
+        }
+
+        public void eliminarPasajero(Pasajero pasajero)
+        {
+            listaPasajeros.Remove(pasajero);
+        }
+
+        public void ReemplazarPasajeroSeleccionado(Pasajero pasajeroSeleccionado)
+        {
+            for (int i = 0; i < listaPasajeros.Count; i++)
+            {
+                if (listaPasajeros[i].dni == pasajeroSeleccionado.dni)
+                {
+                    listaPasajeros[i] = pasajeroSeleccionado;
+                    break;
+                }
+            }
+        }
+        public bool VerificarDniExistente(int dni)
+        {
+            // Verificar si el DNI ya existe en la lista de pasajeros
+            foreach (Pasajero pasajero in listaPasajeros)
+            {
+                if (pasajero.dni == dni)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void CrearYGuardarPasajerosJson()
+        {
+            Random random = new Random();   
+
+            for (int i = 0; i < 100; i++)
+            {
+                System.Threading.Thread.Sleep(1);
+                Pasajero pasajero = new Pasajero().GenerarPasajeroAleatorio(random);
+                agregarPasajero(pasajero);
+            }
+
+            string json = JsonConvert.SerializeObject(listaPasajeros);
+            File.WriteAllText("pasajerosDeAerolinea.json", json);
+        }
+
+        #endregion
+
+        #region METODOS DE VUELO
+
         public void agregarVuelo(Vuelo vuelo)
         {
             listaVuelos.Add(vuelo);
+        }
+
+        public void eliminarVuelo(Vuelo vuelo)
+        {
+            listaVuelos.Remove(vuelo);
         }
 
         public string DestinoMasSeleccionado()
@@ -168,5 +181,20 @@ namespace BibliotecaAerolineasCompleto
 
             return destinoMasSeleccionado;
         }
+
+        public void CrearYGuardarVuelosJson()
+        {
+            for(int i = 0; i < 80; i++)
+            {
+                System.Threading.Thread.Sleep(5);
+                Vuelo vuelo = new Vuelo(this).GenerarVueloAleatorio(this);
+                agregarVuelo(vuelo);         
+            }
+
+            string json = JsonConvert.SerializeObject(listaVuelos);
+            File.WriteAllText("vuelosDeAerolinea.json", json);
+        } 
+
+        #endregion
     }
 }

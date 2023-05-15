@@ -8,7 +8,7 @@ namespace BibliotecaAerolineasCompleto
 {
     public class Vendedor :Persona
     {
-        public Vendedor(string cargo, string correo, string contraseña) : base(cargo, correo, contraseña)
+        public Vendedor(string nombre, string cargo, string correo, string contraseña) : base(nombre, cargo, correo, contraseña)
         {
             // Constructor vacío
         }

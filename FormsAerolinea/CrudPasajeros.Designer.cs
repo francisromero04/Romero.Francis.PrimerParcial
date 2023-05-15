@@ -1,6 +1,6 @@
 ﻿namespace FormsAerolinea
 {
-    partial class CroodPasajeros
+    partial class CrudPasajeros
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CrudPasajeros));
             this.gbxModificarPasajero = new System.Windows.Forms.GroupBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnCerrarDos = new System.Windows.Forms.Button();
@@ -39,16 +40,7 @@
             this.lblNombreDos = new System.Windows.Forms.Label();
             this.lblListaViajes = new System.Windows.Forms.Label();
             this.cmbxPasajeros = new System.Windows.Forms.ComboBox();
-            this.gbxCrearPasajeroAleatorio = new System.Windows.Forms.GroupBox();
-            this.btnCerrarUno = new System.Windows.Forms.Button();
-            this.btnCrearAleatorio = new System.Windows.Forms.Button();
             this.lstPasajeros = new System.Windows.Forms.ListBox();
-            this.btnOpcionTres = new System.Windows.Forms.Button();
-            this.btnOpcionDos = new System.Windows.Forms.Button();
-            this.btnOpcionUno = new System.Windows.Forms.Button();
-            this.lblTituloCroodPasajeros = new System.Windows.Forms.Label();
-            this.lbldentificador = new System.Windows.Forms.Label();
-            this.btnRegresar = new System.Windows.Forms.Button();
             this.gbxEliminarPasajero = new System.Windows.Forms.GroupBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCerrarTres = new System.Windows.Forms.Button();
@@ -65,10 +57,15 @@
             this.txtNombrePasajerotres = new System.Windows.Forms.TextBox();
             this.lblNombreTres = new System.Windows.Forms.Label();
             this.btnOpcionCuatro = new System.Windows.Forms.Button();
+            this.btnOpcionTres = new System.Windows.Forms.Button();
+            this.btnOpcionDos = new System.Windows.Forms.Button();
+            this.btnOpcionUno = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblTituloCroodAviones = new System.Windows.Forms.Label();
             this.gbxModificarPasajero.SuspendLayout();
-            this.gbxCrearPasajeroAleatorio.SuspendLayout();
             this.gbxEliminarPasajero.SuspendLayout();
             this.gbxCrearPasajero.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxModificarPasajero
@@ -86,12 +83,13 @@
             this.gbxModificarPasajero.Controls.Add(this.cmbxPasajeros);
             this.gbxModificarPasajero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxModificarPasajero.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxModificarPasajero.Location = new System.Drawing.Point(574, 836);
+            this.gbxModificarPasajero.Location = new System.Drawing.Point(1296, 310);
             this.gbxModificarPasajero.Name = "gbxModificarPasajero";
             this.gbxModificarPasajero.Size = new System.Drawing.Size(362, 151);
             this.gbxModificarPasajero.TabIndex = 28;
             this.gbxModificarPasajero.TabStop = false;
             this.gbxModificarPasajero.Text = "Modificar un pasajero";
+            this.gbxModificarPasajero.Visible = false;
             // 
             // btnModificar
             // 
@@ -186,128 +184,14 @@
             this.cmbxPasajeros.TabIndex = 38;
             this.cmbxPasajeros.SelectedIndexChanged += new System.EventHandler(this.cmbxPasajeros_SelectedIndexChanged);
             // 
-            // gbxCrearPasajeroAleatorio
-            // 
-            this.gbxCrearPasajeroAleatorio.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.gbxCrearPasajeroAleatorio.Controls.Add(this.btnCerrarUno);
-            this.gbxCrearPasajeroAleatorio.Controls.Add(this.btnCrearAleatorio);
-            this.gbxCrearPasajeroAleatorio.Controls.Add(this.lstPasajeros);
-            this.gbxCrearPasajeroAleatorio.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbxCrearPasajeroAleatorio.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxCrearPasajeroAleatorio.Location = new System.Drawing.Point(12, 836);
-            this.gbxCrearPasajeroAleatorio.Name = "gbxCrearPasajeroAleatorio";
-            this.gbxCrearPasajeroAleatorio.Size = new System.Drawing.Size(356, 354);
-            this.gbxCrearPasajeroAleatorio.TabIndex = 27;
-            this.gbxCrearPasajeroAleatorio.TabStop = false;
-            this.gbxCrearPasajeroAleatorio.Text = "Crear Aleatorio";
-            // 
-            // btnCerrarUno
-            // 
-            this.btnCerrarUno.Location = new System.Drawing.Point(99, 313);
-            this.btnCerrarUno.Name = "btnCerrarUno";
-            this.btnCerrarUno.Size = new System.Drawing.Size(162, 28);
-            this.btnCerrarUno.TabIndex = 40;
-            this.btnCerrarUno.Text = "Guardar y cerrar";
-            this.btnCerrarUno.UseVisualStyleBackColor = true;
-            this.btnCerrarUno.Click += new System.EventHandler(this.btnCerrarUno_Click);
-            // 
-            // btnCrearAleatorio
-            // 
-            this.btnCrearAleatorio.Location = new System.Drawing.Point(99, 32);
-            this.btnCrearAleatorio.Name = "btnCrearAleatorio";
-            this.btnCrearAleatorio.Size = new System.Drawing.Size(162, 28);
-            this.btnCrearAleatorio.TabIndex = 39;
-            this.btnCrearAleatorio.Text = "Crear pasajero aleatorio";
-            this.btnCrearAleatorio.UseVisualStyleBackColor = true;
-            this.btnCrearAleatorio.Click += new System.EventHandler(this.btnCrearAleatorio_Click);
-            // 
             // lstPasajeros
             // 
             this.lstPasajeros.FormattingEnabled = true;
-            this.lstPasajeros.ItemHeight = 16;
-            this.lstPasajeros.Location = new System.Drawing.Point(31, 63);
+            this.lstPasajeros.Location = new System.Drawing.Point(962, 569);
             this.lstPasajeros.Name = "lstPasajeros";
-            this.lstPasajeros.Size = new System.Drawing.Size(293, 244);
+            this.lstPasajeros.Size = new System.Drawing.Size(293, 238);
             this.lstPasajeros.TabIndex = 38;
-            // 
-            // btnOpcionTres
-            // 
-            this.btnOpcionTres.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOpcionTres.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpcionTres.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOpcionTres.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOpcionTres.Font = new System.Drawing.Font("Sitka Subheading", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionTres.Location = new System.Drawing.Point(499, 340);
-            this.btnOpcionTres.Name = "btnOpcionTres";
-            this.btnOpcionTres.Size = new System.Drawing.Size(246, 40);
-            this.btnOpcionTres.TabIndex = 26;
-            this.btnOpcionTres.Text = "3. Eliminar un pasajero.";
-            this.btnOpcionTres.UseVisualStyleBackColor = false;
-            this.btnOpcionTres.Click += new System.EventHandler(this.btnOpcionTres_Click);
-            // 
-            // btnOpcionDos
-            // 
-            this.btnOpcionDos.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOpcionDos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpcionDos.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOpcionDos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOpcionDos.Font = new System.Drawing.Font("Sitka Subheading", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionDos.Location = new System.Drawing.Point(499, 294);
-            this.btnOpcionDos.Name = "btnOpcionDos";
-            this.btnOpcionDos.Size = new System.Drawing.Size(246, 40);
-            this.btnOpcionDos.TabIndex = 25;
-            this.btnOpcionDos.Text = "2. Modificar un pasajero.";
-            this.btnOpcionDos.UseVisualStyleBackColor = false;
-            this.btnOpcionDos.Click += new System.EventHandler(this.btnOpcionDos_Click);
-            // 
-            // btnOpcionUno
-            // 
-            this.btnOpcionUno.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOpcionUno.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpcionUno.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOpcionUno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOpcionUno.Font = new System.Drawing.Font("Sitka Subheading", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionUno.Location = new System.Drawing.Point(499, 248);
-            this.btnOpcionUno.Name = "btnOpcionUno";
-            this.btnOpcionUno.Size = new System.Drawing.Size(246, 40);
-            this.btnOpcionUno.TabIndex = 24;
-            this.btnOpcionUno.Text = "1. Crear un pasajero.";
-            this.btnOpcionUno.UseVisualStyleBackColor = false;
-            this.btnOpcionUno.Click += new System.EventHandler(this.btnOpcionUno_Click);
-            // 
-            // lblTituloCroodPasajeros
-            // 
-            this.lblTituloCroodPasajeros.AutoSize = true;
-            this.lblTituloCroodPasajeros.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.lblTituloCroodPasajeros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTituloCroodPasajeros.Font = new System.Drawing.Font("Sitka Subheading", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloCroodPasajeros.Location = new System.Drawing.Point(365, 193);
-            this.lblTituloCroodPasajeros.Name = "lblTituloCroodPasajeros";
-            this.lblTituloCroodPasajeros.Size = new System.Drawing.Size(553, 52);
-            this.lblTituloCroodPasajeros.TabIndex = 23;
-            this.lblTituloCroodPasajeros.Text = "ADMINISTRACIÓN DE PASAJEROS";
-            // 
-            // lbldentificador
-            // 
-            this.lbldentificador.AutoSize = true;
-            this.lbldentificador.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldentificador.Location = new System.Drawing.Point(998, 69);
-            this.lbldentificador.Name = "lbldentificador";
-            this.lbldentificador.Size = new System.Drawing.Size(14, 19);
-            this.lbldentificador.TabIndex = 29;
-            this.lbldentificador.Text = "-";
-            // 
-            // btnRegresar
-            // 
-            this.btnRegresar.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.btnRegresar.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegresar.Location = new System.Drawing.Point(528, 434);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(188, 38);
-            this.btnRegresar.TabIndex = 30;
-            this.btnRegresar.Text = "Regresar al menú anterior";
-            this.btnRegresar.UseVisualStyleBackColor = false;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            this.lstPasajeros.Visible = false;
             // 
             // gbxEliminarPasajero
             // 
@@ -319,12 +203,13 @@
             this.gbxEliminarPasajero.Controls.Add(this.cmbxPasajerosDos);
             this.gbxEliminarPasajero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxEliminarPasajero.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxEliminarPasajero.Location = new System.Drawing.Point(942, 836);
+            this.gbxEliminarPasajero.Location = new System.Drawing.Point(1664, 310);
             this.gbxEliminarPasajero.Name = "gbxEliminarPasajero";
             this.gbxEliminarPasajero.Size = new System.Drawing.Size(417, 151);
             this.gbxEliminarPasajero.TabIndex = 42;
             this.gbxEliminarPasajero.TabStop = false;
             this.gbxEliminarPasajero.Text = "Eliminar";
+            this.gbxEliminarPasajero.Visible = false;
             // 
             // btnEliminar
             // 
@@ -389,12 +274,13 @@
             this.gbxCrearPasajero.Controls.Add(this.lblNombreTres);
             this.gbxCrearPasajero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxCrearPasajero.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxCrearPasajero.Location = new System.Drawing.Point(278, 836);
+            this.gbxCrearPasajero.Location = new System.Drawing.Point(651, 569);
             this.gbxCrearPasajero.Name = "gbxCrearPasajero";
             this.gbxCrearPasajero.Size = new System.Drawing.Size(280, 174);
             this.gbxCrearPasajero.TabIndex = 43;
             this.gbxCrearPasajero.TabStop = false;
             this.gbxCrearPasajero.Text = "Crear un Pasajero";
+            this.gbxCrearPasajero.Visible = false;
             // 
             // btnCerrarCuatro
             // 
@@ -470,45 +356,123 @@
             // 
             // btnOpcionCuatro
             // 
-            this.btnOpcionCuatro.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnOpcionCuatro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btnOpcionCuatro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpcionCuatro.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOpcionCuatro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOpcionCuatro.Font = new System.Drawing.Font("Sitka Subheading", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionCuatro.Location = new System.Drawing.Point(499, 386);
+            this.btnOpcionCuatro.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnOpcionCuatro.FlatAppearance.BorderSize = 0;
+            this.btnOpcionCuatro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnOpcionCuatro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpcionCuatro.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcionCuatro.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnOpcionCuatro.Location = new System.Drawing.Point(729, 469);
             this.btnOpcionCuatro.Name = "btnOpcionCuatro";
-            this.btnOpcionCuatro.Size = new System.Drawing.Size(246, 42);
-            this.btnOpcionCuatro.TabIndex = 44;
-            this.btnOpcionCuatro.Text = "4. Crear un pasajero manual.";
+            this.btnOpcionCuatro.Size = new System.Drawing.Size(366, 55);
+            this.btnOpcionCuatro.TabIndex = 54;
+            this.btnOpcionCuatro.Text = "Listar pasajeros.";
             this.btnOpcionCuatro.UseVisualStyleBackColor = false;
             this.btnOpcionCuatro.Click += new System.EventHandler(this.btnOpcionCuatro_Click_1);
             // 
-            // CroodPasajeros
+            // btnOpcionTres
+            // 
+            this.btnOpcionTres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnOpcionTres.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpcionTres.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnOpcionTres.FlatAppearance.BorderSize = 0;
+            this.btnOpcionTres.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnOpcionTres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpcionTres.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcionTres.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnOpcionTres.Location = new System.Drawing.Point(729, 419);
+            this.btnOpcionTres.Name = "btnOpcionTres";
+            this.btnOpcionTres.Size = new System.Drawing.Size(366, 55);
+            this.btnOpcionTres.TabIndex = 52;
+            this.btnOpcionTres.Text = "Eliminar un pasajero.";
+            this.btnOpcionTres.UseVisualStyleBackColor = false;
+            this.btnOpcionTres.Click += new System.EventHandler(this.btnOpcionTres_Click);
+            // 
+            // btnOpcionDos
+            // 
+            this.btnOpcionDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnOpcionDos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpcionDos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnOpcionDos.FlatAppearance.BorderSize = 0;
+            this.btnOpcionDos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnOpcionDos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpcionDos.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcionDos.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnOpcionDos.Location = new System.Drawing.Point(729, 369);
+            this.btnOpcionDos.Name = "btnOpcionDos";
+            this.btnOpcionDos.Size = new System.Drawing.Size(429, 55);
+            this.btnOpcionDos.TabIndex = 51;
+            this.btnOpcionDos.Text = "Modificar un pasajero.";
+            this.btnOpcionDos.UseVisualStyleBackColor = false;
+            this.btnOpcionDos.Click += new System.EventHandler(this.btnOpcionDos_Click);
+            // 
+            // btnOpcionUno
+            // 
+            this.btnOpcionUno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnOpcionUno.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpcionUno.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnOpcionUno.FlatAppearance.BorderSize = 0;
+            this.btnOpcionUno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnOpcionUno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpcionUno.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcionUno.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnOpcionUno.Location = new System.Drawing.Point(729, 319);
+            this.btnOpcionUno.Name = "btnOpcionUno";
+            this.btnOpcionUno.Size = new System.Drawing.Size(366, 55);
+            this.btnOpcionUno.TabIndex = 53;
+            this.btnOpcionUno.Text = "Crear un pasajero.";
+            this.btnOpcionUno.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(378, 302);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(345, 306);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 55;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblTituloCroodAviones
+            // 
+            this.lblTituloCroodAviones.AutoSize = true;
+            this.lblTituloCroodAviones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.lblTituloCroodAviones.Font = new System.Drawing.Font("Times New Roman", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloCroodAviones.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTituloCroodAviones.Location = new System.Drawing.Point(551, 216);
+            this.lblTituloCroodAviones.Name = "lblTituloCroodAviones";
+            this.lblTituloCroodAviones.Size = new System.Drawing.Size(766, 72);
+            this.lblTituloCroodAviones.TabIndex = 50;
+            this.lblTituloCroodAviones.Text = "Administrador de Pasajeros";
+            // 
+            // CrudPasajeros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1242, 848);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.ClientSize = new System.Drawing.Size(1064, 610);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnOpcionCuatro);
-            this.Controls.Add(this.gbxCrearPasajero);
-            this.Controls.Add(this.gbxEliminarPasajero);
-            this.Controls.Add(this.btnRegresar);
-            this.Controls.Add(this.lbldentificador);
-            this.Controls.Add(this.gbxModificarPasajero);
-            this.Controls.Add(this.gbxCrearPasajeroAleatorio);
+            this.Controls.Add(this.btnOpcionUno);
             this.Controls.Add(this.btnOpcionTres);
             this.Controls.Add(this.btnOpcionDos);
-            this.Controls.Add(this.btnOpcionUno);
-            this.Controls.Add(this.lblTituloCroodPasajeros);
-            this.Name = "CroodPasajeros";
-            this.Text = "ADMINISTRADOR DE PASAJEROS";
+            this.Controls.Add(this.lblTituloCroodAviones);
+            this.Controls.Add(this.gbxCrearPasajero);
+            this.Controls.Add(this.lstPasajeros);
+            this.Controls.Add(this.gbxEliminarPasajero);
+            this.Controls.Add(this.gbxModificarPasajero);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "CrudPasajeros";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.gbxModificarPasajero.ResumeLayout(false);
             this.gbxModificarPasajero.PerformLayout();
-            this.gbxCrearPasajeroAleatorio.ResumeLayout(false);
             this.gbxEliminarPasajero.ResumeLayout(false);
             this.gbxEliminarPasajero.PerformLayout();
             this.gbxCrearPasajero.ResumeLayout(false);
             this.gbxCrearPasajero.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -519,24 +483,16 @@
         private System.Windows.Forms.GroupBox gbxModificarPasajero;
         private System.Windows.Forms.Label lblListaViajes;
         private System.Windows.Forms.ComboBox cmbxPasajeros;
-        private System.Windows.Forms.GroupBox gbxCrearPasajeroAleatorio;
-        private System.Windows.Forms.Button btnOpcionTres;
-        private System.Windows.Forms.Button btnOpcionDos;
-        private System.Windows.Forms.Button btnOpcionUno;
-        private System.Windows.Forms.Label lblTituloCroodPasajeros;
         private System.Windows.Forms.TextBox txtDniPasajeroDos;
         private System.Windows.Forms.Label lblDniDos;
         private System.Windows.Forms.TextBox txtApellidoDos;
         private System.Windows.Forms.Label lblApellidoDos;
         private System.Windows.Forms.TextBox txtNombrePasajeroDos;
         private System.Windows.Forms.Label lblNombreDos;
-        private System.Windows.Forms.Label lbldentificador;
-        private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.ListBox lstPasajeros;
         private System.Windows.Forms.GroupBox gbxEliminarPasajero;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbxPasajerosDos;
-        private System.Windows.Forms.Button btnCrearAleatorio;
         private System.Windows.Forms.GroupBox gbxCrearPasajero;
         private System.Windows.Forms.Button btnCrearPasajero;
         private System.Windows.Forms.TextBox txtDniPasajeroTres;
@@ -545,13 +501,17 @@
         private System.Windows.Forms.Label lblApellidoTres;
         private System.Windows.Forms.TextBox txtNombrePasajerotres;
         private System.Windows.Forms.Label lblNombreTres;
-        private System.Windows.Forms.Button btnCerrarUno;
         private System.Windows.Forms.Button btnCerrarDos;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnCerrarTres;
         private System.Windows.Forms.Label lblConfirmacion;
-        private System.Windows.Forms.Button btnOpcionCuatro;
         private System.Windows.Forms.Button btnCerrarCuatro;
+        private System.Windows.Forms.Button btnOpcionCuatro;
+        private System.Windows.Forms.Button btnOpcionTres;
+        private System.Windows.Forms.Button btnOpcionDos;
+        private System.Windows.Forms.Button btnOpcionUno;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblTituloCroodAviones;
     }
 }

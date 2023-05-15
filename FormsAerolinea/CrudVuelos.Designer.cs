@@ -1,6 +1,6 @@
 ﻿namespace FormsAerolinea
 {
-    partial class CroodViajes
+    partial class CrudViajes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblTituloMenu = new System.Windows.Forms.Label();
-            this.btnOpcionTres = new System.Windows.Forms.Button();
-            this.btnOpcionDos = new System.Windows.Forms.Button();
-            this.btnOpcionUno = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CrudViajes));
             this.gbxCrearViaje = new System.Windows.Forms.GroupBox();
             this.cmbxMatriculaAvion = new System.Windows.Forms.ComboBox();
             this.lblAvionAUtilizar = new System.Windows.Forms.Label();
@@ -68,72 +65,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lbldentificador = new System.Windows.Forms.Label();
-            this.btnRegresar = new System.Windows.Forms.Button();
             this.lstViajes = new System.Windows.Forms.ListBox();
-            this.gbxCrearViajeAleatorio = new System.Windows.Forms.GroupBox();
-            this.btnCerrarCuatro = new System.Windows.Forms.Button();
-            this.btnCrearViajeAleatorio = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnOpcionCuatro = new System.Windows.Forms.Button();
-            this.lstVuelosDos = new System.Windows.Forms.ListBox();
+            this.btnOpcionUno = new System.Windows.Forms.Button();
+            this.btnOpcionTres = new System.Windows.Forms.Button();
+            this.btnOpcionDos = new System.Windows.Forms.Button();
+            this.lblTituloCroodVuelos = new System.Windows.Forms.Label();
             this.gbxCrearViaje.SuspendLayout();
             this.gbxModificarViaje.SuspendLayout();
-            this.gbxCrearViajeAleatorio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblTituloMenu
-            // 
-            this.lblTituloMenu.AutoSize = true;
-            this.lblTituloMenu.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.lblTituloMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTituloMenu.Font = new System.Drawing.Font("Sitka Subheading", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloMenu.Location = new System.Drawing.Point(374, 208);
-            this.lblTituloMenu.Name = "lblTituloMenu";
-            this.lblTituloMenu.Size = new System.Drawing.Size(646, 70);
-            this.lblTituloMenu.TabIndex = 4;
-            this.lblTituloMenu.Text = "ADMINISTRACIÓN DE VIAJES";
-            // 
-            // btnOpcionTres
-            // 
-            this.btnOpcionTres.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOpcionTres.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpcionTres.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOpcionTres.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOpcionTres.Font = new System.Drawing.Font("Sitka Subheading", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionTres.Location = new System.Drawing.Point(573, 373);
-            this.btnOpcionTres.Name = "btnOpcionTres";
-            this.btnOpcionTres.Size = new System.Drawing.Size(196, 40);
-            this.btnOpcionTres.TabIndex = 19;
-            this.btnOpcionTres.Text = "3. Eliminar un viaje.";
-            this.btnOpcionTres.UseVisualStyleBackColor = false;
-            // 
-            // btnOpcionDos
-            // 
-            this.btnOpcionDos.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOpcionDos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpcionDos.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOpcionDos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOpcionDos.Font = new System.Drawing.Font("Sitka Subheading", 13F);
-            this.btnOpcionDos.Location = new System.Drawing.Point(573, 327);
-            this.btnOpcionDos.Name = "btnOpcionDos";
-            this.btnOpcionDos.Size = new System.Drawing.Size(196, 40);
-            this.btnOpcionDos.TabIndex = 18;
-            this.btnOpcionDos.Text = "2. Modificar un viaje.";
-            this.btnOpcionDos.UseVisualStyleBackColor = false;
-            // 
-            // btnOpcionUno
-            // 
-            this.btnOpcionUno.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOpcionUno.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpcionUno.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOpcionUno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOpcionUno.Font = new System.Drawing.Font("Sitka Subheading", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionUno.Location = new System.Drawing.Point(573, 281);
-            this.btnOpcionUno.Name = "btnOpcionUno";
-            this.btnOpcionUno.Size = new System.Drawing.Size(196, 40);
-            this.btnOpcionUno.TabIndex = 17;
-            this.btnOpcionUno.Text = "1. Crear un viaje.";
-            this.btnOpcionUno.UseVisualStyleBackColor = false;
-            this.btnOpcionUno.Click += new System.EventHandler(this.btnOpcionUno_Click);
             // 
             // gbxCrearViaje
             // 
@@ -159,7 +101,7 @@
             this.gbxCrearViaje.Controls.Add(this.lblCiudadOrigenDos);
             this.gbxCrearViaje.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxCrearViaje.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxCrearViaje.Location = new System.Drawing.Point(22, 892);
+            this.gbxCrearViaje.Location = new System.Drawing.Point(29, 892);
             this.gbxCrearViaje.Name = "gbxCrearViaje";
             this.gbxCrearViaje.Size = new System.Drawing.Size(285, 342);
             this.gbxCrearViaje.TabIndex = 21;
@@ -251,7 +193,6 @@
             this.btnCrear.TabIndex = 40;
             this.btnCrear.Text = "Crear viaje";
             this.btnCrear.UseVisualStyleBackColor = true;
-            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
             // dtpFechaVueloDos
             // 
@@ -516,122 +457,136 @@
             this.lbldentificador.TabIndex = 23;
             this.lbldentificador.Text = "-";
             // 
-            // btnRegresar
-            // 
-            this.btnRegresar.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.btnRegresar.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegresar.Location = new System.Drawing.Point(575, 465);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(188, 38);
-            this.btnRegresar.TabIndex = 28;
-            this.btnRegresar.Text = "Regresar al menú anterior";
-            this.btnRegresar.UseVisualStyleBackColor = false;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
-            // 
             // lstViajes
             // 
             this.lstViajes.FormattingEnabled = true;
-            this.lstViajes.ItemHeight = 16;
-            this.lstViajes.Location = new System.Drawing.Point(39, 77);
+            this.lstViajes.Location = new System.Drawing.Point(878, 622);
             this.lstViajes.Name = "lstViajes";
-            this.lstViajes.Size = new System.Drawing.Size(628, 452);
-            this.lstViajes.TabIndex = 29;
+            this.lstViajes.Size = new System.Drawing.Size(174, 238);
+            this.lstViajes.TabIndex = 44;
+            this.lstViajes.Visible = false;
             // 
-            // gbxCrearViajeAleatorio
+            // pictureBox1
             // 
-            this.gbxCrearViajeAleatorio.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.gbxCrearViajeAleatorio.Controls.Add(this.btnCerrarCuatro);
-            this.gbxCrearViajeAleatorio.Controls.Add(this.lstViajes);
-            this.gbxCrearViajeAleatorio.Controls.Add(this.btnCrearViajeAleatorio);
-            this.gbxCrearViajeAleatorio.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbxCrearViajeAleatorio.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxCrearViajeAleatorio.Location = new System.Drawing.Point(821, 892);
-            this.gbxCrearViajeAleatorio.Name = "gbxCrearViajeAleatorio";
-            this.gbxCrearViajeAleatorio.Size = new System.Drawing.Size(709, 603);
-            this.gbxCrearViajeAleatorio.TabIndex = 42;
-            this.gbxCrearViajeAleatorio.TabStop = false;
-            this.gbxCrearViajeAleatorio.Text = "Crear un viaje";
-            // 
-            // btnCerrarCuatro
-            // 
-            this.btnCerrarCuatro.Font = new System.Drawing.Font("Sitka Subheading", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarCuatro.Location = new System.Drawing.Point(190, 535);
-            this.btnCerrarCuatro.Name = "btnCerrarCuatro";
-            this.btnCerrarCuatro.Size = new System.Drawing.Size(302, 42);
-            this.btnCerrarCuatro.TabIndex = 41;
-            this.btnCerrarCuatro.Text = "Guardar y cerrar";
-            this.btnCerrarCuatro.UseVisualStyleBackColor = true;
-            this.btnCerrarCuatro.Click += new System.EventHandler(this.btnCerrarCuatro_Click);
-            // 
-            // btnCrearViajeAleatorio
-            // 
-            this.btnCrearViajeAleatorio.Font = new System.Drawing.Font("Sitka Subheading", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearViajeAleatorio.Location = new System.Drawing.Point(190, 29);
-            this.btnCrearViajeAleatorio.Name = "btnCrearViajeAleatorio";
-            this.btnCrearViajeAleatorio.Size = new System.Drawing.Size(302, 42);
-            this.btnCrearViajeAleatorio.TabIndex = 40;
-            this.btnCrearViajeAleatorio.Text = "Crear viaje con datos aleatorios";
-            this.btnCrearViajeAleatorio.UseVisualStyleBackColor = true;
-            this.btnCrearViajeAleatorio.Click += new System.EventHandler(this.btnCrearViajeAleatorio_Click);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(390, 323);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(345, 306);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 61;
+            this.pictureBox1.TabStop = false;
             // 
             // btnOpcionCuatro
             // 
-            this.btnOpcionCuatro.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnOpcionCuatro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btnOpcionCuatro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpcionCuatro.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOpcionCuatro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOpcionCuatro.Font = new System.Drawing.Font("Sitka Subheading", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionCuatro.Location = new System.Drawing.Point(573, 419);
+            this.btnOpcionCuatro.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnOpcionCuatro.FlatAppearance.BorderSize = 0;
+            this.btnOpcionCuatro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnOpcionCuatro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpcionCuatro.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcionCuatro.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnOpcionCuatro.Location = new System.Drawing.Point(741, 490);
             this.btnOpcionCuatro.Name = "btnOpcionCuatro";
-            this.btnOpcionCuatro.Size = new System.Drawing.Size(196, 40);
-            this.btnOpcionCuatro.TabIndex = 43;
-            this.btnOpcionCuatro.Text = "4. Crear viaje manual.";
+            this.btnOpcionCuatro.Size = new System.Drawing.Size(366, 55);
+            this.btnOpcionCuatro.TabIndex = 60;
+            this.btnOpcionCuatro.Text = "Listar Vuelos.";
             this.btnOpcionCuatro.UseVisualStyleBackColor = false;
-            this.btnOpcionCuatro.Click += new System.EventHandler(this.btnOpcionCuatro_Click);
             // 
-            // lstVuelosDos
+            // btnOpcionUno
             // 
-            this.lstVuelosDos.FormattingEnabled = true;
-            this.lstVuelosDos.Location = new System.Drawing.Point(1, 509);
-            this.lstVuelosDos.Name = "lstVuelosDos";
-            this.lstVuelosDos.Size = new System.Drawing.Size(1338, 329);
-            this.lstVuelosDos.TabIndex = 44;
+            this.btnOpcionUno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnOpcionUno.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpcionUno.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnOpcionUno.FlatAppearance.BorderSize = 0;
+            this.btnOpcionUno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnOpcionUno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpcionUno.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcionUno.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnOpcionUno.Location = new System.Drawing.Point(741, 340);
+            this.btnOpcionUno.Name = "btnOpcionUno";
+            this.btnOpcionUno.Size = new System.Drawing.Size(366, 55);
+            this.btnOpcionUno.TabIndex = 59;
+            this.btnOpcionUno.Text = "Crear un Vuelo.";
+            this.btnOpcionUno.UseVisualStyleBackColor = false;
+            this.btnOpcionUno.Click += new System.EventHandler(this.btnOpcionUno_Click);
             // 
-            // CroodViajes
+            // btnOpcionTres
+            // 
+            this.btnOpcionTres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnOpcionTres.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpcionTres.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnOpcionTres.FlatAppearance.BorderSize = 0;
+            this.btnOpcionTres.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnOpcionTres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpcionTres.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcionTres.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnOpcionTres.Location = new System.Drawing.Point(741, 440);
+            this.btnOpcionTres.Name = "btnOpcionTres";
+            this.btnOpcionTres.Size = new System.Drawing.Size(366, 55);
+            this.btnOpcionTres.TabIndex = 58;
+            this.btnOpcionTres.Text = "Eliminar un Vuelo.";
+            this.btnOpcionTres.UseVisualStyleBackColor = false;
+            // 
+            // btnOpcionDos
+            // 
+            this.btnOpcionDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnOpcionDos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpcionDos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnOpcionDos.FlatAppearance.BorderSize = 0;
+            this.btnOpcionDos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnOpcionDos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpcionDos.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcionDos.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnOpcionDos.Location = new System.Drawing.Point(741, 390);
+            this.btnOpcionDos.Name = "btnOpcionDos";
+            this.btnOpcionDos.Size = new System.Drawing.Size(429, 55);
+            this.btnOpcionDos.TabIndex = 57;
+            this.btnOpcionDos.Text = "Modificar un Vuelo.";
+            this.btnOpcionDos.UseVisualStyleBackColor = false;
+            // 
+            // lblTituloCroodVuelos
+            // 
+            this.lblTituloCroodVuelos.AutoSize = true;
+            this.lblTituloCroodVuelos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.lblTituloCroodVuelos.Font = new System.Drawing.Font("Times New Roman", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloCroodVuelos.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTituloCroodVuelos.Location = new System.Drawing.Point(564, 238);
+            this.lblTituloCroodVuelos.Name = "lblTituloCroodVuelos";
+            this.lblTituloCroodVuelos.Size = new System.Drawing.Size(687, 72);
+            this.lblTituloCroodVuelos.TabIndex = 56;
+            this.lblTituloCroodVuelos.Text = "Administrador de Vuelos";
+            // 
+            // CrudViajes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1336, 909);
-            this.Controls.Add(this.lstVuelosDos);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.ClientSize = new System.Drawing.Size(1064, 650);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnOpcionCuatro);
-            this.Controls.Add(this.gbxCrearViajeAleatorio);
-            this.Controls.Add(this.btnRegresar);
+            this.Controls.Add(this.btnOpcionUno);
+            this.Controls.Add(this.btnOpcionTres);
+            this.Controls.Add(this.btnOpcionDos);
+            this.Controls.Add(this.lblTituloCroodVuelos);
+            this.Controls.Add(this.lstViajes);
             this.Controls.Add(this.lbldentificador);
             this.Controls.Add(this.gbxModificarViaje);
             this.Controls.Add(this.gbxCrearViaje);
-            this.Controls.Add(this.btnOpcionTres);
-            this.Controls.Add(this.btnOpcionDos);
-            this.Controls.Add(this.btnOpcionUno);
-            this.Controls.Add(this.lblTituloMenu);
-            this.Name = "CroodViajes";
-            this.Text = "ADMINISTRADOR DE VIAJES";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "CrudViajes";
+            this.Text = " ";
             this.gbxCrearViaje.ResumeLayout(false);
             this.gbxCrearViaje.PerformLayout();
             this.gbxModificarViaje.ResumeLayout(false);
             this.gbxModificarViaje.PerformLayout();
-            this.gbxCrearViajeAleatorio.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblTituloMenu;
-        private System.Windows.Forms.Button btnOpcionTres;
-        private System.Windows.Forms.Button btnOpcionDos;
-        private System.Windows.Forms.Button btnOpcionUno;
         private System.Windows.Forms.GroupBox gbxCrearViaje;
         private System.Windows.Forms.TextBox txtAsientosPremiumDos;
         private System.Windows.Forms.Label lblAsientosPremiumDos;
@@ -657,14 +612,8 @@
         private System.Windows.Forms.DateTimePicker dtpHoraPartidaDos;
         private System.Windows.Forms.Label lblListaViajes;
         private System.Windows.Forms.Label lbldentificador;
-        private System.Windows.Forms.Button btnRegresar;
-        private System.Windows.Forms.ListBox lstViajes;
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.Button btnCerrarUno;
-        private System.Windows.Forms.GroupBox gbxCrearViajeAleatorio;
-        private System.Windows.Forms.Button btnCerrarCuatro;
-        private System.Windows.Forms.Button btnCrearViajeAleatorio;
-        private System.Windows.Forms.Button btnOpcionCuatro;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnCerrarDos;
         private System.Windows.Forms.TextBox txtCostoPremiumDos;
@@ -674,6 +623,12 @@
         private System.Windows.Forms.CheckBox chbVerificarVueloNacional;
         private System.Windows.Forms.ComboBox cmbxMatriculaAvion;
         private System.Windows.Forms.Label lblAvionAUtilizar;
-        private System.Windows.Forms.ListBox lstVuelosDos;
+        private System.Windows.Forms.ListBox lstViajes;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnOpcionCuatro;
+        private System.Windows.Forms.Button btnOpcionUno;
+        private System.Windows.Forms.Button btnOpcionTres;
+        private System.Windows.Forms.Button btnOpcionDos;
+        private System.Windows.Forms.Label lblTituloCroodVuelos;
     }
 }

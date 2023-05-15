@@ -11,17 +11,16 @@ using System.Windows.Forms;
 
 namespace FormsAerolinea
 {
-    public partial class CroodViajes : Form
+    public partial class CrudViajes : Form
     {
         private Persona usuario;
         private Aerolinea aerolinea;
 
-        public CroodViajes(Persona usuario, Aerolinea aerolinea)
+        public CrudViajes(Persona usuario, Aerolinea aerolinea)
         {
             InitializeComponent();
             this.usuario = usuario;
             this.aerolinea = aerolinea;
-            lbldentificador.Text = usuario.cargo + " - " + DateTime.Now.ToString();
             ActualizarListas();
 
             gbxCrearViaje.Visible = false;
@@ -30,25 +29,9 @@ namespace FormsAerolinea
 
         #region CONFIGURACION GROUPBOX
 
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            MenuPrincipal formMenuP = new MenuPrincipal(usuario, aerolinea);
-            formMenuP.Show();
-        }
-
         private void btnOpcionUno_Click(object sender, EventArgs e)
         {
-            lstVuelosDos.Visible = lblTituloMenu.Visible = btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = btnRegresar.Visible = false;
-            int posX = (Width - gbxCrearViajeAleatorio.Width) / 2;
-            int posY = (Height - gbxCrearViajeAleatorio.Height) / 2;
-            gbxCrearViajeAleatorio.Location = new Point(posX, posY);
-            gbxCrearViajeAleatorio.Visible = true;
-        }     
-
-        private void btnOpcionCuatro_Click(object sender, EventArgs e)
-        {
-            lstVuelosDos.Visible = btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = btnRegresar.Visible = false;
+            lstViajes.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
             int posX = (Width - gbxCrearViaje.Width) / 2;
             int posY = (Height - gbxCrearViaje.Height) / 2;
             gbxCrearViaje.Location = new Point(posX, posY);
@@ -59,24 +42,7 @@ namespace FormsAerolinea
 
         #region ACCIONES CLICK BOTONES
 
-        private void btnCrearViajeAleatorio_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Vuelo vuelo = new Vuelo(aerolinea).CrearVueloAleatorio(aerolinea);
-                if (vuelo != null)
-                {
-                    aerolinea.agregarVuelo(vuelo);
-                    ActualizarListas();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnCrear_Click(object sender, EventArgs e)
+        private void btnCrearVuelo_Click(object sender, EventArgs e)
         {
             // Verificar si la lista de aviones tiene al menos un avión
             if (aerolinea.listaAviones.Count == 0)
@@ -181,19 +147,13 @@ namespace FormsAerolinea
         private void btnCerrarUno_Click(object sender, EventArgs e)
         {
             gbxCrearViaje.Visible = false;
-            lstVuelosDos.Visible = btnOpcionUno.Visible = btnOpcionDos.Visible =  btnOpcionTres.Visible =  btnOpcionCuatro.Visible =  btnRegresar.Visible = true;
+            lstViajes.Visible = btnOpcionDos.Visible =  btnOpcionTres.Visible =  btnOpcionCuatro.Visible = true;
         }
 
         private void btnCerrarDos_Click(object sender, EventArgs e)
         {
             gbxModificarViaje.Visible = false;
-            lstVuelosDos.Visible = btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = btnRegresar.Visible = true;
-        }
-
-        private void btnCerrarCuatro_Click(object sender, EventArgs e)
-        {
-            gbxCrearViajeAleatorio.Visible = false;
-            lstVuelosDos.Visible = lblTituloMenu.Visible = btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = btnRegresar.Visible = true;
+            lstViajes.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
         }
 
         #endregion
@@ -202,11 +162,6 @@ namespace FormsAerolinea
 
         private void ActualizarListas()
         {
-            lstVuelosDos.DataSource = null;
-            lstVuelosDos.DataSource = aerolinea.listaVuelos;
-            lstVuelosDos.DisplayMember = "ObtenerInformacionVuelo";
-            lstVuelosDos.Refresh();
-
             lstViajes.DataSource = null;
             lstViajes.DataSource = aerolinea.listaVuelos;
             lstViajes.DisplayMember = "ObtenerInformacionVuelo";
@@ -293,6 +248,9 @@ namespace FormsAerolinea
             }
         }
 
+
         #endregion
+
+        
     }
 }

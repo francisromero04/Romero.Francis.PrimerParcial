@@ -31,14 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.barraTop = new System.Windows.Forms.Panel();
+            this.btnMaximizar = new System.Windows.Forms.PictureBox();
+            this.btnMinimizar = new System.Windows.Forms.PictureBox();
+            this.btnRestaurar = new System.Windows.Forms.PictureBox();
+            this.btnCerrarFormulario = new System.Windows.Forms.PictureBox();
             this.barraLateral = new System.Windows.Forms.Panel();
-            this.SubmenuApagado = new System.Windows.Forms.Panel();
-            this.btnCerrarSesion = new System.Windows.Forms.Button();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.btnApagar = new System.Windows.Forms.Button();
-            this.lbldentificador = new System.Windows.Forms.Label();
-            this.btnInicioApagado = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblIdentificador = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.btnOpcionSeis = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -51,347 +52,22 @@
             this.btnOpcionDos = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnOpcionUno = new System.Windows.Forms.Button();
-            this.lblNombreAerolinea = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.barraTop = new System.Windows.Forms.Panel();
-            this.btnMaximizar = new System.Windows.Forms.PictureBox();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
-            this.btnRestaurar = new System.Windows.Forms.PictureBox();
-            this.btnCerrarFormulario = new System.Windows.Forms.PictureBox();
+            this.barraTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarFormulario)).BeginInit();
             this.barraLateral.SuspendLayout();
-            this.SubmenuApagado.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnInicioApagado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panelContenedor.SuspendLayout();
-            this.barraTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarFormulario)).BeginInit();
             this.SuspendLayout();
-            // 
-            // barraLateral
-            // 
-            this.barraLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.barraLateral.Controls.Add(this.SubmenuApagado);
-            this.barraLateral.Controls.Add(this.lbldentificador);
-            this.barraLateral.Controls.Add(this.btnInicioApagado);
-            this.barraLateral.Controls.Add(this.pictureBox7);
-            this.barraLateral.Controls.Add(this.btnOpcionSeis);
-            this.barraLateral.Controls.Add(this.pictureBox6);
-            this.barraLateral.Controls.Add(this.btnOpcionCinco);
-            this.barraLateral.Controls.Add(this.pictureBox5);
-            this.barraLateral.Controls.Add(this.btnOpcionCuatro);
-            this.barraLateral.Controls.Add(this.pictureBox4);
-            this.barraLateral.Controls.Add(this.btnOpcionTres);
-            this.barraLateral.Controls.Add(this.pictureBox3);
-            this.barraLateral.Controls.Add(this.btnOpcionDos);
-            this.barraLateral.Controls.Add(this.pictureBox2);
-            this.barraLateral.Controls.Add(this.btnOpcionUno);
-            this.barraLateral.Controls.Add(this.lblNombreAerolinea);
-            this.barraLateral.Controls.Add(this.pictureBox1);
-            this.barraLateral.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barraLateral.Location = new System.Drawing.Point(0, 0);
-            this.barraLateral.Name = "barraLateral";
-            this.barraLateral.Size = new System.Drawing.Size(220, 650);
-            this.barraLateral.TabIndex = 1;
-            // 
-            // SubmenuApagado
-            // 
-            this.SubmenuApagado.Controls.Add(this.btnCerrarSesion);
-            this.SubmenuApagado.Controls.Add(this.pictureBox9);
-            this.SubmenuApagado.Controls.Add(this.pictureBox8);
-            this.SubmenuApagado.Controls.Add(this.btnApagar);
-            this.SubmenuApagado.Location = new System.Drawing.Point(57, 587);
-            this.SubmenuApagado.Name = "SubmenuApagado";
-            this.SubmenuApagado.Size = new System.Drawing.Size(157, 60);
-            this.SubmenuApagado.TabIndex = 21;
-            this.SubmenuApagado.Visible = false;
-            // 
-            // btnCerrarSesion
-            // 
-            this.btnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnCerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
-            this.btnCerrarSesion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesion.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarSesion.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(14, 32);
-            this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(138, 25);
-            this.btnCerrarSesion.TabIndex = 24;
-            this.btnCerrarSesion.Text = "Cerrar Sesión";
-            this.btnCerrarSesion.UseVisualStyleBackColor = false;
-            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.pictureBox9.Location = new System.Drawing.Point(3, 33);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(5, 24);
-            this.pictureBox9.TabIndex = 23;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.pictureBox8.Location = new System.Drawing.Point(3, 4);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(5, 24);
-            this.pictureBox8.TabIndex = 22;
-            this.pictureBox8.TabStop = false;
-            // 
-            // btnApagar
-            // 
-            this.btnApagar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnApagar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnApagar.FlatAppearance.BorderSize = 0;
-            this.btnApagar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnApagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnApagar.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApagar.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnApagar.Location = new System.Drawing.Point(14, 3);
-            this.btnApagar.Name = "btnApagar";
-            this.btnApagar.Size = new System.Drawing.Size(138, 25);
-            this.btnApagar.TabIndex = 0;
-            this.btnApagar.Text = "Apagar";
-            this.btnApagar.UseVisualStyleBackColor = false;
-            this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
-            // 
-            // lbldentificador
-            // 
-            this.lbldentificador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbldentificador.AutoSize = true;
-            this.lbldentificador.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldentificador.ForeColor = System.Drawing.Color.GhostWhite;
-            this.lbldentificador.Location = new System.Drawing.Point(3, 110);
-            this.lbldentificador.Name = "lbldentificador";
-            this.lbldentificador.Size = new System.Drawing.Size(0, 19);
-            this.lbldentificador.TabIndex = 18;
-            // 
-            // btnInicioApagado
-            // 
-            this.btnInicioApagado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnInicioApagado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInicioApagado.Image = ((System.Drawing.Image)(resources.GetObject("btnInicioApagado.Image")));
-            this.btnInicioApagado.Location = new System.Drawing.Point(3, 597);
-            this.btnInicioApagado.Name = "btnInicioApagado";
-            this.btnInicioApagado.Size = new System.Drawing.Size(48, 41);
-            this.btnInicioApagado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnInicioApagado.TabIndex = 17;
-            this.btnInicioApagado.TabStop = false;
-            this.btnInicioApagado.Click += new System.EventHandler(this.btnInicioApagado_Click);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.pictureBox7.Location = new System.Drawing.Point(3, 508);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(5, 37);
-            this.pictureBox7.TabIndex = 16;
-            this.pictureBox7.TabStop = false;
-            // 
-            // btnOpcionSeis
-            // 
-            this.btnOpcionSeis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnOpcionSeis.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpcionSeis.FlatAppearance.BorderSize = 0;
-            this.btnOpcionSeis.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnOpcionSeis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpcionSeis.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionSeis.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnOpcionSeis.Image = ((System.Drawing.Image)(resources.GetObject("btnOpcionSeis.Image")));
-            this.btnOpcionSeis.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpcionSeis.Location = new System.Drawing.Point(14, 508);
-            this.btnOpcionSeis.Name = "btnOpcionSeis";
-            this.btnOpcionSeis.Size = new System.Drawing.Size(206, 43);
-            this.btnOpcionSeis.TabIndex = 15;
-            this.btnOpcionSeis.Text = "Administrador\r\nde Aviones";
-            this.btnOpcionSeis.UseVisualStyleBackColor = false;
-            this.btnOpcionSeis.Click += new System.EventHandler(this.btnOpcionSeis_Click);
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.pictureBox6.Location = new System.Drawing.Point(3, 431);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(5, 37);
-            this.pictureBox6.TabIndex = 14;
-            this.pictureBox6.TabStop = false;
-            // 
-            // btnOpcionCinco
-            // 
-            this.btnOpcionCinco.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnOpcionCinco.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpcionCinco.FlatAppearance.BorderSize = 0;
-            this.btnOpcionCinco.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnOpcionCinco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpcionCinco.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionCinco.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnOpcionCinco.Image = ((System.Drawing.Image)(resources.GetObject("btnOpcionCinco.Image")));
-            this.btnOpcionCinco.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpcionCinco.Location = new System.Drawing.Point(14, 431);
-            this.btnOpcionCinco.Name = "btnOpcionCinco";
-            this.btnOpcionCinco.Size = new System.Drawing.Size(206, 43);
-            this.btnOpcionCinco.TabIndex = 13;
-            this.btnOpcionCinco.Text = "Administrador\r\nde Pasajeros";
-            this.btnOpcionCinco.UseVisualStyleBackColor = false;
-            this.btnOpcionCinco.Click += new System.EventHandler(this.btnOpcionCinco_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.pictureBox5.Location = new System.Drawing.Point(3, 356);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(5, 37);
-            this.pictureBox5.TabIndex = 12;
-            this.pictureBox5.TabStop = false;
-            // 
-            // btnOpcionCuatro
-            // 
-            this.btnOpcionCuatro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnOpcionCuatro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpcionCuatro.FlatAppearance.BorderSize = 0;
-            this.btnOpcionCuatro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnOpcionCuatro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpcionCuatro.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionCuatro.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnOpcionCuatro.Image = ((System.Drawing.Image)(resources.GetObject("btnOpcionCuatro.Image")));
-            this.btnOpcionCuatro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpcionCuatro.Location = new System.Drawing.Point(14, 356);
-            this.btnOpcionCuatro.Name = "btnOpcionCuatro";
-            this.btnOpcionCuatro.Size = new System.Drawing.Size(206, 43);
-            this.btnOpcionCuatro.TabIndex = 11;
-            this.btnOpcionCuatro.Text = "Administrador \r\nde Viajes";
-            this.btnOpcionCuatro.UseVisualStyleBackColor = false;
-            this.btnOpcionCuatro.Click += new System.EventHandler(this.btnOpcionCuatro_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.pictureBox4.Location = new System.Drawing.Point(3, 287);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(5, 37);
-            this.pictureBox4.TabIndex = 10;
-            this.pictureBox4.TabStop = false;
-            // 
-            // btnOpcionTres
-            // 
-            this.btnOpcionTres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnOpcionTres.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpcionTres.FlatAppearance.BorderSize = 0;
-            this.btnOpcionTres.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnOpcionTres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpcionTres.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionTres.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnOpcionTres.Image = ((System.Drawing.Image)(resources.GetObject("btnOpcionTres.Image")));
-            this.btnOpcionTres.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpcionTres.Location = new System.Drawing.Point(14, 287);
-            this.btnOpcionTres.Name = "btnOpcionTres";
-            this.btnOpcionTres.Size = new System.Drawing.Size(206, 32);
-            this.btnOpcionTres.TabIndex = 9;
-            this.btnOpcionTres.Text = "   Estadísticas   ";
-            this.btnOpcionTres.UseVisualStyleBackColor = false;
-            this.btnOpcionTres.Click += new System.EventHandler(this.btnOpcionTres_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.pictureBox3.Location = new System.Drawing.Point(3, 223);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(5, 37);
-            this.pictureBox3.TabIndex = 8;
-            this.pictureBox3.TabStop = false;
-            // 
-            // btnOpcionDos
-            // 
-            this.btnOpcionDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnOpcionDos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpcionDos.FlatAppearance.BorderSize = 0;
-            this.btnOpcionDos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnOpcionDos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpcionDos.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionDos.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnOpcionDos.Image = ((System.Drawing.Image)(resources.GetObject("btnOpcionDos.Image")));
-            this.btnOpcionDos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpcionDos.Location = new System.Drawing.Point(14, 223);
-            this.btnOpcionDos.Name = "btnOpcionDos";
-            this.btnOpcionDos.Size = new System.Drawing.Size(206, 32);
-            this.btnOpcionDos.TabIndex = 7;
-            this.btnOpcionDos.Text = "  Venta de Pasajes";
-            this.btnOpcionDos.UseVisualStyleBackColor = false;
-            this.btnOpcionDos.Click += new System.EventHandler(this.btnOpcionDos_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 159);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(5, 37);
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
-            // 
-            // btnOpcionUno
-            // 
-            this.btnOpcionUno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnOpcionUno.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpcionUno.FlatAppearance.BorderSize = 0;
-            this.btnOpcionUno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnOpcionUno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpcionUno.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionUno.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnOpcionUno.Image = ((System.Drawing.Image)(resources.GetObject("btnOpcionUno.Image")));
-            this.btnOpcionUno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpcionUno.Location = new System.Drawing.Point(14, 159);
-            this.btnOpcionUno.Name = "btnOpcionUno";
-            this.btnOpcionUno.Size = new System.Drawing.Size(206, 32);
-            this.btnOpcionUno.TabIndex = 5;
-            this.btnOpcionUno.Text = "  Listado de Viajes";
-            this.btnOpcionUno.UseVisualStyleBackColor = false;
-            this.btnOpcionUno.Click += new System.EventHandler(this.btnOpcionUno_Click);
-            // 
-            // lblNombreAerolinea
-            // 
-            this.lblNombreAerolinea.AutoSize = true;
-            this.lblNombreAerolinea.Font = new System.Drawing.Font("Segoe Script", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreAerolinea.ForeColor = System.Drawing.Color.GhostWhite;
-            this.lblNombreAerolinea.Location = new System.Drawing.Point(96, 9);
-            this.lblNombreAerolinea.Name = "lblNombreAerolinea";
-            this.lblNombreAerolinea.Size = new System.Drawing.Size(97, 62);
-            this.lblNombreAerolinea.TabIndex = 4;
-            this.lblNombreAerolinea.Text = " Stellar\r\nAirways";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(87, 72);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panelContenedor
-            // 
-            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.panelContenedor.Controls.Add(this.barraTop);
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(220, 0);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1080, 650);
-            this.panelContenedor.TabIndex = 2;
             // 
             // barraTop
             // 
@@ -403,8 +79,8 @@
             this.barraTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barraTop.Location = new System.Drawing.Point(0, 0);
             this.barraTop.Name = "barraTop";
-            this.barraTop.Size = new System.Drawing.Size(1080, 45);
-            this.barraTop.TabIndex = 0;
+            this.barraTop.Size = new System.Drawing.Size(1300, 40);
+            this.barraTop.TabIndex = 47;
             this.barraTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barraTop_MouseDown);
             // 
             // btnMaximizar
@@ -412,7 +88,7 @@
             this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
-            this.btnMaximizar.Location = new System.Drawing.Point(1022, 12);
+            this.btnMaximizar.Location = new System.Drawing.Point(1242, 12);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(20, 20);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -425,7 +101,7 @@
             this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(996, 12);
+            this.btnMinimizar.Location = new System.Drawing.Point(1216, 12);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(20, 20);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -438,7 +114,7 @@
             this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
-            this.btnRestaurar.Location = new System.Drawing.Point(1022, 12);
+            this.btnRestaurar.Location = new System.Drawing.Point(1242, 12);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(20, 20);
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -451,7 +127,7 @@
             this.btnCerrarFormulario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrarFormulario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrarFormulario.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarFormulario.Image")));
-            this.btnCerrarFormulario.Location = new System.Drawing.Point(1048, 12);
+            this.btnCerrarFormulario.Location = new System.Drawing.Point(1268, 12);
             this.btnCerrarFormulario.Name = "btnCerrarFormulario";
             this.btnCerrarFormulario.Size = new System.Drawing.Size(20, 20);
             this.btnCerrarFormulario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -459,54 +135,295 @@
             this.btnCerrarFormulario.TabStop = false;
             this.btnCerrarFormulario.Click += new System.EventHandler(this.btnCerrarPestaña_Click);
             // 
+            // barraLateral
+            // 
+            this.barraLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.barraLateral.Controls.Add(this.pictureBox8);
+            this.barraLateral.Controls.Add(this.pictureBox1);
+            this.barraLateral.Controls.Add(this.lblIdentificador);
+            this.barraLateral.Controls.Add(this.pictureBox7);
+            this.barraLateral.Controls.Add(this.btnOpcionSeis);
+            this.barraLateral.Controls.Add(this.pictureBox6);
+            this.barraLateral.Controls.Add(this.btnOpcionCinco);
+            this.barraLateral.Controls.Add(this.pictureBox5);
+            this.barraLateral.Controls.Add(this.btnOpcionCuatro);
+            this.barraLateral.Controls.Add(this.pictureBox4);
+            this.barraLateral.Controls.Add(this.btnOpcionTres);
+            this.barraLateral.Controls.Add(this.pictureBox3);
+            this.barraLateral.Controls.Add(this.btnOpcionDos);
+            this.barraLateral.Controls.Add(this.pictureBox2);
+            this.barraLateral.Controls.Add(this.btnOpcionUno);
+            this.barraLateral.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barraLateral.Location = new System.Drawing.Point(0, 40);
+            this.barraLateral.Name = "barraLateral";
+            this.barraLateral.Size = new System.Drawing.Size(236, 610);
+            this.barraLateral.TabIndex = 49;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(12, 555);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(53, 43);
+            this.pictureBox8.TabIndex = 23;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(44, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(105, 102);
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblIdentificador
+            // 
+            this.lblIdentificador.AutoSize = true;
+            this.lblIdentificador.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdentificador.ForeColor = System.Drawing.Color.GhostWhite;
+            this.lblIdentificador.Location = new System.Drawing.Point(40, 111);
+            this.lblIdentificador.Name = "lblIdentificador";
+            this.lblIdentificador.Size = new System.Drawing.Size(0, 19);
+            this.lblIdentificador.TabIndex = 18;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.pictureBox7.Location = new System.Drawing.Point(1, 447);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(5, 35);
+            this.pictureBox7.TabIndex = 16;
+            this.pictureBox7.TabStop = false;
+            // 
+            // btnOpcionSeis
+            // 
+            this.btnOpcionSeis.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnOpcionSeis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnOpcionSeis.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpcionSeis.FlatAppearance.BorderSize = 0;
+            this.btnOpcionSeis.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnOpcionSeis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpcionSeis.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcionSeis.ForeColor = System.Drawing.Color.GhostWhite;
+            this.btnOpcionSeis.Image = ((System.Drawing.Image)(resources.GetObject("btnOpcionSeis.Image")));
+            this.btnOpcionSeis.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpcionSeis.Location = new System.Drawing.Point(12, 447);
+            this.btnOpcionSeis.Name = "btnOpcionSeis";
+            this.btnOpcionSeis.Size = new System.Drawing.Size(206, 35);
+            this.btnOpcionSeis.TabIndex = 15;
+            this.btnOpcionSeis.Text = "Aviones";
+            this.btnOpcionSeis.UseVisualStyleBackColor = false;
+            this.btnOpcionSeis.Click += new System.EventHandler(this.btnOpcionSeis_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.pictureBox6.Location = new System.Drawing.Point(1, 397);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(5, 35);
+            this.pictureBox6.TabIndex = 14;
+            this.pictureBox6.TabStop = false;
+            // 
+            // btnOpcionCinco
+            // 
+            this.btnOpcionCinco.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnOpcionCinco.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnOpcionCinco.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpcionCinco.FlatAppearance.BorderSize = 0;
+            this.btnOpcionCinco.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnOpcionCinco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpcionCinco.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcionCinco.ForeColor = System.Drawing.Color.GhostWhite;
+            this.btnOpcionCinco.Image = ((System.Drawing.Image)(resources.GetObject("btnOpcionCinco.Image")));
+            this.btnOpcionCinco.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpcionCinco.Location = new System.Drawing.Point(12, 397);
+            this.btnOpcionCinco.Name = "btnOpcionCinco";
+            this.btnOpcionCinco.Size = new System.Drawing.Size(206, 35);
+            this.btnOpcionCinco.TabIndex = 13;
+            this.btnOpcionCinco.Text = "Pasajeros";
+            this.btnOpcionCinco.UseVisualStyleBackColor = false;
+            this.btnOpcionCinco.Click += new System.EventHandler(this.btnOpcionCinco_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.pictureBox5.Location = new System.Drawing.Point(1, 346);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(5, 35);
+            this.pictureBox5.TabIndex = 12;
+            this.pictureBox5.TabStop = false;
+            // 
+            // btnOpcionCuatro
+            // 
+            this.btnOpcionCuatro.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnOpcionCuatro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnOpcionCuatro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpcionCuatro.FlatAppearance.BorderSize = 0;
+            this.btnOpcionCuatro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnOpcionCuatro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpcionCuatro.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcionCuatro.ForeColor = System.Drawing.Color.GhostWhite;
+            this.btnOpcionCuatro.Image = ((System.Drawing.Image)(resources.GetObject("btnOpcionCuatro.Image")));
+            this.btnOpcionCuatro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpcionCuatro.Location = new System.Drawing.Point(12, 346);
+            this.btnOpcionCuatro.Name = "btnOpcionCuatro";
+            this.btnOpcionCuatro.Size = new System.Drawing.Size(206, 35);
+            this.btnOpcionCuatro.TabIndex = 11;
+            this.btnOpcionCuatro.Text = "Viajes";
+            this.btnOpcionCuatro.UseVisualStyleBackColor = false;
+            this.btnOpcionCuatro.Click += new System.EventHandler(this.btnOpcionCuatro_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.pictureBox4.Location = new System.Drawing.Point(1, 295);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(5, 35);
+            this.pictureBox4.TabIndex = 10;
+            this.pictureBox4.TabStop = false;
+            // 
+            // btnOpcionTres
+            // 
+            this.btnOpcionTres.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnOpcionTres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnOpcionTres.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpcionTres.FlatAppearance.BorderSize = 0;
+            this.btnOpcionTres.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnOpcionTres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpcionTres.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcionTres.ForeColor = System.Drawing.Color.GhostWhite;
+            this.btnOpcionTres.Image = ((System.Drawing.Image)(resources.GetObject("btnOpcionTres.Image")));
+            this.btnOpcionTres.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpcionTres.Location = new System.Drawing.Point(12, 295);
+            this.btnOpcionTres.Name = "btnOpcionTres";
+            this.btnOpcionTres.Size = new System.Drawing.Size(206, 35);
+            this.btnOpcionTres.TabIndex = 9;
+            this.btnOpcionTres.Text = "   Estadísticas   ";
+            this.btnOpcionTres.UseVisualStyleBackColor = false;
+            this.btnOpcionTres.Click += new System.EventHandler(this.btnOpcionTres_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.pictureBox3.Location = new System.Drawing.Point(1, 245);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(5, 35);
+            this.pictureBox3.TabIndex = 8;
+            this.pictureBox3.TabStop = false;
+            // 
+            // btnOpcionDos
+            // 
+            this.btnOpcionDos.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnOpcionDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnOpcionDos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpcionDos.FlatAppearance.BorderSize = 0;
+            this.btnOpcionDos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnOpcionDos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpcionDos.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcionDos.ForeColor = System.Drawing.Color.GhostWhite;
+            this.btnOpcionDos.Image = ((System.Drawing.Image)(resources.GetObject("btnOpcionDos.Image")));
+            this.btnOpcionDos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpcionDos.Location = new System.Drawing.Point(12, 245);
+            this.btnOpcionDos.Name = "btnOpcionDos";
+            this.btnOpcionDos.Size = new System.Drawing.Size(206, 35);
+            this.btnOpcionDos.TabIndex = 7;
+            this.btnOpcionDos.Text = "  Venta de Pasajes";
+            this.btnOpcionDos.UseVisualStyleBackColor = false;
+            this.btnOpcionDos.Click += new System.EventHandler(this.btnOpcionDos_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.pictureBox2.Location = new System.Drawing.Point(1, 195);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(5, 35);
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnOpcionUno
+            // 
+            this.btnOpcionUno.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnOpcionUno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnOpcionUno.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpcionUno.FlatAppearance.BorderSize = 0;
+            this.btnOpcionUno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnOpcionUno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpcionUno.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcionUno.ForeColor = System.Drawing.Color.GhostWhite;
+            this.btnOpcionUno.Image = ((System.Drawing.Image)(resources.GetObject("btnOpcionUno.Image")));
+            this.btnOpcionUno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpcionUno.Location = new System.Drawing.Point(12, 195);
+            this.btnOpcionUno.Name = "btnOpcionUno";
+            this.btnOpcionUno.Size = new System.Drawing.Size(206, 35);
+            this.btnOpcionUno.TabIndex = 5;
+            this.btnOpcionUno.Text = "  Listado de Viajes";
+            this.btnOpcionUno.UseVisualStyleBackColor = false;
+            this.btnOpcionUno.Click += new System.EventHandler(this.btnOpcionUno_Click);
+            // 
+            // panelContenedor
+            // 
+            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(236, 40);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(1064, 610);
+            this.panelContenedor.TabIndex = 50;
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1300, 650);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.barraLateral);
+            this.Controls.Add(this.barraTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MenuPrincipal";
             this.Opacity = 0.9D;
             this.Text = "Menu Principal";
+            this.barraTop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarFormulario)).EndInit();
             this.barraLateral.ResumeLayout(false);
             this.barraLateral.PerformLayout();
-            this.SubmenuApagado.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnInicioApagado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelContenedor.ResumeLayout(false);
-            this.barraTop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarFormulario)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Panel barraLateral;
-        private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.Panel barraTop;
         private System.Windows.Forms.PictureBox btnMaximizar;
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox btnRestaurar;
         private System.Windows.Forms.PictureBox btnCerrarFormulario;
-        private System.Windows.Forms.Label lblNombreAerolinea;
+        private System.Windows.Forms.Panel barraLateral;
+        private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button btnOpcionUno;
+        private System.Windows.Forms.Label lblIdentificador;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Button btnOpcionSeis;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Button btnOpcionCinco;
         private System.Windows.Forms.PictureBox pictureBox5;
@@ -515,14 +432,8 @@
         private System.Windows.Forms.Button btnOpcionTres;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnOpcionDos;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Button btnOpcionSeis;
-        private System.Windows.Forms.PictureBox btnInicioApagado;
-        private System.Windows.Forms.Label lbldentificador;
-        private System.Windows.Forms.Panel SubmenuApagado;
-        private System.Windows.Forms.Button btnApagar;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Button btnCerrarSesion;
-        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnOpcionUno;
+        private System.Windows.Forms.Panel panelContenedor;
     }
 }

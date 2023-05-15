@@ -22,7 +22,7 @@ namespace BibliotecaAerolineasCompleto
             ExtraerDeArchivoJSON();
         }
 
-        public Persona buscarUsuario(string correo, string contraseña)
+        public Persona BuscarUsuario(string correo, string contraseña)
         {
             foreach (Vendedor vendedor in vendedores)
             {
@@ -53,15 +53,15 @@ namespace BibliotecaAerolineasCompleto
             // Deserializamos el JSON en un objeto anónimo con la misma estructura que utilizamos para serializar
             var datos = JsonConvert.DeserializeAnonymousType(json, new
             {
-                administrador = new {Cargo = "", Correo = "", Contraseña = "" },
-                supervisor = new { Cargo = "", Correo = "", Contraseña = "" },
-                vendedores = new[] { new { Cargo = "", Correo = "", Contraseña = "" } }
+                administrador = new {Nombre = "", Cargo = "", Correo = "", Contraseña = "" },
+                supervisor = new { Nombre = "", Cargo = "", Correo = "", Contraseña = "" },
+                vendedores = new[] { new { Nombre = "", Cargo = "", Correo = "", Contraseña = "" } }
             });
 
             // Creamos los objetos Administrador, Supervisor y Vendedores a partir de los datos deserializados
-            administrador = new Administrador(datos.administrador.Cargo,datos.administrador.Correo, datos.administrador.Contraseña);
-            supervisor = new Supervisor(datos.supervisor.Cargo, datos.supervisor.Correo, datos.supervisor.Contraseña);
-            vendedores = datos.vendedores.Select(v => new Vendedor(v.Cargo, v.Correo, v.Contraseña)).ToList();
+            administrador = new Administrador(datos.administrador.Nombre,datos.administrador.Cargo,datos.administrador.Correo, datos.administrador.Contraseña);
+            supervisor = new Supervisor(datos.administrador.Nombre,datos.supervisor.Cargo, datos.supervisor.Correo, datos.supervisor.Contraseña);
+            vendedores = datos.vendedores.Select(v => new Vendedor(v.Nombre,v.Cargo, v.Correo, v.Contraseña)).ToList();
         }
     }
 }

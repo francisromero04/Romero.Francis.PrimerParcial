@@ -21,16 +21,16 @@ namespace FormsAerolinea
 
         public Login()
         {
+            //aerolinea.CrearYGuardarVuelosJson();
+            //aerolinea.CrearYGuardarPasajerosJson();
             InitializeComponent();
         }
-
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
+        
          private void btnIniciarSesion_Click(object sender, EventArgs e)
          {
+             string correo = txtCorreo.Text;
+             string contraseña = txtContraseña.Text;
+
              if (string.IsNullOrEmpty(txtCorreo.Text))
              {
                  MessageBox.Show("Debe ingresar un correo electrónico.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -38,17 +38,14 @@ namespace FormsAerolinea
 
              }
 
-             string correo = txtCorreo.Text;
-             string contraseña = txtContraseña.Text;
-
              // Verificar si los valores de correo y contraseña son correctos
-             if(baseDeDatos.buscarUsuario(correo, contraseña) != null)
+             if(baseDeDatos.BuscarUsuario(correo, contraseña) != null)
              {
                  MessageBox.Show("CORREO INGRESADO CORRECTAMENTE", "SESION INICIADA", MessageBoxButtons.OK, MessageBoxIcon.Information);
                  this.Hide();
-                 MenuPrincipal menuPrincipal = new MenuPrincipal(baseDeDatos.buscarUsuario(correo, contraseña), aerolinea);
+                 MenuPrincipal menuPrincipal = new MenuPrincipal(baseDeDatos.BuscarUsuario(correo, contraseña), aerolinea);
                  menuPrincipal.Show();
-             } 
+            } 
              else
              {
                  // Si se llega a este punto, los valores de correo y contraseña no son correctos
@@ -56,7 +53,7 @@ namespace FormsAerolinea
              }
          }
 
-        #region MANEJO FORMULARIO
+        #region MANEJO FORMULARIO      
 
         private void btnCerrarPestaña_Click(object sender, EventArgs e)
         {
@@ -67,7 +64,6 @@ namespace FormsAerolinea
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
 
         private void txtCorreo_Enter(object sender, EventArgs e)
         {
@@ -106,6 +102,11 @@ namespace FormsAerolinea
                 txtContraseña.UseSystemPasswordChar = false;
             }
         }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
         private void Login_MouseDown(object sender, MouseEventArgs e)
         {

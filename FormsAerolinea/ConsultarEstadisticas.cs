@@ -21,16 +21,32 @@ namespace FormsAerolinea
             this.usuario = usuario;
             this.aerolinea = aerolinea;
             InitializeComponent();
-            lblDineroTotal.Text = "El dinero total recaudado es de: " + aerolinea.dineroTotal;
-            lbldentificador.Text = usuario.cargo + " - " + DateTime.Now.ToString();
-            lblDestino.Text = "El destino mas seleccionado es: " + aerolinea.DestinoMasSeleccionado();
+            ActualizarListas();
+            lblDineroTotal.Text = "Dinero recaudado:: " + aerolinea.dineroTotal;
+            lblDestino.Text = "Destino mas seleccionado es: " + aerolinea.DestinoMasSeleccionado();
         }
 
-        private void btnRegresar_Click(object sender, EventArgs e)
+        public void ActualizarListas()
         {
-            this.Hide();
-            MenuPrincipal formMenuP = new MenuPrincipal(usuario, aerolinea);
-            formMenuP.Show();
+            var vuelosRealizados = new List<Vuelo>();
+            foreach (var vuelo in aerolinea.listaVuelos)
+            {
+                if (vuelo.FechaVuelo < DateTime.Now)
+                {
+                    vuelosRealizados.Add(vuelo);
+                }
+            }
+
+            cmbxListaViajesRealizados.DataSource = null;
+            cmbxListaViajesRealizados.DataSource = vuelosRealizados;
+            cmbxListaViajesRealizados.DisplayMember = "ObtenerInformacionVuelo";
+            cmbxListaViajesRealizados.Refresh();
+        }
+
+        private void cmbxListaViajesRealizados_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Vuelo vueloSeleccionado = (Vuelo)cmbxListaViajesRealizados.SelectedItem;
+            lblPasajeros.Text = "Cantidad de Pasajeros: " + vueloSeleccionado.CantidadPasajeros.ToString();
         }
     }
 }

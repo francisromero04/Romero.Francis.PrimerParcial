@@ -8,7 +8,7 @@ namespace BibliotecaAerolineasCompleto
 {
     public class Administrador:Persona
     {
-        public Administrador(string cargo, string correo, string contraseña) : base(cargo, correo, contraseña)
+        public Administrador(string nombre, string cargo, string correo, string contraseña) : base(nombre, cargo, correo, contraseña)
         {
             // Constructor vacío
         }

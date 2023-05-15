@@ -13,21 +13,19 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace FormsAerolinea
 {
-    public partial class CroodPasajeros : Form
+    public partial class CrudPasajeros : Form
     {
         private Persona usuario;
         private Aerolinea aerolinea;
 
-        public CroodPasajeros(Persona usuario, Aerolinea aerolinea)
+        public CrudPasajeros(Persona usuario, Aerolinea aerolinea)
         {
             InitializeComponent();
             this.usuario = usuario;
             this.aerolinea = aerolinea;
-            lbldentificador.Text = $"{usuario.cargo} - {DateTime.Now:G}";
             ActualizarListas();
 
             gbxCrearPasajero.Visible = false;
-            gbxCrearPasajeroAleatorio.Visible = false;
             gbxModificarPasajero.Visible = false;
             gbxEliminarPasajero.Visible = false;
         }
@@ -52,18 +50,9 @@ namespace FormsAerolinea
             }
         }
 
-        private void btnOpcionUno_Click(object sender, EventArgs e)
-        {
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = btnRegresar.Visible = false;
-            int posX = (Width - gbxCrearPasajeroAleatorio.Width) / 2;
-            int posY = (Height - gbxCrearPasajeroAleatorio.Height) / 2;
-            gbxCrearPasajeroAleatorio.Location = new Point(posX, posY);
-            gbxCrearPasajeroAleatorio.Visible = true;
-        }
-
         private void btnOpcionDos_Click(object sender, EventArgs e)
         {
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = btnRegresar.Visible = false;
+            btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
             int posX = (Width - gbxModificarPasajero.Width) / 2;
             int posY = (Height - gbxModificarPasajero.Height) / 2;
             gbxModificarPasajero.Location = new Point(posX, posY);
@@ -72,7 +61,7 @@ namespace FormsAerolinea
 
         private void btnOpcionTres_Click(object sender, EventArgs e)
         {
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = btnRegresar.Visible = false;
+            btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
             int posX = (Width - gbxEliminarPasajero.Width) / 2;
             int posY = (Height - gbxEliminarPasajero.Height) / 2;
             gbxEliminarPasajero.Location = new Point(posX, posY);
@@ -82,7 +71,7 @@ namespace FormsAerolinea
         
         private void btnOpcionCuatro_Click_1(object sender, EventArgs e)
         {
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = btnRegresar.Visible = false;
+            btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
             int posX = (Width - gbxCrearPasajero.Width) / 2;
             int posY = (Height - gbxCrearPasajero.Height) / 2;
             gbxCrearPasajero.Location = new Point(posX, posY);
@@ -97,7 +86,7 @@ namespace FormsAerolinea
         {
             Random random = new Random();
 
-            for (int i = 0; i < 50; i++)
+         /*   for (int i = 0; i < 50; i++)
             {
                 Pasajero pasajero = new Pasajero().GenerarPasajeroAleatorio(random);
                 
@@ -110,12 +99,12 @@ namespace FormsAerolinea
                     MessageBox.Show("El pasajero tiene un dni perteneciente a otro pasajero.");
                 }
             }
-            ActualizarListas();
+            ActualizarListas();*/
         }
         
         private void btnCrearPasajero_Click(object sender, EventArgs e)
         {
-            string nombrePasajero = txtNombrePasajerotres.Text;
+          /*  string nombrePasajero = txtNombrePasajerotres.Text;
             string apellidoPasajero = txtApellidoPasajeroTres.Text;
             string dniPasajero = txtDniPasajeroTres.Text;
 
@@ -144,7 +133,7 @@ namespace FormsAerolinea
             else
             {
                 MessageBox.Show("Por favor, ingrese valores válidos para el nombre, apellido y dni del pasajero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            } */
         }        
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -157,9 +146,9 @@ namespace FormsAerolinea
                 return;
             }
 
-            bool nombreActualizado = actualizarNombre(pasajeroSeleccionado);
-            bool apellidoActualizado = actualizarApellido(pasajeroSeleccionado);
-            bool dniActualizado = actualizarDni(pasajeroSeleccionado);
+            bool nombreActualizado = ActualizarNombre(pasajeroSeleccionado);
+            bool apellidoActualizado = ActualizarApellido(pasajeroSeleccionado);
+            bool dniActualizado = ActualizarDni(pasajeroSeleccionado);
 
             if(nombreActualizado == false ||  apellidoActualizado == false || dniActualizado == false)
             {
@@ -204,52 +193,36 @@ namespace FormsAerolinea
         #endregion
 
         #region VISIBILIDAD BOTONES
-
-        private void btnCerrarUno_Click(object sender, EventArgs e)
-        {
-            gbxCrearPasajeroAleatorio.Visible = false;
-            btnOpcionUno.Visible = true;
-            btnOpcionDos.Visible = true;
-            btnOpcionTres.Visible = true;
-            btnOpcionCuatro.Visible = true;
-            btnRegresar.Visible = true;
-        }
         
         private void btnCerrarDos_Click(object sender, EventArgs e)
         {
             gbxModificarPasajero.Visible = false;
-            btnOpcionUno.Visible = true;
             btnOpcionDos.Visible = true;
             btnOpcionTres.Visible = true;
             btnOpcionCuatro.Visible = true;
-            btnRegresar.Visible = true;
         }
         
         private void btnCerrarTres_Click(object sender, EventArgs e)
         {
             gbxEliminarPasajero.Visible = false;
-            btnOpcionUno.Visible = true;
             btnOpcionDos.Visible = true;
             btnOpcionTres.Visible = true;
             btnOpcionCuatro.Visible = true;
-            btnRegresar.Visible = true;
         }
         
         private void btnCerrarCuatro_Click(object sender, EventArgs e)
         {
             gbxCrearPasajero.Visible = false;
-            btnOpcionUno.Visible = true;
             btnOpcionDos.Visible = true;
             btnOpcionTres.Visible = true;
             btnOpcionCuatro.Visible = true;
-            btnRegresar.Visible = true;
         }
 
         #endregion
         
         #region ACTUALIZADORES
      
-        private bool actualizarNombre(Pasajero pasajero)
+        private bool ActualizarNombre(Pasajero pasajero)
         {
             if (Validador.ValidarCadena(txtNombrePasajeroDos.Text))
             {
@@ -263,7 +236,7 @@ namespace FormsAerolinea
             }
         }
 
-        private bool actualizarApellido(Pasajero pasajero)
+        private bool ActualizarApellido(Pasajero pasajero)
         {
             if (Validador.ValidarCadena(txtApellidoDos.Text))
             {
@@ -277,7 +250,7 @@ namespace FormsAerolinea
             }
         }
 
-        private bool actualizarDni(Pasajero pasajero)
+        private bool ActualizarDni(Pasajero pasajero)
         {
             int dni;
 

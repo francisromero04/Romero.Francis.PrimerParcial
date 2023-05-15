@@ -28,208 +28,175 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cmbxListaVuelos = new System.Windows.Forms.ComboBox();
-            this.lblTituloVenderViaje = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VenderViaje));
             this.lblListaViajes = new System.Windows.Forms.Label();
-            this.btnRegresar = new System.Windows.Forms.Button();
-            this.lbldentificador = new System.Windows.Forms.Label();
-            this.gbxVenderPasaje = new System.Windows.Forms.GroupBox();
             this.lblPrecioPasaje = new System.Windows.Forms.Label();
-            this.cmbxListaPasajeros = new System.Windows.Forms.ComboBox();
             this.lblListaPasajeros = new System.Windows.Forms.Label();
             this.chbTipoPasajero = new System.Windows.Forms.CheckBox();
-            this.chbDestino = new System.Windows.Forms.CheckBox();
             this.lblCostoPasaje = new System.Windows.Forms.Label();
             this.btnVenderPasaje = new System.Windows.Forms.Button();
-            this.gbxVenderPasaje.SuspendLayout();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmbxListaVuelos = new System.Windows.Forms.ComboBox();
+            this.cmbxListaPasajeros = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cmbxListaVuelos
-            // 
-            this.cmbxListaVuelos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbxListaVuelos.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.cmbxListaVuelos.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbxListaVuelos.FormattingEnabled = true;
-            this.cmbxListaVuelos.Location = new System.Drawing.Point(151, 99);
-            this.cmbxListaVuelos.Name = "cmbxListaVuelos";
-            this.cmbxListaVuelos.Size = new System.Drawing.Size(585, 27);
-            this.cmbxListaVuelos.TabIndex = 0;
-            this.cmbxListaVuelos.SelectedIndexChanged += new System.EventHandler(this.cmbxListaVuelos_SelectedIndexChanged);
-            // 
-            // lblTituloVenderViaje
-            // 
-            this.lblTituloVenderViaje.AutoSize = true;
-            this.lblTituloVenderViaje.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.lblTituloVenderViaje.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTituloVenderViaje.Font = new System.Drawing.Font("Sitka Subheading", 44.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloVenderViaje.Location = new System.Drawing.Point(367, 158);
-            this.lblTituloVenderViaje.Name = "lblTituloVenderViaje";
-            this.lblTituloVenderViaje.Size = new System.Drawing.Size(526, 88);
-            this.lblTituloVenderViaje.TabIndex = 1;
-            this.lblTituloVenderViaje.Text = "VENDER UN VIAJE";
             // 
             // lblListaViajes
             // 
             this.lblListaViajes.AutoSize = true;
-            this.lblListaViajes.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.lblListaViajes.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListaViajes.Location = new System.Drawing.Point(6, 99);
+            this.lblListaViajes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.lblListaViajes.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListaViajes.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblListaViajes.Location = new System.Drawing.Point(583, 360);
             this.lblListaViajes.Name = "lblListaViajes";
-            this.lblListaViajes.Size = new System.Drawing.Size(115, 23);
+            this.lblListaViajes.Size = new System.Drawing.Size(184, 31);
             this.lblListaViajes.TabIndex = 2;
             this.lblListaViajes.Text = "Lista de vuelos";
-            // 
-            // btnRegresar
-            // 
-            this.btnRegresar.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.btnRegresar.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegresar.Location = new System.Drawing.Point(530, 503);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(177, 40);
-            this.btnRegresar.TabIndex = 38;
-            this.btnRegresar.Text = "Regresar al menú anterior";
-            this.btnRegresar.UseVisualStyleBackColor = false;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
-            // 
-            // lbldentificador
-            // 
-            this.lbldentificador.AutoSize = true;
-            this.lbldentificador.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldentificador.Location = new System.Drawing.Point(879, 53);
-            this.lbldentificador.Name = "lbldentificador";
-            this.lbldentificador.Size = new System.Drawing.Size(14, 19);
-            this.lbldentificador.TabIndex = 39;
-            this.lbldentificador.Text = "-";
-            // 
-            // gbxVenderPasaje
-            // 
-            this.gbxVenderPasaje.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.gbxVenderPasaje.Controls.Add(this.lblPrecioPasaje);
-            this.gbxVenderPasaje.Controls.Add(this.cmbxListaPasajeros);
-            this.gbxVenderPasaje.Controls.Add(this.lblListaPasajeros);
-            this.gbxVenderPasaje.Controls.Add(this.chbTipoPasajero);
-            this.gbxVenderPasaje.Controls.Add(this.chbDestino);
-            this.gbxVenderPasaje.Controls.Add(this.lblListaViajes);
-            this.gbxVenderPasaje.Controls.Add(this.cmbxListaVuelos);
-            this.gbxVenderPasaje.Controls.Add(this.lblCostoPasaje);
-            this.gbxVenderPasaje.Controls.Add(this.btnVenderPasaje);
-            this.gbxVenderPasaje.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbxVenderPasaje.Font = new System.Drawing.Font("Sitka Subheading", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxVenderPasaje.Location = new System.Drawing.Point(251, 249);
-            this.gbxVenderPasaje.Name = "gbxVenderPasaje";
-            this.gbxVenderPasaje.Size = new System.Drawing.Size(754, 248);
-            this.gbxVenderPasaje.TabIndex = 46;
-            this.gbxVenderPasaje.TabStop = false;
-            this.gbxVenderPasaje.Text = "Vender un pasaje";
             // 
             // lblPrecioPasaje
             // 
             this.lblPrecioPasaje.AutoSize = true;
-            this.lblPrecioPasaje.Font = new System.Drawing.Font("Sitka Subheading", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioPasaje.Location = new System.Drawing.Point(148, 175);
+            this.lblPrecioPasaje.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioPasaje.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblPrecioPasaje.Location = new System.Drawing.Point(789, 458);
             this.lblPrecioPasaje.Name = "lblPrecioPasaje";
-            this.lblPrecioPasaje.Size = new System.Drawing.Size(0, 18);
+            this.lblPrecioPasaje.Size = new System.Drawing.Size(0, 31);
             this.lblPrecioPasaje.TabIndex = 60;
-            // 
-            // cmbxListaPasajeros
-            // 
-            this.cmbxListaPasajeros.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbxListaPasajeros.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.cmbxListaPasajeros.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbxListaPasajeros.FormattingEnabled = true;
-            this.cmbxListaPasajeros.Location = new System.Drawing.Point(151, 136);
-            this.cmbxListaPasajeros.Name = "cmbxListaPasajeros";
-            this.cmbxListaPasajeros.Size = new System.Drawing.Size(585, 27);
-            this.cmbxListaPasajeros.TabIndex = 59;
             // 
             // lblListaPasajeros
             // 
             this.lblListaPasajeros.AutoSize = true;
-            this.lblListaPasajeros.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.lblListaPasajeros.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListaPasajeros.Location = new System.Drawing.Point(6, 132);
+            this.lblListaPasajeros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.lblListaPasajeros.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListaPasajeros.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblListaPasajeros.Location = new System.Drawing.Point(583, 410);
             this.lblListaPasajeros.Name = "lblListaPasajeros";
-            this.lblListaPasajeros.Size = new System.Drawing.Size(137, 23);
+            this.lblListaPasajeros.Size = new System.Drawing.Size(188, 31);
             this.lblListaPasajeros.TabIndex = 58;
-            this.lblListaPasajeros.Text = "Lista de pasajeros";
+            this.lblListaPasajeros.Text = "Lista pasajeros";
             // 
             // chbTipoPasajero
             // 
             this.chbTipoPasajero.AutoSize = true;
             this.chbTipoPasajero.Checked = true;
             this.chbTipoPasajero.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbTipoPasajero.Location = new System.Drawing.Point(15, 59);
+            this.chbTipoPasajero.FlatAppearance.BorderSize = 0;
+            this.chbTipoPasajero.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.chbTipoPasajero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chbTipoPasajero.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbTipoPasajero.ForeColor = System.Drawing.SystemColors.Control;
+            this.chbTipoPasajero.Location = new System.Drawing.Point(725, 308);
             this.chbTipoPasajero.Name = "chbTipoPasajero";
-            this.chbTipoPasajero.Size = new System.Drawing.Size(156, 20);
+            this.chbTipoPasajero.Size = new System.Drawing.Size(237, 25);
             this.chbTipoPasajero.TabIndex = 57;
             this.chbTipoPasajero.Text = "¿Desea viajar en premium?";
             this.chbTipoPasajero.UseVisualStyleBackColor = true;
-            this.chbTipoPasajero.CheckedChanged += new System.EventHandler(this.chbTipoPasajero_CheckedChanged);
-            // 
-            // chbDestino
-            // 
-            this.chbDestino.AutoSize = true;
-            this.chbDestino.Location = new System.Drawing.Point(15, 33);
-            this.chbDestino.Name = "chbDestino";
-            this.chbDestino.Size = new System.Drawing.Size(216, 20);
-            this.chbDestino.TabIndex = 56;
-            this.chbDestino.Text = "¿Desea realizar un vuelo internacional?";
-            this.chbDestino.UseVisualStyleBackColor = true;
-            this.chbDestino.CheckedChanged += new System.EventHandler(this.chbDestino_CheckedChanged);
             // 
             // lblCostoPasaje
             // 
             this.lblCostoPasaje.AutoSize = true;
-            this.lblCostoPasaje.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCostoPasaje.Location = new System.Drawing.Point(6, 170);
+            this.lblCostoPasaje.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCostoPasaje.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblCostoPasaje.Location = new System.Drawing.Point(583, 458);
             this.lblCostoPasaje.Name = "lblCostoPasaje";
-            this.lblCostoPasaje.Size = new System.Drawing.Size(124, 23);
+            this.lblCostoPasaje.Size = new System.Drawing.Size(200, 31);
             this.lblCostoPasaje.TabIndex = 52;
             this.lblCostoPasaje.Text = "Costo del pasaje";
             // 
             // btnVenderPasaje
             // 
-            this.btnVenderPasaje.Location = new System.Drawing.Point(151, 214);
+            this.btnVenderPasaje.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnVenderPasaje.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnVenderPasaje.FlatAppearance.BorderSize = 0;
+            this.btnVenderPasaje.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnVenderPasaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVenderPasaje.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVenderPasaje.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnVenderPasaje.Location = new System.Drawing.Point(749, 525);
             this.btnVenderPasaje.Name = "btnVenderPasaje";
-            this.btnVenderPasaje.Size = new System.Drawing.Size(137, 28);
+            this.btnVenderPasaje.Size = new System.Drawing.Size(183, 51);
             this.btnVenderPasaje.TabIndex = 39;
             this.btnVenderPasaje.Text = "Vender pasaje";
-            this.btnVenderPasaje.UseVisualStyleBackColor = true;
+            this.btnVenderPasaje.UseVisualStyleBackColor = false;
             this.btnVenderPasaje.Click += new System.EventHandler(this.btnVenderPasaje_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(213, 263);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(299, 264);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 47;
+            this.pictureBox1.TabStop = false;
+            // 
+            // cmbxListaVuelos
+            // 
+            this.cmbxListaVuelos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxListaVuelos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxListaVuelos.FormattingEnabled = true;
+            this.cmbxListaVuelos.Location = new System.Drawing.Point(791, 367);
+            this.cmbxListaVuelos.Name = "cmbxListaVuelos";
+            this.cmbxListaVuelos.Size = new System.Drawing.Size(362, 27);
+            this.cmbxListaVuelos.TabIndex = 61;
+            // 
+            // cmbxListaPasajeros
+            // 
+            this.cmbxListaPasajeros.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxListaPasajeros.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxListaPasajeros.FormattingEnabled = true;
+            this.cmbxListaPasajeros.Location = new System.Drawing.Point(791, 410);
+            this.cmbxListaPasajeros.Name = "cmbxListaPasajeros";
+            this.cmbxListaPasajeros.Size = new System.Drawing.Size(362, 27);
+            this.cmbxListaPasajeros.TabIndex = 62;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 39.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(637, 216);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(392, 61);
+            this.label1.TabIndex = 63;
+            this.label1.Text = "Venta de Pasajes";
             // 
             // VenderViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1241, 809);
-            this.Controls.Add(this.gbxVenderPasaje);
-            this.Controls.Add(this.lbldentificador);
-            this.Controls.Add(this.btnRegresar);
-            this.Controls.Add(this.lblTituloVenderViaje);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.ClientSize = new System.Drawing.Size(1237, 847);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbxListaPasajeros);
+            this.Controls.Add(this.cmbxListaVuelos);
+            this.Controls.Add(this.btnVenderPasaje);
+            this.Controls.Add(this.lblPrecioPasaje);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblCostoPasaje);
+            this.Controls.Add(this.lblListaPasajeros);
+            this.Controls.Add(this.chbTipoPasajero);
+            this.Controls.Add(this.lblListaViajes);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VenderViaje";
             this.Text = "Venta de Viajes";
-            this.gbxVenderPasaje.ResumeLayout(false);
-            this.gbxVenderPasaje.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cmbxListaVuelos;
-        private System.Windows.Forms.Label lblTituloVenderViaje;
         private System.Windows.Forms.Label lblListaViajes;
-        private System.Windows.Forms.Button btnRegresar;
-        private System.Windows.Forms.Label lbldentificador;
-        private System.Windows.Forms.GroupBox gbxVenderPasaje;
         private System.Windows.Forms.CheckBox chbTipoPasajero;
-        private System.Windows.Forms.CheckBox chbDestino;
         private System.Windows.Forms.Label lblCostoPasaje;
         private System.Windows.Forms.Button btnVenderPasaje;
-        private System.Windows.Forms.ComboBox cmbxListaPasajeros;
         private System.Windows.Forms.Label lblListaPasajeros;
         private System.Windows.Forms.Label lblPrecioPasaje;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox cmbxListaVuelos;
+        private System.Windows.Forms.ComboBox cmbxListaPasajeros;
+        private System.Windows.Forms.Label label1;
     }
 }

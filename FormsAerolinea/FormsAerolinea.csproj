@@ -53,23 +53,23 @@
     <Compile Include="ConsultarEstadisticas.Designer.cs">
       <DependentUpon>ConsultarEstadisticas.cs</DependentUpon>
     </Compile>
-    <Compile Include="CroodAeronaves.cs">
+    <Compile Include="CrudAviones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CroodAeronaves.Designer.cs">
-      <DependentUpon>CroodAeronaves.cs</DependentUpon>
+    <Compile Include="CrudAviones.Designer.cs">
+      <DependentUpon>CrudAviones.cs</DependentUpon>
     </Compile>
-    <Compile Include="CroodPasajeros.cs">
+    <Compile Include="CrudPasajeros.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CroodPasajeros.Designer.cs">
-      <DependentUpon>CroodPasajeros.cs</DependentUpon>
+    <Compile Include="CrudPasajeros.Designer.cs">
+      <DependentUpon>CrudPasajeros.cs</DependentUpon>
     </Compile>
-    <Compile Include="CroodViajes.cs">
+    <Compile Include="CrudVuelos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CroodViajes.Designer.cs">
-      <DependentUpon>CroodViajes.cs</DependentUpon>
+    <Compile Include="CrudVuelos.Designer.cs">
+      <DependentUpon>CrudVuelos.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -91,23 +91,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViajesDisponibles.cs">
+    <Compile Include="ListarViajes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViajesDisponibles.Designer.cs">
-      <DependentUpon>ViajesDisponibles.cs</DependentUpon>
+    <Compile Include="ListarViajes.Designer.cs">
+      <DependentUpon>ListarViajes.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ConsultarEstadisticas.resx">
       <DependentUpon>ConsultarEstadisticas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CroodAeronaves.resx">
-      <DependentUpon>CroodAeronaves.cs</DependentUpon>
+    <EmbeddedResource Include="CrudAviones.resx">
+      <DependentUpon>CrudAviones.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CroodPasajeros.resx">
-      <DependentUpon>CroodPasajeros.cs</DependentUpon>
+    <EmbeddedResource Include="CrudPasajeros.resx">
+      <DependentUpon>CrudPasajeros.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CroodViajes.resx">
-      <DependentUpon>CroodViajes.cs</DependentUpon>
+    <EmbeddedResource Include="CrudVuelos.resx">
+      <DependentUpon>CrudVuelos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
@@ -128,8 +128,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ViajesDisponibles.resx">
-      <DependentUpon>ViajesDisponibles.cs</DependentUpon>
+    <EmbeddedResource Include="ListarViajes.resx">
+      <DependentUpon>ListarViajes.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

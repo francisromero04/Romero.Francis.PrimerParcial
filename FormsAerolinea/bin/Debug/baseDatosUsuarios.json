@@ -1,26 +1,31 @@
 {
   "administrador": {
+    "nombre": "Francis Romero",
     "cargo": "Administrador",
     "correo": "admin@mail.com",
     "contraseña": "1234"
   },
   "supervisor": {
+    "nombre": "Tomas Heduan",
     "cargo": "Supervisor",
     "correo": "supervisor@mail.com",
     "contraseña": "5678"
   },
   "vendedores": [
     {
+      "nombre": "Matias Rodriguez" ,
       "cargo": "Vendedor 1",
       "correo": "vendedor1@mail.com",
       "contraseña": "abcd"
     },
     {
+      "nombre": "Nicolas Fantino",
       "cargo": "Vendedor 2",
       "correo": "vendedor2@mail.com",
       "contraseña": "efgh"
     },
     {
+      "nombre": "Juan Lopez",
       "cargo": "Vendedor 3",
       "correo": "vendedor3@mail.com",
       "contraseña": "zzzz"

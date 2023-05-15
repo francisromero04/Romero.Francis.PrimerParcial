@@ -4,9 +4,6 @@ C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\bin\Debug\FormsAeroline
 C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\obj\Debug\FormsAerolinea.csproj.AssemblyReference.cache
 C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\obj\Debug\FormsAerolinea.csproj.SuggestedBindingRedirects.cache
 C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\obj\Debug\FormsAerolinea.ConsultarEstadisticas.resources
-C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\obj\Debug\FormsAerolinea.CroodAeronaves.resources
-C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\obj\Debug\FormsAerolinea.CroodPasajeros.resources
-C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\obj\Debug\FormsAerolinea.CroodViajes.resources
 C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\obj\Debug\FormsAerolinea.MenuPrincipal.resources
 C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\obj\Debug\FormsAerolinea.VenderViaje.resources
 C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\obj\Debug\FormsAerolinea.Login.resources
@@ -21,3 +18,6 @@ C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\bin\Debug\BibliotecaAer
 C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\obj\Debug\FormsAerolinea.csproj.CopyComplete
 C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\bin\Debug\Newtonsoft.Json.dll
 C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\bin\Debug\Newtonsoft.Json.xml
+C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\obj\Debug\FormsAerolinea.CrudAviones.resources
+C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\obj\Debug\FormsAerolinea.CrudPasajeros.resources
+C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\obj\Debug\FormsAerolinea.CrudViajes.resources

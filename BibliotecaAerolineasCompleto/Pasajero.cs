@@ -25,87 +25,86 @@ namespace BibliotecaAerolineasCompleto
 
         }
 
-        public Pasajero(int dni, string nombre, string apellido, string segundoNombre = null, string segundoApellido = null, bool tipoDePasajero = true, bool genero = true, decimal pesoEquipaje = 0)
+        public Pasajero(int dni, string nombre, string apellido, bool genero, bool tipoPasajero, string segundoNombre, string segundoApellido, decimal pesoEquipaje = 0) : this()
         {
             this.dni = dni;
             this.nombre = nombre;
             this.apellido = apellido;
             this.segundoNombre = segundoNombre;
             this.segundoApellido = segundoApellido;
-            this.tipoPasajero = tipoDePasajero;
             this.Genero = genero; //true = masculino | false = femenino 
             this.pesoEquipaje = pesoEquipaje;
+            this.tipoPasajero = tipoPasajero;
         }
 
         public Pasajero GenerarPasajeroAleatorio(Random random)
         {
-            int dni = random.Next(9000000, 50000000); // Generar DNI aleatorio en el rango especificado
+            int dni = random.Next(9000000, 50000000); // Generar DNI aleatorio en el rango especificado            
+            bool genero = random.Next(2) == 0 ? true : false; // Generar el género aleatoriamente
+            string nombre = ObtenerNombreAleatorio(random, genero); // Obtener un nombre aleatorio
+            string apellido = ObtenerApellidoAleatorio(random);// Obtener un apellido aleatorio
+            estado = 0; // ESTADO INICIAL (no realizo ningun viaje anteriormente ni esta en un viaje en curso)
+            decimal pesoEquipaje = (decimal)(random.Next(500, 2300)) / 100.0M;
+            System.Threading.Thread.Sleep(1);
+            //MODIFICAR PARA QUE HAYA MENOS PROBABILIDAD DE PREMIUM
+        //    bool tipoPasajero = random.Next(2) == 0 ? true : false; // Generar el tipo de pasajero con una probabilidad del 50% 
 
-            // Generar el género aleatoriamente
-            bool genero = random.Next(2) == 0 ? true : false;
-
-            // Obtener un nombre aleatorio
-            string nombre = "";
-
-            if (genero == true)
-            {
-                // Generar un nombre de hombre aleatorio
-                nombre = ((NombresDeHombre)random.Next(Enum.GetNames(typeof(NombresDeHombre)).Length)).ToString();
-            }
-            else
-            {
-                // Generar un nombre de mujer aleatorio
-                nombre = ((NombresDeMujer)random.Next(Enum.GetNames(typeof(NombresDeMujer)).Length)).ToString();
-            }
+            bool tipoPasajero = random.Next(10) == 0 ? false : true; // Generar el tipo de pasajero con una probabilidad del 10%
 
             // Determinar si el pasajero tendrá segundo nombre o no (50% de probabilidades)
-            string segundoNombre = "";
-            if (random.Next(2) == 0)
+            string segundoNombre = ""; 
+            if (random.Next(2) == 0) 
             {
-                if (genero == true)
-                {
-                    // Generar un segundo nombre de hombre aleatorio
-                    segundoNombre = ((NombresDeHombre)random.Next(Enum.GetNames(typeof(NombresDeHombre)).Length)).ToString();
-                }
-                else
-                {
-                    // Generar un segundo nombre de mujer aleatorio
-                    segundoNombre = ((NombresDeMujer)random.Next(Enum.GetNames(typeof(NombresDeMujer)).Length)).ToString();
-                }
+                segundoNombre = ObtenerNombreAleatorio(random, genero);
             }
-
-            // Obtener un apellido aleatorio
-            string apellido = ((Apellidos)random.Next(Enum.GetNames(typeof(Apellidos)).Length)).ToString();
 
             // Determinar si el pasajero tendrá segundo apellido o no (50% de probabilidades)
             string segundoApellido = "";
             if (random.Next(2) == 0)
             {
-                // Generar un segundo apellido aleatorio
-                segundoApellido = ((Apellidos)random.Next(Enum.GetNames(typeof(Apellidos)).Length)).ToString();
+                segundoApellido = ObtenerApellidoAleatorio(random);
             }
 
-            // Si el pasajero tiene segundo nombre, asegurarse de que sea del mismo género que el primero
-            if (segundoNombre != "" && (genero == true && !Enum.IsDefined(typeof(NombresDeHombre), segundoNombre)
-                || genero == false && !Enum.IsDefined(typeof(NombresDeMujer), segundoNombre)))
+            // Si el pasajero tiene segundo nombre, asegurarse de que sea del mismo género que el primer nombre
+            if (segundoNombre != "" && !EsMismoGenero(nombre, segundoNombre, genero))
             {
-                if (genero == true)
-                {
-                    // Generar un segundo nombre de hombre aleatorio
-                    segundoNombre = ((NombresDeHombre)random.Next(Enum.GetNames(typeof(NombresDeHombre)).Length)).ToString();
-                }
-                else
-                {
-                    // Generar un segundo nombre de mujer aleatorio
-                    segundoNombre = ((NombresDeMujer)random.Next(Enum.GetNames(typeof(NombresDeMujer)).Length)).ToString();
-                }
+                segundoNombre = ObtenerNombreAleatorio(random, genero);
             }
 
-            bool tipoPasajero = (random.Next(2) == 0); // Generar el tipo de pasajero con una probabilidad del 50%
-            estado = 0; // ESTADO INICIAL (no realizo ningun viaje anteriormente ni esta en un viaje en curso)
-            decimal pesoEquipaje = (decimal)(random.Next(500, 2300)) / 100.0M;
+            return new Pasajero(dni, nombre, apellido, genero, tipoPasajero, segundoNombre, segundoApellido, pesoEquipaje); // Crear un nuevo objeto Pasajero con los datos aleatorios
+        }
 
-            return new Pasajero(dni, nombre, apellido, segundoNombre, segundoApellido, tipoPasajero, genero, pesoEquipaje); // Crear un nuevo objeto Pasajero con los datos aleatorios
+        #region GENERADORES
+
+        private string ObtenerNombreAleatorio(Random random, bool genero)
+        {
+            if (genero)
+            {
+                // Generar un nombre de hombre aleatorio
+                return ((NombresDeHombre)random.Next(Enum.GetNames(typeof(NombresDeHombre)).Length)).ToString();
+            }
+            else
+            {
+                // Generar un nombre de mujer aleatorio
+                return ((NombresDeMujer)random.Next(Enum.GetNames(typeof(NombresDeMujer)).Length)).ToString();
+            }
+        }
+
+        private string ObtenerApellidoAleatorio(Random random)
+        {
+            return ((Apellidos)random.Next(Enum.GetNames(typeof(Apellidos)).Length)).ToString();
+        }
+
+        private bool EsMismoGenero(string primerNombre, string segundoNombre, bool genero)
+        {
+            if (genero)
+            {
+                return Enum.IsDefined(typeof(NombresDeHombre), segundoNombre);
+            }
+            else
+            {
+                return Enum.IsDefined(typeof(NombresDeMujer), segundoNombre);
+            }
         }
 
         public string nombreCompletoyDni
@@ -125,15 +124,6 @@ namespace BibliotecaAerolineasCompleto
                 }
                 nombreCompleto += " " + dni;
 
-                if (tipoPasajero == true)
-                {
-                    nombreCompleto += " (turista)";
-                }
-                else
-                {
-                    nombreCompleto += " (premium)";
-                }
-
                 if(Genero == true)
                 {
                     nombreCompleto += " (masculino)";
@@ -146,5 +136,7 @@ namespace BibliotecaAerolineasCompleto
                 return nombreCompleto;
             }
         }
+
+        #endregion
     }
 }
