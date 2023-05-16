@@ -45,5 +45,21 @@ namespace BibliotecaAerolineasCompleto
             Regex regex = new Regex("^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]+$");
             return regex.IsMatch(cadena);
         }
+
+        public static bool ValidarCadena(string cadena, bool permitirEspacios)
+        {
+            Regex regex;
+            if (permitirEspacios)
+            {
+                regex = new Regex("^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$");
+            }
+            else
+            {
+                regex = new Regex("^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]+$");
+            }
+            return regex.IsMatch(cadena);
+        }
+
+
     }
 }

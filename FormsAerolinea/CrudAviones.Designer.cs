@@ -48,11 +48,12 @@
             this.btnOpcionDos = new System.Windows.Forms.Button();
             this.lblTituloCroodAviones = new System.Windows.Forms.Label();
             this.gbxEliminarAeronave = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.lstAeronaves = new System.Windows.Forms.ListBox();
             this.btnCerrarTres = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbxAvionesDos = new System.Windows.Forms.ComboBox();
+            this.lstAeronaves = new System.Windows.Forms.ListBox();
             this.btnOpcionUno = new System.Windows.Forms.Button();
             this.btnCrearAvion = new System.Windows.Forms.Button();
             this.txtCantBañosDos = new System.Windows.Forms.TextBox();
@@ -69,12 +70,11 @@
             this.gbxCrearAvion = new System.Windows.Forms.GroupBox();
             this.btnOpcionCuatro = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.gbxModificarAeronave.SuspendLayout();
             this.gbxEliminarAeronave.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.gbxCrearAvion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxModificarAeronave
@@ -328,6 +328,16 @@
             this.gbxEliminarAeronave.Text = "Eliminar un Avión";
             this.gbxEliminarAeronave.Visible = false;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(16, 52);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(94, 76);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 50;
+            this.pictureBox2.TabStop = false;
+            // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -343,15 +353,6 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // lstAeronaves
-            // 
-            this.lstAeronaves.FormattingEnabled = true;
-            this.lstAeronaves.Location = new System.Drawing.Point(804, 586);
-            this.lstAeronaves.Name = "lstAeronaves";
-            this.lstAeronaves.Size = new System.Drawing.Size(492, 121);
-            this.lstAeronaves.TabIndex = 47;
-            this.lstAeronaves.Visible = false;
             // 
             // btnCerrarTres
             // 
@@ -391,6 +392,20 @@
             this.cmbxAvionesDos.Name = "cmbxAvionesDos";
             this.cmbxAvionesDos.Size = new System.Drawing.Size(153, 23);
             this.cmbxAvionesDos.TabIndex = 38;
+            // 
+            // lstAeronaves
+            // 
+            this.lstAeronaves.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.lstAeronaves.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstAeronaves.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstAeronaves.ForeColor = System.Drawing.SystemColors.Control;
+            this.lstAeronaves.FormattingEnabled = true;
+            this.lstAeronaves.ItemHeight = 21;
+            this.lstAeronaves.Location = new System.Drawing.Point(876, 544);
+            this.lstAeronaves.Name = "lstAeronaves";
+            this.lstAeronaves.Size = new System.Drawing.Size(567, 231);
+            this.lstAeronaves.TabIndex = 47;
+            this.lstAeronaves.Visible = false;
             // 
             // btnOpcionUno
             // 
@@ -586,6 +601,7 @@
             this.btnOpcionCuatro.TabIndex = 48;
             this.btnOpcionCuatro.Text = "Listar Aviones.";
             this.btnOpcionCuatro.UseVisualStyleBackColor = false;
+            this.btnOpcionCuatro.Click += new System.EventHandler(this.btnOpcionCuatro_Click);
             // 
             // pictureBox1
             // 
@@ -596,16 +612,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 49;
             this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(16, 52);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(94, 76);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 50;
-            this.pictureBox2.TabStop = false;
             // 
             // CrudAviones
             // 
@@ -625,15 +631,15 @@
             this.Controls.Add(this.lblTituloCroodAviones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrudAviones";
-            this.Text = "Administrador Aeronaves";
+            this.Text = " ";
             this.gbxModificarAeronave.ResumeLayout(false);
             this.gbxModificarAeronave.PerformLayout();
             this.gbxEliminarAeronave.ResumeLayout(false);
             this.gbxEliminarAeronave.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.gbxCrearAvion.ResumeLayout(false);
             this.gbxCrearAvion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -69,6 +69,12 @@ namespace FormsAerolinea
             gbxEliminarAeronave.Location = new Point(780, 310);
             gbxEliminarAeronave.Visible = true;
         }
+       private void btnOpcionCuatro_Click(object sender, EventArgs e)
+        {
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
+            lstAeronaves.Location = new Point(740, 320);
+            lstAeronaves.Visible = true;
+        }
 
         #endregion
 
@@ -307,6 +313,5 @@ namespace FormsAerolinea
         }
 
         #endregion
-
     }
 }

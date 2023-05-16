@@ -35,7 +35,7 @@ namespace BibliotecaAerolineasCompleto
             IVA = 1.21m;
         }
 
-        public Vuelo GenerarVueloAleatorio(Aerolinea aerolinea)
+    /*    public Vuelo GenerarVueloAleatorio(Aerolinea aerolinea)
         {
             Random random = new Random();
             Avion avionSeleccionado = new Avion(); // Crear objeto Avion
@@ -150,17 +150,16 @@ namespace BibliotecaAerolineasCompleto
             }
 
             return this;
-        }
+        } */
 
         public bool ContienePasajero(Pasajero pasajero)
         {
             foreach(Pasajero p in Pasajeros)
             {
-                if(p == pasajero)
+                if(p.Equals(pasajero))
                 {
-                    return true;
                     MessageBox.Show("El pasajero ya fue incorporado a la lista de pasajeros perteneciente al vuelo seleccionado.");
-                    break;
+                    return true;
                 }
             }
             

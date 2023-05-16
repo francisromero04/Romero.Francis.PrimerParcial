@@ -54,8 +54,28 @@ namespace BibliotecaAerolineasCompleto
             get
             {
                 string ocupado = OcupadoEnVuelo ? "ocupado" : "disponible";
-                return $"Avión con matrícula {Matricula}, estado: {ocupado}.";
+                return $"Avión con matrícula {Matricula}, estado: {ocupado}, asientos: {CantidadAsientos}";
             }
+        }
+
+        public override bool Equals(object obj)
+        {
+            // Si el objeto es null, entonces no son iguales
+            if (obj == null)
+                return false;
+
+            // Si el objeto no es de tipo Avion, entonces no son iguales
+            if (!(obj is Avion))
+                return false;
+
+            // Compara la matrícula para determinar si son iguales
+            Avion avion = (Avion)obj;
+            return Matricula.Equals(avion.Matricula);
+        }
+
+        public override int GetHashCode()
+        {
+            return Matricula.GetHashCode();
         }
     }
 }

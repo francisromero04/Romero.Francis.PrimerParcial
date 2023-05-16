@@ -75,7 +75,7 @@ namespace FormsAerolinea
             Avion avionSeleccionado = (Avion)cmbxMatriculaAvion.SelectedItem;
             foreach (Vuelo vuelo in aerolinea.listaVuelos)
             {
-                if (vuelo.Avion == avionSeleccionado)
+                if (vuelo.Avion.Equals(avionSeleccionado))
                 {
                     MessageBox.Show("El avión seleccionado ya ha sido utilizado en otro vuelo. Por favor, seleccione otro avión.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;

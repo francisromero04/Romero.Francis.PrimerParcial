@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using System.Globalization;
 
 namespace BibliotecaAerolineasCompleto
 {
@@ -60,8 +61,38 @@ namespace BibliotecaAerolineasCompleto
 
             // Creamos los objetos Administrador, Supervisor y Vendedores a partir de los datos deserializados
             administrador = new Administrador(datos.administrador.Nombre,datos.administrador.Cargo,datos.administrador.Correo, datos.administrador.Contraseña);
-            supervisor = new Supervisor(datos.administrador.Nombre,datos.supervisor.Cargo, datos.supervisor.Correo, datos.supervisor.Contraseña);
+            supervisor = new Supervisor(datos.supervisor.Nombre,datos.supervisor.Cargo, datos.supervisor.Correo, datos.supervisor.Contraseña);
             vendedores = datos.vendedores.Select(v => new Vendedor(v.Nombre,v.Cargo, v.Correo, v.Contraseña)).ToList();
+        }
+
+        public string DevolverUsuario(string correo, string contraseña)
+        {
+            Persona usuario = BuscarUsuario(correo, contraseña);
+            if (usuario == null)
+            {
+                return "El usuario no existe.";
+            }
+
+            // Construir la cadena de información del usuario
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Información del usuario:");
+            sb.AppendLine($"Nombre completo: {usuario.nombre}");
+            sb.AppendLine($"Correo electrónico: {usuario.correo}");
+            sb.AppendLine($"Contraseña: {usuario.correo}");
+            if (usuario is Vendedor vendedor)
+            {
+                sb.AppendLine($"Tipo de usuario: Vendedor");
+            }
+            else if (usuario is Administrador)
+            {
+                sb.AppendLine($"Tipo de usuario: Administrador");
+            }
+            else if (usuario is Supervisor)
+            {
+                sb.AppendLine($"Tipo de usuario: Supervisor");
+            }
+
+            return sb.ToString();
         }
     }
 }

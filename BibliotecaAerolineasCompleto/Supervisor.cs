@@ -12,5 +12,10 @@ namespace BibliotecaAerolineasCompleto
         {
             // Constructor vacío
         }
+
+        public override string ToString()
+        {
+            return $"Nombre: {nombre}, Cargo: {cargo}, Correo: {correo}";
+        }
     }
 }

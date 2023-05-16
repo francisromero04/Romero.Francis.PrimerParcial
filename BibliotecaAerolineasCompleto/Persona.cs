@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BibliotecaAerolineasCompleto
 {
-    public class Persona
+    public abstract class Persona
     {
         public string cargo { get; set; }
         public string correo { get; set; }
@@ -20,5 +20,7 @@ namespace BibliotecaAerolineasCompleto
             this.correo = correo;
             this.contraseña = contraseña;
         }
+
+        public abstract override string ToString();
     }
 }

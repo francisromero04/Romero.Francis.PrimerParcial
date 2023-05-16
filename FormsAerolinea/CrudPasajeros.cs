@@ -32,86 +32,74 @@ namespace FormsAerolinea
 
         #region CONFIGURACION GROUPBOX
 
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new MenuPrincipal(usuario, aerolinea).Show(); 
-        }
-
         private void cmbxPasajeros_SelectedIndexChanged(object sender, EventArgs e)
         {
             Pasajero pasajeroSeleccionado = (Pasajero)cmbxPasajeros.SelectedItem;
 
             if (pasajeroSeleccionado != null)
             {
-                txtNombrePasajeroDos.Text = pasajeroSeleccionado.nombre;
+                cmbxGeneroDos.Text = pasajeroSeleccionado.Genero ? "Masculino" : "Femenino";
+                txtNombreDos.Text = pasajeroSeleccionado.nombre;
+                txtSegundoNombreDos.Text = pasajeroSeleccionado.segundoNombre;
                 txtApellidoDos.Text = pasajeroSeleccionado.apellido;
-                txtDniPasajeroDos.Text = pasajeroSeleccionado.dni.ToString();
+                txtSegundoApellidoDos.Text = pasajeroSeleccionado.segundoApellido;
+                txtDniDos.Text = pasajeroSeleccionado.dni.ToString();
             }
+        }
+
+        private void btnOpcionUno_Click(object sender, EventArgs e)
+        {
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
+            gbxCrearPasajero.Location = new Point(780, 310);
+            gbxCrearPasajero.Visible = true;
         }
 
         private void btnOpcionDos_Click(object sender, EventArgs e)
         {
-            btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            int posX = (Width - gbxModificarPasajero.Width) / 2;
-            int posY = (Height - gbxModificarPasajero.Height) / 2;
-            gbxModificarPasajero.Location = new Point(posX, posY);
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
+            gbxModificarPasajero.Location = new Point(780, 310);
             gbxModificarPasajero.Visible = true;
         } 
 
         private void btnOpcionTres_Click(object sender, EventArgs e)
         {
-            btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            int posX = (Width - gbxEliminarPasajero.Width) / 2;
-            int posY = (Height - gbxEliminarPasajero.Height) / 2;
-            gbxEliminarPasajero.Location = new Point(posX, posY);
-            gbxEliminarPasajero.Visible = true;
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
+            gbxEliminarPasajero.Location = new Point(780, 310);
             gbxEliminarPasajero.Visible = true;
         }
         
         private void btnOpcionCuatro_Click_1(object sender, EventArgs e)
         {
-            btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            int posX = (Width - gbxCrearPasajero.Width) / 2;
-            int posY = (Height - gbxCrearPasajero.Height) / 2;
-            gbxCrearPasajero.Location = new Point(posX, posY);
-            gbxCrearPasajero.Visible = true;
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
+            lstPasajeros.Location = new Point(780, 310);
+            lstPasajeros.Visible = true;
         }
 
         #endregion
 
         #region ACCIONES CLICK BOTONES
-
-        private void btnCrearAleatorio_Click(object sender, EventArgs e)
-        {
-            Random random = new Random();
-
-         /*   for (int i = 0; i < 50; i++)
-            {
-                Pasajero pasajero = new Pasajero().GenerarPasajeroAleatorio(random);
-                
-                if (aerolinea.VerificarDniExistente(pasajero.dni) == false)
-                {
-                    aerolinea.agregarPasajero(pasajero);
-                }
-                else
-                {
-                    MessageBox.Show("El pasajero tiene un dni perteneciente a otro pasajero.");
-                }
-            }
-            ActualizarListas();*/
-        }
         
         private void btnCrearPasajero_Click(object sender, EventArgs e)
         {
-          /*  string nombrePasajero = txtNombrePasajerotres.Text;
-            string apellidoPasajero = txtApellidoPasajeroTres.Text;
-            string dniPasajero = txtDniPasajeroTres.Text;
+            string nombrePasajero = txtNombre.Text;
+            string segundoNombre = !string.IsNullOrEmpty(txtSegundoNombre.Text) ? txtSegundoNombre.Text : null;
+            string apellidoPasajero = txtApellido.Text;
+            string segundoApellido = !string.IsNullOrEmpty(txtSegundoApellido.Text) ? txtSegundoApellido.Text : null;
+            string dniPasajero = txtDni.Text;
+            bool genero = false; // por defecto se inicializa en femenino
 
-            if (int.TryParse(dniPasajero, out int dni) && Validador.ValidarCadena(nombrePasajero) && Validador.ValidarCadena(apellidoPasajero))
+            if (cmbxGenero.Text == "Masculino")
             {
-                Pasajero pasajero = new Pasajero(dni, nombrePasajero, apellidoPasajero);
+                genero = true; // hombres
+            }
 
+            if (int.TryParse(dniPasajero, out int dni) &&
+                Validador.ValidarCadena(nombrePasajero) && Validador.ValidarCadena(apellidoPasajero) &&
+                (string.IsNullOrEmpty(segundoNombre) || Validador.ValidarCadena(segundoNombre)) &&
+                (string.IsNullOrEmpty(segundoApellido) || Validador.ValidarCadena(segundoApellido)))
+            {
+                Pasajero pasajero = new Pasajero(dni, nombrePasajero, apellidoPasajero, genero, true, segundoNombre, segundoApellido, 0);
+            
                 if (!aerolinea.VerificarDniExistente(pasajero.dni))
                 {
                     if(Validador.ValidarDNI(dni))
@@ -122,7 +110,7 @@ namespace FormsAerolinea
                     }
                     else
                     {
-                        MessageBox.Show("El Dni no esta dentro del rango permitido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("El Dni no esta dentro del rango permitido (9000000 - 50000000).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
@@ -132,33 +120,33 @@ namespace FormsAerolinea
             }
             else
             {
-                MessageBox.Show("Por favor, ingrese valores válidos para el nombre, apellido y dni del pasajero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } */
+                MessageBox.Show("Por favor, ingrese valores válidos para los datos del pasajero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
         }        
 
         private void btnModificar_Click(object sender, EventArgs e)
-        {
+        {            
             Pasajero pasajeroSeleccionado = (Pasajero)cmbxPasajeros.SelectedItem;
 
             if (pasajeroSeleccionado == null)
             {
-                MessageBox.Show("Debe seleccionar un pasajero para modificar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, seleccione un pasajero para modificar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            bool nombreActualizado = ActualizarNombre(pasajeroSeleccionado);
-            bool apellidoActualizado = ActualizarApellido(pasajeroSeleccionado);
-            bool dniActualizado = ActualizarDni(pasajeroSeleccionado);
+            bool modificado = ActualizarPasajero(pasajeroSeleccionado, txtNombreDos.Text, txtSegundoNombreDos.Text, txtApellidoDos.Text, 
+                txtSegundoApellidoDos.Text, txtDniDos.Text, cmbxGeneroDos.SelectedItem.ToString() );
 
-            if(nombreActualizado == false ||  apellidoActualizado == false || dniActualizado == false)
-            {
-                return;
-            }else
+            if (modificado)
             {
                 aerolinea.ReemplazarPasajeroSeleccionado(pasajeroSeleccionado);
-                MessageBox.Show("Modificación Exitosa", "¡Felicitaciones!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ActualizarListas();
+                MessageBox.Show("El pasajero ha sido modificado correctamente.", "¡Felicitaciones!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarTextBoxes();
+                ActualizarListas();
+            }
+            else
+            {
+                MessageBox.Show("No se ha modificado ningún dato del pasajero.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -193,77 +181,120 @@ namespace FormsAerolinea
         #endregion
 
         #region VISIBILIDAD BOTONES
-        
+       
+        private void btnCerrarUno_Click(object sender, EventArgs e)
+        {
+            gbxCrearPasajero.Visible = false;
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
+        }
+
         private void btnCerrarDos_Click(object sender, EventArgs e)
         {
             gbxModificarPasajero.Visible = false;
-            btnOpcionDos.Visible = true;
-            btnOpcionTres.Visible = true;
-            btnOpcionCuatro.Visible = true;
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
         }
         
         private void btnCerrarTres_Click(object sender, EventArgs e)
         {
             gbxEliminarPasajero.Visible = false;
-            btnOpcionDos.Visible = true;
-            btnOpcionTres.Visible = true;
-            btnOpcionCuatro.Visible = true;
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
         }
         
         private void btnCerrarCuatro_Click(object sender, EventArgs e)
         {
-            gbxCrearPasajero.Visible = false;
-            btnOpcionDos.Visible = true;
-            btnOpcionTres.Visible = true;
-            btnOpcionCuatro.Visible = true;
+            
         }
 
         #endregion
-        
+
         #region ACTUALIZADORES
-     
-        private bool ActualizarNombre(Pasajero pasajero)
+
+        public bool ActualizarPasajero(Pasajero pasajeroSeleccionado, string nombre, string segundoNombre, string apellido, string segundoApellido, string dni, string genero)
         {
-            if (Validador.ValidarCadena(txtNombrePasajeroDos.Text))
+            bool modificado = false;
+
+            if (ActualizarNombre(pasajeroSeleccionado, nombre) && ActualizarSegundoNombre(pasajeroSeleccionado, segundoNombre) &&
+                ActualizarApellido(pasajeroSeleccionado, apellido) && ActualizarSegundoApellido(pasajeroSeleccionado, segundoApellido) &&
+                ActualizarDni(pasajeroSeleccionado, dni) && ActualizarGenero(pasajeroSeleccionado, genero.ToString()))
             {
-                pasajero.nombre = txtNombrePasajeroDos.Text;
-                return true;
+                modificado = true;
             }
-            else
-            {
-                MessageBox.Show("Error al introducir el nombre.");
-                return false;
-            }
+
+            return modificado;
         }
 
-        private bool ActualizarApellido(Pasajero pasajero)
+        private bool ActualizarNombre(Pasajero pasajeroSeleccionado, string nuevoNombre)
         {
-            if (Validador.ValidarCadena(txtApellidoDos.Text))
+            if (!string.IsNullOrEmpty(nuevoNombre) && Validador.ValidarCadena(nuevoNombre, false))
             {
-                pasajero.apellido = txtApellidoDos.Text;
+                pasajeroSeleccionado.nombre = nuevoNombre;
                 return true;
             }
-            else
-            {
-                MessageBox.Show("Error al introducir el apellido.");
-                return false;
-            }
+
+            return false;
         }
 
-        private bool ActualizarDni(Pasajero pasajero)
+        private bool ActualizarSegundoNombre(Pasajero pasajeroSeleccionado, string nuevoSegundoNombre)
         {
-            int dni;
+            if (string.IsNullOrEmpty(nuevoSegundoNombre))
+            {
+                pasajeroSeleccionado.segundoNombre = null;
+                return true;
+            }
+            else if (Validador.ValidarCadena(nuevoSegundoNombre, false))
+            {
+                pasajeroSeleccionado.segundoNombre = nuevoSegundoNombre;
+                return true;
+            }
+            return false;
+        }
 
-            if (int.TryParse(txtDniPasajeroDos.Text, out dni) && Validador.ValidarDNI(dni))
+        private bool ActualizarApellido(Pasajero pasajeroSeleccionado, string nuevoApellido)
+        {
+            if (!string.IsNullOrEmpty(nuevoApellido) && Validador.ValidarCadena(nuevoApellido))
             {
-                pasajero.dni = dni;
-                return true; 
+                pasajeroSeleccionado.apellido = nuevoApellido;
+                return true;
             }
-            else
+
+            return false;
+        }
+
+        private bool ActualizarSegundoApellido(Pasajero pasajeroSeleccionado, string nuevoSegundoApellido)
+        {
+            if (string.IsNullOrEmpty(nuevoSegundoApellido))
             {
-                MessageBox.Show("Error al introducir DNI.");
-                return false;
+                pasajeroSeleccionado.segundoApellido = null;
+                return true;
             }
+            else if (Validador.ValidarCadena(nuevoSegundoApellido))
+            {
+                pasajeroSeleccionado.segundoApellido = nuevoSegundoApellido;
+                return true;
+            }
+            return false;
+        }
+
+        private bool ActualizarDni(Pasajero pasajeroSeleccionado, string nuevoDni)
+        {
+            if (!string.IsNullOrEmpty(nuevoDni) && int.TryParse(nuevoDni, out int dni) && Validador.ValidarDNI(dni))
+            {
+                pasajeroSeleccionado.dni = dni;
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool ActualizarGenero(Pasajero pasajeroSeleccionado, string nuevoGenero)
+        {
+            if (!string.IsNullOrEmpty(nuevoGenero))
+            {
+                pasajeroSeleccionado.Genero = nuevoGenero == "Masculino";
+                return true;
+            }
+
+            return false;
         }
 
         private void ActualizarListas()
@@ -283,15 +314,42 @@ namespace FormsAerolinea
             lstPasajeros.Refresh();
             cmbxPasajeros.Refresh();
             cmbxPasajerosDos.Refresh();
+
+            cmbxGenero.DataSource = null;
+            if (cmbxGenero.Items.Count == 0)
+            {
+                cmbxGenero.Items.Add("Masculino");
+                cmbxGenero.Items.Add("Femenino");
+            }
+            cmbxGenero.Refresh();
+
+            cmbxGeneroDos.DataSource = null;
+            if (cmbxGeneroDos.Items.Count == 0)
+            {
+                cmbxGeneroDos.Items.Add("Masculino");
+                cmbxGeneroDos.Items.Add("Femenino");
+            }
+            cmbxGeneroDos.Refresh();
         }
 
         private void LimpiarTextBoxes()
         {
+            txtNombreDos.Text = "";
+            txtSegundoNombreDos.Text = "";
             txtApellidoDos.Text = "";
-            txtNombrePasajeroDos.Text = "";
-            txtDniPasajeroDos.Text = "";
+            txtSegundoApellidoDos.Text = "";
+            txtDniDos.Text = "";
+            cmbxGeneroDos.Text = "";
         }
 
-        #endregion
+        private void gbxModificarPasajero_VisibleChanged(object sender, EventArgs e)
+        {
+            if (gbxModificarPasajero.Visible)
+            {
+                ActualizarListas();
+            }
+        }
+
+        #endregion      
     }
 }

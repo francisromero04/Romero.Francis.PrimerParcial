@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Media;
 using System.Runtime.InteropServices;
@@ -21,8 +22,6 @@ namespace FormsAerolinea
 
         public Login()
         {
-            //aerolinea.CrearYGuardarVuelosJson();
-            //aerolinea.CrearYGuardarPasajerosJson();
             InitializeComponent();
         }
         
@@ -41,7 +40,14 @@ namespace FormsAerolinea
              // Verificar si los valores de correo y contraseña son correctos
              if(baseDeDatos.BuscarUsuario(correo, contraseña) != null)
              {
-                 MessageBox.Show("CORREO INGRESADO CORRECTAMENTE", "SESION INICIADA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Escribir el correo y contraseña del usuario que inició sesión en el archivo de registro
+                string logMessage = $"{baseDeDatos.DevolverUsuario(correo, contraseña)}-{DateTime.Now:dd/MM/yyyy HH:mm:ss}\n-----------------------------------------\n";
+                using (StreamWriter writer = new StreamWriter("usuarios.log", true))
+                {
+                    writer.WriteLine(logMessage);
+                }
+
+                MessageBox.Show("CORREO INGRESADO CORRECTAMENTE", "SESION INICIADA", MessageBoxButtons.OK, MessageBoxIcon.Information);
                  this.Hide();
                  MenuPrincipal menuPrincipal = new MenuPrincipal(baseDeDatos.BuscarUsuario(correo, contraseña), aerolinea);
                  menuPrincipal.Show();

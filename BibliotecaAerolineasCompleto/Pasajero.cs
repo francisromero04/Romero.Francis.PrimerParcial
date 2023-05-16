@@ -25,7 +25,7 @@ namespace BibliotecaAerolineasCompleto
 
         }
 
-        public Pasajero(int dni, string nombre, string apellido, bool genero, bool tipoPasajero, string segundoNombre, string segundoApellido, decimal pesoEquipaje = 0) : this()
+        public Pasajero(int dni, string nombre, string apellido, bool genero, bool tipoPasajero, string segundoNombre, string segundoApellido, decimal pesoEquipaje) : this()
         {
             this.dni = dni;
             this.nombre = nombre;
@@ -35,9 +35,83 @@ namespace BibliotecaAerolineasCompleto
             this.Genero = genero; //true = masculino | false = femenino 
             this.pesoEquipaje = pesoEquipaje;
             this.tipoPasajero = tipoPasajero;
+        }   
+
+        #region GENERADORES
+
+        public string nombreCompletoyDni
+        {
+            get
+            {
+                string nombreCompleto = nombre;
+
+                if (!string.IsNullOrEmpty(segundoNombre))
+                {
+                    nombreCompleto += " " + segundoNombre;
+                }
+                nombreCompleto += " " + apellido;
+                if (!string.IsNullOrEmpty(segundoApellido))
+                {
+                    nombreCompleto += " " + segundoApellido;
+                }
+                nombreCompleto += " " + dni;
+
+                if(Genero == true)
+                {
+                    nombreCompleto += " (masculino)";
+                }
+                else
+                {
+                    nombreCompleto += " (femenino)";
+                }
+
+                return nombreCompleto;
+            }
         }
 
-        public Pasajero GenerarPasajeroAleatorio(Random random)
+        public override bool Equals(object obj)
+        {
+            // Si el objeto es null, entonces no son iguales
+            if (obj == null)
+                return false;
+
+            // Si el objeto no es de tipo Pasajero, entonces no son iguales
+            if (!(obj is Pasajero))
+                return false;
+
+            // Compara el dni para determinar si son iguales
+            Pasajero pasajero = (Pasajero)obj;
+            return dni == pasajero.dni;
+        }
+
+        public override int GetHashCode()
+        {
+            return dni.GetHashCode();
+        }
+
+        #endregion
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /*    public Pasajero GenerarPasajeroAleatorio(Random random)
         {
             int dni = random.Next(9000000, 50000000); // Generar DNI aleatorio en el rango especificado            
             bool genero = random.Next(2) == 0 ? true : false; // Generar el género aleatoriamente
@@ -72,11 +146,10 @@ namespace BibliotecaAerolineasCompleto
             }
 
             return new Pasajero(dni, nombre, apellido, genero, tipoPasajero, segundoNombre, segundoApellido, pesoEquipaje); // Crear un nuevo objeto Pasajero con los datos aleatorios
-        }
+        }*/
 
-        #region GENERADORES
 
-        private string ObtenerNombreAleatorio(Random random, bool genero)
+       /* private string ObtenerNombreAleatorio(Random random, bool genero)
         {
             if (genero)
             {
@@ -105,38 +178,4 @@ namespace BibliotecaAerolineasCompleto
             {
                 return Enum.IsDefined(typeof(NombresDeMujer), segundoNombre);
             }
-        }
-
-        public string nombreCompletoyDni
-        {
-            get
-            {
-                string nombreCompleto = nombre;
-
-                if (!string.IsNullOrEmpty(segundoNombre))
-                {
-                    nombreCompleto += " " + segundoNombre;
-                }
-                nombreCompleto += " " + apellido;
-                if (!string.IsNullOrEmpty(segundoApellido))
-                {
-                    nombreCompleto += " " + segundoApellido;
-                }
-                nombreCompleto += " " + dni;
-
-                if(Genero == true)
-                {
-                    nombreCompleto += " (masculino)";
-                }
-                else
-                {
-                    nombreCompleto += " (femenino)";
-                }
-
-                return nombreCompleto;
-            }
-        }
-
-        #endregion
-    }
-}
+        }*/

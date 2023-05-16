@@ -30,22 +30,10 @@ namespace BibliotecaAerolineasCompleto
             string jsonDos = File.ReadAllText("vuelosDeAerolinea.json");
             listaVuelos = JsonConvert.DeserializeObject<List<Vuelo>>(jsonDos);
 
-
-            string jsonTres = File.ReadAllText("pasajerosDeAerolinea.json");
-            listaPasajeros = JsonConvert.DeserializeObject<List<Pasajero>>(jsonTres);
-            
-            //PASAJEROS
-            /*    for (int i = 0; i < 100; i++)
-                {
-                    System.Threading.Thread.Sleep(5);
-                    Random random = new Random(DateTime.Now.Millisecond); //lee los milisegundos de la pc y en base a eso genera el random
-                    Pasajero pasajero = new Pasajero().GenerarPasajeroAleatorio(random);
-
-                    if (VerificarDniExistente(pasajero.dni) == false)
-                    {
-                        agregarPasajero(pasajero);
-                    }
-                } */
+            foreach(Vuelo vuelo in listaVuelos)
+            {
+                this.listaPasajeros.AddRange(vuelo.Pasajeros);
+            }            
         }
 
         #region METODOS DE AVION
@@ -93,7 +81,7 @@ namespace BibliotecaAerolineasCompleto
         {
             for (int i = 0; i < listaPasajeros.Count; i++)
             {
-                if (listaPasajeros[i].dni == pasajeroSeleccionado.dni)
+                if (listaPasajeros[i].Equals(pasajeroSeleccionado))
                 {
                     listaPasajeros[i] = pasajeroSeleccionado;
                     break;
@@ -111,21 +99,6 @@ namespace BibliotecaAerolineasCompleto
                 }
             }
             return false;
-        }
-
-        public void CrearYGuardarPasajerosJson()
-        {
-            Random random = new Random();   
-
-            for (int i = 0; i < 100; i++)
-            {
-                System.Threading.Thread.Sleep(1);
-                Pasajero pasajero = new Pasajero().GenerarPasajeroAleatorio(random);
-                agregarPasajero(pasajero);
-            }
-
-            string json = JsonConvert.SerializeObject(listaPasajeros);
-            File.WriteAllText("pasajerosDeAerolinea.json", json);
         }
 
         #endregion
@@ -182,7 +155,7 @@ namespace BibliotecaAerolineasCompleto
             return destinoMasSeleccionado;
         }
 
-        public void CrearYGuardarVuelosJson()
+      /*  public void CrearYGuardarVuelosJson()
         {
             for(int i = 0; i < 80; i++)
             {
@@ -193,7 +166,7 @@ namespace BibliotecaAerolineasCompleto
 
             string json = JsonConvert.SerializeObject(listaVuelos);
             File.WriteAllText("vuelosDeAerolinea.json", json);
-        } 
+        } */
 
         #endregion
     }
