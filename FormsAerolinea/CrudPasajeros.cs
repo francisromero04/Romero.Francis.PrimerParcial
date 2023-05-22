@@ -13,11 +13,19 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace FormsAerolinea
 {
+    /// <summary>
+    /// Formulario para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) de pasajeros.
+    /// </summary>
     public partial class CrudPasajeros : Form
     {
         private Persona usuario;
         private Aerolinea aerolinea;
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase CrudPasajeros.
+        /// </summary>
+        /// <param name="usuario">La persona que está utilizando el formulario.</param>
+        /// <param name="aerolinea">La aerolínea asociada a los pasajeros.</param>
         public CrudPasajeros(Persona usuario, Aerolinea aerolinea)
         {
             InitializeComponent();
@@ -33,6 +41,12 @@ namespace FormsAerolinea
 
         #region CONFIGURACION GROUPBOX
 
+        /// <summary>
+        /// Evento que se activa cuando se selecciona un elemento en el ComboBox de pasajeros.
+        /// Muestra la información del pasajero seleccionado en los campos correspondientes.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadena el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void cmbxPasajeros_SelectedIndexChanged(object sender, EventArgs e)
         {
             Pasajero pasajeroSeleccionado = (Pasajero)cmbxPasajeros.SelectedItem;
@@ -48,6 +62,12 @@ namespace FormsAerolinea
             }
         }
 
+        /// <summary>
+        /// Evento que se activa cuando se hace clic en el botón "Opción Uno".
+        /// Oculta los demás botones y muestra el grupo de crear pasajero.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadena el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void btnOpcionUno_Click(object sender, EventArgs e)
         {
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
@@ -55,6 +75,12 @@ namespace FormsAerolinea
             gbxCrearPasajero.Visible = true;
         }
 
+        /// <summary>
+        /// Evento que se activa cuando se hace clic en el botón "Opción Dos".
+        /// Oculta los demás botones y muestra el grupo de modificar pasajero.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadena el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void btnOpcionDos_Click(object sender, EventArgs e)
         {
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
@@ -62,6 +88,12 @@ namespace FormsAerolinea
             gbxModificarPasajero.Visible = true;
         }
 
+        /// <summary>
+        /// Evento que se activa cuando se hace clic en el botón "Opción Tres".
+        /// Oculta los demás botones y muestra el grupo de eliminar pasajero.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadena el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void btnOpcionTres_Click(object sender, EventArgs e)
         {
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
@@ -69,6 +101,12 @@ namespace FormsAerolinea
             gbxEliminarPasajero.Visible = true;
         }
 
+        /// <summary>
+        /// Evento que se activa cuando se hace clic en el botón "Opción Cuatro".
+        /// Oculta los demás botones y muestra la lista de pasajeros.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadena el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void btnOpcionCuatro_Click(object sender, EventArgs e)
         {
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
@@ -80,6 +118,12 @@ namespace FormsAerolinea
 
         #region ACCIONES CLICK BOTONES
 
+        /// <summary>
+        /// Evento que se activa cuando se hace clic en el botón "Crear Pasajero".
+        /// Crea un nuevo pasajero con los datos ingresados y lo agrega a la aerolínea.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadena el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void btnCrearPasajero_Click(object sender, EventArgs e)
         {
             string nombrePasajero = txtNombre.Text;
@@ -125,6 +169,12 @@ namespace FormsAerolinea
             }
         }
 
+        /// <summary>
+        /// Evento que se activa cuando se hace clic en el botón "Modificar".
+        /// Actualiza la información del pasajero seleccionado con los nuevos datos ingresados.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadena el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void btnModificar_Click(object sender, EventArgs e)
         {
             Pasajero pasajeroSeleccionado = (Pasajero)cmbxPasajeros.SelectedItem;
@@ -151,6 +201,12 @@ namespace FormsAerolinea
             }
         }
 
+        /// <summary>
+        /// Evento que se activa cuando se hace clic en el botón "Eliminar".
+        /// Elimina el pasajero seleccionado de la lista de pasajeros de la aerolínea.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadena el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             string nombreAEliminar = cmbxPasajerosDos.Text; // Obtener el nombre de la combobox
@@ -183,33 +239,57 @@ namespace FormsAerolinea
 
         #region VISIBILIDAD BOTONES
 
+        /// <summary>
+        /// Evento que se activa cuando se hace clic en el botón "Cerrar" en la sección de creación de pasajero.
+        /// Oculta el grupo de creación de pasajero y muestra nuevamente las opciones disponibles.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadena el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void btnCerrarUno_Click(object sender, EventArgs e)
         {
             gbxCrearPasajero.Visible = false;
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
         }
 
+        /// <summary>
+        /// Evento que se activa cuando se hace clic en el botón "Cerrar" en la sección de modificación de pasajero.
+        /// Oculta el grupo de modificación de pasajero y muestra nuevamente las opciones disponibles.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadena el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void btnCerrarDos_Click(object sender, EventArgs e)
         {
             gbxModificarPasajero.Visible = false;
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
         }
 
+        /// <summary>
+        /// Evento que se activa cuando se hace clic en el botón "Cerrar" en la sección de eliminación de pasajero.
+        /// Oculta el grupo de eliminación de pasajero y muestra nuevamente las opciones disponibles.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadena el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void btnCerrarTres_Click(object sender, EventArgs e)
         {
             gbxEliminarPasajero.Visible = false;
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
         }
 
-        private void btnCerrarCuatro_Click(object sender, EventArgs e)
-        {
-
-        }
-
         #endregion
 
         #region ACTUALIZADORES
 
+        /// <summary>
+        /// Actualiza los datos de un pasajero seleccionado con los nuevos valores proporcionados.
+        /// </summary>
+        /// <param name="pasajeroSeleccionado">El pasajero seleccionado que se va a actualizar.</param>
+        /// <param name="nombre">El nuevo nombre del pasajero.</param>
+        /// <param name="segundoNombre">El nuevo segundo nombre del pasajero.</param>
+        /// <param name="apellido">El nuevo apellido del pasajero.</param>
+        /// <param name="segundoApellido">El nuevo segundo apellido del pasajero.</param>
+        /// <param name="dni">El nuevo DNI del pasajero.</param>
+        /// <param name="genero">El nuevo género del pasajero.</param>
+        /// <returns>Devuelve un valor booleano que indica si se ha modificado correctamente el pasaje
         public bool ActualizarPasajero(Pasajero pasajeroSeleccionado, string nombre, string segundoNombre, string apellido, string segundoApellido, string dni, string genero)
         {
             bool modificado = false;
@@ -224,6 +304,12 @@ namespace FormsAerolinea
             return modificado;
         }
 
+        /// <summary>
+        /// Actualiza el nombre de un pasajero seleccionado con el nuevo valor proporcionado.
+        /// </summary>
+        /// <param name="pasajeroSeleccionado">El pasajero seleccionado que se va a actualizar.</param>
+        /// <param name="nuevoNombre">El nuevo nombre del pasajero.</param>
+        /// <returns>Devuelve un valor booleano que indica si se ha actualizado correctamente el nombre del pasajero.</returns>
         private bool ActualizarNombre(Pasajero pasajeroSeleccionado, string nuevoNombre)
         {
             if (!string.IsNullOrEmpty(nuevoNombre) && Validador.ValidarCadena(nuevoNombre, false))
@@ -235,6 +321,12 @@ namespace FormsAerolinea
             return false;
         }
 
+        /// <summary>
+        /// Actualiza el segundo nombre de un pasajero seleccionado con el nuevo valor proporcionado.
+        /// </summary>
+        /// <param name="pasajeroSeleccionado">El pasajero seleccionado que se va a actualizar.</param>
+        /// <param name="nuevoSegundoNombre">El nuevo segundo nombre del pasajero.</param>
+        /// <returns>Devuelve un valor booleano que indica si se ha actualizado correctamente el segundo nombre del pasajero.</returns>
         private bool ActualizarSegundoNombre(Pasajero pasajeroSeleccionado, string nuevoSegundoNombre)
         {
             if (string.IsNullOrEmpty(nuevoSegundoNombre))
@@ -250,6 +342,12 @@ namespace FormsAerolinea
             return false;
         }
 
+        /// <summary>
+        /// Actualiza el apellido de un pasajero seleccionado con el nuevo valor proporcionado.
+        /// </summary>
+        /// <param name="pasajeroSeleccionado">El pasajero seleccionado que se va a actualizar.</param>
+        /// <param name="nuevoApellido">El nuevo apellido del pasajero.</param>
+        /// <returns>Devuelve un valor booleano que indica si se ha actualizado correctamente el apellido del pasajero.</returns>
         private bool ActualizarApellido(Pasajero pasajeroSeleccionado, string nuevoApellido)
         {
             if (!string.IsNullOrEmpty(nuevoApellido) && Validador.ValidarCadena(nuevoApellido))
@@ -261,6 +359,12 @@ namespace FormsAerolinea
             return false;
         }
 
+        /// <summary>
+        /// Actualiza el segundo apellido de un pasajero seleccionado con el nuevo valor proporcionado.
+        /// </summary>
+        /// <param name="pasajeroSeleccionado">El pasajero seleccionado que se va a actualizar.</param>
+        /// <param name="nuevoSegundoApellido">El nuevo segundo apellido del pasajero.</param>
+        /// <returns>Devuelve un valor booleano que indica si se ha actualizado correctamente el segundo apellido del pasajero.</returns>
         private bool ActualizarSegundoApellido(Pasajero pasajeroSeleccionado, string nuevoSegundoApellido)
         {
             if (string.IsNullOrEmpty(nuevoSegundoApellido))
@@ -276,6 +380,12 @@ namespace FormsAerolinea
             return false;
         }
 
+        /// <summary>
+        /// Actualiza el DNI de un pasajero seleccionado con el nuevo valor proporcionado.
+        /// </summary>
+        /// <param name="pasajeroSeleccionado">El pasajero seleccionado que se va a actualizar.</param>
+        /// <param name="nuevoDni">El nuevo DNI del pasajero.</param>
+        /// <returns>Devuelve un valor booleano que indica si se ha actualizado correctamente el DNI del pasajero.</returns>
         private bool ActualizarDni(Pasajero pasajeroSeleccionado, string nuevoDni)
         {
             if (!string.IsNullOrEmpty(nuevoDni) && int.TryParse(nuevoDni, out int dni) && Validador.ValidarDNI(dni))
@@ -287,6 +397,12 @@ namespace FormsAerolinea
             return false;
         }
 
+        /// <summary>
+        /// Actualiza el género de un pasajero seleccionado con el nuevo valor proporcionado.
+        /// </summary>
+        /// <param name="pasajeroSeleccionado">El pasajero seleccionado que se va a actualizar.</param>
+        /// <param name="nuevoGenero">El nuevo género del pasajero.</param>
+        /// <returns>Devuelve un valor booleano que indica si se ha actualizado correctamente el género
         private bool ActualizarGenero(Pasajero pasajeroSeleccionado, string nuevoGenero)
         {
             if (!string.IsNullOrEmpty(nuevoGenero))
@@ -298,6 +414,9 @@ namespace FormsAerolinea
             return false;
         }
 
+        /// <summary>
+        /// Actualiza las listas de visualización de pasajeros y género en la interfaz.
+        /// </summary>
         private void ActualizarListas()
         {
             lstPasajeros.DataSource = null;
@@ -333,6 +452,9 @@ namespace FormsAerolinea
             cmbxGeneroDos.Refresh();
         }
 
+        /// <summary>
+        /// Limpia los campos de texto de la sección de modificación de pasajero en la interfaz.
+        /// </summary>
         private void LimpiarTextBoxes()
         {
             txtNombreDos.Text = "";
@@ -343,6 +465,10 @@ namespace FormsAerolinea
             cmbxGeneroDos.Text = "";
         }
 
+        /// <summary>
+        /// Maneja el evento de cambio de visibilidad del grupo de modificación de pasajero en la interfaz.
+        /// Actualiza las listas de visualización cuando el grupo se vuelve visible.
+        /// </summary>
         private void gbxModificarPasajero_VisibleChanged(object sender, EventArgs e)
         {
             if (gbxModificarPasajero.Visible)

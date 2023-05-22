@@ -11,11 +11,19 @@ using System.Windows.Forms;
 
 namespace FormsAerolinea
 {
+    /// <summary>
+    /// Formulario para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) de viajes.
+    /// </summary>
     public partial class CrudViajes : Form
     {
         private Persona usuario;
         private Aerolinea aerolinea;
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase CrudViajes.
+        /// </summary>
+        /// <param name="usuario">El objeto Persona que representa al usuario actual.</param>
+        /// <param name="aerolinea">El objeto Aerolinea que representa la aerolínea asociada.</param>
         public CrudViajes(Persona usuario, Aerolinea aerolinea)
         {
             InitializeComponent();
@@ -25,10 +33,16 @@ namespace FormsAerolinea
 
             gbxCrearViajes.Visible = false;
             gbxModificarViaje.Visible = false;
-        }       
+        }
 
         #region CONFIGURACION GROUPBOX
 
+        /// <summary>
+        /// Maneja el evento click del botón btnOpcionUno.
+        /// Muestra el grupo de controles gbxCrearViajes y oculta otros elementos de la interfaz de usuario.
+        /// </summary>
+        /// <param name="sender">El objeto que generó el evento.</param>
+        /// <param name="e">Los argumentos del evento.</param>
         private void btnOpcionUno_Click(object sender, EventArgs e)
         {
             lstViajes.Visible = btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
@@ -37,7 +51,13 @@ namespace FormsAerolinea
             gbxCrearViajes.Visible = true;
         }
 
-         private void btnOpcionDos_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Maneja el evento click del botón btnOpcionDos.
+        /// Muestra el grupo de controles gbxModificarViaje y oculta otros elementos de la interfaz de usuario.
+        /// </summary>
+        /// <param name="sender">El objeto que generó el evento.</param>
+        /// <param name="e">Los argumentos del evento.</param>
+        private void btnOpcionDos_Click(object sender, EventArgs e)
          {
             lstViajes.Visible = btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
             gbxModificarViaje.Location = new Point(800, 240);
@@ -45,6 +65,11 @@ namespace FormsAerolinea
             gbxModificarViaje.Visible = true;
         }
 
+        /// <summary>
+        /// Maneja el evento click del botón btnOpcionCuatro.
+        /// </summary>
+        /// <param name="sender">El objeto que generó el evento.</param>
+        /// <param name="e">Los argumentos del evento.</param>
         private void btnOpcionCuatro_Click(object sender, EventArgs e)
         {
             lstViajes.Visible = true;
@@ -54,6 +79,12 @@ namespace FormsAerolinea
 
         #region ACCIONES CLICK BOTONES
 
+        /// <summary>
+        /// Evento que se activa cuando se hace clic en el botón "Crear Vuelo".
+        /// Crea un nuevo vuelo con los datos ingresados y lo agrega a la aerolínea.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadena el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void btnCrearVuelo_Click(object sender, EventArgs e)
         {
             // Verificar si la lista de aviones tiene al menos un avión
@@ -175,7 +206,13 @@ namespace FormsAerolinea
             ActualizarListas();
             limpiarElementos();
         }
-        
+
+        /// <summary>
+        /// Evento que se activa cuando se hace clic en el botón "Modificar".
+        /// Actualiza la información del vuelo seleccionado con los nuevos datos ingresados.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadena el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void btnModificar_Click(object sender, EventArgs e)
         {
             Vuelo vueloSeleccionado = (Vuelo)cmbxListaVuelos.SelectedItem;
@@ -301,12 +338,24 @@ namespace FormsAerolinea
 
         #region VISIBILIDAD BOTONES
 
+        /// <summary>
+        /// Evento que se activa cuando se hace clic en el botón "Cerrar" en la sección de creación de vuelo.
+        /// Oculta el grupo de creación de vuelo y muestra nuevamente las opciones disponibles.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadena el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void btnCerrarUno_Click(object sender, EventArgs e)
         {
             gbxCrearViajes.Visible = false;
             btnOpcionUno.Visible = btnOpcionDos.Visible =  btnOpcionTres.Visible =  btnOpcionCuatro.Visible = true;
         }
 
+        /// <summary>
+        /// Evento que se activa cuando se hace clic en el botón "Cerrar" en la sección de modificación de vuelo.
+        /// Oculta el grupo de modificación de vuelo y muestra nuevamente las opciones disponibles.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadena el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void btnCerrarDos_Click(object sender, EventArgs e)
         {
             gbxModificarViaje.Visible = false;
@@ -314,9 +363,12 @@ namespace FormsAerolinea
         }
 
         #endregion
-    
+
         #region ACTUALIZADORES
 
+        /// <summary>
+        /// Actualiza las listas de visualización en la interfaz.
+        /// </summary>
         private void ActualizarListas()
         {
             lstViajes.DataSource = null;
@@ -382,6 +434,9 @@ namespace FormsAerolinea
             cmbxTipoViajeDos.Refresh();
         }
 
+        /// <summary>
+        /// Limpia los campos de texto en la interfaz.
+        /// </summary>
         private void limpiarElementos()
         {
             // Limpiar los campos del formulario
@@ -394,6 +449,12 @@ namespace FormsAerolinea
             dtpFechaVuelo.Value = DateTime.Now;
         }
 
+        /// <summary>
+        /// Valida si la fecha seleccionada es válida según ciertas reglas.
+        /// </summary>
+        /// <param name="fechaSeleccionada">La fecha que se desea validar.</param>
+        /// <param name="esModificar">Indica si se está realizando una operación de modificación.</param>
+        /// <returns>True si la fecha es válida; False en caso contrario.</returns>
         public bool ValidarFechaSeleccionada(DateTime fechaSeleccionada, bool esModificar)
         {
             DateTime fechaActual = DateTime.Now.Date;
@@ -417,6 +478,12 @@ namespace FormsAerolinea
             return true;
         }
 
+        /// <summary>
+        /// Valida si la ciudad de destino es diferente a la ciudad de partida.
+        /// </summary>
+        /// <param name="ciudadPartida">La ciudad de partida.</param>
+        /// <param name="ciudadDestino">La ciudad de destino.</param>
+        /// <returns>True si la ciudad de destino es válida; False en caso contrario.</returns>
         private bool ValidarCiudadDestino(string ciudadPartida, string ciudadDestino)
         {
             if (ciudadDestino == ciudadPartida)
@@ -428,6 +495,15 @@ namespace FormsAerolinea
             return true;
         }
 
+        /// <summary>
+        /// Valida si todos los campos requeridos están completos y no están vacíos.
+        /// </summary>
+        /// <param name="origen">El origen del vuelo.</param>
+        /// <param name="destino">El destino del vuelo.</param>
+        /// <param name="costoPremium">El costo del boleto premium.</param>
+        /// <param name="costoTurista">El costo del boleto de clase turista.</param>
+        /// <param name="asientosTurista">El número de asientos disponibles en clase turista.</param>
+        /// <returns>True si todos los campos están completos y válidos; False en caso contrario.</returns>
         private bool CamposCompletosValidos(string origen, string destino, string costoPremium, string costoTurista, string asientosTurista)
         {
             if (string.IsNullOrWhiteSpace(origen) ||
@@ -442,6 +518,12 @@ namespace FormsAerolinea
             return true;
         }
 
+        /// <summary>
+        /// Valida si el precio de los boletos premium y turista es válido.
+        /// </summary>
+        /// <param name="costoPremium">El costo del boleto premium.</param>
+        /// <param name="costoTurista">El costo del boleto de clase turista.</param>
+        /// <returns>True si el precio es válido; False en caso contrario.</returns>
         private bool PrecioValido(decimal costoPremium, decimal costoTurista)
         {
             if (costoPremium < 0 || costoTurista < 0)
@@ -452,11 +534,21 @@ namespace FormsAerolinea
             return true;
         }
 
+        /// <summary>
+        /// Calcula el veinte por ciento de la cantidad de asientos en clase turista.
+        /// </summary>
+        /// <param name="asientosTurista">El número de asientos disponibles en clase turista.</param>
+        /// <returns>El veinte por ciento de los asientos en clase turista.</returns>
         private decimal CalcularVeintePorcientoAsientosTuristas(int asientosTurista)
         {
             return asientosTurista * 0.2m;
         }
 
+        /// <summary>
+        /// Valida si la cantidad de asientos en clase turista es válida.
+        /// </summary>
+        /// <param name="asientosTurista">El número de asientos disponibles en clase turista.</param>
+        /// <returns>True si la cantidad de asientos es válida; False en caso contrario.</returns>
         private bool AsientosValidos(int asientosTurista)
         {
             if (asientosTurista < 0)
@@ -468,6 +560,11 @@ namespace FormsAerolinea
             return true;
         }
 
+        /// <summary>
+        /// Maneja el evento de cambio de selección en el ComboBox cmbxTipoViaje.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadenó el evento.</param>
+        /// <param name="e">Los argumentos del evento.</param>
         private void cmbxTipoViaje_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbxTipoViaje.Text == "Nacional")
@@ -495,6 +592,12 @@ namespace FormsAerolinea
                 cmbxDestino.DataSource = destinosInternacionales;
             }
         }
+
+        /// <summary>
+        /// Maneja el evento de cambio de selección en el ComboBox cmbxTipoViajeDos.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadenó el evento.</param>
+        /// <param name="e">Los argumentos del evento.</param>
         private void cmbxTipoViajeDos_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbxTipoViajeDos.Text == "Nacional")
@@ -523,6 +626,11 @@ namespace FormsAerolinea
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de cambio de selección en el ComboBox cmbxListaVuelos.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadenó el evento.</param>
+        /// <param name="e">Los argumentos del evento.</param>
         private void cmbxListaVuelos_SelectedIndexChanged(object sender, EventArgs e)
         {
             Vuelo vueloSeleccionado = (Vuelo)cmbxListaVuelos.SelectedItem;
@@ -539,6 +647,12 @@ namespace FormsAerolinea
                 txtAsientosPremiumDos.Text = vueloSeleccionado.AsientosPremiumDisponibles.ToString();
             }
         }
+
+        /// <summary>
+        /// Maneja el evento de cambio de visibilidad del GroupBox gbxModificarViaje.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadenó el evento.</param>
+        /// <param name="e">Los argumentos del evento.</param>
         private void gbxModificarViaje_VisibleChanged(object sender, EventArgs e)
         {
             if (gbxModificarViaje.Visible)

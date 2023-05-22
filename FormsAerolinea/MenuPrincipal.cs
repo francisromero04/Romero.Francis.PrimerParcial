@@ -149,7 +149,7 @@ namespace FormsAerolinea
         /// </summary>
         private void ActualizarFecha()
         {
-            lblIdentificador.Text = usuario.cargo + "\n" + usuario.nombre + "\n" + DateTime.Now.ToString();
+            lblIdentificador.Text = usuario.cargo + "\n" + usuario.nombre + "\n" + DateTime.Now.ToShortDateString();
         }
 
         /// <summary>

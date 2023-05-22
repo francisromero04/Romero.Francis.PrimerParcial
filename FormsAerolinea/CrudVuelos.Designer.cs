@@ -481,9 +481,9 @@
             this.gbxModificarViaje.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxModificarViaje.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxModificarViaje.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbxModificarViaje.Location = new System.Drawing.Point(1027, 171);
+            this.gbxModificarViaje.Location = new System.Drawing.Point(1033, 159);
             this.gbxModificarViaje.Name = "gbxModificarViaje";
-            this.gbxModificarViaje.Size = new System.Drawing.Size(691, 392);
+            this.gbxModificarViaje.Size = new System.Drawing.Size(448, 392);
             this.gbxModificarViaje.TabIndex = 69;
             this.gbxModificarViaje.TabStop = false;
             this.gbxModificarViaje.Text = "Modificar un vuelo";
@@ -508,7 +508,7 @@
             this.cmbxListaVuelos.FormattingEnabled = true;
             this.cmbxListaVuelos.Location = new System.Drawing.Point(187, 39);
             this.cmbxListaVuelos.Name = "cmbxListaVuelos";
-            this.cmbxListaVuelos.Size = new System.Drawing.Size(498, 23);
+            this.cmbxListaVuelos.Size = new System.Drawing.Size(237, 23);
             this.cmbxListaVuelos.TabIndex = 74;
             this.cmbxListaVuelos.SelectedIndexChanged += new System.EventHandler(this.cmbxListaVuelos_SelectedIndexChanged);
             // 
@@ -645,6 +645,7 @@
             this.btnCerrarDos.TabIndex = 52;
             this.btnCerrarDos.Text = "Guardar y cerrar";
             this.btnCerrarDos.UseVisualStyleBackColor = true;
+            this.btnCerrarDos.Click += new System.EventHandler(this.btnCerrarDos_Click);
             // 
             // lblDestinoDos
             // 
