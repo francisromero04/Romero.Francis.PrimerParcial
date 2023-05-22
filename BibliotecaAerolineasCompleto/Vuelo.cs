@@ -20,7 +20,7 @@ namespace BibliotecaAerolineasCompleto
         public int CantidadPasajeros { get; set; }
         public decimal CostoPremium { get; set; }
         public decimal CostoTurista { get; set; }
-        public TimeSpan DuracionVuelo { get; set; }
+        public int DuracionVuelo { get; set; }
         public List<Pasajero> Pasajeros { get; set; }
         public bool vueloNacional { get; set; }
         public decimal IVA { get; set; }
@@ -35,7 +35,7 @@ namespace BibliotecaAerolineasCompleto
             IVA = 1.21m;
         }
 
-    /*    public Vuelo GenerarVueloAleatorio(Aerolinea aerolinea)
+        public Vuelo GenerarVueloAleatorio(Aerolinea aerolinea) //ELIMINAR
         {
             Random random = new Random();
             Avion avionSeleccionado = new Avion(); // Crear objeto Avion
@@ -110,7 +110,7 @@ namespace BibliotecaAerolineasCompleto
                         }
                     }
                 }
-                CalcularDuracionVuelo(this, vueloNacional, random);
+                CalcularDuracionVuelo(vueloNacional, avionSeleccionado, true);
                 CalcularCostoVuelo(this, vueloNacional);
             }
             else
@@ -145,12 +145,12 @@ namespace BibliotecaAerolineasCompleto
                         }
                     }
                 }
-                CalcularDuracionVuelo(this, vueloNacional, random);
+                CalcularDuracionVuelo(vueloNacional, avionSeleccionado, false);
                 CalcularCostoVuelo(this, vueloNacional);
             }
 
             return this;
-        } */
+        } 
 
         public bool ContienePasajero(Pasajero pasajero)
         {
@@ -198,26 +198,26 @@ namespace BibliotecaAerolineasCompleto
                 if (vueloNacional)
                 {
                     info += $"\nDestino: {CiudadDestinoNacional}, ";
-                    info += $"\nTipo de vuelo: Nacional, ";
+                  //  info += $"\nTipo de vuelo: Nacional, ";
                 }
                 else
                 {
                     info += $"\nDestino: {CiudadDestinoInternacional}, ";
-                    info += $"\nTipo de vuelo: Internacional, ";
+                  //  info += $"\nTipo de vuelo: Internacional, ";
                 }
 
-               /* if (Avion != null)
+                if (Avion != null)
                 {
-                    info += $"\nAvión: {Avion.Matricula}, ";
+                 //   info += $"\nAvión: {Avion.Matricula}, ";
                 }
 
-                info += $"\nCant. pasajeros: {CantidadPasajeros}, ";*/
                 info += $"\nFecha: {FechaVuelo.ToString("dd/MM/yyyy")}, ";
-                //info += $"\nDuración: {DuracionVuelo.ToString()}, ";
-                //info += $"\nAsientos premium disponibles: {AsientosPremiumDisponibles}, ";
-                //info += $"\nAsientos turista disponibles: {AsientosTuristaDisponibles}, ";
-                info += $"\nCosto premium: ${CostoPremium.ToString()}, ";
-                info += $"\nCosto turista: ${CostoTurista.ToString()}";
+             //   info += $"\nCant. pasajeros: {CantidadPasajeros}, ";
+             //   info += $"\nDuración: {DuracionVuelo.ToString()}, ";
+                info += $"\nAsientos disponibles: Turistas: {AsientosTuristaDisponibles}, ";
+                info += $"\nPremium: {AsientosPremiumDisponibles}";
+             //   info += $"\nCosto premium: ${CostoPremium.ToString()}, ";
+             //   info += $"\nCosto turista: ${CostoTurista.ToString()}";
 
                 return info;
             }
@@ -285,9 +285,11 @@ namespace BibliotecaAerolineasCompleto
             vuelo.AsientosPremiumDisponibles = totalAsientos - vuelo.AsientosTuristaDisponibles;
         }
 
-        public void CalcularDuracionVuelo(Vuelo vuelo, bool vueloNacional, Random random)
+        public void CalcularDuracionVuelo(bool vueloNacional, Avion avion, bool esFuturo)
         {
-            double duracionVueloHoras;
+            int duracionVueloHoras;
+            Random random = new Random(DateTime.Now.Millisecond);
+            System.Threading.Thread.Sleep(300);
 
             // Calcular duración del vuelo en horas
             if (vueloNacional == true)
@@ -302,7 +304,7 @@ namespace BibliotecaAerolineasCompleto
             }
 
             // Asignar duración del vuelo
-            vuelo.DuracionVuelo = TimeSpan.FromHours(duracionVueloHoras);
+            DuracionVuelo = duracionVueloHoras;
         }
 
         public void CalcularCostoVuelo(Vuelo vuelo, bool vueloNacional)
@@ -312,13 +314,13 @@ namespace BibliotecaAerolineasCompleto
 
             if (vueloNacional == true)
             {
-                costoTurista = 50 * (decimal)vuelo.DuracionVuelo.TotalHours;
-                costoPremium = 100 * (decimal)vuelo.DuracionVuelo.TotalHours;
+                costoTurista = 50 * (decimal)vuelo.DuracionVuelo;
+                costoPremium = 100 * (decimal)vuelo.DuracionVuelo;
             }
             else
             {
-                costoTurista = (50 * (decimal)vuelo.DuracionVuelo.TotalHours) * 1.35m;
-                costoPremium = (100 * (decimal)vuelo.DuracionVuelo.TotalHours) * 1.35m;
+                costoTurista = (50 * (decimal)vuelo.DuracionVuelo) * 1.35m;
+                costoPremium = (100 * (decimal)vuelo.DuracionVuelo) * 1.35m;
             }
 
             // Asignar costos al vuelo

@@ -1,4 +1,7 @@
-﻿public enum DestinosInternacionales
+﻿/// <summary>
+/// Enumeración de destinos internacionales.
+/// </summary>
+public enum DestinosInternacionales
 {
     RecifeBrasil,
     RomaItalia,

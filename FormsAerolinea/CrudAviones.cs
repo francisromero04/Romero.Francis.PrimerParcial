@@ -13,11 +13,19 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace FormsAerolinea
 {
+    /// <summary>
+    /// Formulario para realizar operaciones de CRUD (Crear, Leer, Actualizar, Eliminar) en aviones.
+    /// </summary>
     public partial class CrudAviones : Form
     {
         private Persona usuario;
         private Aerolinea aerolinea;
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase CrudAviones.
+        /// </summary>
+        /// <param name="usuario">El objeto Persona que representa al usuario actual.</param>
+        /// <param name="aerolinea">El objeto Aerolinea con el que se trabajará.</param>
         public CrudAviones(Persona usuario, Aerolinea aerolinea)
         {
             InitializeComponent();
@@ -32,6 +40,12 @@ namespace FormsAerolinea
 
         #region CONFIGURACION GROUPBOX
 
+        /// <summary>
+        /// Evento que se activa cuando se selecciona un elemento en el ComboBox de aviones.
+        /// Actualiza los valores de los controles de texto y casillas de verificación en función del avión seleccionado.
+        /// </summary>
+        /// <param name="sender">El objeto que genera el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void cmbxAviones_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Obtener el objeto avión seleccionado en el ComboBox
@@ -49,30 +63,55 @@ namespace FormsAerolinea
             }
         }
 
+        /// <summary>
+        /// Evento que se activa al hacer clic en el botón "Opción Uno".
+        /// Oculta los botones de opción y muestra el grupo de controles para crear un avión.
+        /// </summary>
+        /// <param name="sender">El objeto que genera el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void btnOpcionUno_Click(object sender, EventArgs e)
         {
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            gbxCrearAvion.Location = new Point(780, 310);
+            gbxCrearAvion.Location = new Point(665, 365); 
             gbxCrearAvion.Visible = true;
         }
 
+        /// <summary>
+        /// Evento que se activa al hacer clic en el botón "Opción Dos".
+        /// Oculta los botones de opción y muestra el grupo de controles para modificar un avión.
+        /// </summary>
+        /// <param name="sender">El objeto que genera el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void btnOpcionDos_Click(object sender, EventArgs e)
         {
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            gbxModificarAeronave.Location = new Point(780, 310);
+            gbxModificarAeronave.Location = new Point(665, 365);
             gbxModificarAeronave.Visible = true;
         }
-       
+
+        /// <summary>
+        /// Evento que se activa al hacer clic en el botón "Opción Tres".
+        /// Oculta los botones de opción y muestra el grupo de controles para eliminar un avión.
+        /// </summary>
+        /// <param name="sender">El objeto que genera el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void btnOpcionTres_Click(object sender, EventArgs e)
         {
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            gbxEliminarAeronave.Location = new Point(780, 310);
+            gbxEliminarAeronave.Location = new Point(685, 365);
             gbxEliminarAeronave.Visible = true;
         }
-       private void btnOpcionCuatro_Click(object sender, EventArgs e)
+
+        /// <summary>
+        /// Evento que se activa al hacer clic en el botón "Opción Cuatro".
+        /// Oculta los botones de opción y muestra la lista de aeronaves.
+        /// </summary>
+        /// <param name="sender">El objeto que genera el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
+        private void btnOpcionCuatro_Click(object sender, EventArgs e)
         {
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            lstAeronaves.Location = new Point(740, 320);
+            lstAeronaves.Location = new Point(580, 365);
             lstAeronaves.Visible = true;
         }
 
@@ -122,7 +161,7 @@ namespace FormsAerolinea
             }
 
             // Crear un nuevo objeto Avion utilizando el constructor
-            Avion nuevoAvion = new Avion(matricula, cantAsientos, cantBanos, servicioInternet, ofreceComida, capacidadBodega);
+            Avion nuevoAvion = new Avion(matricula, cantAsientos, cantBanos, servicioInternet, ofreceComida, capacidadBodega, 0);
             // Agregar el nuevo Avion a la lista de Avion de la aerolínea
             aerolinea.agregarAvion(nuevoAvion);
             // Mostrar un mensaje de éxito
@@ -208,6 +247,11 @@ namespace FormsAerolinea
 
         #region ACTUALIZADORES
 
+        /// <summary>
+        /// Actualiza la matrícula de un avión.
+        /// </summary>
+        /// <param name="avion">El objeto Avion que se actualizará.</param>
+        /// <returns>Devuelve true si la matrícula se actualizó correctamente, de lo contrario devuelve false.</returns>
         private bool ActualizarMatricula(Avion avion)
         {
             if (Validador.ValidarMatricula(txtMatricula.Text))
@@ -222,6 +266,11 @@ namespace FormsAerolinea
             }
         }
 
+        /// <summary>
+        /// Actualiza la cantidad de asientos de un avión.
+        /// </summary>
+        /// <param name="avion">El objeto Avion que se actualizará.</param>
+        /// <returns>Devuelve true si la cantidad de asientos se actualizó correctamente, de lo contrario devuelve false.</returns>
         private bool ActualizarCantidadAsientos(Avion avion)
         {
             int cantidadAsientos;
@@ -238,6 +287,11 @@ namespace FormsAerolinea
             }
         }
 
+        /// <summary>
+        /// Actualiza la cantidad de baños de un avión.
+        /// </summary>
+        /// <param name="avion">El objeto Avion que se actualizará.</param>
+        /// <returns>Devuelve true si la cantidad de baños se actualizó correctamente, de lo contrario devuelve false.</returns>
         private bool ActualizarCantidadBanos(Avion avion)
         {
             int cantidadBanos;
@@ -254,6 +308,11 @@ namespace FormsAerolinea
             }
         }
 
+        /// <summary>
+        /// Actualiza la capacidad de la bodega de un avión.
+        /// </summary>
+        /// <param name="avion">El objeto Avion que se actualizará.</param>
+        /// <returns>Devuelve true si la capacidad de la bodega se actualizó correctamente, de lo contrario devuelve false.</returns>
         private bool ActualizarCapacidadBodega(Avion avion)
         {
             int capacidadBodega;
@@ -270,18 +329,31 @@ namespace FormsAerolinea
             }
         }
 
+        /// <summary>
+        /// Actualiza el estado de ofrecer comida de un avión.
+        /// </summary>
+        /// <param name="avion">El objeto Avion que se actualizará.</param>
+        /// <returns>Devuelve true si ofrece comida.</returns>
         private bool ActualizarOfreceComida(Avion avion)
         {
             avion.OfreceComida = chkComida.Checked;
             return true;
         }
 
+        /// <summary>
+        /// Actualiza el estado del servicio de internet de un avión.
+        /// </summary>
+        /// <param name="avion">El objeto Avion que se actualizará.</param>
+        /// <returns>Devuelve true.</returns>
         private bool ActualizarServicioInternet(Avion avion)
         {
             avion.ServicioInternet = chkWifi.Checked;
             return true;
         }
 
+        /// <summary>
+        /// Limpia los TextBoxes estableciendo su texto como vacío.
+        /// </summary>
         private void LimpiarTextBoxes()
         {
             txtMatricula.Text = "";
@@ -290,6 +362,9 @@ namespace FormsAerolinea
             txtCantBaños.Text = "";
         }
 
+        /// <summary>
+        /// Actualiza las listas de aeronaves y ComboBoxes.
+        /// </summary>
         private void ActualizarListas()
         {
             lstAeronaves.DataSource = null;

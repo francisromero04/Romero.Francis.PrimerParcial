@@ -79,6 +79,7 @@
             // 
             // gbxModificarAeronave
             // 
+            this.gbxModificarAeronave.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.gbxModificarAeronave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.gbxModificarAeronave.Controls.Add(this.btnModificar);
             this.gbxModificarAeronave.Controls.Add(this.btnCerrarDos);
@@ -97,7 +98,7 @@
             this.gbxModificarAeronave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxModificarAeronave.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxModificarAeronave.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbxModificarAeronave.Location = new System.Drawing.Point(14, 586);
+            this.gbxModificarAeronave.Location = new System.Drawing.Point(12, 661);
             this.gbxModificarAeronave.Name = "gbxModificarAeronave";
             this.gbxModificarAeronave.Size = new System.Drawing.Size(354, 305);
             this.gbxModificarAeronave.TabIndex = 34;
@@ -263,6 +264,7 @@
             // 
             // btnOpcionTres
             // 
+            this.btnOpcionTres.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnOpcionTres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btnOpcionTres.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpcionTres.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -271,7 +273,7 @@
             this.btnOpcionTres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpcionTres.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpcionTres.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnOpcionTres.Location = new System.Drawing.Point(728, 419);
+            this.btnOpcionTres.Location = new System.Drawing.Point(350, 465);
             this.btnOpcionTres.Name = "btnOpcionTres";
             this.btnOpcionTres.Size = new System.Drawing.Size(366, 55);
             this.btnOpcionTres.TabIndex = 32;
@@ -281,6 +283,7 @@
             // 
             // btnOpcionDos
             // 
+            this.btnOpcionDos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnOpcionDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btnOpcionDos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpcionDos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -289,7 +292,7 @@
             this.btnOpcionDos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpcionDos.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpcionDos.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnOpcionDos.Location = new System.Drawing.Point(728, 369);
+            this.btnOpcionDos.Location = new System.Drawing.Point(350, 415);
             this.btnOpcionDos.Name = "btnOpcionDos";
             this.btnOpcionDos.Size = new System.Drawing.Size(366, 55);
             this.btnOpcionDos.TabIndex = 31;
@@ -299,11 +302,12 @@
             // 
             // lblTituloCroodAviones
             // 
+            this.lblTituloCroodAviones.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTituloCroodAviones.AutoSize = true;
             this.lblTituloCroodAviones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.lblTituloCroodAviones.Font = new System.Drawing.Font("Times New Roman", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloCroodAviones.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTituloCroodAviones.Location = new System.Drawing.Point(556, 217);
+            this.lblTituloCroodAviones.Location = new System.Drawing.Point(186, 290);
             this.lblTituloCroodAviones.Name = "lblTituloCroodAviones";
             this.lblTituloCroodAviones.Size = new System.Drawing.Size(713, 72);
             this.lblTituloCroodAviones.TabIndex = 29;
@@ -311,6 +315,7 @@
             // 
             // gbxEliminarAeronave
             // 
+            this.gbxEliminarAeronave.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.gbxEliminarAeronave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.gbxEliminarAeronave.Controls.Add(this.pictureBox2);
             this.gbxEliminarAeronave.Controls.Add(this.btnEliminar);
@@ -395,20 +400,22 @@
             // 
             // lstAeronaves
             // 
+            this.lstAeronaves.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lstAeronaves.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.lstAeronaves.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstAeronaves.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstAeronaves.ForeColor = System.Drawing.SystemColors.Control;
             this.lstAeronaves.FormattingEnabled = true;
             this.lstAeronaves.ItemHeight = 21;
-            this.lstAeronaves.Location = new System.Drawing.Point(876, 544);
+            this.lstAeronaves.Location = new System.Drawing.Point(1041, 316);
             this.lstAeronaves.Name = "lstAeronaves";
-            this.lstAeronaves.Size = new System.Drawing.Size(567, 231);
+            this.lstAeronaves.Size = new System.Drawing.Size(563, 231);
             this.lstAeronaves.TabIndex = 47;
             this.lstAeronaves.Visible = false;
             // 
             // btnOpcionUno
             // 
+            this.btnOpcionUno.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnOpcionUno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btnOpcionUno.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpcionUno.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -417,7 +424,7 @@
             this.btnOpcionUno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpcionUno.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpcionUno.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnOpcionUno.Location = new System.Drawing.Point(728, 319);
+            this.btnOpcionUno.Location = new System.Drawing.Point(350, 365);
             this.btnOpcionUno.Name = "btnOpcionUno";
             this.btnOpcionUno.Size = new System.Drawing.Size(366, 55);
             this.btnOpcionUno.TabIndex = 46;
@@ -434,7 +441,7 @@
             this.btnCrearAvion.ForeColor = System.Drawing.SystemColors.Control;
             this.btnCrearAvion.Location = new System.Drawing.Point(3, 229);
             this.btnCrearAvion.Name = "btnCrearAvion";
-            this.btnCrearAvion.Size = new System.Drawing.Size(348, 28);
+            this.btnCrearAvion.Size = new System.Drawing.Size(342, 28);
             this.btnCrearAvion.TabIndex = 39;
             this.btnCrearAvion.Text = "CrearAvion";
             this.btnCrearAvion.UseVisualStyleBackColor = true;
@@ -444,7 +451,7 @@
             // 
             this.txtCantBañosDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtCantBañosDos.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtCantBañosDos.Location = new System.Drawing.Point(189, 87);
+            this.txtCantBañosDos.Location = new System.Drawing.Point(179, 87);
             this.txtCantBañosDos.Name = "txtCantBañosDos";
             this.txtCantBañosDos.Size = new System.Drawing.Size(135, 22);
             this.txtCantBañosDos.TabIndex = 53;
@@ -454,7 +461,7 @@
             this.lblCantBaños.AutoSize = true;
             this.lblCantBaños.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantBaños.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCantBaños.Location = new System.Drawing.Point(46, 90);
+            this.lblCantBaños.Location = new System.Drawing.Point(36, 90);
             this.lblCantBaños.Name = "lblCantBaños";
             this.lblCantBaños.Size = new System.Drawing.Size(112, 19);
             this.lblCantBaños.TabIndex = 52;
@@ -465,7 +472,7 @@
             this.lblMatricula.AutoSize = true;
             this.lblMatricula.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMatricula.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblMatricula.Location = new System.Drawing.Point(46, 38);
+            this.lblMatricula.Location = new System.Drawing.Point(36, 38);
             this.lblMatricula.Name = "lblMatricula";
             this.lblMatricula.Size = new System.Drawing.Size(72, 19);
             this.lblMatricula.TabIndex = 54;
@@ -475,7 +482,7 @@
             // 
             this.txtCantAsientosDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtCantAsientosDos.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtCantAsientosDos.Location = new System.Drawing.Point(189, 61);
+            this.txtCantAsientosDos.Location = new System.Drawing.Point(179, 61);
             this.txtCantAsientosDos.Name = "txtCantAsientosDos";
             this.txtCantAsientosDos.Size = new System.Drawing.Size(135, 22);
             this.txtCantAsientosDos.TabIndex = 51;
@@ -485,7 +492,7 @@
             this.lblCantAsientos.AutoSize = true;
             this.lblCantAsientos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantAsientos.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCantAsientos.Location = new System.Drawing.Point(46, 64);
+            this.lblCantAsientos.Location = new System.Drawing.Point(36, 64);
             this.lblCantAsientos.Name = "lblCantAsientos";
             this.lblCantAsientos.Size = new System.Drawing.Size(127, 19);
             this.lblCantAsientos.TabIndex = 50;
@@ -495,7 +502,7 @@
             // 
             this.txtMatriculaDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtMatriculaDos.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtMatriculaDos.Location = new System.Drawing.Point(189, 35);
+            this.txtMatriculaDos.Location = new System.Drawing.Point(179, 35);
             this.txtMatriculaDos.Name = "txtMatriculaDos";
             this.txtMatriculaDos.Size = new System.Drawing.Size(135, 22);
             this.txtMatriculaDos.TabIndex = 55;
@@ -505,7 +512,7 @@
             this.chbWifi.AutoSize = true;
             this.chbWifi.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chbWifi.ForeColor = System.Drawing.SystemColors.Control;
-            this.chbWifi.Location = new System.Drawing.Point(50, 181);
+            this.chbWifi.Location = new System.Drawing.Point(40, 181);
             this.chbWifi.Name = "chbWifi";
             this.chbWifi.Size = new System.Drawing.Size(201, 21);
             this.chbWifi.TabIndex = 56;
@@ -517,7 +524,7 @@
             this.chbComida.AutoSize = true;
             this.chbComida.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chbComida.ForeColor = System.Drawing.SystemColors.Control;
-            this.chbComida.Location = new System.Drawing.Point(50, 156);
+            this.chbComida.Location = new System.Drawing.Point(40, 156);
             this.chbComida.Name = "chbComida";
             this.chbComida.Size = new System.Drawing.Size(203, 21);
             this.chbComida.TabIndex = 57;
@@ -529,7 +536,7 @@
             this.lblBodega.AutoSize = true;
             this.lblBodega.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBodega.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblBodega.Location = new System.Drawing.Point(46, 117);
+            this.lblBodega.Location = new System.Drawing.Point(36, 117);
             this.lblBodega.Name = "lblBodega";
             this.lblBodega.Size = new System.Drawing.Size(131, 19);
             this.lblBodega.TabIndex = 58;
@@ -539,7 +546,7 @@
             // 
             this.txtBodegaDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtBodegaDos.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtBodegaDos.Location = new System.Drawing.Point(189, 114);
+            this.txtBodegaDos.Location = new System.Drawing.Point(179, 114);
             this.txtBodegaDos.Name = "txtBodegaDos";
             this.txtBodegaDos.Size = new System.Drawing.Size(135, 22);
             this.txtBodegaDos.TabIndex = 59;
@@ -553,7 +560,7 @@
             this.btnCerrarUno.ForeColor = System.Drawing.SystemColors.Control;
             this.btnCerrarUno.Location = new System.Drawing.Point(3, 263);
             this.btnCerrarUno.Name = "btnCerrarUno";
-            this.btnCerrarUno.Size = new System.Drawing.Size(348, 28);
+            this.btnCerrarUno.Size = new System.Drawing.Size(342, 28);
             this.btnCerrarUno.TabIndex = 52;
             this.btnCerrarUno.Text = "Guardar y cerrar";
             this.btnCerrarUno.UseVisualStyleBackColor = true;
@@ -578,15 +585,17 @@
             this.gbxCrearAvion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxCrearAvion.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxCrearAvion.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbxCrearAvion.Location = new System.Drawing.Point(14, 24);
+            this.gbxCrearAvion.Location = new System.Drawing.Point(760, 661);
             this.gbxCrearAvion.Name = "gbxCrearAvion";
-            this.gbxCrearAvion.Size = new System.Drawing.Size(354, 311);
+            this.gbxCrearAvion.Size = new System.Drawing.Size(350, 311);
             this.gbxCrearAvion.TabIndex = 45;
             this.gbxCrearAvion.TabStop = false;
             this.gbxCrearAvion.Text = "Crear un Avión";
+            this.gbxCrearAvion.Visible = false;
             // 
             // btnOpcionCuatro
             // 
+            this.btnOpcionCuatro.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnOpcionCuatro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btnOpcionCuatro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpcionCuatro.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -595,7 +604,7 @@
             this.btnOpcionCuatro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpcionCuatro.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpcionCuatro.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnOpcionCuatro.Location = new System.Drawing.Point(728, 469);
+            this.btnOpcionCuatro.Location = new System.Drawing.Point(350, 515);
             this.btnOpcionCuatro.Name = "btnOpcionCuatro";
             this.btnOpcionCuatro.Size = new System.Drawing.Size(366, 55);
             this.btnOpcionCuatro.TabIndex = 48;
@@ -605,12 +614,13 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(377, 302);
+            this.pictureBox1.Location = new System.Drawing.Point(439, 90);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(345, 306);
+            this.pictureBox1.Size = new System.Drawing.Size(194, 197);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 49;
+            this.pictureBox1.TabIndex = 66;
             this.pictureBox1.TabStop = false;
             // 
             // CrudAviones
@@ -618,7 +628,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(1064, 610);
+            this.ClientSize = new System.Drawing.Size(1064, 680);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lstAeronaves);
             this.Controls.Add(this.btnOpcionCuatro);
@@ -686,7 +696,7 @@
         private System.Windows.Forms.GroupBox gbxCrearAvion;
         private System.Windows.Forms.ListBox lstAeronaves;
         private System.Windows.Forms.Button btnOpcionCuatro;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

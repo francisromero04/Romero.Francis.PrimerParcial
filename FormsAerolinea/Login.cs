@@ -15,17 +15,28 @@ using BibliotecaAerolineasCompleto;
 
 namespace FormsAerolinea
 {
+    /// <summary>
+    /// Clase que representa la ventana de inicio de sesión.
+    /// </summary>
     public partial class Login : Form
     {
         private BaseDeDatos baseDeDatos = new BaseDeDatos();
         private static Aerolinea aerolinea = new Aerolinea(); //mantiene siempre la misma aerolinea
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase <see cref="Login"/>.
+        /// </summary>
         public Login()
         {
             InitializeComponent();
         }
-        
-         private void btnIniciarSesion_Click(object sender, EventArgs e)
+
+        /// <summary>
+        /// Maneja el evento de hacer clic en el botón "Iniciar sesión".
+        /// </summary>
+        /// <param name="sender">Objeto que genera el evento.</param>
+        /// <param name="e">Argumentos del evento.</param>
+        private void btnIniciarSesion_Click(object sender, EventArgs e)
          {
              string correo = txtCorreo.Text;
              string contraseña = txtContraseña.Text;
@@ -61,16 +72,34 @@ namespace FormsAerolinea
 
         #region MANEJO FORMULARIO      
 
+        /// <summary>
+        /// Maneja el evento de hacer clic en el botón "Cerrar pestaña".
+        /// Cierra la aplicación.
+        /// </summary>
+        /// <param name="sender">Objeto que genera el evento.</param>
+        /// <param name="e">Argumentos del evento.</param>
         private void btnCerrarPestaña_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        /// <summary>
+        /// Maneja el evento de hacer clic en el botón "Minimizar pestaña".
+        /// Minimiza la ventana actual.
+        /// </summary>
+        /// <param name="sender">Objeto que genera el evento.</param>
+        /// <param name="e">Argumentos del evento.</param>
         private void btnMinimizarPestaña_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
+        /// <summary>
+        /// Maneja el evento cuando el cuadro de texto "Correo" obtiene el foco.
+        /// Si el texto es igual a "USUARIO", se borra y se cambia el color de fuente a LightGray.
+        /// </summary>
+        /// <param name="sender">Objeto que genera el evento.</param>
+        /// <param name="e">Argumentos del evento.</param>
         private void txtCorreo_Enter(object sender, EventArgs e)
         {
             if (txtCorreo.Text == "USUARIO")
@@ -80,6 +109,12 @@ namespace FormsAerolinea
             }
         }
 
+        /// <summary>
+        /// Maneja el evento cuando el cuadro de texto "Correo" pierde el foco.
+        /// Si el texto está vacío, se establece como "USUARIO" y se cambia el color de fuente a DimGray.
+        /// </summary>
+        /// <param name="sender">Objeto que genera el evento.</param>
+        /// <param name="e">Argumentos del evento.</param>
         private void txtCorreo_Leave(object sender, EventArgs e)
         {
             if(txtCorreo.Text == "")
@@ -89,6 +124,12 @@ namespace FormsAerolinea
             }
         }
 
+        /// <summary>
+        /// Maneja el evento cuando el cuadro de texto "Contraseña" obtiene el foco.
+        /// Si el texto es igual a "CONTRASEÑA", se borra, se cambia el color de fuente a LightGray y se muestra como carácter de contraseña.
+        /// </summary>
+        /// <param name="sender">Objeto que genera el evento.</param>
+        /// <param name="e">Argumentos del evento.</param>
         private void txtContraseña_Enter(object sender, EventArgs e)
         {
             if (txtContraseña.Text == "CONTRASEÑA")
@@ -99,6 +140,12 @@ namespace FormsAerolinea
             }
         }
 
+        /// <summary>
+        /// Maneja el evento cuando el cuadro de texto "Contraseña" pierde el foco.
+        /// Si el texto está vacío, se establece como "CONTRASEÑA", se cambia el color de fuente a DimGray y se muestra como texto normal.
+        /// </summary>
+        /// <param name="sender">Objeto que genera el evento.</param>
+        /// <param name="e">Argumentos del evento.</param>
         private void txtContraseña_Leave(object sender, EventArgs e)
         {
             if (txtContraseña.Text == "")
@@ -114,18 +161,36 @@ namespace FormsAerolinea
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
+        /// <summary>
+        /// Maneja el evento cuando se presiona el botón del mouse mientras el cursor está sobre el formulario de inicio de sesión.
+        /// Libera la captura del mouse y envía un mensaje para arrastrar la ventana.
+        /// </summary>
+        /// <param name="sender">Objeto que genera el evento.</param>
+        /// <param name="e">Argumentos del evento.</param>
         private void Login_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
+        /// <summary>
+        /// Maneja el evento cuando se presiona el botón del mouse mientras el cursor está sobre el panel contenedor.
+        /// Libera la captura del mouse y envía un mensaje para arrastrar la ventana.
+        /// </summary>
+        /// <param name="sender">Objeto que genera el evento.</param>
+        /// <param name="e">Argumentos del evento.</param>
         private void panelContenedor_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
+        /// <summary>
+        /// Maneja el evento cuando se presiona el botón del mouse mientras el cursor está sobre la barra vertical.
+        /// Libera la captura del mouse y envía un mensaje para arrastrar la ventana.
+        /// </summary>
+        /// <param name="sender">Objeto que genera el evento.</param>
+        /// <param name="e">Argumentos del evento.</param>
         private void barraVertical_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();

@@ -23,17 +23,50 @@ namespace BibliotecaAerolineasCompleto
             listaVuelos = new List<Vuelo>();
             listaPasajeros = new List<Pasajero>();
             dineroTotal = 1000000; //DINERO INICIAL DE LA AEROLINEA
+            DateTime fechaActual = DateTime.Today;
 
             string json = File.ReadAllText("avionesDeAerolinea.json");
             listaAviones = JsonConvert.DeserializeObject<List<Avion>>(json);
-
+           
             string jsonDos = File.ReadAllText("vuelosDeAerolinea.json");
             listaVuelos = JsonConvert.DeserializeObject<List<Vuelo>>(jsonDos);
 
             foreach(Vuelo vuelo in listaVuelos)
             {
                 this.listaPasajeros.AddRange(vuelo.Pasajeros);
-            }            
+
+                if(vuelo.FechaVuelo >= fechaActual)
+                {
+                    foreach(Avion avion in listaAviones)
+                    {
+                        if(vuelo.Avion.Equals(avion))
+                        {
+                            avion.OcupadoEnVuelo = true;
+                        }
+                    }                   
+                }
+            }
+
+            foreach(Pasajero p in listaPasajeros)
+            {
+                p.cantidadVuelosHistoricos++;
+            }
+
+            for (int i = 0; i < listaVuelos.Count; i++)
+            {
+                Vuelo vuelo = listaVuelos[i];
+                if (vuelo.FechaVuelo <= fechaActual)
+                {
+                    Avion avion = listaAviones.Find(a => vuelo.Avion.Equals(a));
+                    if (avion != null)
+                    {
+                        avion.horasVueloHistoricas += vuelo.DuracionVuelo;
+                        listaAviones[listaAviones.IndexOf(avion)] = avion;
+                    }
+
+                 //   Pasajero pasajero = listaPasajeros.Find(p => vuelo.Pasajeros);
+                }
+            }
         }
 
         #region METODOS DE AVION
@@ -121,7 +154,7 @@ namespace BibliotecaAerolineasCompleto
 
             foreach (Vuelo vuelo in listaVuelos)
             {
-                string destino = "";
+                string destino;
                 if (vuelo.vueloNacional)
                 {
                     destino = vuelo.CiudadDestinoNacional.ToString();
@@ -155,18 +188,32 @@ namespace BibliotecaAerolineasCompleto
             return destinoMasSeleccionado;
         }
 
-      /*  public void CrearYGuardarVuelosJson()
+        public void CrearYGuardarVuelosJson()
         {
             for(int i = 0; i < 80; i++)
             {
-                System.Threading.Thread.Sleep(5);
+                System.Threading.Thread.Sleep(500);
                 Vuelo vuelo = new Vuelo(this).GenerarVueloAleatorio(this);
                 agregarVuelo(vuelo);         
             }
 
             string json = JsonConvert.SerializeObject(listaVuelos);
             File.WriteAllText("vuelosDeAerolinea.json", json);
-        } */
+        }
+
+        public void CrearYGuardarAvionesJson()
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                System.Threading.Thread.Sleep(5);
+                Avion avion = new Avion().GenerarAvionAleatorio();
+                agregarAvion(avion);
+
+            }
+
+            string json = JsonConvert.SerializeObject(listaAviones);
+            File.WriteAllText("avionesDeAerolinea.json", json);
+        }
 
         #endregion
     }

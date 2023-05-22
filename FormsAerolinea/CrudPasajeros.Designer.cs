@@ -34,7 +34,6 @@
             this.btnOpcionTres = new System.Windows.Forms.Button();
             this.btnOpcionDos = new System.Windows.Forms.Button();
             this.btnOpcionUno = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTituloCroodAviones = new System.Windows.Forms.Label();
             this.gbxCrearPasajero = new System.Windows.Forms.GroupBox();
             this.cmbxGenero = new System.Windows.Forms.ComboBox();
@@ -74,21 +73,23 @@
             this.btnCerrarTres = new System.Windows.Forms.Button();
             this.lblListaPasajeros = new System.Windows.Forms.Label();
             this.cmbxPasajerosDos = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbxCrearPasajero.SuspendLayout();
             this.gbxModificarPasajero.SuspendLayout();
             this.gbxEliminarPasajero.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lstPasajeros
             // 
+            this.lstPasajeros.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lstPasajeros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.lstPasajeros.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstPasajeros.ForeColor = System.Drawing.SystemColors.Control;
             this.lstPasajeros.FormattingEnabled = true;
             this.lstPasajeros.ItemHeight = 15;
-            this.lstPasajeros.Location = new System.Drawing.Point(801, 597);
+            this.lstPasajeros.Location = new System.Drawing.Point(786, 664);
             this.lstPasajeros.Name = "lstPasajeros";
             this.lstPasajeros.Size = new System.Drawing.Size(573, 289);
             this.lstPasajeros.TabIndex = 38;
@@ -96,6 +97,7 @@
             // 
             // btnOpcionCuatro
             // 
+            this.btnOpcionCuatro.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnOpcionCuatro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btnOpcionCuatro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpcionCuatro.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -104,16 +106,17 @@
             this.btnOpcionCuatro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpcionCuatro.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpcionCuatro.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnOpcionCuatro.Location = new System.Drawing.Point(729, 469);
+            this.btnOpcionCuatro.Location = new System.Drawing.Point(358, 514);
             this.btnOpcionCuatro.Name = "btnOpcionCuatro";
-            this.btnOpcionCuatro.Size = new System.Drawing.Size(366, 55);
+            this.btnOpcionCuatro.Size = new System.Drawing.Size(369, 55);
             this.btnOpcionCuatro.TabIndex = 54;
             this.btnOpcionCuatro.Text = "Listar pasajeros.";
             this.btnOpcionCuatro.UseVisualStyleBackColor = false;
-            this.btnOpcionCuatro.Click += new System.EventHandler(this.btnOpcionCuatro_Click_1);
+            this.btnOpcionCuatro.Click += new System.EventHandler(this.btnOpcionCuatro_Click);
             // 
             // btnOpcionTres
             // 
+            this.btnOpcionTres.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnOpcionTres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btnOpcionTres.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpcionTres.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -122,9 +125,9 @@
             this.btnOpcionTres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpcionTres.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpcionTres.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnOpcionTres.Location = new System.Drawing.Point(729, 419);
+            this.btnOpcionTres.Location = new System.Drawing.Point(358, 464);
             this.btnOpcionTres.Name = "btnOpcionTres";
-            this.btnOpcionTres.Size = new System.Drawing.Size(366, 55);
+            this.btnOpcionTres.Size = new System.Drawing.Size(369, 55);
             this.btnOpcionTres.TabIndex = 52;
             this.btnOpcionTres.Text = "Eliminar un pasajero.";
             this.btnOpcionTres.UseVisualStyleBackColor = false;
@@ -132,6 +135,7 @@
             // 
             // btnOpcionDos
             // 
+            this.btnOpcionDos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnOpcionDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btnOpcionDos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpcionDos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -140,9 +144,9 @@
             this.btnOpcionDos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpcionDos.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpcionDos.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnOpcionDos.Location = new System.Drawing.Point(729, 369);
+            this.btnOpcionDos.Location = new System.Drawing.Point(358, 414);
             this.btnOpcionDos.Name = "btnOpcionDos";
-            this.btnOpcionDos.Size = new System.Drawing.Size(429, 55);
+            this.btnOpcionDos.Size = new System.Drawing.Size(369, 55);
             this.btnOpcionDos.TabIndex = 51;
             this.btnOpcionDos.Text = "Modificar un pasajero.";
             this.btnOpcionDos.UseVisualStyleBackColor = false;
@@ -150,6 +154,7 @@
             // 
             // btnOpcionUno
             // 
+            this.btnOpcionUno.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnOpcionUno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btnOpcionUno.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpcionUno.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -158,31 +163,22 @@
             this.btnOpcionUno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpcionUno.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpcionUno.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnOpcionUno.Location = new System.Drawing.Point(729, 319);
+            this.btnOpcionUno.Location = new System.Drawing.Point(358, 364);
             this.btnOpcionUno.Name = "btnOpcionUno";
-            this.btnOpcionUno.Size = new System.Drawing.Size(366, 55);
+            this.btnOpcionUno.Size = new System.Drawing.Size(369, 55);
             this.btnOpcionUno.TabIndex = 53;
             this.btnOpcionUno.Text = "Crear un pasajero.";
             this.btnOpcionUno.UseVisualStyleBackColor = false;
             this.btnOpcionUno.Click += new System.EventHandler(this.btnOpcionUno_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(378, 302);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(345, 306);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 55;
-            this.pictureBox1.TabStop = false;
-            // 
             // lblTituloCroodAviones
             // 
+            this.lblTituloCroodAviones.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTituloCroodAviones.AutoSize = true;
             this.lblTituloCroodAviones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.lblTituloCroodAviones.Font = new System.Drawing.Font("Times New Roman", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloCroodAviones.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTituloCroodAviones.Location = new System.Drawing.Point(551, 216);
+            this.lblTituloCroodAviones.Location = new System.Drawing.Point(172, 289);
             this.lblTituloCroodAviones.Name = "lblTituloCroodAviones";
             this.lblTituloCroodAviones.Size = new System.Drawing.Size(766, 72);
             this.lblTituloCroodAviones.TabIndex = 50;
@@ -209,7 +205,7 @@
             this.gbxCrearPasajero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxCrearPasajero.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxCrearPasajero.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbxCrearPasajero.Location = new System.Drawing.Point(18, 124);
+            this.gbxCrearPasajero.Location = new System.Drawing.Point(386, 667);
             this.gbxCrearPasajero.Name = "gbxCrearPasajero";
             this.gbxCrearPasajero.Size = new System.Drawing.Size(354, 286);
             this.gbxCrearPasajero.TabIndex = 56;
@@ -390,7 +386,7 @@
             this.gbxModificarPasajero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxModificarPasajero.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxModificarPasajero.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbxModificarPasajero.Location = new System.Drawing.Point(15, 539);
+            this.gbxModificarPasajero.Location = new System.Drawing.Point(12, 664);
             this.gbxModificarPasajero.Name = "gbxModificarPasajero";
             this.gbxModificarPasajero.Size = new System.Drawing.Size(354, 286);
             this.gbxModificarPasajero.TabIndex = 57;
@@ -573,6 +569,7 @@
             // 
             // gbxEliminarPasajero
             // 
+            this.gbxEliminarPasajero.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.gbxEliminarPasajero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.gbxEliminarPasajero.Controls.Add(this.pictureBox2);
             this.gbxEliminarPasajero.Controls.Add(this.btnEliminar);
@@ -582,9 +579,9 @@
             this.gbxEliminarPasajero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxEliminarPasajero.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxEliminarPasajero.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbxEliminarPasajero.Location = new System.Drawing.Point(972, 59);
+            this.gbxEliminarPasajero.Location = new System.Drawing.Point(1042, 39);
             this.gbxEliminarPasajero.Name = "gbxEliminarPasajero";
-            this.gbxEliminarPasajero.Size = new System.Drawing.Size(302, 150);
+            this.gbxEliminarPasajero.Size = new System.Drawing.Size(462, 194);
             this.gbxEliminarPasajero.TabIndex = 58;
             this.gbxEliminarPasajero.TabStop = false;
             this.gbxEliminarPasajero.Text = "Eliminar un Pasajero";
@@ -593,9 +590,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(16, 52);
+            this.pictureBox2.Location = new System.Drawing.Point(6, 75);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(94, 76);
+            this.pictureBox2.Size = new System.Drawing.Size(128, 99);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 50;
             this.pictureBox2.TabStop = false;
@@ -608,9 +605,9 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnEliminar.Location = new System.Drawing.Point(126, 66);
+            this.btnEliminar.Location = new System.Drawing.Point(140, 88);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(148, 28);
+            this.btnEliminar.Size = new System.Drawing.Size(316, 28);
             this.btnEliminar.TabIndex = 49;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -624,9 +621,9 @@
             this.btnCerrarTres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarTres.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarTres.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCerrarTres.Location = new System.Drawing.Point(126, 100);
+            this.btnCerrarTres.Location = new System.Drawing.Point(140, 122);
             this.btnCerrarTres.Name = "btnCerrarTres";
-            this.btnCerrarTres.Size = new System.Drawing.Size(148, 28);
+            this.btnCerrarTres.Size = new System.Drawing.Size(316, 32);
             this.btnCerrarTres.TabIndex = 48;
             this.btnCerrarTres.Text = "Guardar y cerrar";
             this.btnCerrarTres.UseVisualStyleBackColor = false;
@@ -652,19 +649,30 @@
             this.cmbxPasajerosDos.FormattingEnabled = true;
             this.cmbxPasajerosDos.Location = new System.Drawing.Point(140, 21);
             this.cmbxPasajerosDos.Name = "cmbxPasajerosDos";
-            this.cmbxPasajerosDos.Size = new System.Drawing.Size(153, 23);
+            this.cmbxPasajerosDos.Size = new System.Drawing.Size(316, 23);
             this.cmbxPasajerosDos.TabIndex = 38;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(437, 89);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(194, 197);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 67;
+            this.pictureBox1.TabStop = false;
             // 
             // CrudPasajeros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(1064, 610);
+            this.ClientSize = new System.Drawing.Size(1064, 680);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gbxEliminarPasajero);
             this.Controls.Add(this.gbxModificarPasajero);
             this.Controls.Add(this.gbxCrearPasajero);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnOpcionCuatro);
             this.Controls.Add(this.btnOpcionUno);
             this.Controls.Add(this.btnOpcionTres);
@@ -674,7 +682,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrudPasajeros";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbxCrearPasajero.ResumeLayout(false);
             this.gbxCrearPasajero.PerformLayout();
             this.gbxModificarPasajero.ResumeLayout(false);
@@ -682,6 +689,7 @@
             this.gbxEliminarPasajero.ResumeLayout(false);
             this.gbxEliminarPasajero.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -693,7 +701,6 @@
         private System.Windows.Forms.Button btnOpcionTres;
         private System.Windows.Forms.Button btnOpcionDos;
         private System.Windows.Forms.Button btnOpcionUno;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblTituloCroodAviones;
         private System.Windows.Forms.GroupBox gbxCrearPasajero;
         private System.Windows.Forms.Button btnCerrarUno;
@@ -733,5 +740,6 @@
         private System.Windows.Forms.Button btnCerrarTres;
         private System.Windows.Forms.Label lblListaPasajeros;
         private System.Windows.Forms.ComboBox cmbxPasajerosDos;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -1,4 +1,7 @@
-﻿public enum DestinosNacionales
+﻿/// <summary>
+/// Enumeración de destinos nacionales.
+/// </summary>
+public enum DestinosNacionales
 {
     SantaRosa,
     Bariloche,

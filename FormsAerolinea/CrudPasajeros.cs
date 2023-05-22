@@ -28,6 +28,7 @@ namespace FormsAerolinea
             gbxCrearPasajero.Visible = false;
             gbxModificarPasajero.Visible = false;
             gbxEliminarPasajero.Visible = false;
+            lstPasajeros.Visible = false;
         }
 
         #region CONFIGURACION GROUPBOX
@@ -50,35 +51,35 @@ namespace FormsAerolinea
         private void btnOpcionUno_Click(object sender, EventArgs e)
         {
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            gbxCrearPasajero.Location = new Point(780, 310);
+            gbxCrearPasajero.Location = new Point(665, 365);
             gbxCrearPasajero.Visible = true;
         }
 
         private void btnOpcionDos_Click(object sender, EventArgs e)
         {
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            gbxModificarPasajero.Location = new Point(780, 310);
+            gbxModificarPasajero.Location = new Point(665, 365);
             gbxModificarPasajero.Visible = true;
-        } 
+        }
 
         private void btnOpcionTres_Click(object sender, EventArgs e)
         {
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            gbxEliminarPasajero.Location = new Point(780, 310);
+            gbxEliminarPasajero.Location = new Point(640, 375);
             gbxEliminarPasajero.Visible = true;
         }
-        
-        private void btnOpcionCuatro_Click_1(object sender, EventArgs e)
+
+        private void btnOpcionCuatro_Click(object sender, EventArgs e)
         {
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            lstPasajeros.Location = new Point(780, 310);
+            lstPasajeros.Location = new Point(580, 365);
             lstPasajeros.Visible = true;
         }
 
         #endregion
 
         #region ACCIONES CLICK BOTONES
-        
+
         private void btnCrearPasajero_Click(object sender, EventArgs e)
         {
             string nombrePasajero = txtNombre.Text;
@@ -99,10 +100,10 @@ namespace FormsAerolinea
                 (string.IsNullOrEmpty(segundoApellido) || Validador.ValidarCadena(segundoApellido)))
             {
                 Pasajero pasajero = new Pasajero(dni, nombrePasajero, apellidoPasajero, genero, true, segundoNombre, segundoApellido, 0);
-            
+
                 if (!aerolinea.VerificarDniExistente(pasajero.dni))
                 {
-                    if(Validador.ValidarDNI(dni))
+                    if (Validador.ValidarDNI(dni))
                     {
                         aerolinea.agregarPasajero(pasajero);
                         MessageBox.Show("El pasajero ha sido dado de alta.", "¡Felicitaciones!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -121,11 +122,11 @@ namespace FormsAerolinea
             else
             {
                 MessageBox.Show("Por favor, ingrese valores válidos para los datos del pasajero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } 
-        }        
+            }
+        }
 
         private void btnModificar_Click(object sender, EventArgs e)
-        {            
+        {
             Pasajero pasajeroSeleccionado = (Pasajero)cmbxPasajeros.SelectedItem;
 
             if (pasajeroSeleccionado == null)
@@ -134,8 +135,8 @@ namespace FormsAerolinea
                 return;
             }
 
-            bool modificado = ActualizarPasajero(pasajeroSeleccionado, txtNombreDos.Text, txtSegundoNombreDos.Text, txtApellidoDos.Text, 
-                txtSegundoApellidoDos.Text, txtDniDos.Text, cmbxGeneroDos.SelectedItem.ToString() );
+            bool modificado = ActualizarPasajero(pasajeroSeleccionado, txtNombreDos.Text, txtSegundoNombreDos.Text, txtApellidoDos.Text,
+                txtSegundoApellidoDos.Text, txtDniDos.Text, cmbxGeneroDos.SelectedItem.ToString());
 
             if (modificado)
             {
@@ -157,7 +158,7 @@ namespace FormsAerolinea
 
             foreach (Pasajero pasajero in aerolinea.listaPasajeros)
             {
-                if (pasajero.nombreCompletoyDni == nombreAEliminar)
+                if (pasajero.NombreCompletoyDni == nombreAEliminar)
                 {
                     pasajeroAEliminar = pasajero;
                     break;
@@ -181,7 +182,7 @@ namespace FormsAerolinea
         #endregion
 
         #region VISIBILIDAD BOTONES
-       
+
         private void btnCerrarUno_Click(object sender, EventArgs e)
         {
             gbxCrearPasajero.Visible = false;
@@ -193,16 +194,16 @@ namespace FormsAerolinea
             gbxModificarPasajero.Visible = false;
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
         }
-        
+
         private void btnCerrarTres_Click(object sender, EventArgs e)
         {
             gbxEliminarPasajero.Visible = false;
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
         }
-        
+
         private void btnCerrarCuatro_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         #endregion
@@ -350,6 +351,6 @@ namespace FormsAerolinea
             }
         }
 
-        #endregion      
+        #endregion
     }
 }

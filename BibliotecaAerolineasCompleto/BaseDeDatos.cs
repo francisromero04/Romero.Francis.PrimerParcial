@@ -11,18 +11,39 @@ using System.Globalization;
 
 namespace BibliotecaAerolineasCompleto
 {
+    /// <summary>
+    /// Clase que representa una base de datos de usuarios.
+    /// </summary>
     public class BaseDeDatos
     {
+        /// <summary>
+        /// Obtiene o establece el administrador de la base de datos.
+        /// </summary>
         public Administrador administrador { get; set; }
+        /// <summary>
+        /// Obtiene o establece el supervisor de la base de datos.
+        /// </summary>
         public Supervisor supervisor { get; set; }
+        /// <summary>
+        /// Obtiene la lista de vendedores de la base de datos.
+        /// </summary>
         public List<Vendedor> vendedores { get; set; }
 
+        /// <summary>
+        /// Crea una nueva instancia de la clase BaseDeDatos.
+        /// </summary>
         public BaseDeDatos()
         {
             vendedores = new List<Vendedor>(3);
             ExtraerDeArchivoJSON();
         }
 
+        /// <summary>
+        /// Busca un usuario en la base de datos por correo y contraseña.
+        /// </summary>
+        /// <param name="correo">El correo del usuario.</param>
+        /// <param name="contraseña">La contraseña del usuario.</param>
+        /// <returns>El objeto Persona que representa al usuario encontrado, o null si no se encontró ningún usuario.</returns>
         public Persona BuscarUsuario(string correo, string contraseña)
         {
             foreach (Vendedor vendedor in vendedores)
@@ -46,6 +67,9 @@ namespace BibliotecaAerolineasCompleto
             return null;
         }
 
+        /// <summary>
+        /// Extrae los datos de la base de datos desde un archivo JSON.
+        /// </summary>
         public void ExtraerDeArchivoJSON()
         {
             // Leemos el archivo JSON y lo almacenamos en una cadena de texto
@@ -65,6 +89,12 @@ namespace BibliotecaAerolineasCompleto
             vendedores = datos.vendedores.Select(v => new Vendedor(v.Nombre,v.Cargo, v.Correo, v.Contraseña)).ToList();
         }
 
+        /// <summary>
+        /// Devuelve la información de un usuario basado en su correo y contraseña.
+        /// </summary>
+        /// <param name="correo">El correo del usuario.</param>
+        /// <param name="contraseña">La contraseña del usuario.</param>
+        /// <returns>Una cadena de texto con la información del usuario si existe, o un mensaje indicando que el usuario no existe.</returns>
         public string DevolverUsuario(string correo, string contraseña)
         {
             Persona usuario = BuscarUsuario(correo, contraseña);

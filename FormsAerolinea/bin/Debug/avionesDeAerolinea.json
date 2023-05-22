@@ -1,23 +1,113 @@
 [
   {
-    "CantidadAsientos": 194,
-    "CantidadBanos": 3,
-    "CapacidadBodega": 2490.0,
-    "Matricula": "TTGG4509",
-    "ObtenerEstadoAvion": "Avión con matrícula TTGG4509, estado: disponible.",
+    "CantidadAsientos": 202,
+    "CantidadBanos": 1,
+    "CapacidadBodega": 9856.0,
+    "horasVueloHistoricas": 0,
+    "Matricula": "NGRL8782",
+    "ObtenerEstadoAvion": "Avión con matrícula NGRL8782, estado: disponible, asientos: 202",
     "OcupadoEnVuelo": false,
-    "OfreceComida": false,
-    "ServicioInternet": true
+    "OfreceComida": true,
+    "ServicioInternet": false
   },
   {
-    "Matricula": "BWBG7739",
-    "CantidadAsientos": 127,
-    "CantidadBanos": 4,
+    "Matricula": "TERO3532",
+    "CantidadAsientos": 261,
+    "CantidadBanos": 3,
+    "ServicioInternet": true,
+    "OfreceComida": true,
+    "CapacidadBodega": 8727.0,
+    "OcupadoEnVuelo": false,
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula TERO3532, estado: disponible, asientos: 261"
+  },
+  {
+    "Matricula": "PPEU1607",
+    "CantidadAsientos": 225,
+    "CantidadBanos": 1,
     "ServicioInternet": true,
     "OfreceComida": false,
-    "CapacidadBodega": 8109.0,
+    "CapacidadBodega": 2533.0,
     "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula BWBG7739, estado: disponible."
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula PPEU1607, estado: disponible, asientos: 225"
+  },
+  {
+    "Matricula": "YHIE3628",
+    "CantidadAsientos": 220,
+    "CantidadBanos": 1,
+    "ServicioInternet": true,
+    "OfreceComida": true,
+    "CapacidadBodega": 2526.0,
+    "OcupadoEnVuelo": false,
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula YHIE3628, estado: disponible, asientos: 220"
+  },
+  {
+    "Matricula": "IZNP5548",
+    "CantidadAsientos": 215,
+    "CantidadBanos": 1,
+    "ServicioInternet": false,
+    "OfreceComida": false,
+    "CapacidadBodega": 2519.0,
+    "OcupadoEnVuelo": false,
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula IZNP5548, estado: disponible, asientos: 215"
+  },
+  {
+    "Matricula": "QCIP8868",
+    "CantidadAsientos": 148,
+    "CantidadBanos": 1,
+    "ServicioInternet": true,
+    "OfreceComida": false,
+    "CapacidadBodega": 8137.0,
+    "OcupadoEnVuelo": false,
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula QCIP8868, estado: disponible, asientos: 148"
+  },
+  {
+    "Matricula": "MMUU6943",
+    "CantidadAsientos": 112,
+    "CantidadBanos": 3,
+    "ServicioInternet": true,
+    "OfreceComida": true,
+    "CapacidadBodega": 1943.0,
+    "OcupadoEnVuelo": false,
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula MMUU6943, estado: disponible, asientos: 112"
+  },
+  {
+    "Matricula": "VEZF8954",
+    "CantidadAsientos": 107,
+    "CantidadBanos": 3,
+    "ServicioInternet": true,
+    "OfreceComida": false,
+    "CapacidadBodega": 1936.0,
+    "OcupadoEnVuelo": false,
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula VEZF8954, estado: disponible, asientos: 107"
+  },
+  {
+    "Matricula": "EWEQ0874",
+    "CantidadAsientos": 101,
+    "CantidadBanos": 3,
+    "ServicioInternet": false,
+    "OfreceComida": true,
+    "CapacidadBodega": 1929.0,
+    "OcupadoEnVuelo": false,
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula EWEQ0874, estado: disponible, asientos: 101"
+  },
+  {
+    "Matricula": "OOIB3894",
+    "CantidadAsientos": 96,
+    "CantidadBanos": 2,
+    "ServicioInternet": false,
+    "OfreceComida": false,
+    "CapacidadBodega": 1922.0,
+    "OcupadoEnVuelo": false,
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula OOIB3894, estado: disponible, asientos: 96"
   },
   {
     "Matricula": "XGNL5805",
@@ -27,7 +117,8 @@
     "OfreceComida": true,
     "CapacidadBodega": 1915.0,
     "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula XGNL5805, estado: disponible."
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula XGNL5805, estado: disponible, asientos: 91"
   },
   {
     "Matricula": "GYSW7825",
@@ -37,47 +128,52 @@
     "OfreceComida": false,
     "CapacidadBodega": 1908.0,
     "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula GYSW7825, estado: disponible."
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula GYSW7825, estado: disponible, asientos: 86"
   },
   {
-    "Matricula": "CJFB5990",
-    "CantidadAsientos": 50,
-    "CantidadBanos": 4,
-    "ServicioInternet": true,
-    "OfreceComida": false,
-    "CapacidadBodega": 4714.0,
-    "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula CJFB5990, estado: disponible."
-  },
-  {
-    "Matricula": "YTRH3065",
-    "CantidadAsientos": 264,
-    "CantidadBanos": 2,
-    "ServicioInternet": true,
-    "OfreceComida": true,
-    "CapacidadBodega": 7520.0,
-    "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula YTRH3065, estado: disponible."
-  },
-  {
-    "Matricula": "HLWR5086",
-    "CantidadAsientos": 259,
-    "CantidadBanos": 1,
-    "ServicioInternet": true,
-    "OfreceComida": false,
-    "CapacidadBodega": 7513.0,
-    "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula HLWR5086, estado: disponible."
-  },
-  {
-    "Matricula": "QDBC7006",
-    "CantidadAsientos": 254,
+    "Matricula": "QQXH9845",
+    "CantidadAsientos": 81,
     "CantidadBanos": 1,
     "ServicioInternet": false,
     "OfreceComida": true,
-    "CapacidadBodega": 7506.0,
+    "CapacidadBodega": 1901.0,
     "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula QDBC7006, estado: disponible."
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula QQXH9845, estado: disponible, asientos: 81"
+  },
+  {
+    "Matricula": "ZICS2855",
+    "CantidadAsientos": 76,
+    "CantidadBanos": 1,
+    "ServicioInternet": false,
+    "OfreceComida": false,
+    "CapacidadBodega": 1894.0,
+    "OcupadoEnVuelo": false,
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula ZICS2855, estado: disponible, asientos: 76"
+  },
+  {
+    "Matricula": "IAGC4776",
+    "CantidadAsientos": 71,
+    "CantidadBanos": 4,
+    "ServicioInternet": false,
+    "OfreceComida": true,
+    "CapacidadBodega": 1887.0,
+    "OcupadoEnVuelo": false,
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula IAGC4776, estado: disponible, asientos: 71"
+  },
+  {
+    "Matricula": "ELTI2941",
+    "CantidadAsientos": 285,
+    "CantidadBanos": 2,
+    "ServicioInternet": false,
+    "OfreceComida": true,
+    "CapacidadBodega": 4693.0,
+    "OcupadoEnVuelo": false,
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula ELTI2941, estado: disponible, asientos: 285"
   },
   {
     "Matricula": "AVGN9016",
@@ -87,116 +183,40 @@
     "OfreceComida": false,
     "CapacidadBodega": 7499.0,
     "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula AVGN9016, estado: disponible."
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula AVGN9016, estado: disponible, asientos: 248"
   },
   {
-    "Matricula": "VGSS7191",
-    "CantidadAsientos": 212,
-    "CantidadBanos": 3,
-    "ServicioInternet": false,
-    "OfreceComida": true,
-    "CapacidadBodega": 1305.0,
-    "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula VGSS7191, estado: disponible."
-  },
-  {
-    "Matricula": "FYXD9002",
-    "CantidadAsientos": 207,
-    "CantidadBanos": 2,
-    "ServicioInternet": true,
-    "OfreceComida": false,
-    "CapacidadBodega": 1297.0,
-    "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula FYXD9002, estado: disponible."
-  },
-  {
-    "Matricula": "BIKI7287",
-    "CantidadAsientos": 171,
+    "Matricula": "JNKY2936",
+    "CantidadAsientos": 243,
     "CantidadBanos": 4,
-    "ServicioInternet": false,
-    "OfreceComida": false,
-    "CapacidadBodega": 4103.0,
-    "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula BIKI7287, estado: disponible."
-  },
-  {
-    "Matricula": "WTWN5352",
-    "CantidadAsientos": 135,
-    "CantidadBanos": 2,
-    "ServicioInternet": false,
+    "ServicioInternet": true,
     "OfreceComida": true,
-    "CapacidadBodega": 6909.0,
+    "CapacidadBodega": 7492.0,
     "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula WTWN5352, estado: disponible."
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula JNKY2936, estado: disponible, asientos: 243"
   },
   {
-    "Matricula": "SDJT2427",
-    "CantidadAsientos": 99,
-    "CantidadBanos": 1,
-    "ServicioInternet": false,
-    "OfreceComida": true,
-    "CapacidadBodega": 9715.0,
-    "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula SDJT2427, estado: disponible."
-  },
-  {
-    "Matricula": "BVOE5448",
-    "CantidadAsientos": 94,
+    "Matricula": "SFPJ4957",
+    "CantidadAsientos": 238,
     "CantidadBanos": 4,
     "ServicioInternet": true,
     "OfreceComida": false,
-    "CapacidadBodega": 9708.0,
+    "CapacidadBodega": 7485.0,
     "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula BVOE5448, estado: disponible."
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula SFPJ4957, estado: disponible, asientos: 238"
   },
   {
-    "Matricula": "XGAJ2513",
-    "CantidadAsientos": 58,
+    "Matricula": "OQCO2022",
+    "CantidadAsientos": 202,
     "CantidadBanos": 2,
     "ServicioInternet": true,
     "OfreceComida": true,
-    "CapacidadBodega": 3514.0,
+    "CapacidadBodega": 1290.0,
     "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula XGAJ2513, estado: disponible."
-  },
-  {
-    "Matricula": "TQNO0688",
-    "CantidadAsientos": 272,
-    "CantidadBanos": 4,
-    "ServicioInternet": false,
-    "OfreceComida": true,
-    "CapacidadBodega": 6320.0,
-    "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula TQNO0688, estado: disponible."
-  },
-  {
-    "Matricula": "PAZT8753",
-    "CantidadAsientos": 236,
-    "CantidadBanos": 3,
-    "ServicioInternet": false,
-    "OfreceComida": false,
-    "CapacidadBodega": 9126.0,
-    "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula PAZT8753, estado: disponible."
-  },
-  {
-    "Matricula": "YTEE0774",
-    "CantidadAsientos": 231,
-    "CantidadBanos": 2,
-    "ServicioInternet": true,
-    "OfreceComida": true,
-    "CapacidadBodega": 9119.0,
-    "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula YTEE0774, estado: disponible."
-  },
-  {
-    "Matricula": "UDRJ8849",
-    "CantidadAsientos": 195,
-    "CantidadBanos": 4,
-    "ServicioInternet": true,
-    "OfreceComida": false,
-    "CapacidadBodega": 2925.0,
-    "OcupadoEnVuelo": false,
-    "ObtenerEstadoAvion": "Avión con matrícula UDRJ8849, estado: disponible."
+    "horasVueloHistoricas": 0,
+    "ObtenerEstadoAvion": "Avión con matrícula OQCO2022, estado: disponible, asientos: 202"
   }
 ]

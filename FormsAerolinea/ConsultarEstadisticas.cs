@@ -11,21 +11,32 @@ using System.Windows.Forms;
 
 namespace FormsAerolinea
 {
+    /// <summary>
+    /// Representa un formulario para consultar estadísticas relacionadas con una aerolínea.
+    /// </summary>
     public partial class ConsultarEstadisticas : Form
     {
         private Persona usuario;
         private Aerolinea aerolinea;
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase <see cref="ConsultarEstadisticas"/>.
+        /// </summary>
+        /// <param name="usuario">El usuario que accede a las estadísticas.</param>
+        /// <param name="aerolinea">La aerolínea para la cual se están consultando las estadísticas.</param>
         public ConsultarEstadisticas(Persona usuario, Aerolinea aerolinea)
         {
             this.usuario = usuario;
             this.aerolinea = aerolinea;
             InitializeComponent();
             ActualizarListas();
-            lblDineroTotal.Text = "Dinero recaudado:: " + aerolinea.dineroTotal;
+            lblDineroTotal.Text = "Dinero recaudado: " + aerolinea.dineroTotal;
             lblDestino.Text = "Destino mas seleccionado es: " + aerolinea.DestinoMasSeleccionado();
         }
 
+        /// <summary>
+        /// Actualiza las listas y los ComboBox mostrados en el formulario.
+        /// </summary> 
         public void ActualizarListas()
         {
             var vuelosRealizados = new List<Vuelo>();
@@ -41,12 +52,31 @@ namespace FormsAerolinea
             cmbxListaViajesRealizados.DataSource = vuelosRealizados;
             cmbxListaViajesRealizados.DisplayMember = "ObtenerInformacionVuelo";
             cmbxListaViajesRealizados.Refresh();
+
+            cmbxAviones.DataSource = null;
+            cmbxAviones.DataSource = aerolinea.listaAviones;
+            cmbxAviones.DisplayMember = "ObtenerEstadoAvion";
+            cmbxAviones.Refresh();
         }
 
+        /// <summary>
+        /// Se ejecuta cuando se selecciona un elemento en el ComboBox de viajes realizados.
+        /// Actualiza la etiqueta lblPasajeros con la cantidad de pasajeros del vuelo seleccionado.
+        /// </summary>
         private void cmbxListaViajesRealizados_SelectedIndexChanged(object sender, EventArgs e)
         {
             Vuelo vueloSeleccionado = (Vuelo)cmbxListaViajesRealizados.SelectedItem;
             lblPasajeros.Text = "Cantidad de Pasajeros: " + vueloSeleccionado.CantidadPasajeros.ToString();
+        }
+
+        /// <summary>
+        /// Se ejecuta cuando se selecciona un elemento en el ComboBox de aviones.
+        /// Actualiza la etiqueta lblHorasVuelo con las horas de vuelo históricas del avión seleccionado.
+        /// </summary>
+        private void cmbxAviones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Avion avionSeleccionado = (Avion)cmbxAviones.SelectedItem;
+            lblHorasVuelo.Text = "Las horas de vuelo del avion seleccionado son: " + avionSeleccionado.horasVueloHistoricas;
         }
     }
 }

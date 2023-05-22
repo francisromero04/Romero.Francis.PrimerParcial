@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="gbxModificarAeronave.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="gbxEliminarAeronave.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAACRFJREFUeF7t3derLFkVx/HRmdExYVbMiAEcxQFFRfRBVAQDMuoognl8MKAMKr6Y
+        DAAACwwBP0AiyAAACRFJREFUeF7t3derLFkVx/HRmdExYVbMiAEcxQFFRfRBVAQDMuoognl8MKAMKr6Y
         UVQEUfTFB7MPIpiZwTCKOWAAMWDO/iHX34K9Drt3fat61fkdrXuGevhwZ9ZZe/datW+frqre3feSCxcu
         7C4iGNxtB4O77WBwtx0M7raDwd12MLjbDgZ328HgbjsY3G0Hg7vtYHC3HQy6Hnz1jWft3vJieZ28vv05
         GuP9/8fYmIPmPjXq3YVBFxV/SneRX8h/zkjMFXPSY61Gvbsw6KLiTyEO3L+EDqwj5jyTRaHeXRh0UfGn
@@ -163,6 +169,12 @@
         Ul2bAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="lstAeronaves.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="gbxCrearAvion.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL

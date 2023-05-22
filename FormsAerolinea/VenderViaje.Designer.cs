@@ -35,20 +35,21 @@
             this.chbTipoPasajero = new System.Windows.Forms.CheckBox();
             this.lblCostoPasaje = new System.Windows.Forms.Label();
             this.btnVenderPasaje = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cmbxListaVuelos = new System.Windows.Forms.ComboBox();
             this.cmbxListaPasajeros = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblListaViajes
             // 
+            this.lblListaViajes.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblListaViajes.AutoSize = true;
             this.lblListaViajes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.lblListaViajes.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblListaViajes.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblListaViajes.Location = new System.Drawing.Point(583, 360);
+            this.lblListaViajes.Location = new System.Drawing.Point(230, 403);
             this.lblListaViajes.Name = "lblListaViajes";
             this.lblListaViajes.Size = new System.Drawing.Size(184, 31);
             this.lblListaViajes.TabIndex = 2;
@@ -56,21 +57,23 @@
             // 
             // lblPrecioPasaje
             // 
+            this.lblPrecioPasaje.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblPrecioPasaje.AutoSize = true;
             this.lblPrecioPasaje.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioPasaje.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblPrecioPasaje.Location = new System.Drawing.Point(789, 458);
+            this.lblPrecioPasaje.Location = new System.Drawing.Point(436, 501);
             this.lblPrecioPasaje.Name = "lblPrecioPasaje";
             this.lblPrecioPasaje.Size = new System.Drawing.Size(0, 31);
             this.lblPrecioPasaje.TabIndex = 60;
             // 
             // lblListaPasajeros
             // 
+            this.lblListaPasajeros.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblListaPasajeros.AutoSize = true;
             this.lblListaPasajeros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.lblListaPasajeros.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblListaPasajeros.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblListaPasajeros.Location = new System.Drawing.Point(583, 410);
+            this.lblListaPasajeros.Location = new System.Drawing.Point(230, 453);
             this.lblListaPasajeros.Name = "lblListaPasajeros";
             this.lblListaPasajeros.Size = new System.Drawing.Size(188, 31);
             this.lblListaPasajeros.TabIndex = 58;
@@ -78,6 +81,7 @@
             // 
             // chbTipoPasajero
             // 
+            this.chbTipoPasajero.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.chbTipoPasajero.AutoSize = true;
             this.chbTipoPasajero.Checked = true;
             this.chbTipoPasajero.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -86,7 +90,7 @@
             this.chbTipoPasajero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chbTipoPasajero.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chbTipoPasajero.ForeColor = System.Drawing.SystemColors.Control;
-            this.chbTipoPasajero.Location = new System.Drawing.Point(725, 308);
+            this.chbTipoPasajero.Location = new System.Drawing.Point(419, 328);
             this.chbTipoPasajero.Name = "chbTipoPasajero";
             this.chbTipoPasajero.Size = new System.Drawing.Size(237, 25);
             this.chbTipoPasajero.TabIndex = 57;
@@ -95,10 +99,11 @@
             // 
             // lblCostoPasaje
             // 
+            this.lblCostoPasaje.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblCostoPasaje.AutoSize = true;
             this.lblCostoPasaje.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCostoPasaje.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCostoPasaje.Location = new System.Drawing.Point(583, 458);
+            this.lblCostoPasaje.Location = new System.Drawing.Point(230, 501);
             this.lblCostoPasaje.Name = "lblCostoPasaje";
             this.lblCostoPasaje.Size = new System.Drawing.Size(200, 31);
             this.lblCostoPasaje.TabIndex = 52;
@@ -106,6 +111,7 @@
             // 
             // btnVenderPasaje
             // 
+            this.btnVenderPasaje.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnVenderPasaje.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btnVenderPasaje.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btnVenderPasaje.FlatAppearance.BorderSize = 0;
@@ -113,7 +119,7 @@
             this.btnVenderPasaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVenderPasaje.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVenderPasaje.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnVenderPasaje.Location = new System.Drawing.Point(749, 525);
+            this.btnVenderPasaje.Location = new System.Drawing.Point(449, 553);
             this.btnVenderPasaje.Name = "btnVenderPasaje";
             this.btnVenderPasaje.Size = new System.Drawing.Size(183, 51);
             this.btnVenderPasaje.TabIndex = 39;
@@ -121,59 +127,64 @@
             this.btnVenderPasaje.UseVisualStyleBackColor = false;
             this.btnVenderPasaje.Click += new System.EventHandler(this.btnVenderPasaje_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(213, 263);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(299, 264);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 47;
-            this.pictureBox1.TabStop = false;
-            // 
             // cmbxListaVuelos
             // 
+            this.cmbxListaVuelos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cmbxListaVuelos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbxListaVuelos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxListaVuelos.FormattingEnabled = true;
-            this.cmbxListaVuelos.Location = new System.Drawing.Point(791, 367);
+            this.cmbxListaVuelos.Location = new System.Drawing.Point(438, 410);
             this.cmbxListaVuelos.Name = "cmbxListaVuelos";
             this.cmbxListaVuelos.Size = new System.Drawing.Size(362, 27);
             this.cmbxListaVuelos.TabIndex = 61;
+            this.cmbxListaVuelos.SelectedIndexChanged += new System.EventHandler(this.cmbxListaVuelos_SelectedIndexChanged);
             // 
             // cmbxListaPasajeros
             // 
+            this.cmbxListaPasajeros.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cmbxListaPasajeros.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbxListaPasajeros.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxListaPasajeros.FormattingEnabled = true;
-            this.cmbxListaPasajeros.Location = new System.Drawing.Point(791, 410);
+            this.cmbxListaPasajeros.Location = new System.Drawing.Point(438, 453);
             this.cmbxListaPasajeros.Name = "cmbxListaPasajeros";
             this.cmbxListaPasajeros.Size = new System.Drawing.Size(362, 27);
             this.cmbxListaPasajeros.TabIndex = 62;
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 39.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(637, 216);
+            this.label1.Location = new System.Drawing.Point(340, 264);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(392, 61);
             this.label1.TabIndex = 63;
             this.label1.Text = "Venta de Pasajes";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(438, 57);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(196, 197);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 64;
+            this.pictureBox2.TabStop = false;
             // 
             // VenderViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(1237, 847);
+            this.ClientSize = new System.Drawing.Size(1064, 680);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbxListaPasajeros);
             this.Controls.Add(this.cmbxListaVuelos);
             this.Controls.Add(this.btnVenderPasaje);
             this.Controls.Add(this.lblPrecioPasaje);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblCostoPasaje);
             this.Controls.Add(this.lblListaPasajeros);
             this.Controls.Add(this.chbTipoPasajero);
@@ -181,7 +192,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VenderViaje";
             this.Text = "Venta de Viajes";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,9 +205,9 @@
         private System.Windows.Forms.Button btnVenderPasaje;
         private System.Windows.Forms.Label lblListaPasajeros;
         private System.Windows.Forms.Label lblPrecioPasaje;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cmbxListaVuelos;
         private System.Windows.Forms.ComboBox cmbxListaPasajeros;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

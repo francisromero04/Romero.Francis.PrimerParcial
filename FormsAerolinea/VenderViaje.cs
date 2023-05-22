@@ -11,11 +11,19 @@ using System.Windows.Forms;
 
 namespace FormsAerolinea
 {
+    /// <summary>
+    /// Formulario utilizado para vender un viaje de la aerolínea.
+    /// </summary>
     public partial class VenderViaje : Form
     {
         private Persona usuario;
         private Aerolinea aerolinea;
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase VenderViaje.
+        /// </summary>
+        /// <param name="usuario">La persona que está utilizando el formulario.</param>
+        /// <param name="aerolinea">La aerolínea asociada al viaje.</param>
         public VenderViaje(Persona usuario, Aerolinea aerolinea)
         {
             this.usuario = usuario;
@@ -26,6 +34,11 @@ namespace FormsAerolinea
 
         #region CONTROL CLICK BOTONES
 
+        /// <summary>
+        /// Maneja el evento clic del botón "Vender Pasaje" para vender un pasaje.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadenó el evento.</param>
+        /// <param name="e">Los argumentos del evento.</param>
         private void btnVenderPasaje_Click(object sender, EventArgs e)
         {
             Pasajero pasajeroSeleccionado = new Pasajero();
@@ -65,6 +78,9 @@ namespace FormsAerolinea
 
         #region ACTUALIZADORES
 
+        /// <summary>
+        /// Actualiza los ComboBox de vuelos y pasajeros en el formulario.
+        /// </summary>
         private void ActualizarListas()
         {
             var vuelosFuturos = new List<Vuelo>();
@@ -87,6 +103,11 @@ namespace FormsAerolinea
             cmbxListaPasajeros.Refresh();
         }
 
+        /// <summary>
+        /// Maneja el evento de cambio de selección del combo box "cmbxListaVuelos".
+        /// </summary>
+        /// <param name="sender">El objeto que desencadenó el evento.</param>
+        /// <param name="e">Los argumentos del evento.</param>
         private void cmbxListaVuelos_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (chbTipoPasajero.Checked == true)
@@ -111,6 +132,13 @@ namespace FormsAerolinea
 
         #region VERIFICADORES
 
+        /// <summary>
+        /// Finaliza la venta de un pasaje para el pasajero y vuelo seleccionados.
+        /// </summary>
+        /// <param name="pasajeroSeleccionado">El pasajero seleccionado para la venta del pasaje.</param>
+        /// <param name="vueloSeleccionado">El vuelo seleccionado para la venta del pasaje.</param>
+        /// <param name="costoPasaje">El costo del pasaje.</param>
+        /// <param name="aerolinea">La aerolínea asociada al vuelo.</param>
         private void FinalizarVenta(Pasajero pasajeroSeleccionado, Vuelo vueloSeleccionado, decimal costoPasaje, Aerolinea aerolinea)
         {
             if(vueloSeleccionado.ContienePasajero(pasajeroSeleccionado) == false && VerificarDisponibilidadVuelo(vueloSeleccionado) == true &&
@@ -144,6 +172,11 @@ namespace FormsAerolinea
             }
         }
 
+        /// <summary>
+        /// Verifica la disponibilidad del vuelo seleccionado.
+        /// </summary>
+        /// <param name="vueloSeleccionado">El vuelo seleccionado.</param>
+        /// <returns>True si el vuelo está disponible; False de lo contrario.</returns>
         private bool VerificarDisponibilidadVuelo(Vuelo vueloSeleccionado)
         {
             bool estaDisponible;
@@ -158,6 +191,12 @@ namespace FormsAerolinea
             return estaDisponible;
         }
 
+        /// <summary>
+        /// Verifica la capacidad de la bodega del avión para el equipaje del pasajero.
+        /// </summary>
+        /// <param name="pasajeroSeleccionado">El pasajero seleccionado.</param>
+        /// <param name="vueloSeleccionado">El vuelo seleccionado.</param>
+        /// <returns>True si la capacidad de la bodega es suficiente; False de lo contrario.</returns>
         private bool VerificarCapacidadBodega(Pasajero pasajeroSeleccionado, Vuelo vueloSeleccionado)
         {
             bool estaDisponible;
@@ -173,6 +212,12 @@ namespace FormsAerolinea
             return estaDisponible;  
         }
 
+        /// <summary>
+        /// Verifica la disponibilidad de asientos según el tipo de pasajero en el vuelo seleccionado.
+        /// </summary>
+        /// <param name="pasajeroSeleccionado">El pasajero seleccionado.</param>
+        /// <param name="vueloSeleccionado">El vuelo seleccionado.</param>
+        /// <returns>True si hay asientos disponibles; False de lo contrario.</returns>
         private bool VerificarDisponibilidadAsiento(Pasajero pasajeroSeleccionado, Vuelo vueloSeleccionado)
         {
             bool estaDisponible; 
@@ -194,6 +239,12 @@ namespace FormsAerolinea
             return estaDisponible;
         }
 
+        /// <summary>
+        /// Muestra un mensaje de confirmación de la venta del pasaje.
+        /// </summary>
+        /// <param name="pasajeroSeleccionado">El pasajero seleccionado.</param>
+        /// <param name="vueloSeleccionado">El vuelo seleccionado.</param>
+        /// <param name="costoPasaje">El costo del pasaje.</param>
         private void MostrarMensajeConfirmacion(Pasajero pasajeroSeleccionado, Vuelo vueloSeleccionado, decimal costoPasaje)
         {
             MessageBox.Show($"¡Pasaje vendido! \nNombre del pasajero: {pasajeroSeleccionado.nombre} {pasajeroSeleccionado.apellido} \nCiudad de partida: {vueloSeleccionado.CiudadPartida} " +
