@@ -30,8 +30,8 @@ namespace FormsAerolinea
             this.aerolinea = aerolinea;
             InitializeComponent();
             ActualizarListas();
-            lblDineroTotal.Text = "Dinero recaudado: " + aerolinea.dineroTotal;
-            lblDestino.Text = "Destino mas seleccionado es: " + aerolinea.DestinoMasSeleccionado();
+            lblDineroTotal.Text += "Nacional: " + aerolinea.dineroTotalNacional + " | Internacional: " + aerolinea.dineroTotalInternacional;
+            lblDestino.Text += aerolinea.DestinoMasSeleccionado();
         }
 
         /// <summary>
@@ -57,6 +57,19 @@ namespace FormsAerolinea
             cmbxAviones.DataSource = aerolinea.listaAviones;
             cmbxAviones.DisplayMember = "ObtenerEstadoAvion";
             cmbxAviones.Refresh();
+
+            List<Pasajero> pasajerosOrdenados = aerolinea.listaPasajeros.OrderByDescending(p => p.cantidadVuelosHistoricos).ToList();
+            lstPasajerosOrdenados.DataSource = null;
+            lstPasajerosOrdenados.DataSource = pasajerosOrdenados;
+            lstPasajerosOrdenados.DisplayMember = "NombreCompletoyDniyViajes";
+            lstPasajerosOrdenados.Refresh();
+
+            var elementosOrdenados = aerolinea.gananciaInternacional.OrderByDescending(x => x.Value);
+
+            foreach (var elemento in elementosOrdenados)
+            {
+                lstDestinos.Items.Add(elemento.Key + ": " + elemento.Value);
+            }
         }
 
         /// <summary>
@@ -66,7 +79,7 @@ namespace FormsAerolinea
         private void cmbxListaViajesRealizados_SelectedIndexChanged(object sender, EventArgs e)
         {
             Vuelo vueloSeleccionado = (Vuelo)cmbxListaViajesRealizados.SelectedItem;
-            lblPasajeros.Text = "Cantidad de Pasajeros: " + vueloSeleccionado.CantidadPasajeros.ToString();
+            lblPasajeros.Text = "Cantidad de Pasajeros del vuelo seleccionado: " + vueloSeleccionado.CantidadPasajeros.ToString();
         }
 
         /// <summary>
@@ -76,7 +89,7 @@ namespace FormsAerolinea
         private void cmbxAviones_SelectedIndexChanged(object sender, EventArgs e)
         {
             Avion avionSeleccionado = (Avion)cmbxAviones.SelectedItem;
-            lblHorasVuelo.Text = "Las horas de vuelo del avion seleccionado son: " + avionSeleccionado.horasVueloHistoricas;
+            lblHorasVuelo.Text = "Horas Vuelo del Avion seleccionado: " + avionSeleccionado.HorasVueloHistoricas;
         }
     }
 }

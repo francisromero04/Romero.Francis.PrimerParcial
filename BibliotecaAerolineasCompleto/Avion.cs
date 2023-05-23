@@ -12,38 +12,14 @@ namespace BibliotecaAerolineasCompleto
     /// </summary>
     public class Avion
     {
-        /// <summary>
-        /// Obtiene o establece la matrícula del avión.
-        /// </summary>
-        public string Matricula { get; set; }
-        /// <summary>
-        /// Obtiene o establece la cantidad de asientos del avión.
-        /// </summary>
-        public int CantidadAsientos { get; set; }
-        /// <summary>
-        /// Obtiene o establece la cantidad de baños del avión.
-        /// </summary>
-        public int CantidadBanos { get; set; }
-        /// <summary>
-        /// Obtiene o establece un valor que indica si el avión cuenta con servicio de internet.
-        /// </summary>
-        public bool ServicioInternet { get; set; }
-        /// <summary>
-        /// Obtiene o establece un valor que indica si el avión ofrece servicio de comida.
-        /// </summary>
-        public bool OfreceComida { get; set; }
-        /// <summary>
-        /// Obtiene o establece la capacidad de la bodega del avión en kilogramos.
-        /// </summary>
-        public decimal CapacidadBodega { get; set; }
-        /// <summary>
-        /// Obtiene o establece un valor que indica si el avión está ocupado en un vuelo.
-        /// </summary>
-        public bool OcupadoEnVuelo { get; set; }
-        /// <summary>
-        /// Obtiene o establece el número de horas de vuelo históricas del avión.
-        /// </summary>
-        public int horasVueloHistoricas { get; set; }
+        private string matricula;
+        private int cantidadAsientos;
+        private int cantidadBanos;
+        private bool servicioInternet;
+        private bool ofreceComida;
+        private decimal capacidadBodega;
+        private bool ocupadoEnVuelo;
+        private int horasVueloHistoricas;
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Avion"/>.
@@ -73,6 +49,79 @@ namespace BibliotecaAerolineasCompleto
             CapacidadBodega = capacidadBodega;
             horasVueloHistoricas = horas;
         }
+
+        #region Getters y Setters
+
+        /// <summary>
+        /// Obtiene o establece la matrícula del avión.
+        /// </summary>
+        public string Matricula
+        {
+            get { return matricula; }
+            set { matricula = value; }
+        }
+
+        /// <summary>
+        /// Obtiene o establece la cantidad de asientos del avión.
+        /// </summary>
+        public int CantidadAsientos
+        {
+            get { return cantidadAsientos; }
+            set { cantidadAsientos = value; }
+        }
+
+        /// <summary>
+        /// Obtiene o establece la cantidad de baños del avión.
+        /// </summary>
+        public int CantidadBanos
+        {
+            get { return cantidadBanos; }
+            set { cantidadBanos = value; }
+        }
+
+        /// <summary>
+        /// Obtiene o establece un valor que indica si el avión ofrece servicio de internet.
+        /// </summary>
+        public bool ServicioInternet
+        {
+            get { return servicioInternet; }
+            set { servicioInternet = value; }
+        }
+
+        /// <summary>
+        /// Obtiene o establece un valor que indica si el avión ofrece servicio de comida.
+        /// </summary>
+        public bool OfreceComida
+        {
+            get { return ofreceComida; }
+            set { ofreceComida = value; }
+        }
+
+        /// <summary>
+        /// Obtiene o establece la capacidad de la bodega del avión en kilogramos.
+        /// </summary>
+        public decimal CapacidadBodega
+        {
+            get { return capacidadBodega; }
+            set { capacidadBodega= value; }
+        }
+
+        /// <summary>
+        /// Obtiene o establece un valor que indica si el avión está ocupado en un vuelo.
+        /// </summary>
+        public bool OcupadoEnVuelo
+        {
+            get { return ocupadoEnVuelo; }
+            set { ocupadoEnVuelo= value;}
+        }
+
+        public int HorasVueloHistoricas
+        {
+            get { return horasVueloHistoricas;}
+            set{horasVueloHistoricas = value;}
+        }
+
+        #endregion
 
         /// <summary>
         /// Genera un avión aleatorio con valores aleatorios para cada propiedad.
@@ -137,8 +186,6 @@ namespace BibliotecaAerolineasCompleto
         public override int GetHashCode()
         {
             return Matricula.GetHashCode();
-        }
-
-        
+        }        
     }
 }

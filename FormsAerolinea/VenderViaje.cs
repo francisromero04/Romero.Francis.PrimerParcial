@@ -149,6 +149,7 @@ namespace FormsAerolinea
                 {
                     if (vueloSeleccionado.Pasajeros != null)
                     {
+                        pasajeroSeleccionado.cantidadVuelosHistoricos++;
                         vueloSeleccionado.Pasajeros.Add(pasajeroSeleccionado);
                         MostrarMensajeConfirmacion(pasajeroSeleccionado, vueloSeleccionado, costoPasaje);
                     }               
@@ -157,12 +158,26 @@ namespace FormsAerolinea
 
                     if (pasajeroSeleccionado.tipoPasajero == false)
                     {
-                        aerolinea.dineroTotal += vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
-               
+                        if(vueloSeleccionado.vueloNacional == true)
+                        {
+                            aerolinea.dineroTotalNacional += vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
+                        }
+                        else
+                        {
+                            aerolinea.dineroTotalInternacional += vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
+                        }
+
                     }
                     else
                     {
-                        aerolinea.dineroTotal += vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
+                        if (vueloSeleccionado.vueloNacional == true)
+                        {
+                            aerolinea.dineroTotalNacional += vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
+                        }
+                        else
+                        {
+                            aerolinea.dineroTotalInternacional += vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
+                        }
                     }
                 }
             }

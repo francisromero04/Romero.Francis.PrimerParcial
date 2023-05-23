@@ -61,7 +61,7 @@ namespace FormsAerolinea
         {
             Vuelo viajeSeleccionado = (Vuelo)cmbxListaViajes.SelectedItem;
 
-            txtPrecio.Text = "Costo Turista: US$" + viajeSeleccionado.CostoTurista.ToString() + ", Costo Premium: US$" + viajeSeleccionado.CostoPremium.ToString();
+            txtPrecio.Text = "El Costo Turista es de US$" + viajeSeleccionado.CostoTurista.ToString() + " y el Costo Premium es de US$" + viajeSeleccionado.CostoPremium.ToString();
             txtOrigen.Text = "Origen: " + viajeSeleccionado.CiudadPartida;
             txtDestino.Text = "Destino: " + (viajeSeleccionado.vueloNacional ? viajeSeleccionado.CiudadDestinoNacional.ToString() : viajeSeleccionado.CiudadDestinoInternacional.ToString());
             txtFecha.Text = "Fecha: " + viajeSeleccionado.FechaVuelo.ToString("dd/MM/yyyy");

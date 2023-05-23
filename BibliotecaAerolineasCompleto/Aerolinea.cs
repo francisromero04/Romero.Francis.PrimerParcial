@@ -15,15 +15,28 @@ namespace BibliotecaAerolineasCompleto
         public List<Vuelo> listaVuelos { get; set;}
         public List<Avion> listaAviones { get; set;}
         public List<Pasajero> listaPasajeros { get; set; }
-        public decimal dineroTotal { get; set; }
+        public decimal dineroTotalNacional { get; set; }
+        public decimal dineroTotalInternacional { get; set; }
+
+        public Dictionary<DestinosInternacionales, decimal> gananciaInternacional;
 
         public Aerolinea()
         {
             listaAviones = new List<Avion>();
             listaVuelos = new List<Vuelo>();
             listaPasajeros = new List<Pasajero>();
-            dineroTotal = 1000000; //DINERO INICIAL DE LA AEROLINEA
+            dineroTotalNacional = 1000000; //DINERO INICIAL DE LA AEROLINEA
+            dineroTotalInternacional = 1000000;
             DateTime fechaActual = DateTime.Today;
+            gananciaInternacional = new Dictionary<DestinosInternacionales, decimal>();
+
+            // Agregar elementos al diccionario
+            gananciaInternacional.Add(DestinosInternacionales.RecifeBrasil, 0);
+            gananciaInternacional.Add(DestinosInternacionales.RomaItalia, 0);
+            gananciaInternacional.Add(DestinosInternacionales.AcapulcoMexico, 0);
+            gananciaInternacional.Add(DestinosInternacionales.MiamiEEUU, 0);
+
+            //TERMINAR LOS NACIONALES
 
             string json = File.ReadAllText("avionesDeAerolinea.json");
             listaAviones = JsonConvert.DeserializeObject<List<Avion>>(json);
@@ -45,6 +58,20 @@ namespace BibliotecaAerolineasCompleto
                         }
                     }                   
                 }
+
+                if(vuelo.vueloNacional == false)
+                {
+                    if (gananciaInternacional.ContainsKey(vuelo.CiudadDestinoInternacional))
+                    {
+                        decimal ganancia = gananciaInternacional[vuelo.CiudadDestinoInternacional];
+                        ganancia += vuelo.CostoTurista; //TENER CUIDADO CON EL CALCULO DE LA GANANCIA
+                        gananciaInternacional[vuelo.CiudadDestinoInternacional] = ganancia; 
+                    }
+                    else
+                    {
+                        gananciaInternacional.Add(vuelo.CiudadDestinoInternacional, vuelo.CostoTurista);
+                    }
+                }
             }
 
             foreach(Pasajero p in listaPasajeros)
@@ -60,11 +87,9 @@ namespace BibliotecaAerolineasCompleto
                     Avion avion = listaAviones.Find(a => vuelo.Avion.Equals(a));
                     if (avion != null)
                     {
-                        avion.horasVueloHistoricas += vuelo.DuracionVuelo;
+                        avion.HorasVueloHistoricas += vuelo.DuracionVuelo;
                         listaAviones[listaAviones.IndexOf(avion)] = avion;
                     }
-
-                 //   Pasajero pasajero = listaPasajeros.Find(p => vuelo.Pasajeros);
                 }
             }
         }

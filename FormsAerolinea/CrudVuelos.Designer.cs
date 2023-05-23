@@ -81,9 +81,17 @@
             this.lblCostoTuristaDos = new System.Windows.Forms.Label();
             this.lblOrigenDos = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.gbxEliminarViaje = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnCerrarTres = new System.Windows.Forms.Button();
+            this.lblListaPasajeros = new System.Windows.Forms.Label();
+            this.cmbxViajes = new System.Windows.Forms.ComboBox();
             this.gbxCrearViajes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbxModificarViaje.SuspendLayout();
+            this.gbxEliminarViaje.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lbldentificador
@@ -99,10 +107,14 @@
             // lstViajes
             // 
             this.lstViajes.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lstViajes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.lstViajes.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstViajes.ForeColor = System.Drawing.SystemColors.Control;
             this.lstViajes.FormattingEnabled = true;
+            this.lstViajes.ItemHeight = 14;
             this.lstViajes.Location = new System.Drawing.Point(11, 640);
             this.lstViajes.Name = "lstViajes";
-            this.lstViajes.Size = new System.Drawing.Size(1041, 394);
+            this.lstViajes.Size = new System.Drawing.Size(597, 382);
             this.lstViajes.TabIndex = 44;
             this.lstViajes.Visible = false;
             // 
@@ -161,6 +173,7 @@
             this.btnOpcionTres.TabIndex = 58;
             this.btnOpcionTres.Text = "Eliminar un Vuelo.";
             this.btnOpcionTres.UseVisualStyleBackColor = false;
+            this.btnOpcionTres.Click += new System.EventHandler(this.btnOpcionTres_Click);
             // 
             // btnOpcionDos
             // 
@@ -724,12 +737,98 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
+            // gbxEliminarViaje
+            // 
+            this.gbxEliminarViaje.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gbxEliminarViaje.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.gbxEliminarViaje.Controls.Add(this.pictureBox2);
+            this.gbxEliminarViaje.Controls.Add(this.btnEliminar);
+            this.gbxEliminarViaje.Controls.Add(this.btnCerrarTres);
+            this.gbxEliminarViaje.Controls.Add(this.lblListaPasajeros);
+            this.gbxEliminarViaje.Controls.Add(this.cmbxViajes);
+            this.gbxEliminarViaje.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.gbxEliminarViaje.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxEliminarViaje.ForeColor = System.Drawing.SystemColors.Control;
+            this.gbxEliminarViaje.Location = new System.Drawing.Point(694, 386);
+            this.gbxEliminarViaje.Name = "gbxEliminarViaje";
+            this.gbxEliminarViaje.Size = new System.Drawing.Size(462, 194);
+            this.gbxEliminarViaje.TabIndex = 70;
+            this.gbxEliminarViaje.TabStop = false;
+            this.gbxEliminarViaje.Text = "Eliminar un Viaje";
+            this.gbxEliminarViaje.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(6, 75);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(128, 99);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 50;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnEliminar.Location = new System.Drawing.Point(140, 88);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(316, 28);
+            this.btnEliminar.TabIndex = 49;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnCerrarTres
+            // 
+            this.btnCerrarTres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnCerrarTres.FlatAppearance.BorderSize = 0;
+            this.btnCerrarTres.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnCerrarTres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarTres.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarTres.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCerrarTres.Location = new System.Drawing.Point(140, 122);
+            this.btnCerrarTres.Name = "btnCerrarTres";
+            this.btnCerrarTres.Size = new System.Drawing.Size(316, 32);
+            this.btnCerrarTres.TabIndex = 48;
+            this.btnCerrarTres.Text = "Guardar y cerrar";
+            this.btnCerrarTres.UseVisualStyleBackColor = false;
+            this.btnCerrarTres.Click += new System.EventHandler(this.btnCerrarTres_Click);
+            // 
+            // lblListaPasajeros
+            // 
+            this.lblListaPasajeros.AutoSize = true;
+            this.lblListaPasajeros.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListaPasajeros.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblListaPasajeros.Location = new System.Drawing.Point(2, 24);
+            this.lblListaPasajeros.Name = "lblListaPasajeros";
+            this.lblListaPasajeros.Size = new System.Drawing.Size(108, 19);
+            this.lblListaPasajeros.TabIndex = 39;
+            this.lblListaPasajeros.Text = "Lista de Viajes:";
+            // 
+            // cmbxViajes
+            // 
+            this.cmbxViajes.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.cmbxViajes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxViajes.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxViajes.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cmbxViajes.FormattingEnabled = true;
+            this.cmbxViajes.Location = new System.Drawing.Point(140, 21);
+            this.cmbxViajes.Name = "cmbxViajes";
+            this.cmbxViajes.Size = new System.Drawing.Size(316, 23);
+            this.cmbxViajes.TabIndex = 38;
+            // 
             // CrudViajes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(1064, 680);
+            this.Controls.Add(this.gbxEliminarViaje);
             this.Controls.Add(this.gbxModificarViaje);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gbxCrearViajes);
@@ -748,6 +847,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbxModificarViaje.ResumeLayout(false);
             this.gbxModificarViaje.PerformLayout();
+            this.gbxEliminarViaje.ResumeLayout(false);
+            this.gbxEliminarViaje.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -806,5 +908,11 @@
         private System.Windows.Forms.Label lblCostoTuristaDos;
         private System.Windows.Forms.Label lblOrigenDos;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.GroupBox gbxEliminarViaje;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnCerrarTres;
+        private System.Windows.Forms.Label lblListaPasajeros;
+        private System.Windows.Forms.ComboBox cmbxViajes;
     }
 }

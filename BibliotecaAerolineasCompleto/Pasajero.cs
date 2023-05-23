@@ -120,6 +120,43 @@ namespace BibliotecaAerolineasCompleto
             }
         }
 
+
+        /// <summary>
+        /// Obtiene el nombre completo y DNI del pasajero.
+        /// </summary>
+        /// <returns>El nombre completo y DNI del pasajero.</returns>
+        public string NombreCompletoyDniyViajes
+        {
+            get
+            {
+                string nombreCompleto = nombre;
+
+                if (!string.IsNullOrEmpty(segundoNombre))
+                {
+                    nombreCompleto += " " + segundoNombre;
+                }
+                nombreCompleto += " " + apellido;
+                if (!string.IsNullOrEmpty(segundoApellido))
+                {
+                    nombreCompleto += " " + segundoApellido;
+                }
+                nombreCompleto += " " + dni;
+
+                if (Genero == true)
+                {
+                    nombreCompleto += " (masculino)";
+                }
+                else
+                {
+                    nombreCompleto += " (femenino)";
+                }
+
+                nombreCompleto += "- cantidad vuelos: " + cantidadVuelosHistoricos;
+
+                return nombreCompleto;
+            }
+        }
+
         /// <summary>
         /// Determina si el objeto especificado es igual al objeto Pasajero actual.
         /// </summary>

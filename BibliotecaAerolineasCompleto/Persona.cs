@@ -15,7 +15,6 @@ namespace BibliotecaAerolineasCompleto
         /// Obtiene o establece el cargo de la persona.
         /// </summary>
         public string cargo { get; set; }
-
         /// <summary>
         /// Obtiene o establece el correo de la persona.
         /// </summary>

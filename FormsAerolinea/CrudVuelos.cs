@@ -46,8 +46,7 @@ namespace FormsAerolinea
         private void btnOpcionUno_Click(object sender, EventArgs e)
         {
             lstViajes.Visible = btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            gbxCrearViajes.Location = new Point(800, 240);
-            gbxCrearViajes.Anchor = AnchorStyles.Top;
+            gbxCrearViajes.Location = new Point(660, 375);
             gbxCrearViajes.Visible = true;
         }
 
@@ -60,11 +59,17 @@ namespace FormsAerolinea
         private void btnOpcionDos_Click(object sender, EventArgs e)
          {
             lstViajes.Visible = btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            gbxModificarViaje.Location = new Point(800, 240);
-            gbxModificarViaje.Anchor = AnchorStyles.Top;
+            gbxModificarViaje.Location = new Point(650, 375);
             gbxModificarViaje.Visible = true;
         }
-
+        
+        private void btnOpcionTres_Click(object sender, EventArgs e)
+        {
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
+            gbxEliminarViaje.Location = new Point(630, 380);
+            gbxEliminarViaje.Visible = true;
+        }
+        
         /// <summary>
         /// Maneja el evento click del botón btnOpcionCuatro.
         /// </summary>
@@ -72,8 +77,12 @@ namespace FormsAerolinea
         /// <param name="e">Los argumentos del evento.</param>
         private void btnOpcionCuatro_Click(object sender, EventArgs e)
         {
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
+            lstViajes.Location = new Point(560, 380);
             lstViajes.Visible = true;
         }
+
+        
 
         #endregion
 
@@ -333,7 +342,35 @@ namespace FormsAerolinea
             ActualizarListas();
             limpiarElementos();
         }
+        
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            string viajeAEliminar = cmbxViajes.Text; // Obtener el viaje de la combobox
+            Vuelo vueloEliminar = null; //buscar el vuelo seleccionado en la cmbx
 
+            foreach (Vuelo v in aerolinea.listaVuelos)
+            {
+                if (v.ObtenerInformacionVuelo == viajeAEliminar)
+                {
+                    vueloEliminar = v;
+                    break;
+                }
+            }
+
+            // Si se encontró el avión, eliminarlo de la lista
+            if (vueloEliminar != null)
+            {
+                aerolinea.eliminarVuelo(vueloEliminar);
+                cmbxViajes.Items.Remove(viajeAEliminar);
+                MessageBox.Show("El viaje ha sido eliminado.", "¡Felicitaciones!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ActualizarListas();
+            }
+            else
+            {
+                MessageBox.Show("No se encontró ningún viaje similar al seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        
         #endregion
 
         #region VISIBILIDAD BOTONES
@@ -360,6 +397,18 @@ namespace FormsAerolinea
         {
             gbxModificarViaje.Visible = false;
             btnOpcionUno.Visible =btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
+        }
+
+        /// <summary>
+        /// Evento que se activa cuando se hace clic en el botón "Cerrar" en la sección de eliminar de vuelo.
+        /// Oculta el grupo de modificación de vuelo y muestra nuevamente las opciones disponibles.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadena el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
+        private void btnCerrarTres_Click(object sender, EventArgs e)
+        {
+            gbxEliminarViaje.Visible = false;
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
         }
 
         #endregion
@@ -409,6 +458,11 @@ namespace FormsAerolinea
             cmbxListaVuelos.DataSource = vuelosFuturos;
             cmbxListaVuelos.DisplayMember = "ObtenerInformacionVuelo";
             cmbxListaVuelos.Refresh();
+
+            cmbxViajes.DataSource = null;
+            cmbxViajes.DataSource = vuelosFuturos;
+            cmbxViajes.DisplayMember = "ObtenerInformacionVuelo";
+            cmbxViajes.Refresh();
 
             List<Avion> avionesDisponibles = new List<Avion>();
 
@@ -661,6 +715,7 @@ namespace FormsAerolinea
             }
         }
 
-        #endregion              
+
+        #endregion
     }
 }
