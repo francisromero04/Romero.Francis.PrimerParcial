@@ -41,35 +41,19 @@ namespace FormsAerolinea
         /// <param name="e">Los argumentos del evento.</param>
         private void btnVenderPasaje_Click(object sender, EventArgs e)
         {
-            Pasajero pasajeroSeleccionado = new Pasajero();
-            Vuelo vueloSeleccionado = new Vuelo(aerolinea);
+            Pasajero pasajeroSeleccionado = (Pasajero)cmbxListaPasajeros.SelectedItem;
+            Vuelo vueloSeleccionado = (Vuelo)cmbxListaVuelos.SelectedItem;
             decimal costoPasaje;
 
-            if (chbTipoPasajero.Checked == true)
-            {
-                pasajeroSeleccionado.tipoPasajero = false; //premium
-                pasajeroSeleccionado = (Pasajero)cmbxListaPasajeros.SelectedItem;
+            if (chbTipoPasajero.Checked == true) {
+                pasajeroSeleccionado.tipoPasajero = false;
                 costoPasaje = vueloSeleccionado.CostoPremium;
             }
-            else
-            {
-                pasajeroSeleccionado = (Pasajero)cmbxListaPasajeros.SelectedItem;
-                pasajeroSeleccionado.tipoPasajero = true; //turista
+            else {
+                pasajeroSeleccionado.tipoPasajero = true;
                 costoPasaje = vueloSeleccionado.CostoTurista;
-            }
-
-            vueloSeleccionado = (Vuelo)cmbxListaVuelos.SelectedItem; 
-                        
-            if (vueloSeleccionado != null) // Verificar si el vuelo seleccionado no es nulo
-            {                
-                lblPrecioPasaje.Text = "US $" + (pasajeroSeleccionado.tipoPasajero == true ? vueloSeleccionado.CostoTurista : vueloSeleccionado.CostoPremium) + 
-                                       " PRECIO + IVA " + ((pasajeroSeleccionado.tipoPasajero == true ? vueloSeleccionado.CostoTurista : vueloSeleccionado.CostoPremium))*vueloSeleccionado.IVA;
-            }
-            else
-            {                
-                lblPrecioPasaje.Text = "N/A"; // Si el vuelo seleccionado es nulo, asignar un valor predeterminado al Label
-            }
-
+            }                      
+       
             FinalizarVenta(pasajeroSeleccionado, vueloSeleccionado, costoPasaje, aerolinea);
             new Pasaje(pasajeroSeleccionado, vueloSeleccionado, true, costoPasaje); // Crear un nuevo pasaje y agregarlo a las listas correspondientes
         }
@@ -110,21 +94,39 @@ namespace FormsAerolinea
         /// <param name="e">Los argumentos del evento.</param>
         private void cmbxListaVuelos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Vuelo vueloSeleccionado = (Vuelo)cmbxListaVuelos.SelectedItem; 
+            
             if (chbTipoPasajero.Checked == true)
             {
-                // Obtener el vuelo seleccionado
-                Vuelo vueloSeleccionado = (Vuelo)cmbxListaVuelos.SelectedItem;
-
-                // Actualizar el valor del Label con el costo premium del vuelo seleccionado
-                lblPrecioPasaje.Text = vueloSeleccionado.CostoPremium.ToString();
+                //lblPrecioPasaje.Text = vueloSeleccionado.CostoPremium.ToString();
+                lblPrecioPasaje.Text = $"{vueloSeleccionado.CostoPremium} | Costo del Pasaje + IVA = " + vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
             }
             else
             {
-                // Obtener el vuelo seleccionado
-                Vuelo vueloSeleccionado = (Vuelo)cmbxListaVuelos.SelectedItem;
+               // lblPrecioPasaje.Text = vueloSeleccionado.CostoTurista.ToString();
+                lblPrecioPasaje.Text = $"{vueloSeleccionado.CostoTurista} | Costo del Pasaje + IVA = " + vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
+            }
+        }
+        
+        /// <summary>
+        /// Maneja el cambio de selección del check box "chbTipoPasajero".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chbTipoPasajero_CheckedChanged(object sender, EventArgs e)
+        {
+            Vuelo vueloSeleccionado = (Vuelo)cmbxListaVuelos.SelectedItem;
+            Pasajero pasajeroSeleccionado = (Pasajero)cmbxListaPasajeros.SelectedItem;
 
-                // Actualizar el valor del Label con el costo premium del vuelo seleccionado
-                lblPrecioPasaje.Text = vueloSeleccionado.CostoTurista.ToString();
+            if (chbTipoPasajero.Checked == true) {
+             //   pasajeroSeleccionado.tipoPasajero = false;
+            //    lblPrecioPasaje.Text = vueloSeleccionado.CostoPremium.ToString();
+                lblPrecioPasaje.Text = $"{vueloSeleccionado.CostoPremium} | Costo del Pasaje + IVA = " + vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
+            }
+            else { 
+               // pasajeroSeleccionado.tipoPasajero = true;
+              //  lblPrecioPasaje.Text = vueloSeleccionado.CostoTurista.ToString();
+                lblPrecioPasaje.Text = $"{vueloSeleccionado.CostoTurista} | Costo del Pasaje + IVA = " + vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
             }
         }
 
@@ -154,17 +156,19 @@ namespace FormsAerolinea
                         MostrarMensajeConfirmacion(pasajeroSeleccionado, vueloSeleccionado, costoPasaje);
                     }               
 
-                    vueloSeleccionado.VenderPasaje(pasajeroSeleccionado, true);
+                    vueloSeleccionado.VenderPasaje(pasajeroSeleccionado, pasajeroSeleccionado.tipoPasajero);
 
                     if (pasajeroSeleccionado.tipoPasajero == false)
                     {
                         if(vueloSeleccionado.vueloNacional == true)
                         {
                             aerolinea.dineroTotalNacional += vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
+                            aerolinea.gananciaNacional[vueloSeleccionado.CiudadDestinoNacional] += vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
                         }
                         else
                         {
                             aerolinea.dineroTotalInternacional += vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
+                            aerolinea.gananciaInternacional[vueloSeleccionado.CiudadDestinoInternacional] += vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
                         }
 
                     }
@@ -173,17 +177,15 @@ namespace FormsAerolinea
                         if (vueloSeleccionado.vueloNacional == true)
                         {
                             aerolinea.dineroTotalNacional += vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
+                            aerolinea.gananciaNacional[vueloSeleccionado.CiudadDestinoNacional] += vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
                         }
                         else
                         {
                             aerolinea.dineroTotalInternacional += vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
+                            aerolinea.gananciaInternacional[vueloSeleccionado.CiudadDestinoInternacional] += vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
                         }
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show("No se ha podido vender el pasaje correctamente.");
             }
         }
 
@@ -262,13 +264,13 @@ namespace FormsAerolinea
         /// <param name="costoPasaje">El costo del pasaje.</param>
         private void MostrarMensajeConfirmacion(Pasajero pasajeroSeleccionado, Vuelo vueloSeleccionado, decimal costoPasaje)
         {
-            MessageBox.Show($"¡Pasaje vendido! \nNombre del pasajero: {pasajeroSeleccionado.nombre} {pasajeroSeleccionado.apellido} \nCiudad de partida: {vueloSeleccionado.CiudadPartida} " +
+            MessageBox.Show($"¡Pasaje vendido! \nNombre del pasajero: {pasajeroSeleccionado.Nombre} {pasajeroSeleccionado.Apellido} \nCiudad de partida: {vueloSeleccionado.CiudadPartida} " +
                                          $"\nCiudad de destino: {(vueloSeleccionado.vueloNacional == true ? vueloSeleccionado.CiudadDestinoNacional.ToString() : vueloSeleccionado.CiudadDestinoInternacional.ToString())} " +
-                                         $"\nFecha de vuelo: {vueloSeleccionado.FechaVuelo.ToString("dd/MM/yyyy")} \nTipo: {(pasajeroSeleccionado.tipoPasajero == true ? "Turista" : "Premium")} " +
+                                         $"\nFecha de vuelo: {vueloSeleccionado.FechaVuelo.ToString("dd/MM/yyyy")} \nTipo: {(pasajeroSeleccionado.tipoPasajero ? "Turista" : "Premium")} " +
                                          $"\nCosto del pasaje: {(pasajeroSeleccionado.tipoPasajero == false ? vueloSeleccionado.CostoPremium : vueloSeleccionado.CostoTurista)}" +
                                          $" \nCosto del pasaje + IVA: {(pasajeroSeleccionado.tipoPasajero == false ? vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA : vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA)}");
         }
 
-        #endregion
+        #endregion        
     }
 }

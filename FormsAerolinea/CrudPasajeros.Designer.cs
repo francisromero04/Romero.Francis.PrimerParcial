@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CrudPasajeros));
-            this.lstPasajeros = new System.Windows.Forms.ListBox();
             this.btnOpcionCuatro = new System.Windows.Forms.Button();
             this.btnOpcionTres = new System.Windows.Forms.Button();
             this.btnOpcionDos = new System.Windows.Forms.Button();
@@ -74,26 +73,13 @@
             this.lblListaPasajeros = new System.Windows.Forms.Label();
             this.cmbxPasajerosDos = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lstPasajeros = new System.Windows.Forms.ListBox();
             this.gbxCrearPasajero.SuspendLayout();
             this.gbxModificarPasajero.SuspendLayout();
             this.gbxEliminarPasajero.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lstPasajeros
-            // 
-            this.lstPasajeros.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lstPasajeros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.lstPasajeros.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstPasajeros.ForeColor = System.Drawing.SystemColors.Control;
-            this.lstPasajeros.FormattingEnabled = true;
-            this.lstPasajeros.ItemHeight = 15;
-            this.lstPasajeros.Location = new System.Drawing.Point(786, 664);
-            this.lstPasajeros.Name = "lstPasajeros";
-            this.lstPasajeros.Size = new System.Drawing.Size(573, 289);
-            this.lstPasajeros.TabIndex = 38;
-            this.lstPasajeros.Visible = false;
             // 
             // btnOpcionCuatro
             // 
@@ -205,7 +191,7 @@
             this.gbxCrearPasajero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxCrearPasajero.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxCrearPasajero.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbxCrearPasajero.Location = new System.Drawing.Point(386, 667);
+            this.gbxCrearPasajero.Location = new System.Drawing.Point(562, 664);
             this.gbxCrearPasajero.Name = "gbxCrearPasajero";
             this.gbxCrearPasajero.Size = new System.Drawing.Size(354, 286);
             this.gbxCrearPasajero.TabIndex = 56;
@@ -663,12 +649,26 @@
             this.pictureBox1.TabIndex = 67;
             this.pictureBox1.TabStop = false;
             // 
+            // lstPasajeros
+            // 
+            this.lstPasajeros.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lstPasajeros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.lstPasajeros.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstPasajeros.ForeColor = System.Drawing.SystemColors.Control;
+            this.lstPasajeros.FormattingEnabled = true;
+            this.lstPasajeros.ItemHeight = 17;
+            this.lstPasajeros.Location = new System.Drawing.Point(1042, 364);
+            this.lstPasajeros.Name = "lstPasajeros";
+            this.lstPasajeros.Size = new System.Drawing.Size(538, 395);
+            this.lstPasajeros.TabIndex = 69;
+            // 
             // CrudPasajeros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(1064, 680);
+            this.Controls.Add(this.lstPasajeros);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gbxEliminarPasajero);
             this.Controls.Add(this.gbxModificarPasajero);
@@ -678,7 +678,6 @@
             this.Controls.Add(this.btnOpcionTres);
             this.Controls.Add(this.btnOpcionDos);
             this.Controls.Add(this.lblTituloCroodAviones);
-            this.Controls.Add(this.lstPasajeros);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrudPasajeros";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -696,7 +695,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.ListBox lstPasajeros;
         private System.Windows.Forms.Button btnOpcionCuatro;
         private System.Windows.Forms.Button btnOpcionTres;
         private System.Windows.Forms.Button btnOpcionDos;
@@ -741,5 +739,6 @@
         private System.Windows.Forms.Label lblListaPasajeros;
         private System.Windows.Forms.ComboBox cmbxPasajerosDos;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ListBox lstPasajeros;
     }
 }

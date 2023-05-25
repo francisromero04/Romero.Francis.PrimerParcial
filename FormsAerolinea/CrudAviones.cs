@@ -36,6 +36,7 @@ namespace FormsAerolinea
             gbxModificarAeronave.Visible = false;
             gbxEliminarAeronave.Visible = false;
             gbxCrearAvion.Visible = false;
+            dgvAviones.Visible = false;
         }
 
         #region CONFIGURACION GROUPBOX
@@ -111,14 +112,43 @@ namespace FormsAerolinea
         private void btnOpcionCuatro_Click(object sender, EventArgs e)
         {
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            lstAeronaves.Location = new Point(580, 365);
-            lstAeronaves.Visible = true;
+            dgvAviones.Visible = true;
+
+            dgvAviones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAviones.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+            dgvAviones.Columns.Clear(); // Limpiar las columnas existentes
+
+            dgvAviones.DataSource = aerolinea.listaAviones;
+
+            // Mostrar solo los atributos en el DataGridView
+            dgvAviones.DataSource = aerolinea.listaAviones.Select(avion => new
+            {
+                avion.Matricula,
+                avion.CantidadAsientos,
+                avion.CantidadBanos,
+                avion.ServicioInternet,
+                avion.OfreceComida,
+                avion.CapacidadBodega,
+                avion.OcupadoEnVuelo,
+                avion.HorasVueloHistoricas,
+            }).ToList();
+
+            dgvAviones.Refresh();
+            // Centrar el DataGridView en la pantalla
+            dgvAviones.Left = (this.ClientSize.Width - dgvAviones.Width) / 2;
+            dgvAviones.Top = ((this.ClientSize.Height - dgvAviones.Height) / 2) + 40;
         }
 
         #endregion
 
         #region ACCIONES CLICK BOTONES
 
+        /// <summary>
+        /// Maneja el evento de click en el botón "Crear Avión".
+        /// Crea un nuevo objeto Avion con los valores ingresados en los TextBox del formulario y lo agrega a la lista de Aviones de la aerolínea.
+        /// </summary>
+        /// <param name="sender">El objeto que generó el evento.</param>
+        /// <param name="e">Los argumentos del evento.</param>
         private void btnCrearAvion_Click(object sender, EventArgs e)
         {
             // Obtener los valores de los TextBox del formulario
@@ -151,6 +181,13 @@ namespace FormsAerolinea
             {
                 MessageBox.Show("La matrícula ingresada no es válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+
+            }
+
+            if (aerolinea.VerificarMatriculaExistente(matricula) == true)
+            {
+                MessageBox.Show("La matrícula ingresada ya pertenece a un avion existente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             // Validar los números ingresados
@@ -161,14 +198,20 @@ namespace FormsAerolinea
             }
 
             // Crear un nuevo objeto Avion utilizando el constructor
-            Avion nuevoAvion = new Avion(matricula, cantAsientos, cantBanos, servicioInternet, ofreceComida, capacidadBodega, 0);
+            Avion nuevoAvion = new Avion(matricula, cantAsientos, cantBanos, servicioInternet, ofreceComida, capacidadBodega, 0, false);
             // Agregar el nuevo Avion a la lista de Avion de la aerolínea
             aerolinea.agregarAvion(nuevoAvion);
             // Mostrar un mensaje de éxito
             MessageBox.Show("El avión ha sido dado de alta correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ActualizarListas();
         }
-
+        
+        /// <summary>
+        /// Maneja el evento de click en el botón "Modificar".
+        /// Actualiza los valores del Avión seleccionado en el ComboBox utilizando los datos ingresados en los controles del formulario.
+        /// </summary>
+        /// <param name="sender">El objeto que generó el evento.</param>
+        /// <param name="e">Los argumentos del evento.</param>
         private void btnModificar_Click(object sender, EventArgs e)
         {
             // Obtener el objeto avión seleccionado en el ComboBox
@@ -191,6 +234,12 @@ namespace FormsAerolinea
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de click en el botón "Eliminar".
+        /// Elimina el Avión seleccionado en el ComboBox de la lista de avines.
+        /// </summary>
+        /// <param name="sender">El objeto que generó el evento.</param>
+        /// <param name="e">Los argumentos del evento.</param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             // Obtener la matrícula seleccionada en el ComboBox y limpiar espacios en blanco
@@ -315,9 +364,15 @@ namespace FormsAerolinea
         /// <returns>Devuelve true si la capacidad de la bodega se actualizó correctamente, de lo contrario devuelve false.</returns>
         private bool ActualizarCapacidadBodega(Avion avion)
         {
-            int capacidadBodega;
+            decimal capacidadBodega;
 
-            if (int.TryParse(txtBodega.Text, out capacidadBodega) && Validador.ValidarNumeroPositivo(capacidadBodega))
+
+            if (decimal.TryParse(txtBodega.Text, out capacidadBodega) && Validador.ValidarNumeroPositivo((int)capacidadBodega))
+            {
+                avion.CapacidadBodega = capacidadBodega;
+                return true;
+            }
+            else if (capacidadBodega == avion.CapacidadBodega)
             {
                 avion.CapacidadBodega = capacidadBodega;
                 return true;
@@ -367,15 +422,12 @@ namespace FormsAerolinea
         /// </summary>
         private void ActualizarListas()
         {
-            lstAeronaves.DataSource = null;
             cmbxAviones.DataSource = null;
             cmbxAvionesDos.DataSource = null;
 
-            lstAeronaves.DataSource = aerolinea.listaAviones;
             cmbxAviones.DataSource = aerolinea.listaAviones;
             cmbxAvionesDos.DataSource = aerolinea.listaAviones;
 
-            lstAeronaves.DisplayMember = "ObtenerEstadoAvion";
             cmbxAviones.DisplayMember = "ObtenerEstadoAvion";
             cmbxAvionesDos.DisplayMember = "Matricula";
 
@@ -385,6 +437,26 @@ namespace FormsAerolinea
             lstAeronaves.Refresh();
             cmbxAviones.Refresh();
             cmbxAvionesDos.Refresh();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvAviones_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvAviones.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    // Cambiar el color de fondo
+                    cell.Style.BackColor = Color.Black;
+
+                    // Cambiar el color de la fuente
+                    cell.Style.ForeColor = Color.White;                                      
+                }
+            }
         }
 
         #endregion

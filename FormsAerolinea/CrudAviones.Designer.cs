@@ -70,11 +70,13 @@
             this.gbxCrearAvion = new System.Windows.Forms.GroupBox();
             this.btnOpcionCuatro = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dgvAviones = new System.Windows.Forms.DataGridView();
             this.gbxModificarAeronave.SuspendLayout();
             this.gbxEliminarAeronave.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.gbxCrearAvion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAviones)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxModificarAeronave
@@ -585,7 +587,7 @@
             this.gbxCrearAvion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxCrearAvion.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxCrearAvion.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbxCrearAvion.Location = new System.Drawing.Point(760, 661);
+            this.gbxCrearAvion.Location = new System.Drawing.Point(730, 661);
             this.gbxCrearAvion.Name = "gbxCrearAvion";
             this.gbxCrearAvion.Size = new System.Drawing.Size(350, 311);
             this.gbxCrearAvion.TabIndex = 45;
@@ -623,12 +625,37 @@
             this.pictureBox1.TabIndex = 66;
             this.pictureBox1.TabStop = false;
             // 
+            // dgvAviones
+            // 
+            this.dgvAviones.AllowUserToAddRows = false;
+            this.dgvAviones.AllowUserToDeleteRows = false;
+            this.dgvAviones.AllowUserToResizeRows = false;
+            this.dgvAviones.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dgvAviones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAviones.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.dgvAviones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvAviones.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.dgvAviones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAviones.EnableHeadersVisualStyles = false;
+            this.dgvAviones.GridColor = System.Drawing.SystemColors.Control;
+            this.dgvAviones.Location = new System.Drawing.Point(1003, 477);
+            this.dgvAviones.MultiSelect = false;
+            this.dgvAviones.Name = "dgvAviones";
+            this.dgvAviones.ReadOnly = true;
+            this.dgvAviones.RowHeadersVisible = false;
+            this.dgvAviones.Size = new System.Drawing.Size(1042, 361);
+            this.dgvAviones.TabIndex = 1;
+            this.dgvAviones.TabStop = false;
+            this.dgvAviones.VirtualMode = true;
+            this.dgvAviones.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvAviones_CellFormatting);
+            // 
             // CrudAviones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(1064, 680);
+            this.Controls.Add(this.dgvAviones);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lstAeronaves);
             this.Controls.Add(this.btnOpcionCuatro);
@@ -650,6 +677,7 @@
             this.gbxCrearAvion.ResumeLayout(false);
             this.gbxCrearAvion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAviones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -698,5 +726,6 @@
         private System.Windows.Forms.Button btnOpcionCuatro;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView dgvAviones;
     }
 }

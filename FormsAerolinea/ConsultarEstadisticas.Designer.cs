@@ -42,6 +42,7 @@
             this.lstPasajerosOrdenados = new System.Windows.Forms.ListBox();
             this.lstDestinos = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,11 +50,11 @@
             // 
             this.lblListaViajesRealizados.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblListaViajesRealizados.AutoSize = true;
-            this.lblListaViajesRealizados.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListaViajesRealizados.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblListaViajesRealizados.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblListaViajesRealizados.Location = new System.Drawing.Point(126, 259);
+            this.lblListaViajesRealizados.Location = new System.Drawing.Point(82, 230);
             this.lblListaViajesRealizados.Name = "lblListaViajesRealizados";
-            this.lblListaViajesRealizados.Size = new System.Drawing.Size(330, 34);
+            this.lblListaViajesRealizados.Size = new System.Drawing.Size(214, 21);
             this.lblListaViajesRealizados.TabIndex = 3;
             this.lblListaViajesRealizados.Text = "Lista de Vuelos realizados:";
             // 
@@ -64,9 +65,9 @@
             this.cmbxListaViajesRealizados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbxListaViajesRealizados.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxListaViajesRealizados.FormattingEnabled = true;
-            this.cmbxListaViajesRealizados.Location = new System.Drawing.Point(472, 268);
+            this.cmbxListaViajesRealizados.Location = new System.Drawing.Point(428, 222);
             this.cmbxListaViajesRealizados.Name = "cmbxListaViajesRealizados";
-            this.cmbxListaViajesRealizados.Size = new System.Drawing.Size(441, 23);
+            this.cmbxListaViajesRealizados.Size = new System.Drawing.Size(536, 23);
             this.cmbxListaViajesRealizados.TabIndex = 4;
             this.cmbxListaViajesRealizados.SelectedIndexChanged += new System.EventHandler(this.cmbxListaViajesRealizados_SelectedIndexChanged);
             // 
@@ -77,7 +78,7 @@
             this.lblTituloConsultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.lblTituloConsultar.Font = new System.Drawing.Font("Times New Roman", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloConsultar.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTituloConsultar.Location = new System.Drawing.Point(313, 203);
+            this.lblTituloConsultar.Location = new System.Drawing.Point(310, 140);
             this.lblTituloConsultar.Name = "lblTituloConsultar";
             this.lblTituloConsultar.Size = new System.Drawing.Size(471, 54);
             this.lblTituloConsultar.TabIndex = 5;
@@ -87,11 +88,11 @@
             // 
             this.lblDineroTotal.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblDineroTotal.AutoSize = true;
-            this.lblDineroTotal.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDineroTotal.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDineroTotal.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDineroTotal.Location = new System.Drawing.Point(126, 360);
+            this.lblDineroTotal.Location = new System.Drawing.Point(82, 416);
             this.lblDineroTotal.Name = "lblDineroTotal";
-            this.lblDineroTotal.Size = new System.Drawing.Size(410, 31);
+            this.lblDineroTotal.Size = new System.Drawing.Size(278, 21);
             this.lblDineroTotal.TabIndex = 40;
             this.lblDineroTotal.Text = "Dinero recaudado de la aerolinea: ";
             // 
@@ -99,11 +100,11 @@
             // 
             this.lblDestino.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblDestino.AutoSize = true;
-            this.lblDestino.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDestino.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDestino.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDestino.Location = new System.Drawing.Point(126, 409);
+            this.lblDestino.Location = new System.Drawing.Point(82, 450);
             this.lblDestino.Name = "lblDestino";
-            this.lblDestino.Size = new System.Drawing.Size(436, 31);
+            this.lblDestino.Size = new System.Drawing.Size(294, 21);
             this.lblDestino.TabIndex = 41;
             this.lblDestino.Text = "Destino más elegido de la aerolinea: ";
             // 
@@ -111,11 +112,11 @@
             // 
             this.lblPasajeros.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblPasajeros.AutoSize = true;
-            this.lblPasajeros.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPasajeros.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPasajeros.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblPasajeros.Location = new System.Drawing.Point(126, 310);
+            this.lblPasajeros.Location = new System.Drawing.Point(82, 265);
             this.lblPasajeros.Name = "lblPasajeros";
-            this.lblPasajeros.Size = new System.Drawing.Size(31, 31);
+            this.lblPasajeros.Size = new System.Drawing.Size(21, 21);
             this.lblPasajeros.TabIndex = 43;
             this.lblPasajeros.Text = "A";
             // 
@@ -123,9 +124,9 @@
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(434, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(428, 12);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(196, 197);
+            this.pictureBox2.Size = new System.Drawing.Size(199, 125);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 44;
             this.pictureBox2.TabStop = false;
@@ -137,9 +138,9 @@
             this.cmbxAviones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbxAviones.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxAviones.FormattingEnabled = true;
-            this.cmbxAviones.Location = new System.Drawing.Point(472, 466);
+            this.cmbxAviones.Location = new System.Drawing.Point(428, 313);
             this.cmbxAviones.Name = "cmbxAviones";
-            this.cmbxAviones.Size = new System.Drawing.Size(441, 23);
+            this.cmbxAviones.Size = new System.Drawing.Size(536, 23);
             this.cmbxAviones.TabIndex = 46;
             this.cmbxAviones.SelectedIndexChanged += new System.EventHandler(this.cmbxAviones_SelectedIndexChanged);
             // 
@@ -147,11 +148,11 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(126, 458);
+            this.label1.Location = new System.Drawing.Point(82, 321);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(300, 34);
+            this.label1.Size = new System.Drawing.Size(192, 21);
             this.label1.TabIndex = 45;
             this.label1.Text = "Aviones de la aerolinea:";
             // 
@@ -159,22 +160,27 @@
             // 
             this.lblHorasVuelo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblHorasVuelo.AutoSize = true;
-            this.lblHorasVuelo.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHorasVuelo.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHorasVuelo.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblHorasVuelo.Location = new System.Drawing.Point(126, 510);
+            this.lblHorasVuelo.Location = new System.Drawing.Point(82, 356);
             this.lblHorasVuelo.Name = "lblHorasVuelo";
-            this.lblHorasVuelo.Size = new System.Drawing.Size(31, 31);
+            this.lblHorasVuelo.Size = new System.Drawing.Size(21, 21);
             this.lblHorasVuelo.TabIndex = 47;
             this.lblHorasVuelo.Text = "A";
             // 
             // lstPasajerosOrdenados
             // 
+            this.lstPasajerosOrdenados.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lstPasajerosOrdenados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.lstPasajerosOrdenados.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstPasajerosOrdenados.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstPasajerosOrdenados.ForeColor = System.Drawing.SystemColors.Control;
             this.lstPasajerosOrdenados.FormattingEnabled = true;
-            this.lstPasajerosOrdenados.Location = new System.Drawing.Point(1034, 545);
+            this.lstPasajerosOrdenados.ItemHeight = 17;
+            this.lstPasajerosOrdenados.Location = new System.Drawing.Point(428, 615);
             this.lstPasajerosOrdenados.Name = "lstPasajerosOrdenados";
-            this.lstPasajerosOrdenados.Size = new System.Drawing.Size(628, 95);
+            this.lstPasajerosOrdenados.Size = new System.Drawing.Size(469, 102);
             this.lstPasajerosOrdenados.TabIndex = 48;
-            this.lstPasajerosOrdenados.Visible = false;
             // 
             // lstDestinos
             // 
@@ -185,29 +191,42 @@
             this.lstDestinos.ForeColor = System.Drawing.SystemColors.Control;
             this.lstDestinos.FormattingEnabled = true;
             this.lstDestinos.ItemHeight = 19;
-            this.lstDestinos.Location = new System.Drawing.Point(472, 569);
+            this.lstDestinos.Location = new System.Drawing.Point(428, 516);
             this.lstDestinos.Name = "lstDestinos";
-            this.lstDestinos.Size = new System.Drawing.Size(441, 95);
+            this.lstDestinos.Size = new System.Drawing.Size(469, 76);
             this.lstDestinos.TabIndex = 49;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(126, 560);
+            this.label2.Location = new System.Drawing.Point(82, 516);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(305, 31);
+            this.label2.Size = new System.Drawing.Size(164, 42);
             this.label2.TabIndex = 50;
-            this.label2.Text = "Destinos por facturacion:";
+            this.label2.Text = "Destinos ordenados \r\npor facturacion:";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(82, 615);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(186, 42);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "Pasajeros ordenados\r\npor cantidad de viajes:";
             // 
             // ConsultarEstadisticas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(1064, 686);
+            this.ClientSize = new System.Drawing.Size(1064, 724);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lstDestinos);
             this.Controls.Add(this.lstPasajerosOrdenados);
@@ -244,5 +263,6 @@
         private System.Windows.Forms.ListBox lstPasajerosOrdenados;
         private System.Windows.Forms.ListBox lstDestinos;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -114,20 +114,20 @@ namespace FormsAerolinea
             {
                 return;
             }
+           
+            Avion avionSeleccionado = (Avion)cmbxMatriculaAviones.SelectedItem;
+            int limiteAsientos = avionSeleccionado.CantidadAsientos;
 
             // Validar que la cantidad de asientos sea un número válido
-            if (!int.TryParse(txtAsientosTuristas.Text, out int asientosTurista) || !AsientosValidos(asientosTurista))
+            if (!int.TryParse(txtAsientosTuristas.Text, out int asientosTurista) || !AsientosValidos(asientosTurista, limiteAsientos))
             {
-                MessageBox.Show("La cantidad de asientos debe ser un número válido mayor o igual a cero", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             // Calcular el 20% de los asientos turistas
             decimal veintePorcientoTuristas = CalcularVeintePorcientoAsientosTuristas(asientosTurista);
-
             // Asignar el valor del 20% a los asientos premium
             int asientosPremium = (int)veintePorcientoTuristas;
-
             // Cargar el valor en el TextBox txtAsientosPremium y establecerlo como solo lectura
             txtAsientosPremium.Text = asientosPremium.ToString();
             txtAsientosPremium.ReadOnly = true;
@@ -140,7 +140,6 @@ namespace FormsAerolinea
             }
 
             // Verificar si el avión seleccionado ya ha sido utilizado en otro vuelo
-            Avion avionSeleccionado = (Avion)cmbxMatriculaAviones.SelectedItem;
             foreach (Vuelo vuelo in aerolinea.listaVuelos)
             {
                 if (vuelo.Avion.Equals(avionSeleccionado) && vuelo.FechaVuelo > fechaVuelo && vuelo.FechaVuelo == fechaVuelo)
@@ -224,7 +223,7 @@ namespace FormsAerolinea
         /// <param name="e">Los datos del evento.</param>
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Vuelo vueloSeleccionado = (Vuelo)cmbxListaVuelos.SelectedItem;
+          /*  Vuelo vueloSeleccionado = (Vuelo)cmbxListaVuelos.SelectedItem;
             aerolinea.eliminarVuelo(vueloSeleccionado);
 
             // Verificar si la lista de aviones tiene al menos un avión
@@ -247,7 +246,7 @@ namespace FormsAerolinea
             }
 
             // Validar que la cantidad de asientos sea un número válido
-            if (!int.TryParse(txtAsientosTuristasDos.Text, out int asientosTurista) || !AsientosValidos(asientosTurista))
+            if (!int.TryParse(txtAsientosTuristasDos.Text, out int asientosTurista) || !AsientosValidos(asientosTurista, limiteAsientos))
             {
                 MessageBox.Show("La cantidad de asientos debe ser un número válido mayor o igual a cero", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -340,7 +339,7 @@ namespace FormsAerolinea
             }
 
             ActualizarListas();
-            limpiarElementos();
+            limpiarElementos();*/
         }
         
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -603,11 +602,19 @@ namespace FormsAerolinea
         /// </summary>
         /// <param name="asientosTurista">El número de asientos disponibles en clase turista.</param>
         /// <returns>True si la cantidad de asientos es válida; False en caso contrario.</returns>
-        private bool AsientosValidos(int asientosTurista)
+        private bool AsientosValidos(int asientosTurista, int limiteAsientos)
         {
             if (asientosTurista < 0)
             {
-                MessageBox.Show("La cantidad de asientos debe ser un número válido mayor o igual a cero", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La cantidad de asientos debe ser un número válido mayor a cero.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            int limiteTurista = (int)(limiteAsientos * 0.8); // 80% del límite total de asientos
+
+            if (asientosTurista > limiteTurista)
+            {
+                MessageBox.Show($"La cantidad de asientos supera al límite de asientos del avión ({limiteTurista})", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -714,8 +721,6 @@ namespace FormsAerolinea
                 ActualizarListas();
             }
         }
-
-
         #endregion
     }
 }

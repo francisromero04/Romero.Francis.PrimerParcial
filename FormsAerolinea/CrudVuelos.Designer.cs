@@ -749,7 +749,7 @@
             this.gbxEliminarViaje.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxEliminarViaje.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxEliminarViaje.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbxEliminarViaje.Location = new System.Drawing.Point(694, 386);
+            this.gbxEliminarViaje.Location = new System.Drawing.Point(1033, 602);
             this.gbxEliminarViaje.Name = "gbxEliminarViaje";
             this.gbxEliminarViaje.Size = new System.Drawing.Size(462, 194);
             this.gbxEliminarViaje.TabIndex = 70;

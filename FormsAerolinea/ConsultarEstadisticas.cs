@@ -50,7 +50,7 @@ namespace FormsAerolinea
 
             cmbxListaViajesRealizados.DataSource = null;
             cmbxListaViajesRealizados.DataSource = vuelosRealizados;
-            cmbxListaViajesRealizados.DisplayMember = "ObtenerInformacionVuelo";
+            cmbxListaViajesRealizados.DisplayMember = "ObtenerInformacionVueloResumida";
             cmbxListaViajesRealizados.Refresh();
 
             cmbxAviones.DataSource = null;
@@ -65,8 +65,14 @@ namespace FormsAerolinea
             lstPasajerosOrdenados.Refresh();
 
             var elementosOrdenados = aerolinea.gananciaInternacional.OrderByDescending(x => x.Value);
+            var elementosOrdenadosDos = aerolinea.gananciaNacional.OrderByDescending(x => x.Value);
 
             foreach (var elemento in elementosOrdenados)
+            {
+                lstDestinos.Items.Add(elemento.Key + ": " + elemento.Value);
+            }
+
+            foreach (var elemento in elementosOrdenadosDos)
             {
                 lstDestinos.Items.Add(elemento.Key + ": " + elemento.Value);
             }
@@ -79,7 +85,7 @@ namespace FormsAerolinea
         private void cmbxListaViajesRealizados_SelectedIndexChanged(object sender, EventArgs e)
         {
             Vuelo vueloSeleccionado = (Vuelo)cmbxListaViajesRealizados.SelectedItem;
-            lblPasajeros.Text = "Cantidad de Pasajeros del vuelo seleccionado: " + vueloSeleccionado.CantidadPasajeros.ToString();
+            lblPasajeros.Text = "Pasajeros del vuelo seleccionado: " + vueloSeleccionado.CantidadPasajeros.ToString();
         }
 
         /// <summary>

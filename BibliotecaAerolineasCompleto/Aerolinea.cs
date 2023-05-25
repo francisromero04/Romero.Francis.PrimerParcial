@@ -19,24 +19,42 @@ namespace BibliotecaAerolineasCompleto
         public decimal dineroTotalInternacional { get; set; }
 
         public Dictionary<DestinosInternacionales, decimal> gananciaInternacional;
+        public Dictionary<DestinosNacionales, decimal> gananciaNacional;
 
         public Aerolinea()
         {
             listaAviones = new List<Avion>();
             listaVuelos = new List<Vuelo>();
             listaPasajeros = new List<Pasajero>();
+
             dineroTotalNacional = 1000000; //DINERO INICIAL DE LA AEROLINEA
             dineroTotalInternacional = 1000000;
             DateTime fechaActual = DateTime.Today;
-            gananciaInternacional = new Dictionary<DestinosInternacionales, decimal>();
 
+            gananciaInternacional = new Dictionary<DestinosInternacionales, decimal>();
             // Agregar elementos al diccionario
             gananciaInternacional.Add(DestinosInternacionales.RecifeBrasil, 0);
             gananciaInternacional.Add(DestinosInternacionales.RomaItalia, 0);
             gananciaInternacional.Add(DestinosInternacionales.AcapulcoMexico, 0);
             gananciaInternacional.Add(DestinosInternacionales.MiamiEEUU, 0);
 
-            //TERMINAR LOS NACIONALES
+            gananciaNacional = new Dictionary<DestinosNacionales, decimal>();
+            gananciaNacional.Add(DestinosNacionales.BuenosAires, 0);
+            gananciaNacional.Add(DestinosNacionales.Bariloche, 0);
+            gananciaNacional.Add(DestinosNacionales.Cordoba, 0);
+            gananciaNacional.Add(DestinosNacionales.Corrientes, 0);
+            gananciaNacional.Add(DestinosNacionales.Jujuy, 0);
+            gananciaNacional.Add(DestinosNacionales.Iguazu, 0);
+            gananciaNacional.Add(DestinosNacionales.Salta, 0);
+            gananciaNacional.Add(DestinosNacionales.SantaRosa, 0);
+            gananciaNacional.Add(DestinosNacionales.Posadas, 0);
+            gananciaNacional.Add(DestinosNacionales.Neuquen, 0);
+            gananciaNacional.Add(DestinosNacionales.Mendoza, 0);
+            gananciaNacional.Add(DestinosNacionales.PuertoMadryn, 0);
+            gananciaNacional.Add(DestinosNacionales.SantiagoDelEstero, 0);
+            gananciaNacional.Add(DestinosNacionales.Trelew, 0);
+            gananciaNacional.Add(DestinosNacionales.Tucuman, 0);
+            gananciaNacional.Add(DestinosNacionales.Ushuaia, 0);
 
             string json = File.ReadAllText("avionesDeAerolinea.json");
             listaAviones = JsonConvert.DeserializeObject<List<Avion>>(json);
@@ -60,16 +78,53 @@ namespace BibliotecaAerolineasCompleto
                 }
 
                 if(vuelo.vueloNacional == false)
-                {
+                {                    
                     if (gananciaInternacional.ContainsKey(vuelo.CiudadDestinoInternacional))
                     {
                         decimal ganancia = gananciaInternacional[vuelo.CiudadDestinoInternacional];
-                        ganancia += vuelo.CostoTurista; //TENER CUIDADO CON EL CALCULO DE LA GANANCIA
+                        
+                        foreach(Pasajero p in vuelo.Pasajeros)
+                        {
+                            if(p.tipoPasajero)
+                            {
+                                ganancia += vuelo.CostoTurista; 
+                            }
+                            else
+                            {
+                                ganancia += vuelo.CostoPremium;
+                            }
+
+                        }
                         gananciaInternacional[vuelo.CiudadDestinoInternacional] = ganancia; 
                     }
                     else
                     {
                         gananciaInternacional.Add(vuelo.CiudadDestinoInternacional, vuelo.CostoTurista);
+                    }
+                }
+                else
+                {
+                    if (gananciaNacional.ContainsKey(vuelo.CiudadDestinoNacional))
+                    {
+                        decimal ganancia = gananciaNacional[vuelo.CiudadDestinoNacional];
+
+                        foreach (Pasajero p in vuelo.Pasajeros)
+                        {
+                            if (p.tipoPasajero)
+                            {
+                                ganancia += vuelo.CostoTurista;
+                            }
+                            else
+                            {
+                                ganancia += vuelo.CostoPremium;
+                            }
+
+                        }
+                        gananciaNacional[vuelo.CiudadDestinoNacional] = ganancia;
+                    }
+                    else
+                    {
+                        gananciaNacional.Add(vuelo.CiudadDestinoNacional, vuelo.CostoTurista);
                     }
                 }
             }
@@ -105,9 +160,9 @@ namespace BibliotecaAerolineasCompleto
         {
             listaAviones.Remove(avion);
         }
+
         public bool VerificarMatriculaExistente(string matricula)
         {
-            // Verificar si el DNI ya existe en la lista de pasajeros
             foreach (Avion avion in listaAviones)
             {
                 if (avion.Matricula == matricula)
@@ -124,7 +179,7 @@ namespace BibliotecaAerolineasCompleto
 
         public void agregarPasajero(Pasajero pasajero)
         {
-            if (VerificarDniExistente(pasajero.dni) == false)
+            if (VerificarDniExistente(pasajero.Dni) == false)
             {
                 listaPasajeros.Add(pasajero);
             }
@@ -146,12 +201,13 @@ namespace BibliotecaAerolineasCompleto
                 }
             }
         }
+
         public bool VerificarDniExistente(int dni)
         {
             // Verificar si el DNI ya existe en la lista de pasajeros
             foreach (Pasajero pasajero in listaPasajeros)
             {
-                if (pasajero.dni == dni)
+                if (pasajero.Dni == dni)
                 {
                     return true;
                 }

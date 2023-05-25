@@ -45,7 +45,6 @@ namespace FormsAerolinea
              {
                  MessageBox.Show("Debe ingresar un correo electrónico.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                  return;
-
              }
 
              // Verificar si los valores de correo y contraseña son correctos

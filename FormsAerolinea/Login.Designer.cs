@@ -32,13 +32,13 @@
             this.barraVertical = new System.Windows.Forms.Panel();
             this.pbxLogin = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnMinimizarPestaña = new System.Windows.Forms.PictureBox();
             this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.btnCerrarPestaña = new System.Windows.Forms.PictureBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.barraVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogin)).BeginInit();
             this.panelContenedor.SuspendLayout();
@@ -84,20 +84,6 @@
             this.panelContenedor.Size = new System.Drawing.Size(501, 330);
             this.panelContenedor.TabIndex = 8;
             this.panelContenedor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelContenedor_MouseDown);
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.linkLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.DimGray;
-            this.linkLabel1.Location = new System.Drawing.Point(184, 296);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(143, 15);
-            this.linkLabel1.TabIndex = 0;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "¿Ha olvidado su contraseña?";
             // 
             // lblTitulo
             // 
@@ -185,6 +171,20 @@
             this.txtCorreo.Text = "USUARIO";
             this.txtCorreo.Enter += new System.EventHandler(this.txtCorreo_Enter);
             this.txtCorreo.Leave += new System.EventHandler(this.txtCorreo_Leave);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.linkLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.linkLabel1.Location = new System.Drawing.Point(184, 296);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(10, 15);
+            this.linkLabel1.TabIndex = 0;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = ".";
             // 
             // Login
             // 

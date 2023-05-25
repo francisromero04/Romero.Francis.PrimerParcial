@@ -94,7 +94,7 @@ namespace BibliotecaAerolineasCompleto
                     random = new Random(DateTime.Now.Millisecond); //lee los milisegundos de la pc y en base a eso genera el random
                     Pasajero pasajero = new Pasajero().GenerarPasajeroAleatorio(random);
 
-                    if (VerificarDniExistente(pasajero.dni) == false)
+                    if (VerificarDniExistente(pasajero.Dni) == false)
                     {
                         if(pasajero.tipoPasajero == false && AsientosPremiumDisponibles > 0)
                         {
@@ -129,7 +129,7 @@ namespace BibliotecaAerolineasCompleto
                     random = new Random(DateTime.Now.Millisecond); //lee los milisegundos de la pc y en base a eso genera el random
                     Pasajero pasajero = new Pasajero().GenerarPasajeroAleatorio(random);
 
-                    if (VerificarDniExistente(pasajero.dni) == false)
+                    if (VerificarDniExistente(pasajero.Dni) == false)
                     {
                         if (pasajero.tipoPasajero == false && AsientosPremiumDisponibles > 0)
                         {
@@ -166,19 +166,19 @@ namespace BibliotecaAerolineasCompleto
             return false;
         }
 
-        public void VenderPasaje(Pasajero pasajero, bool esPremium)
+        public void VenderPasaje(Pasajero pasajero, bool tipoPasajero)
         {
             if (pasajero == null)
             {
                 throw new ArgumentNullException("El objeto pasajero es nulo.");
             }
 
-            if (esPremium && AsientosPremiumDisponibles > 0 && Avion.CapacidadBodega > pasajero.pesoEquipaje) //verificar con el avion
+            if (tipoPasajero == false && AsientosPremiumDisponibles > 0 && Avion.CapacidadBodega > pasajero.pesoEquipaje)
             {
                 CantidadPasajeros++;
                 AsientosPremiumDisponibles--;
-            }
-            else if (!esPremium && AsientosTuristaDisponibles > 0 && Avion.CapacidadBodega > pasajero.pesoEquipaje)
+            }            
+            else if (tipoPasajero == true && AsientosTuristaDisponibles > 0 && Avion.CapacidadBodega > pasajero.pesoEquipaje)
             {
                 CantidadPasajeros++;                
                 AsientosTuristaDisponibles--;
@@ -193,16 +193,16 @@ namespace BibliotecaAerolineasCompleto
         {
             get
             {
-                string info = $"\nOrigen: {CiudadPartida}, ";
+                string info = $"Origen: {CiudadPartida} | ";
 
                 if (vueloNacional)
                 {
-                    info += $"\nDestino: {CiudadDestinoNacional}, ";
+                    info += $"Destino: {CiudadDestinoNacional} | ";
                   //  info += $"\nTipo de vuelo: Nacional, ";
                 }
                 else
                 {
-                    info += $"\nDestino: {CiudadDestinoInternacional}, ";
+                    info += $"Destino: {CiudadDestinoInternacional} | ";
                   //  info += $"\nTipo de vuelo: Internacional, ";
                 }
 
@@ -211,13 +211,39 @@ namespace BibliotecaAerolineasCompleto
                  //   info += $"\nAvión: {Avion.Matricula}, ";
                 }
 
-                info += $"\nFecha: {FechaVuelo.ToString("dd/MM/yyyy")}, ";
+                info += $"Fecha: {FechaVuelo.ToString("dd/MM/yyyy")} | ";
              //   info += $"\nCant. pasajeros: {CantidadPasajeros}, ";
              //   info += $"\nDuración: {DuracionVuelo.ToString()}, ";
-                info += $"\nAsientos disponibles: Turistas: {AsientosTuristaDisponibles}, ";
+                info += $"\nAsientos disponibles: Turistas: {AsientosTuristaDisponibles} | ";
                 info += $"\nPremium: {AsientosPremiumDisponibles}";
              //   info += $"\nCosto premium: ${CostoPremium.ToString()}, ";
              //   info += $"\nCosto turista: ${CostoTurista.ToString()}";
+
+                return info;
+            }
+        }
+
+        public string ObtenerInformacionVueloResumida
+        {
+            get
+            {
+                string info = $"Origen: {CiudadPartida}  | ";
+
+                if (vueloNacional)
+                {
+                    info += $"  Destino: {CiudadDestinoNacional}  | ";
+                }
+                else
+                {
+                    info += $"  Destino: {CiudadDestinoInternacional}  | ";
+                }
+
+                if (Avion != null)
+                {
+                    info += $"  Avión: {Avion.Matricula}  | ";
+                }
+
+                info += $"  Fecha: {FechaVuelo.ToString("dd/MM/yyyy")}";
 
                 return info;
             }
@@ -333,7 +359,7 @@ namespace BibliotecaAerolineasCompleto
             // Verificar si el DNI ya existe en la lista de pasajeros
             foreach (Pasajero pasajero in Pasajeros)
             {
-                if (pasajero.dni == dni)
+                if (pasajero.Dni == dni)
                 {
                     return true;
                 }

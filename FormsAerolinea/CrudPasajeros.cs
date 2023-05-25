@@ -54,11 +54,11 @@ namespace FormsAerolinea
             if (pasajeroSeleccionado != null)
             {
                 cmbxGeneroDos.Text = pasajeroSeleccionado.Genero ? "Masculino" : "Femenino";
-                txtNombreDos.Text = pasajeroSeleccionado.nombre;
+                txtNombreDos.Text = pasajeroSeleccionado.Nombre;
                 txtSegundoNombreDos.Text = pasajeroSeleccionado.segundoNombre;
-                txtApellidoDos.Text = pasajeroSeleccionado.apellido;
+                txtApellidoDos.Text = pasajeroSeleccionado.Apellido;
                 txtSegundoApellidoDos.Text = pasajeroSeleccionado.segundoApellido;
-                txtDniDos.Text = pasajeroSeleccionado.dni.ToString();
+                txtDniDos.Text = pasajeroSeleccionado.Dni.ToString();
             }
         }
 
@@ -110,7 +110,7 @@ namespace FormsAerolinea
         private void btnOpcionCuatro_Click(object sender, EventArgs e)
         {
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            lstPasajeros.Location = new Point(580, 365);
+            lstPasajeros.Location = new Point(600, 365);
             lstPasajeros.Visible = true;
         }
 
@@ -145,7 +145,7 @@ namespace FormsAerolinea
             {
                 Pasajero pasajero = new Pasajero(dni, nombrePasajero, apellidoPasajero, genero, true, segundoNombre, segundoApellido, 0);
 
-                if (!aerolinea.VerificarDniExistente(pasajero.dni))
+                if (!aerolinea.VerificarDniExistente(pasajero.Dni))
                 {
                     if (Validador.ValidarDNI(dni))
                     {
@@ -314,7 +314,7 @@ namespace FormsAerolinea
         {
             if (!string.IsNullOrEmpty(nuevoNombre) && Validador.ValidarCadena(nuevoNombre, false))
             {
-                pasajeroSeleccionado.nombre = nuevoNombre;
+                pasajeroSeleccionado.Nombre = nuevoNombre;
                 return true;
             }
 
@@ -352,7 +352,7 @@ namespace FormsAerolinea
         {
             if (!string.IsNullOrEmpty(nuevoApellido) && Validador.ValidarCadena(nuevoApellido))
             {
-                pasajeroSeleccionado.apellido = nuevoApellido;
+                pasajeroSeleccionado.Apellido = nuevoApellido;
                 return true;
             }
 
@@ -388,10 +388,17 @@ namespace FormsAerolinea
         /// <returns>Devuelve un valor booleano que indica si se ha actualizado correctamente el DNI del pasajero.</returns>
         private bool ActualizarDni(Pasajero pasajeroSeleccionado, string nuevoDni)
         {
-            if (!string.IsNullOrEmpty(nuevoDni) && int.TryParse(nuevoDni, out int dni) && Validador.ValidarDNI(dni))
+            int.TryParse(nuevoDni, out int dni);
+
+            if (!string.IsNullOrEmpty(nuevoDni) && Validador.ValidarDNI(dni) && aerolinea.VerificarDniExistente(dni) == false)
             {
-                pasajeroSeleccionado.dni = dni;
+                pasajeroSeleccionado.Dni = dni;
                 return true;
+            }
+
+            if(aerolinea.VerificarDniExistente(dni))
+            {
+                MessageBox.Show("El DNI ingresado pertenece a otro pasajero existente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return false;
@@ -419,36 +426,21 @@ namespace FormsAerolinea
         /// </summary>
         private void ActualizarListas()
         {
-            lstPasajeros.DataSource = null;
-            cmbxPasajeros.DataSource = null;
-            cmbxPasajerosDos.DataSource = null;
-
-            lstPasajeros.DataSource = aerolinea.listaPasajeros;
-            cmbxPasajeros.DataSource = aerolinea.listaPasajeros;
-            cmbxPasajerosDos.DataSource = aerolinea.listaPasajeros;
-
-            lstPasajeros.DisplayMember = "nombreCompletoYdni";
-            cmbxPasajeros.DisplayMember = "nombreCompletoYdni";
-            cmbxPasajerosDos.DisplayMember = "nombreCompletoYdni";
-
-            lstPasajeros.Refresh();
+            cmbxPasajeros.DataSource = cmbxPasajerosDos.DataSource = lstPasajeros.DataSource = cmbxGenero.DataSource = cmbxGeneroDos.DataSource = null;
+            cmbxPasajeros.DataSource = cmbxPasajerosDos.DataSource = lstPasajeros.DataSource = aerolinea.listaPasajeros;
+            cmbxPasajeros.DisplayMember = cmbxPasajerosDos.DisplayMember = lstPasajeros.DisplayMember = "nombreCompletoYdni";
             cmbxPasajeros.Refresh();
             cmbxPasajerosDos.Refresh();
+            lstPasajeros.Refresh();
 
-            cmbxGenero.DataSource = null;
-            if (cmbxGenero.Items.Count == 0)
+            if (cmbxGenero.Items.Count == 0 && cmbxGeneroDos.Items.Count == 0)
             {
                 cmbxGenero.Items.Add("Masculino");
                 cmbxGenero.Items.Add("Femenino");
-            }
-            cmbxGenero.Refresh();
-
-            cmbxGeneroDos.DataSource = null;
-            if (cmbxGeneroDos.Items.Count == 0)
-            {
                 cmbxGeneroDos.Items.Add("Masculino");
                 cmbxGeneroDos.Items.Add("Femenino");
             }
+            cmbxGenero.Refresh();
             cmbxGeneroDos.Refresh();
         }
 

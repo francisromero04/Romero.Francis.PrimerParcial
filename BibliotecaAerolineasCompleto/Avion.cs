@@ -39,15 +39,16 @@ namespace BibliotecaAerolineasCompleto
         /// <param name="ofreceComida">Indica si el avión ofrece servicio de comida.</param>
         /// <param name="capacidadBodega">La capacidad de la bodega del avión en kilogramos.</param>
         /// <param name="horas">El número de horas de vuelo históricas del avión.</param>
-        public Avion(string matricula, int cantidadAsientos, int cantidadBanos, bool servicioInternet, bool ofreceComida, decimal capacidadBodega, int horas)
+        public Avion(string matricula, int cantidadAsientos, int cantidadBanos, bool servicioInternet, bool ofreceComida, decimal capacidadBodega, int horas, bool ocupadoEnVuelo)
         {
-            Matricula = matricula;
-            CantidadAsientos = cantidadAsientos;
-            CantidadBanos = cantidadBanos;
-            ServicioInternet = servicioInternet;
-            OfreceComida = ofreceComida;
-            CapacidadBodega = capacidadBodega;
-            horasVueloHistoricas = horas;
+            this.matricula = matricula;
+            this.cantidadAsientos = cantidadAsientos;
+            this.cantidadBanos = cantidadBanos;
+            this.servicioInternet = servicioInternet;
+            this.ofreceComida = ofreceComida;
+            this.capacidadBodega = capacidadBodega;
+            this.horasVueloHistoricas = horas;
+            this.ocupadoEnVuelo = ocupadoEnVuelo;
         }
 
         #region Getters y Setters
@@ -154,8 +155,8 @@ namespace BibliotecaAerolineasCompleto
         {
             get
             {
-                string ocupado = OcupadoEnVuelo ? "ocupado" : "disponible";
-                return $"Avión con matrícula {Matricula}, estado: {ocupado}, asientos: {CantidadAsientos}";
+                string ocupado = OcupadoEnVuelo ? "Ocupado" : "Disponible";
+                return $"Avión con matrícula {Matricula}  |  Estado: {ocupado}  |  Asientos: {CantidadAsientos}";
             }
         }
 
