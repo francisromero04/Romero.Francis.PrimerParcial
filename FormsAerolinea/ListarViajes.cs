@@ -63,9 +63,10 @@ namespace FormsAerolinea
 
             txtPrecio.Text = "El Costo Turista es de US$" + viajeSeleccionado.CostoTurista.ToString() + " y el Costo Premium es de US$" + viajeSeleccionado.CostoPremium.ToString();
             txtOrigen.Text = "Origen: " + viajeSeleccionado.CiudadPartida;
-            txtDestino.Text = "Destino: " + (viajeSeleccionado.vueloNacional ? viajeSeleccionado.CiudadDestinoNacional.ToString() : viajeSeleccionado.CiudadDestinoInternacional.ToString());
+            txtDestino.Text = "Destino: " + (viajeSeleccionado.VueloNacional ? viajeSeleccionado.CiudadDestinoNacional.ToString() : viajeSeleccionado.CiudadDestinoInternacional.ToString());
             txtFecha.Text = "Fecha: " + viajeSeleccionado.FechaVuelo.ToString("dd/MM/yyyy");
             txtCantidadPasajeros.Text = "Pasajeros: " + viajeSeleccionado.CantidadPasajeros.ToString();
+            txtAvionAutilizar.Text = "Avión a utilizar: " + viajeSeleccionado.Avion.Matricula.ToString();
             lstPasajerosViaje.DataSource = null;
             lstPasajerosViaje.DataSource = viajeSeleccionado.Pasajeros;
             lstPasajerosViaje.DisplayMember = "NombreCompletoyDni";

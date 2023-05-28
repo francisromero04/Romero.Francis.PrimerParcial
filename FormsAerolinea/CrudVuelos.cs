@@ -30,9 +30,7 @@ namespace FormsAerolinea
             this.usuario = usuario;
             this.aerolinea = aerolinea;
             ActualizarListas();
-
-            gbxCrearViajes.Visible = false;
-            gbxModificarViaje.Visible = false;
+            ConfigurarDgvYgroupBox();
         }
 
         #region CONFIGURACION GROUPBOX
@@ -45,8 +43,9 @@ namespace FormsAerolinea
         /// <param name="e">Los argumentos del evento.</param>
         private void btnOpcionUno_Click(object sender, EventArgs e)
         {
-            lstViajes.Visible = btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            gbxCrearViajes.Location = new Point(660, 375);
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvVuelos.Visible = false;
+            gbxCrearViajes.Left = (this.ClientSize.Width - gbxCrearViajes.Width) / 2;
+            gbxCrearViajes.Top = ((this.ClientSize.Height - gbxCrearViajes.Height) / 2) - 90;
             gbxCrearViajes.Visible = true;
         }
 
@@ -58,31 +57,19 @@ namespace FormsAerolinea
         /// <param name="e">Los argumentos del evento.</param>
         private void btnOpcionDos_Click(object sender, EventArgs e)
          {
-            lstViajes.Visible = btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            gbxModificarViaje.Location = new Point(650, 375);
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvVuelos.Visible = false;
+            gbxModificarViaje.Left = (this.ClientSize.Width - gbxModificarViaje.Width) / 2;
+            gbxModificarViaje.Top = ((this.ClientSize.Height - gbxModificarViaje.Height) / 2) - 90;
             gbxModificarViaje.Visible = true;
         }
         
         private void btnOpcionTres_Click(object sender, EventArgs e)
         {
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            gbxEliminarViaje.Location = new Point(630, 380);
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvVuelos.Visible = false;
+            gbxEliminarViaje.Left = (this.ClientSize.Width - gbxEliminarViaje.Width) / 2;
+            gbxEliminarViaje.Top = ((this.ClientSize.Height - gbxEliminarViaje.Height) / 2) - 90;
             gbxEliminarViaje.Visible = true;
         }
-        
-        /// <summary>
-        /// Maneja el evento click del botón btnOpcionCuatro.
-        /// </summary>
-        /// <param name="sender">El objeto que generó el evento.</param>
-        /// <param name="e">Los argumentos del evento.</param>
-        private void btnOpcionCuatro_Click(object sender, EventArgs e)
-        {
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            lstViajes.Location = new Point(560, 380);
-            lstViajes.Visible = true;
-        }
-
-        
 
         #endregion
 
@@ -169,9 +156,9 @@ namespace FormsAerolinea
                 if (Enum.TryParse(ciudadDestino, out destinoNacional))
                 {
                     // Crear una instancia de Vuelo con los valores obtenidos
-                    Vuelo vuelo = new Vuelo(aerolinea)
+                    Vuelo vuelo = new Vuelo()
                     {
-                        vueloNacional = true,
+                        VueloNacional = true,
                         CiudadPartida = ciudadPartida,
                         CiudadDestinoNacional = destinoNacional,
                         CostoPremium = costoPremium,
@@ -193,9 +180,9 @@ namespace FormsAerolinea
                 if (Enum.TryParse(ciudadDestino, out destinoInternacional))
                 {
                     // Crear una instancia de Vuelo con los valores obtenidos
-                    Vuelo vuelo = new Vuelo(aerolinea)
+                    Vuelo vuelo = new Vuelo()
                     {
-                        vueloNacional = false,
+                        VueloNacional = false,
                         CiudadPartida = ciudadPartida,
                         CiudadDestinoInternacional = destinoInternacional,
                         CostoPremium = costoPremium,
@@ -223,7 +210,7 @@ namespace FormsAerolinea
         /// <param name="e">Los datos del evento.</param>
         private void btnModificar_Click(object sender, EventArgs e)
         {
-          /*  Vuelo vueloSeleccionado = (Vuelo)cmbxListaVuelos.SelectedItem;
+            Vuelo vueloSeleccionado = (Vuelo)cmbxListaVuelos.SelectedItem;
             aerolinea.eliminarVuelo(vueloSeleccionado);
 
             // Verificar si la lista de aviones tiene al menos un avión
@@ -246,7 +233,7 @@ namespace FormsAerolinea
             }
 
             // Validar que la cantidad de asientos sea un número válido
-            if (!int.TryParse(txtAsientosTuristasDos.Text, out int asientosTurista) || !AsientosValidos(asientosTurista, limiteAsientos))
+            if (!int.TryParse(txtAsientosTuristasDos.Text, out int asientosTurista))
             {
                 MessageBox.Show("La cantidad de asientos debe ser un número válido mayor o igual a cero", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -304,7 +291,7 @@ namespace FormsAerolinea
                 {
                     // Crear una instancia de Vuelo con los valores obtenidos
 
-                    vueloSeleccionado.vueloNacional = true;
+                    vueloSeleccionado.VueloNacional = true;
                     vueloSeleccionado.CiudadPartida = ciudadPartida;
                     vueloSeleccionado.CiudadDestinoNacional = destinoNacional;
                     vueloSeleccionado.CostoPremium = costoPremium;
@@ -323,7 +310,7 @@ namespace FormsAerolinea
                 DestinosInternacionales destinoInternacional;
                 if (Enum.TryParse(ciudadDestino, out destinoInternacional))
                 {
-                    vueloSeleccionado.vueloNacional = false;
+                    vueloSeleccionado.VueloNacional = false;
                     vueloSeleccionado.CiudadPartida = ciudadPartida;
                     vueloSeleccionado.CiudadDestinoInternacional = destinoInternacional;
                     vueloSeleccionado.CostoPremium = costoPremium;
@@ -339,9 +326,15 @@ namespace FormsAerolinea
             }
 
             ActualizarListas();
-            limpiarElementos();*/
+            limpiarElementos();
         }
         
+        /// <summary>
+        /// Evento que se activa cuando se hace clic en el botón "Eliminar".
+        /// Elimina la información del vuelo seleccionado.
+        /// </summary>
+        /// <param name="sender">El objeto que desencadena el evento.</param>
+        /// <param name="e">Los datos del evento.</param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             string viajeAEliminar = cmbxViajes.Text; // Obtener el viaje de la combobox
@@ -383,7 +376,7 @@ namespace FormsAerolinea
         private void btnCerrarUno_Click(object sender, EventArgs e)
         {
             gbxCrearViajes.Visible = false;
-            btnOpcionUno.Visible = btnOpcionDos.Visible =  btnOpcionTres.Visible =  btnOpcionCuatro.Visible = true;
+            btnOpcionUno.Visible = btnOpcionDos.Visible =  btnOpcionTres.Visible = dgvVuelos.Visible = true;
         }
 
         /// <summary>
@@ -395,7 +388,7 @@ namespace FormsAerolinea
         private void btnCerrarDos_Click(object sender, EventArgs e)
         {
             gbxModificarViaje.Visible = false;
-            btnOpcionUno.Visible =btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
+            btnOpcionUno.Visible =btnOpcionDos.Visible = btnOpcionTres.Visible = dgvVuelos.Visible = true;
         }
 
         /// <summary>
@@ -407,7 +400,7 @@ namespace FormsAerolinea
         private void btnCerrarTres_Click(object sender, EventArgs e)
         {
             gbxEliminarViaje.Visible = false;
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvVuelos.Visible = true;
         }
 
         #endregion
@@ -418,12 +411,7 @@ namespace FormsAerolinea
         /// Actualiza las listas de visualización en la interfaz.
         /// </summary>
         private void ActualizarListas()
-        {
-            lstViajes.DataSource = null;
-            lstViajes.DataSource = aerolinea.listaVuelos;
-            lstViajes.DisplayMember = "ObtenerInformacionVuelo";
-            lstViajes.Refresh();
-
+        {         
             cmbxMatriculaAviones.DataSource = null;
             cmbxMatriculaAviones.DataSource = aerolinea.listaAviones;
             cmbxMatriculaAviones.DisplayMember = "Matricula";
@@ -508,7 +496,7 @@ namespace FormsAerolinea
         /// <param name="fechaSeleccionada">La fecha que se desea validar.</param>
         /// <param name="esModificar">Indica si se está realizando una operación de modificación.</param>
         /// <returns>True si la fecha es válida; False en caso contrario.</returns>
-        public bool ValidarFechaSeleccionada(DateTime fechaSeleccionada, bool esModificar)
+        private bool ValidarFechaSeleccionada(DateTime fechaSeleccionada, bool esModificar)
         {
             DateTime fechaActual = DateTime.Now.Date;
             DateTime fechaLimite = fechaActual.AddDays(30).Date;
@@ -698,11 +686,11 @@ namespace FormsAerolinea
 
             if (vueloSeleccionado != null)
             {
-                cmbxTipoViajeDos.Text = vueloSeleccionado.vueloNacional ? "Nacional" : "Internacional";
+                cmbxTipoViajeDos.Text = vueloSeleccionado.VueloNacional ? "Nacional" : "Internacional";
                 txtCostoTuristaDos.Text = vueloSeleccionado.CostoTurista.ToString();
                 txtCostoPremiumDos.Text = vueloSeleccionado.CostoPremium.ToString();
                 cmbxOrigenDos.Text = vueloSeleccionado.CiudadPartida.ToString();
-                cmbxDestinoDos.Text = vueloSeleccionado.vueloNacional ? vueloSeleccionado.CiudadDestinoNacional.ToString() : vueloSeleccionado.CiudadDestinoInternacional.ToString();
+                cmbxDestinoDos.Text = vueloSeleccionado.VueloNacional ? vueloSeleccionado.CiudadDestinoNacional.ToString() : vueloSeleccionado.CiudadDestinoInternacional.ToString();
                 dtpFechaVueloDos.Text = vueloSeleccionado.FechaVuelo.ToString();
                 txtAsientosTuristasDos.Text = vueloSeleccionado.AsientosTuristaDisponibles.ToString();
                 txtAsientosPremiumDos.Text = vueloSeleccionado.AsientosPremiumDisponibles.ToString();
@@ -721,6 +709,69 @@ namespace FormsAerolinea
                 ActualizarListas();
             }
         }
+
+        /// <summary>
+        /// Configura los controles de la interfaz de usuario para mostrar la información de los vuelos  de una aerolínea en un DataGridView.
+        /// </summary>
+        private void ConfigurarDgvYgroupBox()
+        {
+            gbxCrearViajes.Visible = false;
+            gbxModificarViaje.Visible = false;
+            gbxEliminarViaje.Visible = false;
+            dgvVuelos.Visible = true;
+
+            dgvVuelos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvVuelos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+            dgvVuelos.Columns.Clear(); // Limpiar las columnas existentes
+            dgvVuelos.DataSource = aerolinea.listaVuelos;           
+  
+            // Mostrar solo los atributos en el DataGridView
+            dgvVuelos.DataSource = aerolinea.listaVuelos.Select(vuelo => new
+            { 
+                Origen = vuelo.CiudadPartida,
+                Destino = vuelo.VueloNacional ?
+                    $"{vuelo.CiudadDestinoNacional}" :
+                    $"{vuelo.CiudadDestinoInternacional}",
+                Pasajeros = vuelo.CantidadPasajeros,
+                AsientosTuristas = vuelo.AsientosTuristaDisponibles,
+                AsientosPremium = vuelo.AsientosPremiumDisponibles,
+                vuelo.CostoTurista,
+                vuelo.CostoPremium,
+                vuelo.VueloPasado,
+                Fecha = vuelo.FechaVuelo,
+            }).ToList();
+
+            dgvVuelos.Columns["AsientosTuristas"].HeaderText = "Asientos Turistas Disp.";
+            dgvVuelos.Columns["AsientosPremium"].HeaderText = "Asientos Premium Disp.";
+
+            dgvVuelos.Refresh();
+            // Centrar el DataGridView en la pantalla
+            dgvVuelos.Left = (this.ClientSize.Width - dgvVuelos.Width) / 2;
+            dgvVuelos.Top = ((this.ClientSize.Height - dgvVuelos.Height) / 2) + 40;
+        }
+
+        /// <summary>
+        /// Evento de formato de celda del control DataGridView llamado "dgvPasajeros".
+        /// Este evento se desencadena cuando una celda del control se está formateando visualmente.
+        /// Cambia el color de fondo de todas las celdas a negro y el color de fuente a blanco.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvVuelos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {            
+            foreach (DataGridViewRow row in dgvVuelos.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    // Cambiar el color de fondo
+                    cell.Style.BackColor = Color.Black;
+
+                    // Cambiar el color de la fuente
+                    cell.Style.ForeColor = Color.White;
+                }
+            }            
+        }
+
         #endregion
     }
 }

@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
+using System.Threading;
+using System.Xml.Serialization;
 
 namespace BibliotecaAerolineasCompleto
 {
     public class Aerolinea
     {
-        public List<Vuelo> listaVuelos { get; set;}
-        public List<Avion> listaAviones { get; set;}
+        public List<Vuelo> listaVuelos { get; set; }
+        public List<Avion> listaAviones { get; set; }
         public List<Pasajero> listaPasajeros { get; set; }
         public decimal dineroTotalNacional { get; set; }
         public decimal dineroTotalInternacional { get; set; }
-
         public Dictionary<DestinosInternacionales, decimal> gananciaInternacional;
         public Dictionary<DestinosNacionales, decimal> gananciaNacional;
 
@@ -27,12 +28,29 @@ namespace BibliotecaAerolineasCompleto
             listaVuelos = new List<Vuelo>();
             listaPasajeros = new List<Pasajero>();
 
-            dineroTotalNacional = 1000000; //DINERO INICIAL DE LA AEROLINEA
-            dineroTotalInternacional = 1000000;
-            DateTime fechaActual = DateTime.Today;
+           // CrearYGuardarAvionesJson();
+           // CrearYGuardarVuelosXML();
 
+            DeserializarAvionesJson();
+            DeserializarVuelosXML();
+            DeserializarPasajerosXML();
+            AgregarElementosDiccionario();  
+
+            foreach (Vuelo vuelo in listaVuelos)
+            {
+               // this.listaPasajeros.AddRange(vuelo.Pasajeros);
+                EstablecerEstadoAvion(vuelo);                
+                GuardarGanancias(vuelo);
+            }
+          //  SumarCantidadVuelos();         
+          //  EstablecerHorasAvion(listaVuelos);      
+        }
+
+        #region METODOS DICCIONARIOS
+
+        private void AgregarElementosDiccionario()
+        {
             gananciaInternacional = new Dictionary<DestinosInternacionales, decimal>();
-            // Agregar elementos al diccionario
             gananciaInternacional.Add(DestinosInternacionales.RecifeBrasil, 0);
             gananciaInternacional.Add(DestinosInternacionales.RomaItalia, 0);
             gananciaInternacional.Add(DestinosInternacionales.AcapulcoMexico, 0);
@@ -55,105 +73,71 @@ namespace BibliotecaAerolineasCompleto
             gananciaNacional.Add(DestinosNacionales.Trelew, 0);
             gananciaNacional.Add(DestinosNacionales.Tucuman, 0);
             gananciaNacional.Add(DestinosNacionales.Ushuaia, 0);
+        }
 
-            string json = File.ReadAllText("avionesDeAerolinea.json");
-            listaAviones = JsonConvert.DeserializeObject<List<Avion>>(json);
-           
-            string jsonDos = File.ReadAllText("vuelosDeAerolinea.json");
-            listaVuelos = JsonConvert.DeserializeObject<List<Vuelo>>(jsonDos);
-
-            foreach(Vuelo vuelo in listaVuelos)
+        private void GuardarGanancias(Vuelo vuelo)
+        {
+            if (vuelo.VueloNacional == false)
             {
-                this.listaPasajeros.AddRange(vuelo.Pasajeros);
-
-                if(vuelo.FechaVuelo >= fechaActual)
+                if (gananciaInternacional.ContainsKey(vuelo.CiudadDestinoInternacional))
                 {
-                    foreach(Avion avion in listaAviones)
-                    {
-                        if(vuelo.Avion.Equals(avion))
-                        {
-                            avion.OcupadoEnVuelo = true;
-                        }
-                    }                   
-                }
+                    decimal ganancia = gananciaInternacional[vuelo.CiudadDestinoInternacional];
 
-                if(vuelo.vueloNacional == false)
-                {                    
-                    if (gananciaInternacional.ContainsKey(vuelo.CiudadDestinoInternacional))
+                    foreach (Pasajero p in vuelo.Pasajeros)
                     {
-                        decimal ganancia = gananciaInternacional[vuelo.CiudadDestinoInternacional];
-                        
-                        foreach(Pasajero p in vuelo.Pasajeros)
+                        if (p.TipoPasajero)
                         {
-                            if(p.tipoPasajero)
-                            {
-                                ganancia += vuelo.CostoTurista; 
-                            }
-                            else
-                            {
-                                ganancia += vuelo.CostoPremium;
-                            }
-
+                            ganancia += vuelo.CostoTurista;
                         }
-                        gananciaInternacional[vuelo.CiudadDestinoInternacional] = ganancia; 
+                        else
+                        {
+                            ganancia += vuelo.CostoPremium;
+                        }
+
                     }
-                    else
-                    {
-                        gananciaInternacional.Add(vuelo.CiudadDestinoInternacional, vuelo.CostoTurista);
-                    }
+                    gananciaInternacional[vuelo.CiudadDestinoInternacional] = ganancia;
+                    dineroTotalInternacional = ganancia;
                 }
                 else
                 {
-                    if (gananciaNacional.ContainsKey(vuelo.CiudadDestinoNacional))
-                    {
-                        decimal ganancia = gananciaNacional[vuelo.CiudadDestinoNacional];
-
-                        foreach (Pasajero p in vuelo.Pasajeros)
-                        {
-                            if (p.tipoPasajero)
-                            {
-                                ganancia += vuelo.CostoTurista;
-                            }
-                            else
-                            {
-                                ganancia += vuelo.CostoPremium;
-                            }
-
-                        }
-                        gananciaNacional[vuelo.CiudadDestinoNacional] = ganancia;
-                    }
-                    else
-                    {
-                        gananciaNacional.Add(vuelo.CiudadDestinoNacional, vuelo.CostoTurista);
-                    }
+                    gananciaInternacional.Add(vuelo.CiudadDestinoInternacional, vuelo.CostoTurista);
                 }
             }
-
-            foreach(Pasajero p in listaPasajeros)
+            else
             {
-                p.cantidadVuelosHistoricos++;
-            }
-
-            for (int i = 0; i < listaVuelos.Count; i++)
-            {
-                Vuelo vuelo = listaVuelos[i];
-                if (vuelo.FechaVuelo <= fechaActual)
+                if (gananciaNacional.ContainsKey(vuelo.CiudadDestinoNacional))
                 {
-                    Avion avion = listaAviones.Find(a => vuelo.Avion.Equals(a));
-                    if (avion != null)
+                    decimal ganancia = gananciaNacional[vuelo.CiudadDestinoNacional];
+
+                    foreach (Pasajero p in vuelo.Pasajeros)
                     {
-                        avion.HorasVueloHistoricas += vuelo.DuracionVuelo;
-                        listaAviones[listaAviones.IndexOf(avion)] = avion;
+                        if (p.TipoPasajero)
+                        {
+                            ganancia += vuelo.CostoTurista;
+                        }
+                        else
+                        {
+                            ganancia += vuelo.CostoPremium;
+                        }
+
                     }
+                    gananciaNacional[vuelo.CiudadDestinoNacional] = ganancia;
+                    dineroTotalNacional = ganancia;
+                }
+                else
+                {
+                    gananciaNacional.Add(vuelo.CiudadDestinoNacional, vuelo.CostoTurista);
                 }
             }
         }
+
+        #endregion
 
         #region METODOS DE AVION
 
         public void agregarAvion(Avion avion)
         {
-           listaAviones.Add(avion);
+            listaAviones.Add(avion);
         }
 
         public void eliminarAvion(Avion avion)
@@ -171,6 +155,60 @@ namespace BibliotecaAerolineasCompleto
                 }
             }
             return false;
+        }
+
+        private void EstablecerEstadoAvion(Vuelo vuelo)
+        {
+            DateTime fechaActual = DateTime.Today;
+
+            if (vuelo.FechaVuelo >= fechaActual)
+            {
+                foreach (Avion avion in listaAviones)
+                {
+                    if (vuelo.Avion.Equals(avion))
+                    {
+                        avion.OcupadoEnVuelo = true;
+                    }
+                }
+            }
+        }
+
+        private void DeserializarAvionesJson()
+        {
+            string json = File.ReadAllText("avionesDeAerolinea.json");
+            listaAviones = JsonConvert.DeserializeObject<List<Avion>>(json);
+        }
+
+        private void EstablecerHorasAvion(List<Vuelo> listaVuelos)
+        {
+            for (int i = 0; i < listaVuelos.Count; i++)
+            {
+                Vuelo vuelo = listaVuelos[i];
+                DateTime fechaActual = DateTime.Today;
+                if (vuelo.FechaVuelo <= fechaActual)
+                {
+                    Avion avion = listaAviones.Find(a => vuelo.Avion.Equals(a));
+                    if (avion != null)
+                    {
+                        avion.HorasVueloHistoricas += vuelo.DuracionVuelo;
+                        listaAviones[listaAviones.IndexOf(avion)] = avion;
+                    }
+                }
+            }
+        }
+       
+        public void CrearYGuardarAvionesJson() //ELIMINAR AL FINALIZAR EL PROGRAMA
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                System.Threading.Thread.Sleep(5);
+                Avion avion = new Avion().GenerarAvionAleatorio();
+                agregarAvion(avion);
+
+            }
+
+            string json = JsonConvert.SerializeObject(listaAviones);
+            File.WriteAllText("avionesDeAerolinea.json", json);
         }
 
         #endregion
@@ -236,7 +274,7 @@ namespace BibliotecaAerolineasCompleto
             foreach (Vuelo vuelo in listaVuelos)
             {
                 string destino;
-                if (vuelo.vueloNacional)
+                if (vuelo.VueloNacional)
                 {
                     destino = vuelo.CiudadDestinoNacional.ToString();
                 }
@@ -269,31 +307,84 @@ namespace BibliotecaAerolineasCompleto
             return destinoMasSeleccionado;
         }
 
-        public void CrearYGuardarVuelosJson()
+        public void CrearYGuardarVuelosXML() //ELIMINAR AL FINALIZAR EL PROGRAMA
         {
-            for(int i = 0; i < 80; i++)
+            for (int i = 0; i < 80; i++)
             {
                 System.Threading.Thread.Sleep(500);
-                Vuelo vuelo = new Vuelo(this).GenerarVueloAleatorio(this);
-                agregarVuelo(vuelo);         
+                Vuelo vuelo = new Vuelo().GenerarVueloAleatorio(this);
+                agregarVuelo(vuelo);
             }
 
-            string json = JsonConvert.SerializeObject(listaVuelos);
-            File.WriteAllText("vuelosDeAerolinea.json", json);
+            //  string json = JsonConvert.SerializeObject(listaVuelos);
+            //  File.WriteAllText("vuelosDeAerolineaDos.json", json);
+
+            // Crear una instancia del XmlSerializer y especificar el tipo de datos que se va a serializar
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Vuelo>));
+
+            // Crear un objeto FileStream para escribir el archivo XML
+            using (FileStream fileStream = new FileStream("vuelosDeAerolinea.xml", FileMode.Create))
+            {
+                // Serializar la lista de vuelos y escribir el resultado en el archivo
+                serializer.Serialize(fileStream, listaVuelos);
+            }
+        }
+        
+        private void SumarCantidadVuelos()
+        {
+            foreach (Pasajero p in listaPasajeros)
+            {
+                p.CantidadVuelosHistoricos = 1;
+            }
         }
 
-        public void CrearYGuardarAvionesJson()
+        private void DeserializarVuelosXML()
         {
-            for (int i = 0; i < 20; i++)
-            {
-                System.Threading.Thread.Sleep(5);
-                Avion avion = new Avion().GenerarAvionAleatorio();
-                agregarAvion(avion);
+            SerializarVuelos vuelosDeserializados;
 
+            XmlSerializer serializerV = new XmlSerializer(typeof(SerializarVuelos));
+
+            using (FileStream fileStreamV = new FileStream("vuelosDeAerolinea.xml", FileMode.Open))
+            {
+                vuelosDeserializados = (SerializarVuelos)serializerV.Deserialize(fileStreamV);
             }
 
-            string json = JsonConvert.SerializeObject(listaAviones);
-            File.WriteAllText("avionesDeAerolinea.json", json);
+            listaVuelos = vuelosDeserializados.Vuelos; 
+
+         /*   // Crear una instancia del XmlSerializer y especificar el tipo de datos que se va a deserializar
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Vuelo>));
+
+            // Crear un objeto FileStream para leer el archivo XML
+            using (FileStream fileStream = new FileStream("vuelosDeAerolinea.xml", FileMode.Open))
+            {
+                // Deserializar el archivo XML y obtener la lista de vuelos
+                listaVuelos = (List<Vuelo>)serializer.Deserialize(fileStream);
+            } */
+        }
+
+        private void DeserializarPasajerosXML()
+        {
+            SerializarPersonas pasajerosDeserializados;
+
+            XmlSerializer serializer = new XmlSerializer(typeof(SerializarPersonas));
+
+            using (FileStream fileStream = new FileStream("pasajeros.xml", FileMode.Open))
+            {
+                pasajerosDeserializados = (SerializarPersonas)serializer.Deserialize(fileStream);
+            }
+
+            listaPasajeros = pasajerosDeserializados.Pasajeros;
+
+            /*
+            // Crear una instancia del XmlSerializer y especificar el tipo de datos que se va a deserializar
+            XmlSerializer serializerP = new XmlSerializer(typeof(List<Pasajero>));
+
+            // Crear un objeto FileStream para leer el archivo XML
+            using (FileStream fileStreamP = new FileStream("pasajeros.xml", FileMode.Open))
+            {
+                // Deserializar el archivo XML y obtener la lista de vuelos
+                listaPasajeros = (List<Pasajero>)serializerP.Deserialize(fileStreamP);
+            }*/
         }
 
         #endregion

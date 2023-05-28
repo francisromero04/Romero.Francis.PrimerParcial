@@ -32,11 +32,7 @@ namespace FormsAerolinea
             this.usuario = usuario;
             this.aerolinea = aerolinea;
             ActualizarListas();
-
-            gbxCrearPasajero.Visible = false;
-            gbxModificarPasajero.Visible = false;
-            gbxEliminarPasajero.Visible = false;
-            lstPasajeros.Visible = false;
+            ConfigurarDgvYgroupBox();            
         }
 
         #region CONFIGURACION GROUPBOX
@@ -47,7 +43,7 @@ namespace FormsAerolinea
         /// </summary>
         /// <param name="sender">El objeto que desencadena el evento.</param>
         /// <param name="e">Los datos del evento.</param>
-        private void cmbxPasajeros_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbxPasajeros_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             Pasajero pasajeroSeleccionado = (Pasajero)cmbxPasajeros.SelectedItem;
 
@@ -55,9 +51,9 @@ namespace FormsAerolinea
             {
                 cmbxGeneroDos.Text = pasajeroSeleccionado.Genero ? "Masculino" : "Femenino";
                 txtNombreDos.Text = pasajeroSeleccionado.Nombre;
-                txtSegundoNombreDos.Text = pasajeroSeleccionado.segundoNombre;
+                txtSegundoNombreDos.Text = pasajeroSeleccionado.SegundoNombre;
                 txtApellidoDos.Text = pasajeroSeleccionado.Apellido;
-                txtSegundoApellidoDos.Text = pasajeroSeleccionado.segundoApellido;
+                txtSegundoApellidoDos.Text = pasajeroSeleccionado.SegundoApellido;
                 txtDniDos.Text = pasajeroSeleccionado.Dni.ToString();
             }
         }
@@ -70,8 +66,9 @@ namespace FormsAerolinea
         /// <param name="e">Los datos del evento.</param>
         private void btnOpcionUno_Click(object sender, EventArgs e)
         {
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            gbxCrearPasajero.Location = new Point(665, 365);
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvPasajeros.Visible = false;
+            gbxCrearPasajero.Left = (this.ClientSize.Width - gbxCrearPasajero.Width) / 2;
+            gbxCrearPasajero.Top = ((this.ClientSize.Height - gbxCrearPasajero.Height) / 2) - 90;
             gbxCrearPasajero.Visible = true;
         }
 
@@ -83,8 +80,9 @@ namespace FormsAerolinea
         /// <param name="e">Los datos del evento.</param>
         private void btnOpcionDos_Click(object sender, EventArgs e)
         {
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            gbxModificarPasajero.Location = new Point(665, 365);
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvPasajeros.Visible = false;
+            gbxModificarPasajero.Left = (this.ClientSize.Width - gbxModificarPasajero.Width) / 2;
+            gbxModificarPasajero.Top = ((this.ClientSize.Height - gbxModificarPasajero.Height) / 2) - 90;
             gbxModificarPasajero.Visible = true;
         }
 
@@ -96,22 +94,10 @@ namespace FormsAerolinea
         /// <param name="e">Los datos del evento.</param>
         private void btnOpcionTres_Click(object sender, EventArgs e)
         {
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            gbxEliminarPasajero.Location = new Point(640, 375);
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvPasajeros.Visible = false;
+            gbxEliminarPasajero.Left = (this.ClientSize.Width - gbxEliminarPasajero.Width) / 2;
+            gbxEliminarPasajero.Top = ((this.ClientSize.Height - gbxEliminarPasajero.Height) / 2) - 90;
             gbxEliminarPasajero.Visible = true;
-        }
-
-        /// <summary>
-        /// Evento que se activa cuando se hace clic en el botón "Opción Cuatro".
-        /// Oculta los demás botones y muestra la lista de pasajeros.
-        /// </summary>
-        /// <param name="sender">El objeto que desencadena el evento.</param>
-        /// <param name="e">Los datos del evento.</param>
-        private void btnOpcionCuatro_Click(object sender, EventArgs e)
-        {
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            lstPasajeros.Location = new Point(600, 365);
-            lstPasajeros.Visible = true;
         }
 
         #endregion
@@ -248,7 +234,7 @@ namespace FormsAerolinea
         private void btnCerrarUno_Click(object sender, EventArgs e)
         {
             gbxCrearPasajero.Visible = false;
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvPasajeros.Visible = true;
         }
 
         /// <summary>
@@ -260,7 +246,7 @@ namespace FormsAerolinea
         private void btnCerrarDos_Click(object sender, EventArgs e)
         {
             gbxModificarPasajero.Visible = false;
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvPasajeros.Visible = true;
         }
 
         /// <summary>
@@ -272,7 +258,7 @@ namespace FormsAerolinea
         private void btnCerrarTres_Click(object sender, EventArgs e)
         {
             gbxEliminarPasajero.Visible = false;
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvPasajeros.Visible = true;
         }
 
         #endregion
@@ -290,7 +276,7 @@ namespace FormsAerolinea
         /// <param name="dni">El nuevo DNI del pasajero.</param>
         /// <param name="genero">El nuevo género del pasajero.</param>
         /// <returns>Devuelve un valor booleano que indica si se ha modificado correctamente el pasaje
-        public bool ActualizarPasajero(Pasajero pasajeroSeleccionado, string nombre, string segundoNombre, string apellido, string segundoApellido, string dni, string genero)
+        private bool ActualizarPasajero(Pasajero pasajeroSeleccionado, string nombre, string segundoNombre, string apellido, string segundoApellido, string dni, string genero)
         {
             bool modificado = false;
 
@@ -331,12 +317,12 @@ namespace FormsAerolinea
         {
             if (string.IsNullOrEmpty(nuevoSegundoNombre))
             {
-                pasajeroSeleccionado.segundoNombre = null;
+                pasajeroSeleccionado.SegundoNombre = null;
                 return true;
             }
             else if (Validador.ValidarCadena(nuevoSegundoNombre, false))
             {
-                pasajeroSeleccionado.segundoNombre = nuevoSegundoNombre;
+                pasajeroSeleccionado.SegundoNombre = nuevoSegundoNombre;
                 return true;
             }
             return false;
@@ -369,12 +355,12 @@ namespace FormsAerolinea
         {
             if (string.IsNullOrEmpty(nuevoSegundoApellido))
             {
-                pasajeroSeleccionado.segundoApellido = null;
+                pasajeroSeleccionado.SegundoApellido = null;
                 return true;
             }
             else if (Validador.ValidarCadena(nuevoSegundoApellido))
             {
-                pasajeroSeleccionado.segundoApellido = nuevoSegundoApellido;
+                pasajeroSeleccionado.SegundoApellido = nuevoSegundoApellido;
                 return true;
             }
             return false;
@@ -426,12 +412,11 @@ namespace FormsAerolinea
         /// </summary>
         private void ActualizarListas()
         {
-            cmbxPasajeros.DataSource = cmbxPasajerosDos.DataSource = lstPasajeros.DataSource = cmbxGenero.DataSource = cmbxGeneroDos.DataSource = null;
-            cmbxPasajeros.DataSource = cmbxPasajerosDos.DataSource = lstPasajeros.DataSource = aerolinea.listaPasajeros;
-            cmbxPasajeros.DisplayMember = cmbxPasajerosDos.DisplayMember = lstPasajeros.DisplayMember = "nombreCompletoYdni";
+            cmbxPasajeros.DataSource = cmbxPasajerosDos.DataSource = cmbxGenero.DataSource = cmbxGeneroDos.DataSource = null;
+            cmbxPasajeros.DataSource = cmbxPasajerosDos.DataSource = aerolinea.listaPasajeros;
+            cmbxPasajeros.DisplayMember = cmbxPasajerosDos.DisplayMember = "NombreCompletoYdni";
             cmbxPasajeros.Refresh();
             cmbxPasajerosDos.Refresh();
-            lstPasajeros.Refresh();
 
             if (cmbxGenero.Items.Count == 0 && cmbxGeneroDos.Items.Count == 0)
             {
@@ -458,6 +443,33 @@ namespace FormsAerolinea
         }
 
         /// <summary>
+        /// Configura los controles de la interfaz de usuario para mostrar la información de los pasajeros de una aerolínea en un DataGridView.
+        /// </summary>
+        private void ConfigurarDgvYgroupBox()
+        {
+            gbxCrearPasajero.Visible = false;
+            gbxModificarPasajero.Visible = false;
+            gbxEliminarPasajero.Visible = false;
+            dgvPasajeros.Visible = true;
+
+            dgvPasajeros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPasajeros.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+            dgvPasajeros.Columns.Clear(); // Limpiar las columnas existentes
+            dgvPasajeros.DataSource = aerolinea.listaPasajeros;
+
+            // Mostrar solo los atributos en el DataGridView
+            dgvPasajeros.DataSource = aerolinea.listaPasajeros.Select(pasajero => new
+            {
+              Nombre = pasajero.NombreCompletoyDni, pasajero.Estado, pasajero.TipoPasajero, pasajero.PesoEquipaje
+            }).ToList();
+
+            dgvPasajeros.Refresh();
+            // Centrar el DataGridView en la pantalla
+            dgvPasajeros.Left = (this.ClientSize.Width - dgvPasajeros.Width) / 2;
+            dgvPasajeros.Top = ((this.ClientSize.Height - dgvPasajeros.Height) / 2) + 40;
+        }
+
+        /// <summary>
         /// Maneja el evento de cambio de visibilidad del grupo de modificación de pasajero en la interfaz.
         /// Actualiza las listas de visualización cuando el grupo se vuelve visible.
         /// </summary>
@@ -466,6 +478,28 @@ namespace FormsAerolinea
             if (gbxModificarPasajero.Visible)
             {
                 ActualizarListas();
+            }
+        }
+
+        /// <summary>
+        /// Evento de formato de celda del control DataGridView llamado "dgvPasajeros".
+        /// Este evento se desencadena cuando una celda del control se está formateando visualmente.
+        /// Cambia el color de fondo de todas las celdas a negro y el color de fuente a blanco.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvPasajeros_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvPasajeros.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    // Cambiar el color de fondo
+                    cell.Style.BackColor = Color.Black;
+
+                    // Cambiar el color de la fuente
+                    cell.Style.ForeColor = Color.White;
+                }
             }
         }
 

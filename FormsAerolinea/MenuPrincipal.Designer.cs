@@ -385,13 +385,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1300, 720);
+            this.ControlBox = false;
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.barraLateral);
             this.Controls.Add(this.barraTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MenuPrincipal";
             this.Opacity = 0.9D;
-            this.Text = "Menu Principal";
             this.barraTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();

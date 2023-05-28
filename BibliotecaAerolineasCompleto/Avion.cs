@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BibliotecaAerolineasCompleto
 {
+    [XmlRoot("Avion")]
     /// <summary>
     /// Representa un avión en el sistema de aerolíneas.
     /// </summary>
@@ -53,6 +55,7 @@ namespace BibliotecaAerolineasCompleto
 
         #region Getters y Setters
 
+        [XmlElement("Matricula")]
         /// <summary>
         /// Obtiene o establece la matrícula del avión.
         /// </summary>
@@ -62,6 +65,7 @@ namespace BibliotecaAerolineasCompleto
             set { matricula = value; }
         }
 
+        [XmlElement("CantidadAsientos")]
         /// <summary>
         /// Obtiene o establece la cantidad de asientos del avión.
         /// </summary>
@@ -71,6 +75,7 @@ namespace BibliotecaAerolineasCompleto
             set { cantidadAsientos = value; }
         }
 
+        [XmlElement("CantidadBanos")]
         /// <summary>
         /// Obtiene o establece la cantidad de baños del avión.
         /// </summary>
@@ -80,6 +85,7 @@ namespace BibliotecaAerolineasCompleto
             set { cantidadBanos = value; }
         }
 
+        [XmlElement("ServicioInternet")]
         /// <summary>
         /// Obtiene o establece un valor que indica si el avión ofrece servicio de internet.
         /// </summary>
@@ -89,6 +95,7 @@ namespace BibliotecaAerolineasCompleto
             set { servicioInternet = value; }
         }
 
+        [XmlElement("OfreceComida")]
         /// <summary>
         /// Obtiene o establece un valor que indica si el avión ofrece servicio de comida.
         /// </summary>
@@ -98,6 +105,7 @@ namespace BibliotecaAerolineasCompleto
             set { ofreceComida = value; }
         }
 
+        [XmlElement("CapacidadBodega")]
         /// <summary>
         /// Obtiene o establece la capacidad de la bodega del avión en kilogramos.
         /// </summary>
@@ -107,6 +115,7 @@ namespace BibliotecaAerolineasCompleto
             set { capacidadBodega= value; }
         }
 
+        [XmlElement("OcupadoEnVuelo")]
         /// <summary>
         /// Obtiene o establece un valor que indica si el avión está ocupado en un vuelo.
         /// </summary>
@@ -116,6 +125,10 @@ namespace BibliotecaAerolineasCompleto
             set { ocupadoEnVuelo= value;}
         }
 
+        [XmlElement("HorasVueloHistoricas")]
+        /// <summary>
+        /// Obtiene o establece un valor que indica si el avión está ocupado en un vuelo.
+        /// </summary>
         public int HorasVueloHistoricas
         {
             get { return horasVueloHistoricas;}
@@ -144,7 +157,7 @@ namespace BibliotecaAerolineasCompleto
             decimal capacidadBodega = rnd.Next(1000, 10000);
             OcupadoEnVuelo = false;
             horasVueloHistoricas = 0;
-            return new Avion(matricula, cantidadAsientos, cantidadBanos, servicioInternet, ofreceComida, capacidadBodega, horasVueloHistoricas);
+            return new Avion(matricula, cantidadAsientos, cantidadBanos, servicioInternet, ofreceComida, capacidadBodega, horasVueloHistoricas, true);
         }
 
         /// <summary>

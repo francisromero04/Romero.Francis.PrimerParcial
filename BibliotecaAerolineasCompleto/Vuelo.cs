@@ -5,35 +5,141 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace BibliotecaAerolineasCompleto
 {
+    [XmlRoot("Vuelo")]
     public class Vuelo
     {
-        public string CiudadPartida { get; set; }//modificar
-        public DestinosNacionales CiudadDestinoNacional { get; set; }
-        public DestinosInternacionales CiudadDestinoInternacional { get; set; }
-        public DateTime FechaVuelo { get; set; }
-        public Avion Avion { get; set; }
-        public int AsientosPremiumDisponibles { get; set; }
-        public int AsientosTuristaDisponibles { get; set; }
-        public int CantidadPasajeros { get; set; }
-        public decimal CostoPremium { get; set; }
-        public decimal CostoTurista { get; set; }
-        public int DuracionVuelo { get; set; }
-        public List<Pasajero> Pasajeros { get; set; }
-        public bool vueloNacional { get; set; }
-        public decimal IVA { get; set; }
-        public bool VueloPasado {get; set;}    
+        private string ciudadPartida;
+        private DestinosInternacionales ciudadDestinoInteracional;
+        private DestinosNacionales ciudadDestinoNacional;
+        private DateTime fechaVuelo;
+        private Avion avion;
+        private int asientosPremiumDisponibles;
+        private int asientosTuristaDisponibles;
+        private int cantidadPasajeros;
+        private decimal costoPremium, costoTurista;
+        private int duracionVuelo;
+        private List<Pasajero> pasajeros;
+        private bool vueloNacional, vueloPasado;
+        private decimal iva;
 
-        private Aerolinea aerolinea;
-
-        public Vuelo(Aerolinea aerolinea)
+        public Vuelo()
         {
-            this.aerolinea = aerolinea;
             Pasajeros = new List<Pasajero>();
             IVA = 1.21m;
         }
+
+        #region GETTERS Y SETTERS
+
+        [XmlElement("CiudadPartida")]
+        public string CiudadPartida
+        {
+            get {return ciudadPartida; }
+            set { ciudadPartida = value; }
+        }
+
+        [XmlElement("CiudadDestinoNacional")]
+        public DestinosNacionales CiudadDestinoNacional 
+        {
+            get { return ciudadDestinoNacional; }
+            set { ciudadDestinoNacional = value; }
+        }
+
+        [XmlElement("CiudadDestinoInternacional")]
+        public DestinosInternacionales CiudadDestinoInternacional 
+        {
+            get { return ciudadDestinoInteracional; }
+            set { ciudadDestinoInteracional = value; }
+        }
+
+        [XmlElement("FechaVuelo")]
+        public DateTime FechaVuelo 
+        {
+            get { return fechaVuelo; }
+            set { fechaVuelo = value; }
+        }
+
+        [XmlElement("Avion")]
+        public Avion Avion 
+        {
+            get { return avion; }
+            set { avion = value; }
+        }
+
+        [XmlElement("AsientosPremiumDisponibles")]
+        public int AsientosPremiumDisponibles 
+        {
+            get { return asientosPremiumDisponibles; }
+            set { asientosPremiumDisponibles = value; }
+        }
+
+        [XmlElement("AsientosTuristaDisponibles")]
+        public int AsientosTuristaDisponibles 
+        {
+            get { return asientosTuristaDisponibles; }
+            set { asientosTuristaDisponibles = value; }
+        }
+
+        [XmlElement("CantidadPasajeros")]
+        public int CantidadPasajeros
+        {
+            get { return cantidadPasajeros; }
+            set { cantidadPasajeros = value; }
+        }
+
+        [XmlElement("CostoPremium")]
+        public decimal CostoPremium
+        {
+            get { return costoPremium; }
+            set { costoPremium = value; }
+        }
+
+        [XmlElement("CostoTurista")]
+        public decimal CostoTurista
+        {
+            get { return costoTurista; }
+            set { costoTurista = value; }
+        }
+
+        [XmlElement("DuracionVuelo")]
+        public int DuracionVuelo
+        {
+            get { return duracionVuelo; }
+            set { duracionVuelo = value; }
+        }
+
+        [XmlElement("Pasajeros")]
+        public List<Pasajero> Pasajeros
+        {
+            get { return pasajeros; }
+            set { pasajeros = value; }
+        }
+
+        [XmlElement("VueloNacional")]
+        public bool VueloNacional
+        {
+            get { return vueloNacional; }
+            set { vueloNacional = value; }
+        }
+
+        [XmlElement("IVA")]
+        public decimal IVA
+        {
+            get { return iva; }
+            set { iva = value; }
+        }
+
+        [XmlElement("VueloPasado")]
+        public bool VueloPasado
+        {
+            get { return vueloPasado; }
+            set { vueloPasado = value; }
+        }
+
+        #endregion
 
         public Vuelo GenerarVueloAleatorio(Aerolinea aerolinea) //ELIMINAR
         {
@@ -96,13 +202,13 @@ namespace BibliotecaAerolineasCompleto
 
                     if (VerificarDniExistente(pasajero.Dni) == false)
                     {
-                        if(pasajero.tipoPasajero == false && AsientosPremiumDisponibles > 0)
+                        if(pasajero.TipoPasajero == false && AsientosPremiumDisponibles > 0)
                         {
                             Pasajeros.Add(pasajero);
                             CantidadPasajeros++;
                             AsientosPremiumDisponibles--;
                         }
-                        else if (pasajero.tipoPasajero == true && AsientosTuristaDisponibles > 0)
+                        else if (pasajero.TipoPasajero == true && AsientosTuristaDisponibles > 0)
                         {
                             Pasajeros.Add(pasajero);
                             CantidadPasajeros++;
@@ -131,13 +237,13 @@ namespace BibliotecaAerolineasCompleto
 
                     if (VerificarDniExistente(pasajero.Dni) == false)
                     {
-                        if (pasajero.tipoPasajero == false && AsientosPremiumDisponibles > 0)
+                        if (pasajero.TipoPasajero == false && AsientosPremiumDisponibles > 0)
                         {
                             Pasajeros.Add(pasajero);
                             AsientosPremiumDisponibles--;
                             CantidadPasajeros++;
                         }
-                        else if (pasajero.tipoPasajero == true && AsientosTuristaDisponibles > 0)
+                        else if (pasajero.TipoPasajero == true && AsientosTuristaDisponibles > 0)
                         {
                             Pasajeros.Add(pasajero);
                             AsientosTuristaDisponibles--;
@@ -173,12 +279,12 @@ namespace BibliotecaAerolineasCompleto
                 throw new ArgumentNullException("El objeto pasajero es nulo.");
             }
 
-            if (tipoPasajero == false && AsientosPremiumDisponibles > 0 && Avion.CapacidadBodega > pasajero.pesoEquipaje)
+            if (tipoPasajero == false && AsientosPremiumDisponibles > 0 && Avion.CapacidadBodega > pasajero.PesoEquipaje)
             {
                 CantidadPasajeros++;
                 AsientosPremiumDisponibles--;
             }            
-            else if (tipoPasajero == true && AsientosTuristaDisponibles > 0 && Avion.CapacidadBodega > pasajero.pesoEquipaje)
+            else if (tipoPasajero == true && AsientosTuristaDisponibles > 0 && Avion.CapacidadBodega > pasajero.PesoEquipaje)
             {
                 CantidadPasajeros++;                
                 AsientosTuristaDisponibles--;
@@ -206,10 +312,10 @@ namespace BibliotecaAerolineasCompleto
                   //  info += $"\nTipo de vuelo: Internacional, ";
                 }
 
-                if (Avion != null)
+              /*  if (Avion != null)
                 {
-                 //   info += $"\nAvión: {Avion.Matricula}, ";
-                }
+                    info += $"\nAvión: {Avion.Matricula}, ";
+                }*/
 
                 info += $"Fecha: {FechaVuelo.ToString("dd/MM/yyyy")} | ";
              //   info += $"\nCant. pasajeros: {CantidadPasajeros}, ";
@@ -341,12 +447,12 @@ namespace BibliotecaAerolineasCompleto
             if (vueloNacional == true)
             {
                 costoTurista = 50 * (decimal)vuelo.DuracionVuelo;
-                costoPremium = 100 * (decimal)vuelo.DuracionVuelo;
+                costoPremium = costoTurista * 1.35m;
             }
             else
             {
-                costoTurista = (50 * (decimal)vuelo.DuracionVuelo) * 1.35m;
-                costoPremium = (100 * (decimal)vuelo.DuracionVuelo) * 1.35m;
+                costoTurista = (100 * (decimal)vuelo.DuracionVuelo);
+                costoPremium = costoTurista * 1.35m;
             }
 
             // Asignar costos al vuelo

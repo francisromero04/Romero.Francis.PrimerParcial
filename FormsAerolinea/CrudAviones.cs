@@ -32,11 +32,7 @@ namespace FormsAerolinea
             this.usuario = usuario;
             this.aerolinea = aerolinea;
             ActualizarListas();
-
-            gbxModificarAeronave.Visible = false;
-            gbxEliminarAeronave.Visible = false;
-            gbxCrearAvion.Visible = false;
-            dgvAviones.Visible = false;
+            ConfigurarDgvYgroupBox();
         }
 
         #region CONFIGURACION GROUPBOX
@@ -72,8 +68,9 @@ namespace FormsAerolinea
         /// <param name="e">Los datos del evento.</param>
         private void btnOpcionUno_Click(object sender, EventArgs e)
         {
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            gbxCrearAvion.Location = new Point(665, 365); 
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvAviones.Visible = false;
+            gbxCrearAvion.Left = (this.ClientSize.Width - gbxCrearAvion.Width) / 2;
+            gbxCrearAvion.Top = ((this.ClientSize.Height - gbxCrearAvion.Height) / 2) - 90;
             gbxCrearAvion.Visible = true;
         }
 
@@ -85,8 +82,9 @@ namespace FormsAerolinea
         /// <param name="e">Los datos del evento.</param>
         private void btnOpcionDos_Click(object sender, EventArgs e)
         {
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            gbxModificarAeronave.Location = new Point(665, 365);
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvAviones.Visible = false;
+            gbxModificarAeronave.Left = (this.ClientSize.Width - gbxModificarAeronave.Width) / 2;
+            gbxModificarAeronave.Top = ((this.ClientSize.Height - gbxModificarAeronave.Height) / 2) - 90;
             gbxModificarAeronave.Visible = true;
         }
 
@@ -98,45 +96,10 @@ namespace FormsAerolinea
         /// <param name="e">Los datos del evento.</param>
         private void btnOpcionTres_Click(object sender, EventArgs e)
         {
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            gbxEliminarAeronave.Location = new Point(685, 365);
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvAviones.Visible = false;
+            gbxEliminarAeronave.Left = (this.ClientSize.Width - gbxEliminarAeronave.Width) / 2;
+            gbxEliminarAeronave.Top = ((this.ClientSize.Height - gbxEliminarAeronave.Height) / 2) - 90;
             gbxEliminarAeronave.Visible = true;
-        }
-
-        /// <summary>
-        /// Evento que se activa al hacer clic en el botón "Opción Cuatro".
-        /// Oculta los botones de opción y muestra la lista de aeronaves.
-        /// </summary>
-        /// <param name="sender">El objeto que genera el evento.</param>
-        /// <param name="e">Los datos del evento.</param>
-        private void btnOpcionCuatro_Click(object sender, EventArgs e)
-        {
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = false;
-            dgvAviones.Visible = true;
-
-            dgvAviones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvAviones.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dgvAviones.Columns.Clear(); // Limpiar las columnas existentes
-
-            dgvAviones.DataSource = aerolinea.listaAviones;
-
-            // Mostrar solo los atributos en el DataGridView
-            dgvAviones.DataSource = aerolinea.listaAviones.Select(avion => new
-            {
-                avion.Matricula,
-                avion.CantidadAsientos,
-                avion.CantidadBanos,
-                avion.ServicioInternet,
-                avion.OfreceComida,
-                avion.CapacidadBodega,
-                avion.OcupadoEnVuelo,
-                avion.HorasVueloHistoricas,
-            }).ToList();
-
-            dgvAviones.Refresh();
-            // Centrar el DataGridView en la pantalla
-            dgvAviones.Left = (this.ClientSize.Width - dgvAviones.Width) / 2;
-            dgvAviones.Top = ((this.ClientSize.Height - dgvAviones.Height) / 2) + 40;
         }
 
         #endregion
@@ -274,22 +237,40 @@ namespace FormsAerolinea
 
         #region VISIBILIDAD BOTONES
 
+        /// <summary>
+        /// Maneja el evento de clic del botón "btnCerrarUno".
+        /// Oculta el grupo de controles "gbxCrearAvion" y muestra los botones "btnOpcionUno", "btnOpcionDos", "btnOpcionTres" y el control "dgvAviones".
+        /// </summary>
+        /// <param name="sender">El objeto que desencadenó el evento.</param>
+        /// <param name="e">Argumentos del evento EventArgs.</param>
         private void btnCerrarUno_Click(object sender, EventArgs e)
         {
             gbxCrearAvion.Visible = false;
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvAviones.Visible = true;
         }
 
+        /// <summary>
+        /// Maneja el evento de clic del botón "btnCerrarDos".
+        /// Oculta el grupo de controles "gbxModificarAeronave" y muestra los botones "btnOpcionUno", "btnOpcionDos", "btnOpcionTres" y el control "dgvAviones".
+        /// </summary>
+        /// <param name="sender">El objeto que desencadenó el evento.</param>
+        /// <param name="e">Argumentos del evento EventArgs.</param>
         private void btnCerrarDos_Click(object sender, EventArgs e)
         {
             gbxModificarAeronave.Visible = false;
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvAviones.Visible = true;
         }
 
+        /// <summary>
+        /// Maneja el evento de clic del botón "btnCerrarTres".
+        /// Oculta el grupo de controles "gbxEliminarAeronave" y muestra los botones "btnOpcionUno", "btnOpcionDos", "btnOpcionTres" y el control "dgvAviones".
+        /// </summary>
+        /// <param name="sender">El objeto que desencadenó el evento.</param>
+        /// <param name="e">Argumentos del evento EventArgs.</param>
         private void btnCerrarTres_Click(object sender, EventArgs e)
         {
             gbxEliminarAeronave.Visible = false;
-            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = true;
+            btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvAviones.Visible = true;
         }
 
         #endregion
@@ -434,13 +415,48 @@ namespace FormsAerolinea
             chkComida.Checked = false;
             chkWifi.Checked = false;
 
-            lstAeronaves.Refresh();
             cmbxAviones.Refresh();
             cmbxAvionesDos.Refresh();
         }
 
         /// <summary>
-        /// 
+        /// Configura los controles de la interfaz de usuario para mostrar la información de los aviones de una aerolínea en un DataGridView.
+        /// </summary>
+        private void ConfigurarDgvYgroupBox()
+        {
+            gbxModificarAeronave.Visible = false;
+            gbxEliminarAeronave.Visible = false;
+            gbxCrearAvion.Visible = false;
+            dgvAviones.Visible = true;
+
+            dgvAviones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAviones.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+            dgvAviones.Columns.Clear(); // Limpiar las columnas existentes
+            dgvAviones.DataSource = aerolinea.listaAviones;
+
+            // Mostrar solo los atributos en el DataGridView
+            dgvAviones.DataSource = aerolinea.listaAviones.Select(avion => new
+            {
+                avion.Matricula,
+                avion.CantidadAsientos,
+                avion.CantidadBanos,
+                avion.ServicioInternet,
+                avion.OfreceComida,
+                avion.CapacidadBodega,
+                avion.OcupadoEnVuelo,
+                avion.HorasVueloHistoricas,
+            }).ToList();
+
+            dgvAviones.Refresh();
+            // Centrar el DataGridView en la pantalla
+            dgvAviones.Left = (this.ClientSize.Width - dgvAviones.Width) / 2;
+            dgvAviones.Top = ((this.ClientSize.Height - dgvAviones.Height) / 2) + 40;
+        }
+
+        /// <summary>
+        /// Evento de formato de celda del control DataGridView llamado "dgvAviones".
+        /// Este evento se desencadena cuando una celda del control se está formateando visualmente.
+        /// Cambia el color de fondo de todas las celdas a negro y el color de fuente a blanco.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

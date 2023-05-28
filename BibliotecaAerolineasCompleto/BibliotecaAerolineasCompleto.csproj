@@ -58,6 +58,8 @@
     <Compile Include="Pasajero.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerializarPersonas.cs" />
+    <Compile Include="SerializarVuelos.cs" />
     <Compile Include="Supervisor.cs" />
     <Compile Include="Validador.cs" />
     <Compile Include="Vendedor.cs" />

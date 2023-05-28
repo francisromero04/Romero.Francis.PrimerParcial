@@ -10,6 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.IO;
+using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace FormsAerolinea
 {
@@ -153,11 +156,41 @@ namespace FormsAerolinea
         }
 
         /// <summary>
-        /// Cierra la aplicación.
+        /// Cierra la aplicación y guarda los archivos JSON y XML.
         /// </summary>
         private void btnCerrarPestaña_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("¿Está seguro de que desea cerrar la aplicación?", "Confirmación de cierre", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+            if (result == DialogResult.Yes)
+            {
+                string json = JsonConvert.SerializeObject(aerolinea.listaAviones);
+                File.WriteAllText("avionesDeAerolinea.json", json);
+
+                XmlSerializer serializer = new XmlSerializer(typeof(SerializarVuelos));
+                SerializarVuelos listaVuelosSerializar = new SerializarVuelos()
+                {
+                    Vuelos = aerolinea.listaVuelos,
+                };
+
+                using (TextWriter writer = new StreamWriter("vuelosDeAerolinea.xml"))
+                {
+                    serializer.Serialize(writer, listaVuelosSerializar);
+                }
+
+                XmlSerializer serializerDos = new XmlSerializer(typeof(SerializarPersonas));
+                SerializarPersonas listaPasajerosSerializar = new SerializarPersonas()
+                {
+                    Pasajeros = aerolinea.listaPasajeros,
+                };
+
+                using (TextWriter writer = new StreamWriter("pasajeros.xml"))
+                {
+                    serializerDos.Serialize(writer, listaPasajerosSerializar);
+                } 
+
+                Application.Exit();
+            } 
         }
 
         /// <summary>

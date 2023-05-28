@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultarEstadisticas));
             this.lblListaViajesRealizados = new System.Windows.Forms.Label();
             this.cmbxListaViajesRealizados = new System.Windows.Forms.ComboBox();
             this.lblTituloConsultar = new System.Windows.Forms.Label();
             this.lblDineroTotal = new System.Windows.Forms.Label();
             this.lblDestino = new System.Windows.Forms.Label();
             this.lblPasajeros = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.cmbxAviones = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblHorasVuelo = new System.Windows.Forms.Label();
@@ -43,7 +41,6 @@
             this.lstDestinos = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblListaViajesRealizados
@@ -78,7 +75,7 @@
             this.lblTituloConsultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.lblTituloConsultar.Font = new System.Drawing.Font("Times New Roman", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloConsultar.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTituloConsultar.Location = new System.Drawing.Point(310, 140);
+            this.lblTituloConsultar.Location = new System.Drawing.Point(310, 96);
             this.lblTituloConsultar.Name = "lblTituloConsultar";
             this.lblTituloConsultar.Size = new System.Drawing.Size(471, 54);
             this.lblTituloConsultar.TabIndex = 5;
@@ -119,17 +116,6 @@
             this.lblPasajeros.Size = new System.Drawing.Size(21, 21);
             this.lblPasajeros.TabIndex = 43;
             this.lblPasajeros.Text = "A";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(428, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(199, 125);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 44;
-            this.pictureBox2.TabStop = false;
             // 
             // cmbxAviones
             // 
@@ -233,7 +219,6 @@
             this.Controls.Add(this.lblHorasVuelo);
             this.Controls.Add(this.cmbxAviones);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lblPasajeros);
             this.Controls.Add(this.lblDestino);
             this.Controls.Add(this.lblDineroTotal);
@@ -243,7 +228,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ConsultarEstadisticas";
             this.Text = "Consultar Estadisticas";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,7 +240,6 @@
         private System.Windows.Forms.Label lblDineroTotal;
         private System.Windows.Forms.Label lblDestino;
         private System.Windows.Forms.Label lblPasajeros;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ComboBox cmbxAviones;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblHorasVuelo;

@@ -46,11 +46,11 @@ namespace FormsAerolinea
             decimal costoPasaje;
 
             if (chbTipoPasajero.Checked == true) {
-                pasajeroSeleccionado.tipoPasajero = false;
+                pasajeroSeleccionado.TipoPasajero = false;
                 costoPasaje = vueloSeleccionado.CostoPremium;
             }
             else {
-                pasajeroSeleccionado.tipoPasajero = true;
+                pasajeroSeleccionado.TipoPasajero = true;
                 costoPasaje = vueloSeleccionado.CostoTurista;
             }                      
        
@@ -146,21 +146,21 @@ namespace FormsAerolinea
             if(vueloSeleccionado.ContienePasajero(pasajeroSeleccionado) == false && VerificarDisponibilidadVuelo(vueloSeleccionado) == true &&
                VerificarCapacidadBodega(pasajeroSeleccionado, vueloSeleccionado) == true && VerificarDisponibilidadAsiento(pasajeroSeleccionado, vueloSeleccionado) == true) 
             {
-                if((pasajeroSeleccionado.tipoPasajero == false && vueloSeleccionado.AsientosPremiumDisponibles > 0) ||
-                (pasajeroSeleccionado.tipoPasajero == true && vueloSeleccionado.AsientosTuristaDisponibles > 0))
+                if((pasajeroSeleccionado.TipoPasajero == false && vueloSeleccionado.AsientosPremiumDisponibles > 0) ||
+                (pasajeroSeleccionado.TipoPasajero == true && vueloSeleccionado.AsientosTuristaDisponibles > 0))
                 {
                     if (vueloSeleccionado.Pasajeros != null)
                     {
-                        pasajeroSeleccionado.cantidadVuelosHistoricos++;
-                        vueloSeleccionado.Pasajeros.Add(pasajeroSeleccionado);
+                        pasajeroSeleccionado.CantidadVuelosHistoricos++;
+                        vueloSeleccionado.Pasajeros.Add(pasajeroSeleccionado); //hacer capa
                         MostrarMensajeConfirmacion(pasajeroSeleccionado, vueloSeleccionado, costoPasaje);
                     }               
 
-                    vueloSeleccionado.VenderPasaje(pasajeroSeleccionado, pasajeroSeleccionado.tipoPasajero);
+                    vueloSeleccionado.VenderPasaje(pasajeroSeleccionado, pasajeroSeleccionado.TipoPasajero);
 
-                    if (pasajeroSeleccionado.tipoPasajero == false)
+                    if (pasajeroSeleccionado.TipoPasajero == false)
                     {
-                        if(vueloSeleccionado.vueloNacional == true)
+                        if(vueloSeleccionado.VueloNacional == true)
                         {
                             aerolinea.dineroTotalNacional += vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
                             aerolinea.gananciaNacional[vueloSeleccionado.CiudadDestinoNacional] += vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
@@ -174,7 +174,7 @@ namespace FormsAerolinea
                     }
                     else
                     {
-                        if (vueloSeleccionado.vueloNacional == true)
+                        if (vueloSeleccionado.VueloNacional == true)
                         {
                             aerolinea.dineroTotalNacional += vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
                             aerolinea.gananciaNacional[vueloSeleccionado.CiudadDestinoNacional] += vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
@@ -219,7 +219,7 @@ namespace FormsAerolinea
             bool estaDisponible;
             decimal pesoEquipaje = Convert.ToDecimal(vueloSeleccionado.Avion.CapacidadBodega);
 
-            if (pasajeroSeleccionado.pesoEquipaje > pesoEquipaje)
+            if (pasajeroSeleccionado.PesoEquipaje > pesoEquipaje)
             {
                 MessageBox.Show("El peso del equipaje del pasajero supera la capacidad de la bodega del avión.");
                 estaDisponible = false;
@@ -239,14 +239,14 @@ namespace FormsAerolinea
         {
             bool estaDisponible; 
 
-            if (pasajeroSeleccionado.tipoPasajero == false && vueloSeleccionado.AsientosPremiumDisponibles == 0)
+            if (pasajeroSeleccionado.TipoPasajero == false && vueloSeleccionado.AsientosPremiumDisponibles == 0)
             {
                 MessageBox.Show("Lo sentimos, no quedan más asientos premium disponibles en este vuelo.");
                 estaDisponible = false;
             }
             else { estaDisponible = true; }
 
-            if (pasajeroSeleccionado.tipoPasajero == true && vueloSeleccionado.AsientosTuristaDisponibles == 0)
+            if (pasajeroSeleccionado.TipoPasajero == true && vueloSeleccionado.AsientosTuristaDisponibles == 0)
             {
                 MessageBox.Show("Lo sentimos, no quedan más asientos turista disponibles en este vuelo.");
                 estaDisponible = false;
@@ -265,10 +265,10 @@ namespace FormsAerolinea
         private void MostrarMensajeConfirmacion(Pasajero pasajeroSeleccionado, Vuelo vueloSeleccionado, decimal costoPasaje)
         {
             MessageBox.Show($"¡Pasaje vendido! \nNombre del pasajero: {pasajeroSeleccionado.Nombre} {pasajeroSeleccionado.Apellido} \nCiudad de partida: {vueloSeleccionado.CiudadPartida} " +
-                                         $"\nCiudad de destino: {(vueloSeleccionado.vueloNacional == true ? vueloSeleccionado.CiudadDestinoNacional.ToString() : vueloSeleccionado.CiudadDestinoInternacional.ToString())} " +
-                                         $"\nFecha de vuelo: {vueloSeleccionado.FechaVuelo.ToString("dd/MM/yyyy")} \nTipo: {(pasajeroSeleccionado.tipoPasajero ? "Turista" : "Premium")} " +
-                                         $"\nCosto del pasaje: {(pasajeroSeleccionado.tipoPasajero == false ? vueloSeleccionado.CostoPremium : vueloSeleccionado.CostoTurista)}" +
-                                         $" \nCosto del pasaje + IVA: {(pasajeroSeleccionado.tipoPasajero == false ? vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA : vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA)}");
+                                         $"\nCiudad de destino: {(vueloSeleccionado.VueloNacional == true ? vueloSeleccionado.CiudadDestinoNacional.ToString() : vueloSeleccionado.CiudadDestinoInternacional.ToString())} " +
+                                         $"\nFecha de vuelo: {vueloSeleccionado.FechaVuelo.ToString("dd/MM/yyyy")} \nTipo: {(pasajeroSeleccionado.TipoPasajero ? "Turista" : "Premium")} " +
+                                         $"\nCosto del pasaje: {(pasajeroSeleccionado.TipoPasajero == false ? vueloSeleccionado.CostoPremium : vueloSeleccionado.CostoTurista)}" +
+                                         $" \nCosto del pasaje + IVA: {(pasajeroSeleccionado.TipoPasajero == false ? vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA : vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA)}");
         }
 
         #endregion        

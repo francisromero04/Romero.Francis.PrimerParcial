@@ -58,7 +58,7 @@ namespace FormsAerolinea
             cmbxAviones.DisplayMember = "ObtenerEstadoAvion";
             cmbxAviones.Refresh();
 
-            List<Pasajero> pasajerosOrdenados = aerolinea.listaPasajeros.OrderByDescending(p => p.cantidadVuelosHistoricos).ToList();
+            List<Pasajero> pasajerosOrdenados = aerolinea.listaPasajeros.OrderByDescending(p => p.CantidadVuelosHistoricos).ToList();
             lstPasajerosOrdenados.DataSource = null;
             lstPasajerosOrdenados.DataSource = pasajerosOrdenados;
             lstPasajerosOrdenados.DisplayMember = "NombreCompletoyDniyViajes";
