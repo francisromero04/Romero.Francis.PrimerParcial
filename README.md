@@ -1,14 +1,15 @@
-#AirwayTech Development
-##Sobre mí
+AirwayTech Development
+
+Sobre mí
 Mi nombre es Francis Romero, estudiante de la cátedra de la materia: Laboratorio 2. Durante el desarrollo de este proyecto, logré adquirir una significativa experiencia en programación. Fue la primera vez que pude comprender la estructura de un programa que combina programación orientada a objetos con visualizaciones. Además, el uso de archivos XML y JSON facilitó mi comprensión sobre el almacenamiento de datos externos a la aplicación. A lo largo de un mes y una semana de desarrollo, enfrenté varios desafíos y en muchas ocasiones llegué a pensar que no podría terminarlo. La parte que más me llevó tiempo y presentó dificultades fue la creación de la lógica de serialización y deserialización de archivos XML. Uno de los aprendizajes más importantes fue la capacidad de depurar mi código en varias ocasiones y encontrar soluciones a errores de uso incorrecto de atributos o métodos. En resumen, esta experiencia me ha brindado un amplio conocimiento sobre el método CRUD, que se aplica a lo largo de todo el programa en diferentes puntos de gestión.
 
-##Resumen
+Resumen
 En pocas palabras, el programa se encarga de gestionar los vuelos de una aerolínea. Utiliza métodos CRUD para la creación, eliminación y modificación de aviones, pasajeros y vuelos.
 
-##Diagrama de clases
+Diagrama de clases
 ![Diagrama de Clases](ruta/de/la/diagramaDeClases.jpg)
 
-##Justificación técnica
+Justificación técnica
 -TEMA 1: Implementaciones de .NET
 Para este proyecto, utilicé el framework .NET, que proporciona un entorno de desarrollo sólido y herramientas eficientes para la creación de aplicaciones.
 
@@ -36,7 +37,7 @@ Se implementó herencia en el programa para los usuarios del sistema: administra
 -TEMA 9: Polimorfismo y Clases Abstractas
 El polimorfismo y las clases abstractas se aplicaron a lo largo del desarrollo del programa. Se utilizaron clases abstractas para definir métodos y propiedades comunes a las subclases, lo que permitió un código más limpio y coherente. Además, el polimorfismo permitió tratar los objetos de las subclases como objetos de la clase base, lo que facilitó la manipulación y gestión de diferentes tipos de usuarios.
 
-##Pros y contras
+Pros y contras
 A continuación se detallan los pros y contras encontrados en diferentes temas:
 
 -TEMA 2:
@@ -51,5 +52,5 @@ CONTRA: Se encontraron dificultades en el proceso de serialización y deserializ
 -TEMA 8 y 9:
 PRO: La aplicación de herencia en las clases de usuario (administrador, supervisor y vendedor) facilitó la programación y el uso de cada una de ellas.
 
-##Propuesta de valor agregado para promoción
+Propuesta de valor agregado para promoción
 El proyecto se entregará posterior a la construcción de la solución, lo que nos permitirá presentarlo con un archivo ejecutable (.exe). Esto proporciona una mayor comodidad para el uso del programa, ya que los usuarios podrán ejecutarlo directamente sin necesidad de compilar el código fuente.
