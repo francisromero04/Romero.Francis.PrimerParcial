@@ -32,6 +32,7 @@ namespace FormsAerolinea
             this.usuario = usuario;
             this.aerolinea = aerolinea;
             ActualizarListas();
+            EstablecerLocacion();
             ConfigurarDgvYgroupBox();
         }
 
@@ -210,7 +211,7 @@ namespace FormsAerolinea
             // Buscar el avión a eliminar por su matrícula
             Avion avionAEliminar = null;
 
-            foreach (Avion avion in aerolinea.listaAviones)
+            foreach (Avion avion in aerolinea.ListaAviones)
             {
                 if (avion.Matricula == matriculaAEliminar)
                 {
@@ -246,6 +247,7 @@ namespace FormsAerolinea
         private void btnCerrarUno_Click(object sender, EventArgs e)
         {
             gbxCrearAvion.Visible = false;
+            ConfigurarDgvYgroupBox();
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvAviones.Visible = true;
         }
 
@@ -258,6 +260,7 @@ namespace FormsAerolinea
         private void btnCerrarDos_Click(object sender, EventArgs e)
         {
             gbxModificarAeronave.Visible = false;
+            ConfigurarDgvYgroupBox();
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvAviones.Visible = true;
         }
 
@@ -270,6 +273,7 @@ namespace FormsAerolinea
         private void btnCerrarTres_Click(object sender, EventArgs e)
         {
             gbxEliminarAeronave.Visible = false;
+            ConfigurarDgvYgroupBox();
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvAviones.Visible = true;
         }
 
@@ -404,13 +408,22 @@ namespace FormsAerolinea
         private void ActualizarListas()
         {
             cmbxAviones.DataSource = null;
+            List<Avion> avionesDisponibles = new List<Avion>();
+
+            foreach (Avion avion in aerolinea.ListaAviones)
+            {
+                if (!avion.OcupadoEnVuelo)
+                {
+                    avionesDisponibles.Add(avion);
+                }
+            }
+
+            cmbxAviones.DataSource = avionesDisponibles;
+            cmbxAviones.DisplayMember = nameof(Avion.ToString);
+
             cmbxAvionesDos.DataSource = null;
-
-            cmbxAviones.DataSource = aerolinea.listaAviones;
-            cmbxAvionesDos.DataSource = aerolinea.listaAviones;
-
-            cmbxAviones.DisplayMember = "ObtenerEstadoAvion";
-            cmbxAvionesDos.DisplayMember = "Matricula";
+            cmbxAvionesDos.DataSource = avionesDisponibles;
+            cmbxAvionesDos.DisplayMember = nameof(Avion.ToString);
 
             chkComida.Checked = false;
             chkWifi.Checked = false;
@@ -420,22 +433,29 @@ namespace FormsAerolinea
         }
 
         /// <summary>
+        /// Configura la locacion del DataGridView.
+        /// </summary>
+        private void EstablecerLocacion()
+        {
+            // Centrar el DataGridView en la pantalla
+            dgvAviones.Left = (this.ClientSize.Width - dgvAviones.Width) / 2;
+            dgvAviones.Top = ((this.ClientSize.Height - dgvAviones.Height) / 2) + 40;
+        }
+
+        /// <summary>
         /// Configura los controles de la interfaz de usuario para mostrar la información de los aviones de una aerolínea en un DataGridView.
         /// </summary>
         private void ConfigurarDgvYgroupBox()
         {
-            gbxModificarAeronave.Visible = false;
-            gbxEliminarAeronave.Visible = false;
-            gbxCrearAvion.Visible = false;
             dgvAviones.Visible = true;
 
             dgvAviones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAviones.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
             dgvAviones.Columns.Clear(); // Limpiar las columnas existentes
-            dgvAviones.DataSource = aerolinea.listaAviones;
+            dgvAviones.DataSource = aerolinea.ListaAviones;
 
             // Mostrar solo los atributos en el DataGridView
-            dgvAviones.DataSource = aerolinea.listaAviones.Select(avion => new
+            dgvAviones.DataSource = aerolinea.ListaAviones.Select(avion => new
             {
                 avion.Matricula,
                 avion.CantidadAsientos,
@@ -447,10 +467,7 @@ namespace FormsAerolinea
                 avion.HorasVueloHistoricas,
             }).ToList();
 
-            dgvAviones.Refresh();
-            // Centrar el DataGridView en la pantalla
-            dgvAviones.Left = (this.ClientSize.Width - dgvAviones.Width) / 2;
-            dgvAviones.Top = ((this.ClientSize.Height - dgvAviones.Height) / 2) + 40;
+            dgvAviones.Refresh();           
         }
 
         /// <summary>

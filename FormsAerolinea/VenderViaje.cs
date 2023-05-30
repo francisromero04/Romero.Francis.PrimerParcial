@@ -52,10 +52,32 @@ namespace FormsAerolinea
             else {
                 pasajeroSeleccionado.TipoPasajero = true;
                 costoPasaje = vueloSeleccionado.CostoTurista;
-            }                      
-       
-            FinalizarVenta(pasajeroSeleccionado, vueloSeleccionado, costoPasaje, aerolinea);
-            new Pasaje(pasajeroSeleccionado, vueloSeleccionado, true, costoPasaje); // Crear un nuevo pasaje y agregarlo a las listas correspondientes
+            }
+
+            if(pasajeroSeleccionado.TipoPasajero == false)
+            {
+                decimal pesoEquipajeP = ValidarPesoEquipajePremium(txtPesoEquipajePuno);
+                decimal pesoEquipajePdos = ValidarPesoEquipajePremium(txtPesoEquipajePdos);
+
+                if (pesoEquipajeP != 0 && pesoEquipajePdos != 0)
+                {
+                    decimal pesoTotal = pesoEquipajeP + pesoEquipajePdos;
+                    pasajeroSeleccionado.PesoEquipaje = pesoTotal;
+                    FinalizarVenta(pasajeroSeleccionado, vueloSeleccionado, costoPasaje, aerolinea);
+                    new Pasaje(pasajeroSeleccionado, vueloSeleccionado, true, costoPasaje); // Crear un nuevo pasaje y agregarlo a las listas correspondientes
+                }
+            }
+            else
+            {
+                decimal pesoEquipajeT = ValidarPesoEquipajeTurista(); 
+
+                if(pesoEquipajeT != 0)
+                {                
+                    pasajeroSeleccionado.PesoEquipaje = pesoEquipajeT;                
+                    FinalizarVenta(pasajeroSeleccionado, vueloSeleccionado, costoPasaje, aerolinea);
+                    new Pasaje(pasajeroSeleccionado, vueloSeleccionado, true, costoPasaje); // Crear un nuevo pasaje y agregarlo a las listas correspondientes
+                }
+            }
         }
 
         #endregion
@@ -68,7 +90,7 @@ namespace FormsAerolinea
         private void ActualizarListas()
         {
             var vuelosFuturos = new List<Vuelo>();
-            foreach (var vuelo in aerolinea.listaVuelos)
+            foreach (var vuelo in aerolinea.ListaVuelos)
             {
                 if (vuelo.FechaVuelo > DateTime.Now)
                 {
@@ -82,9 +104,27 @@ namespace FormsAerolinea
             cmbxListaVuelos.Refresh();
 
             cmbxListaPasajeros.DataSource = null;
-            cmbxListaPasajeros.DataSource = aerolinea.listaPasajeros;
+            cmbxListaPasajeros.DataSource = aerolinea.ListaPasajeros;
             cmbxListaPasajeros.DisplayMember = "nombreCompletoyDni";
             cmbxListaPasajeros.Refresh();
+
+            if(chbTipoPasajero.Checked == true)
+            {
+                lblIngresar.Visible = txtPesoEquipajeTurista.Visible = rdbBolsoMano.Visible = false;
+                lblIngresarDos.Location = new Point(455, 495);
+                txtPesoEquipajePuno.Location = new Point(620, 495);
+                lblIngresarTres.Location = new Point(770, 495);
+                txtPesoEquipajePdos.Location = new Point(835, 495);
+                lblIngresarDos.Visible = lblIngresarTres.Visible = txtPesoEquipajePuno.Visible = txtPesoEquipajePdos.Visible = true;
+            }
+            else
+            {
+                lblIngresarDos.Visible = lblIngresarTres.Visible = txtPesoEquipajePuno.Visible = txtPesoEquipajePdos.Visible = false;
+                lblIngresar.Location = new Point(515, 495);
+                rdbBolsoMano.Location = new Point(330, 495);
+                txtPesoEquipajeTurista.Location = new Point(680, 495);
+                lblIngresar.Visible = txtPesoEquipajeTurista.Visible = rdbBolsoMano.Visible = true;
+            }
         }
 
         /// <summary>
@@ -119,14 +159,71 @@ namespace FormsAerolinea
             Pasajero pasajeroSeleccionado = (Pasajero)cmbxListaPasajeros.SelectedItem;
 
             if (chbTipoPasajero.Checked == true) {
-             //   pasajeroSeleccionado.tipoPasajero = false;
-            //    lblPrecioPasaje.Text = vueloSeleccionado.CostoPremium.ToString();
                 lblPrecioPasaje.Text = $"{vueloSeleccionado.CostoPremium} | Costo del Pasaje + IVA = " + vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
+                txtPesoEquipajeTurista.Visible = rdbBolsoMano.Visible = lblIngresar.Visible = false;
+                lblIngresarDos.Visible = lblIngresarTres.Visible = txtPesoEquipajePuno.Visible = txtPesoEquipajePdos.Visible = true;
             }
             else { 
-               // pasajeroSeleccionado.tipoPasajero = true;
-              //  lblPrecioPasaje.Text = vueloSeleccionado.CostoTurista.ToString();
                 lblPrecioPasaje.Text = $"{vueloSeleccionado.CostoTurista} | Costo del Pasaje + IVA = " + vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
+                lblIngresarDos.Visible = lblIngresarTres.Visible = txtPesoEquipajePuno.Visible = txtPesoEquipajePdos.Visible = false;
+                txtPesoEquipajeTurista.Visible = lblIngresar.Visible = rdbBolsoMano.Visible = true;
+            }
+        }
+
+        /// <summary>
+        /// Valida el peso del equipaje ingresado por un turista.
+        /// </summary>
+        /// <returns>El peso del equipaje si es válido, de lo contrario retorna 0.</returns>
+        private decimal ValidarPesoEquipajeTurista()
+        {
+            string pesoEquipajeTexto = txtPesoEquipajeTurista.Text;
+            decimal pesoEquipaje;
+
+            if (decimal.TryParse(pesoEquipajeTexto, out pesoEquipaje) && pesoEquipaje > 0)
+            {
+                if (pesoEquipaje > 21)
+                {
+                    MessageBox.Show("La valija pesa más de 21 kilos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return 0;
+                }
+                else
+                {
+                    return pesoEquipaje;
+                }
+            }
+            else
+            {
+                MessageBox.Show("El peso del equipaje ingresado no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// Valida el peso del equipaje ingresado para un turista premium.
+        /// </summary>
+        /// <param name="txtPesoEquipaje">El control TextBox que contiene el peso del equipaje.</param>
+        /// <returns>El peso del equipaje si es válido, de lo contrario retorna 0.</returns>
+        private decimal ValidarPesoEquipajePremium(TextBox txtPesoEquipaje)
+        {
+            string pesoEquipajeTexto = txtPesoEquipaje.Text;
+            decimal pesoEquipaje;
+
+            if (decimal.TryParse(pesoEquipajeTexto, out pesoEquipaje) && pesoEquipaje > 0)
+            {
+                if (pesoEquipaje > 25)
+                {
+                    MessageBox.Show("La(s) valija(s) pesa(n) más de 25 kilos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return 0;
+                }
+                else
+                {
+                    return pesoEquipaje;
+                }
+            }
+            else
+            {
+                MessageBox.Show("El peso del equipaje ingresado no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
             }
         }
 
@@ -162,12 +259,12 @@ namespace FormsAerolinea
                     {
                         if(vueloSeleccionado.VueloNacional == true)
                         {
-                            aerolinea.dineroTotalNacional += vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
+                            aerolinea.DineroTotalNacional += vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
                             aerolinea.gananciaNacional[vueloSeleccionado.CiudadDestinoNacional] += vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
                         }
                         else
                         {
-                            aerolinea.dineroTotalInternacional += vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
+                            aerolinea.DineroTotalInternacional += vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
                             aerolinea.gananciaInternacional[vueloSeleccionado.CiudadDestinoInternacional] += vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
                         }
 
@@ -176,12 +273,12 @@ namespace FormsAerolinea
                     {
                         if (vueloSeleccionado.VueloNacional == true)
                         {
-                            aerolinea.dineroTotalNacional += vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
+                            aerolinea.DineroTotalNacional += vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
                             aerolinea.gananciaNacional[vueloSeleccionado.CiudadDestinoNacional] += vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
                         }
                         else
                         {
-                            aerolinea.dineroTotalInternacional += vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
+                            aerolinea.DineroTotalInternacional += vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
                             aerolinea.gananciaInternacional[vueloSeleccionado.CiudadDestinoInternacional] += vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
                         }
                     }
@@ -271,6 +368,6 @@ namespace FormsAerolinea
                                          $" \nCosto del pasaje + IVA: {(pasajeroSeleccionado.TipoPasajero == false ? vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA : vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA)}");
         }
 
-        #endregion        
+        #endregion
     }
 }

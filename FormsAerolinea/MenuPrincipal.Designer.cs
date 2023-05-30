@@ -51,6 +51,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnOpcionUno = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.pbAvion = new System.Windows.Forms.PictureBox();
+            this.lblTituloApp = new System.Windows.Forms.Label();
             this.barraTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -65,6 +67,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panelContenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvion)).BeginInit();
             this.SuspendLayout();
             // 
             // barraTop
@@ -372,12 +376,37 @@
             // panelContenedor
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.panelContenedor.Controls.Add(this.lblTituloApp);
+            this.panelContenedor.Controls.Add(this.pbAvion);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(236, 40);
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(1064, 680);
             this.panelContenedor.TabIndex = 50;
             this.panelContenedor.Resize += new System.EventHandler(this.panelContenedor_Resize);
+            // 
+            // pbAvion
+            // 
+            this.pbAvion.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pbAvion.Image = ((System.Drawing.Image)(resources.GetObject("pbAvion.Image")));
+            this.pbAvion.Location = new System.Drawing.Point(198, 229);
+            this.pbAvion.Name = "pbAvion";
+            this.pbAvion.Size = new System.Drawing.Size(644, 360);
+            this.pbAvion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAvion.TabIndex = 0;
+            this.pbAvion.TabStop = false;
+            // 
+            // lblTituloApp
+            // 
+            this.lblTituloApp.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTituloApp.AutoSize = true;
+            this.lblTituloApp.Font = new System.Drawing.Font("Raleway Black", 47.99999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(153)))));
+            this.lblTituloApp.Location = new System.Drawing.Point(264, 135);
+            this.lblTituloApp.Name = "lblTituloApp";
+            this.lblTituloApp.Size = new System.Drawing.Size(599, 150);
+            this.lblTituloApp.TabIndex = 1;
+            this.lblTituloApp.Text = "AirwayTech\r\n          Development";
             // 
             // MenuPrincipal
             // 
@@ -407,6 +436,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panelContenedor.ResumeLayout(false);
+            this.panelContenedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvion)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -434,5 +466,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnOpcionUno;
         private System.Windows.Forms.Panel panelContenedor;
+        private System.Windows.Forms.Label lblTituloApp;
+        private System.Windows.Forms.PictureBox pbAvion;
     }
 }

@@ -29,47 +29,47 @@ namespace FormsAerolinea
         public Login()
         {
             InitializeComponent();
-        }
+        }       
 
+        #region MANEJO FORMULARIO      
+        
         /// <summary>
         /// Maneja el evento de hacer clic en el botón "Iniciar sesión".
         /// </summary>
         /// <param name="sender">Objeto que genera el evento.</param>
         /// <param name="e">Argumentos del evento.</param>
         private void btnIniciarSesion_Click(object sender, EventArgs e)
-         {
-             string correo = txtCorreo.Text;
-             string contraseña = txtContraseña.Text;
+        {
+            string correo = txtCorreo.Text;
+            string contraseña = txtContraseña.Text;
 
-             if (string.IsNullOrEmpty(txtCorreo.Text))
-             {
-                 MessageBox.Show("Debe ingresar un correo electrónico.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                 return;
-             }
+            if (string.IsNullOrEmpty(txtCorreo.Text))
+            {
+                MessageBox.Show("Debe ingresar un correo electrónico.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-             // Verificar si los valores de correo y contraseña son correctos
-             if(baseDeDatos.BuscarUsuario(correo, contraseña) != null)
-             {
-                // Escribir el correo y contraseña del usuario que inició sesión en el archivo de registro
-                string logMessage = $"{baseDeDatos.DevolverUsuario(correo, contraseña)}-{DateTime.Now:dd/MM/yyyy HH:mm:ss}\n-----------------------------------------\n";
-                using (StreamWriter writer = new StreamWriter("usuarios.log", true))
-                {
-                    writer.WriteLine(logMessage);
-                }
+            // Verificar si los valores de correo y contraseña son correctos
+            if(baseDeDatos.BuscarUsuario(correo, contraseña) != null)
+            {
+            // Escribir el correo y contraseña del usuario que inició sesión en el archivo de registro
+            string logMessage = $"{baseDeDatos.DevolverUsuario(correo, contraseña)}-{DateTime.Now:dd/MM/yyyy HH:mm:ss}\n-----------------------------------------\n";
+            using (StreamWriter writer = new StreamWriter("usuarios.log", true))
+            {
+                writer.WriteLine(logMessage);
+            }
 
-                MessageBox.Show("CORREO INGRESADO CORRECTAMENTE", "SESION INICIADA", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                 this.Hide();
-                 MenuPrincipal menuPrincipal = new MenuPrincipal(baseDeDatos.BuscarUsuario(correo, contraseña), aerolinea);
-                 menuPrincipal.Show();
-            } 
-             else
-             {
-                 // Si se llega a este punto, los valores de correo y contraseña no son correctos
-                 MessageBox.Show("El correo o la contraseña son incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-             }
-         }
-
-        #region MANEJO FORMULARIO      
+            MessageBox.Show("CORREO INGRESADO CORRECTAMENTE", "SESION INICIADA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
+                MenuPrincipal menuPrincipal = new MenuPrincipal(baseDeDatos.BuscarUsuario(correo, contraseña), aerolinea);
+                menuPrincipal.Show();
+        } 
+            else
+            {
+                // Si se llega a este punto, los valores de correo y contraseña no son correctos
+                MessageBox.Show("El correo o la contraseña son incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         /// <summary>
         /// Maneja el evento de hacer clic en el botón "Cerrar pestaña".

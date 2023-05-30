@@ -12,42 +12,108 @@ using System.Xml.Serialization;
 
 namespace BibliotecaAerolineasCompleto
 {
+    /// <summary>
+    /// Representa una aerolínea.
+    /// </summary>
     public class Aerolinea
     {
-        public List<Vuelo> listaVuelos { get; set; }
-        public List<Avion> listaAviones { get; set; }
-        public List<Pasajero> listaPasajeros { get; set; }
-        public decimal dineroTotalNacional { get; set; }
-        public decimal dineroTotalInternacional { get; set; }
+        private List<Vuelo> listaVuelos;
+        private decimal dineroTotalNacional;
+        private decimal dineroTotalInternacional;
+        private List<Avion> listaAviones;
+        private List<Pasajero> listaPasajeros;              
         public Dictionary<DestinosInternacionales, decimal> gananciaInternacional;
         public Dictionary<DestinosNacionales, decimal> gananciaNacional;
 
+        /// <summary>
+        /// Crea una nueva instancia de la clase Aerolinea.
+        /// </summary>
         public Aerolinea()
         {
-            listaAviones = new List<Avion>();
-            listaVuelos = new List<Vuelo>();
-            listaPasajeros = new List<Pasajero>();
-
-           // CrearYGuardarAvionesJson();
-           // CrearYGuardarVuelosXML();
+            ListaAviones = new List<Avion>();
+            ListaVuelos = new List<Vuelo>();
+            ListaPasajeros = new List<Pasajero>();
 
             DeserializarAvionesJson();
             DeserializarVuelosXML();
             DeserializarPasajerosXML();
-            AgregarElementosDiccionario();  
-
-            foreach (Vuelo vuelo in listaVuelos)
-            {
-               // this.listaPasajeros.AddRange(vuelo.Pasajeros);
-                EstablecerEstadoAvion(vuelo);                
-                GuardarGanancias(vuelo);
-            }
-          //  SumarCantidadVuelos();         
-          //  EstablecerHorasAvion(listaVuelos);      
+            ProcesarListaVuelos();
         }
+
+        #region GETTERS Y SETTERS
+
+        /// <summary>
+        /// Obtiene o establece la lista de vuelos.
+        /// </summary>
+        /// <value>La lista de vuelos.</value>
+        public List<Vuelo> ListaVuelos 
+        { 
+            get { return listaVuelos; }
+            set {listaVuelos = value; } 
+        }
+
+        /// <summary>
+        /// Obtiene o establece la lista de aviones.
+        /// </summary>
+        /// <value>La lista de aviones.</value>
+        public List<Avion> ListaAviones 
+        {
+            get { return listaAviones; }
+            set { listaAviones = value; } 
+        }
+
+        /// <summary>
+        /// Obtiene o establece la lista de pasajeros.
+        /// </summary>
+        /// <value>La lista de pasajeros.</value>
+        public List<Pasajero> ListaPasajeros 
+        {
+            get { return listaPasajeros; }
+            set {listaPasajeros = value; }
+        }
+
+        /// <summary>
+        /// Obtiene o establece el dinero total para vuelos nacionales.
+        /// </summary>
+        /// <value>El dinero total para vuelos nacionales.</value>
+        public decimal DineroTotalNacional 
+        {
+            get { return dineroTotalNacional; }
+            set {dineroTotalNacional = value; }
+        }
+
+        /// <summary>
+        /// Obtiene o establece el dinero total para vuelos internacionales.
+        /// </summary>
+        /// <value>El dinero total para vuelos internacionales.</value>
+        public decimal DineroTotalInternacional
+        {
+            get { return dineroTotalInternacional; }
+            set { dineroTotalInternacional = value; }
+        }
+
+        #endregion
 
         #region METODOS DICCIONARIOS
 
+        /// <summary>
+        /// Procesa la lista de vuelos, realizando las operaciones necesarias para cada vuelo, 
+        /// como agregar elementos al diccionario de ganancias, establecer el estado del avión y guardar las ganancias del vuelo.
+        /// </summary>
+        private void ProcesarListaVuelos()
+        {
+            AgregarElementosDiccionario();
+
+            foreach (Vuelo vuelo in ListaVuelos)
+            {
+                EstablecerEstadoAvion(vuelo);
+                GuardarGanancias(vuelo);
+            }
+        }
+
+        /// <summary>
+        /// Agrega los elementos iniciales al diccionario de ganancias internacionales y nacionales, estableciendo su valor inicial en 0.
+        /// </summary>
         private void AgregarElementosDiccionario()
         {
             gananciaInternacional = new Dictionary<DestinosInternacionales, decimal>();
@@ -75,6 +141,10 @@ namespace BibliotecaAerolineasCompleto
             gananciaNacional.Add(DestinosNacionales.Ushuaia, 0);
         }
 
+        /// <summary>
+        /// Guarda las ganancias de un vuelo en el diccionario correspondiente según si es un vuelo nacional o internacional.
+        /// </summary>
+        /// <param name="vuelo">El objeto Vuelo que contiene la información del vuelo.</param>
         private void GuardarGanancias(Vuelo vuelo)
         {
             if (vuelo.VueloNacional == false)
@@ -96,7 +166,7 @@ namespace BibliotecaAerolineasCompleto
 
                     }
                     gananciaInternacional[vuelo.CiudadDestinoInternacional] = ganancia;
-                    dineroTotalInternacional = ganancia;
+                    DineroTotalInternacional = ganancia;
                 }
                 else
                 {
@@ -122,7 +192,7 @@ namespace BibliotecaAerolineasCompleto
 
                     }
                     gananciaNacional[vuelo.CiudadDestinoNacional] = ganancia;
-                    dineroTotalNacional = ganancia;
+                    DineroTotalNacional = ganancia;
                 }
                 else
                 {
@@ -135,19 +205,32 @@ namespace BibliotecaAerolineasCompleto
 
         #region METODOS DE AVION
 
+        /// <summary>
+        /// Agrega un nuevo avión a la lista de aviones.
+        /// </summary>
+        /// <param name="avion">El objeto Avion a agregar.</param>
         public void agregarAvion(Avion avion)
         {
-            listaAviones.Add(avion);
+            ListaAviones.Add(avion);
         }
 
+        /// <summary>
+        /// Elimina un avión de la lista de aviones.
+        /// </summary>
+        /// <param name="avion">El objeto Avion a eliminar.</param>
         public void eliminarAvion(Avion avion)
         {
-            listaAviones.Remove(avion);
+            ListaAviones.Remove(avion);
         }
 
+        /// <summary>
+        /// Verifica si una matrícula de avión ya existe en la lista de aviones.
+        /// </summary>
+        /// <param name="matricula">La matrícula del avión a verificar.</param>
+        /// <returns><c>true</c> si la matrícula existe en la lista de aviones; <c>false</c> en caso contrario.</returns>
         public bool VerificarMatriculaExistente(string matricula)
         {
-            foreach (Avion avion in listaAviones)
+            foreach (Avion avion in ListaAviones)
             {
                 if (avion.Matricula == matricula)
                 {
@@ -157,13 +240,17 @@ namespace BibliotecaAerolineasCompleto
             return false;
         }
 
+        /// <summary>
+        /// Establece el estado de ocupación de un avión basado en un vuelo. Si la fecha del vuelo es igual o posterior a la fecha actual, el avión se marca como ocupado.
+        /// </summary>
+        /// <param name="vuelo">El objeto Vuelo que contiene la información del vuelo.</param>
         private void EstablecerEstadoAvion(Vuelo vuelo)
         {
             DateTime fechaActual = DateTime.Today;
 
             if (vuelo.FechaVuelo >= fechaActual)
             {
-                foreach (Avion avion in listaAviones)
+                foreach (Avion avion in ListaAviones)
                 {
                     if (vuelo.Avion.Equals(avion))
                     {
@@ -173,77 +260,65 @@ namespace BibliotecaAerolineasCompleto
             }
         }
 
+        /// <summary>
+        /// Deserializa los aviones en formato JSON desde un archivo y actualiza la lista de aviones.
+        /// </summary>
         private void DeserializarAvionesJson()
         {
             string json = File.ReadAllText("avionesDeAerolinea.json");
-            listaAviones = JsonConvert.DeserializeObject<List<Avion>>(json);
-        }
-
-        private void EstablecerHorasAvion(List<Vuelo> listaVuelos)
-        {
-            for (int i = 0; i < listaVuelos.Count; i++)
-            {
-                Vuelo vuelo = listaVuelos[i];
-                DateTime fechaActual = DateTime.Today;
-                if (vuelo.FechaVuelo <= fechaActual)
-                {
-                    Avion avion = listaAviones.Find(a => vuelo.Avion.Equals(a));
-                    if (avion != null)
-                    {
-                        avion.HorasVueloHistoricas += vuelo.DuracionVuelo;
-                        listaAviones[listaAviones.IndexOf(avion)] = avion;
-                    }
-                }
-            }
+            ListaAviones = JsonConvert.DeserializeObject<List<Avion>>(json);
         }
        
-        public void CrearYGuardarAvionesJson() //ELIMINAR AL FINALIZAR EL PROGRAMA
-        {
-            for (int i = 0; i < 20; i++)
-            {
-                System.Threading.Thread.Sleep(5);
-                Avion avion = new Avion().GenerarAvionAleatorio();
-                agregarAvion(avion);
-
-            }
-
-            string json = JsonConvert.SerializeObject(listaAviones);
-            File.WriteAllText("avionesDeAerolinea.json", json);
-        }
-
         #endregion
 
         #region METODOS DE PASAJERO
 
+        /// <summary>
+        /// Agrega un nuevo pasajero a la lista de pasajeros, siempre y cuando el DNI del pasajero no exista previamente.
+        /// </summary>
+        /// <param name="pasajero">El objeto Pasajero a agregar.</param>
         public void agregarPasajero(Pasajero pasajero)
         {
             if (VerificarDniExistente(pasajero.Dni) == false)
             {
-                listaPasajeros.Add(pasajero);
+                ListaPasajeros.Add(pasajero);
             }
         }
 
+        /// <summary>
+        /// Elimina un pasajero de la lista de pasajeros.
+        /// </summary>
+        /// <param name="pasajero">El objeto Pasajero a eliminar.</param>
         public void eliminarPasajero(Pasajero pasajero)
         {
-            listaPasajeros.Remove(pasajero);
+            ListaPasajeros.Remove(pasajero);
         }
 
+        /// <summary>
+        /// Reemplaza el pasajero seleccionado en la lista de pasajeros con un nuevo pasajero.
+        /// </summary>
+        /// <param name="pasajeroSeleccionado">El objeto Pasajero seleccionado que será reemplazado.</param>
         public void ReemplazarPasajeroSeleccionado(Pasajero pasajeroSeleccionado)
         {
-            for (int i = 0; i < listaPasajeros.Count; i++)
+            for (int i = 0; i < ListaPasajeros.Count; i++)
             {
-                if (listaPasajeros[i].Equals(pasajeroSeleccionado))
+                if (ListaPasajeros[i].Equals(pasajeroSeleccionado))
                 {
-                    listaPasajeros[i] = pasajeroSeleccionado;
+                    ListaPasajeros[i] = pasajeroSeleccionado;
                     break;
                 }
             }
         }
 
+        /// <summary>
+        /// Verifica si un número de DNI ya existe en la lista de pasajeros.
+        /// </summary>
+        /// <param name="dni">El número de DNI a verificar.</param>
+        /// <returns><c>true</c> si el DNI existe en la lista de pasajeros; <c>false</c> en caso contrario.</returns>
         public bool VerificarDniExistente(int dni)
         {
             // Verificar si el DNI ya existe en la lista de pasajeros
-            foreach (Pasajero pasajero in listaPasajeros)
+            foreach (Pasajero pasajero in ListaPasajeros)
             {
                 if (pasajero.Dni == dni)
                 {
@@ -257,21 +332,33 @@ namespace BibliotecaAerolineasCompleto
 
         #region METODOS DE VUELO
 
+        /// <summary>
+        /// Agrega un vuelo a la lista de vuelos.
+        /// </summary>
+        /// <param name="vuelo">El vuelo a agregar.</param>
         public void agregarVuelo(Vuelo vuelo)
         {
-            listaVuelos.Add(vuelo);
+            ListaVuelos.Add(vuelo);
         }
 
+        /// <summary>
+        /// Elimina un vuelo de la lista de vuelos.
+        /// </summary>
+        /// <param name="vuelo">El vuelo a eliminar.</param>
         public void eliminarVuelo(Vuelo vuelo)
         {
-            listaVuelos.Remove(vuelo);
+            ListaVuelos.Remove(vuelo);
         }
 
+        // <summary>
+        /// Obtiene el destino más seleccionado en la lista de vuelos.
+        /// </summary>
+        /// <returns>El destino más seleccionado.</returns>
         public string DestinoMasSeleccionado()
         {
             Dictionary<string, int> destinosContador = new Dictionary<string, int>();
 
-            foreach (Vuelo vuelo in listaVuelos)
+            foreach (Vuelo vuelo in ListaVuelos)
             {
                 string destino;
                 if (vuelo.VueloNacional)
@@ -307,37 +394,9 @@ namespace BibliotecaAerolineasCompleto
             return destinoMasSeleccionado;
         }
 
-        public void CrearYGuardarVuelosXML() //ELIMINAR AL FINALIZAR EL PROGRAMA
-        {
-            for (int i = 0; i < 80; i++)
-            {
-                System.Threading.Thread.Sleep(500);
-                Vuelo vuelo = new Vuelo().GenerarVueloAleatorio(this);
-                agregarVuelo(vuelo);
-            }
-
-            //  string json = JsonConvert.SerializeObject(listaVuelos);
-            //  File.WriteAllText("vuelosDeAerolineaDos.json", json);
-
-            // Crear una instancia del XmlSerializer y especificar el tipo de datos que se va a serializar
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Vuelo>));
-
-            // Crear un objeto FileStream para escribir el archivo XML
-            using (FileStream fileStream = new FileStream("vuelosDeAerolinea.xml", FileMode.Create))
-            {
-                // Serializar la lista de vuelos y escribir el resultado en el archivo
-                serializer.Serialize(fileStream, listaVuelos);
-            }
-        }
-        
-        private void SumarCantidadVuelos()
-        {
-            foreach (Pasajero p in listaPasajeros)
-            {
-                p.CantidadVuelosHistoricos = 1;
-            }
-        }
-
+        /// <summary>
+        /// Deserializa los vuelos desde un archivo XML y asigna la lista de vuelos deserializados a la propiedad ListaVuelos.
+        /// </summary>
         private void DeserializarVuelosXML()
         {
             SerializarVuelos vuelosDeserializados;
@@ -349,19 +408,12 @@ namespace BibliotecaAerolineasCompleto
                 vuelosDeserializados = (SerializarVuelos)serializerV.Deserialize(fileStreamV);
             }
 
-            listaVuelos = vuelosDeserializados.Vuelos; 
-
-         /*   // Crear una instancia del XmlSerializer y especificar el tipo de datos que se va a deserializar
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Vuelo>));
-
-            // Crear un objeto FileStream para leer el archivo XML
-            using (FileStream fileStream = new FileStream("vuelosDeAerolinea.xml", FileMode.Open))
-            {
-                // Deserializar el archivo XML y obtener la lista de vuelos
-                listaVuelos = (List<Vuelo>)serializer.Deserialize(fileStream);
-            } */
+            ListaVuelos = vuelosDeserializados.Vuelos; 
         }
 
+        /// <summary>
+        /// Deserializa los pasajeros desde un archivo XML y asigna la lista de pasajeros deserializados a la propiedad ListaPasajeros.
+        /// </summary>
         private void DeserializarPasajerosXML()
         {
             SerializarPersonas pasajerosDeserializados;
@@ -373,18 +425,7 @@ namespace BibliotecaAerolineasCompleto
                 pasajerosDeserializados = (SerializarPersonas)serializer.Deserialize(fileStream);
             }
 
-            listaPasajeros = pasajerosDeserializados.Pasajeros;
-
-            /*
-            // Crear una instancia del XmlSerializer y especificar el tipo de datos que se va a deserializar
-            XmlSerializer serializerP = new XmlSerializer(typeof(List<Pasajero>));
-
-            // Crear un objeto FileStream para leer el archivo XML
-            using (FileStream fileStreamP = new FileStream("pasajeros.xml", FileMode.Open))
-            {
-                // Deserializar el archivo XML y obtener la lista de vuelos
-                listaPasajeros = (List<Pasajero>)serializerP.Deserialize(fileStreamP);
-            }*/
+            ListaPasajeros = pasajerosDeserializados.Pasajeros;
         }
 
         #endregion

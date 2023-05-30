@@ -49,6 +49,7 @@ namespace FormsAerolinea
         /// <param name="e">Los argumentos del evento.</param>
         private void btnOpcionUno_Click(object sender, EventArgs e)
         {
+            lblTituloApp.Visible = pbAvion.Visible = false;
             AbrirFormularios(new ViajesDisponibles(usuario, aerolinea));
         }
 
@@ -60,6 +61,7 @@ namespace FormsAerolinea
         /// <param name="e">Los argumentos del evento.</param>
         private void btnOpcionDos_Click(object sender, EventArgs e)
         {
+            lblTituloApp.Visible = pbAvion.Visible = false;
             VenderViaje formVender = new VenderViaje(usuario, aerolinea);
             AbrirFormularios(formVender);
         }
@@ -72,6 +74,7 @@ namespace FormsAerolinea
         /// <param name="e">Los argumentos del evento.</param>
         private void btnOpcionTres_Click(object sender, EventArgs e)
         {
+            lblTituloApp.Visible = pbAvion.Visible = false;
             ConsultarEstadisticas formConsultar = new ConsultarEstadisticas(usuario, aerolinea);
             AbrirFormularios(formConsultar);
         }
@@ -84,6 +87,7 @@ namespace FormsAerolinea
         /// <param name="e">Los argumentos del evento.</param>
         private void btnOpcionCuatro_Click(object sender, EventArgs e)
         {
+            lblTituloApp.Visible = pbAvion.Visible = false;
             CrudViajes formCroodUno = new CrudViajes(usuario, aerolinea);
             AbrirFormularios(formCroodUno);
         }
@@ -96,6 +100,7 @@ namespace FormsAerolinea
         /// <param name="e">Los argumentos del evento.</param>
         private void btnOpcionCinco_Click(object sender, EventArgs e)
         {
+            lblTituloApp.Visible = pbAvion.Visible = false;
             CrudPasajeros formCroodDos = new CrudPasajeros(usuario, aerolinea);
             AbrirFormularios(formCroodDos);
         }
@@ -108,6 +113,7 @@ namespace FormsAerolinea
         /// <param name="e">Los argumentos del evento.</param>
         private void btnOpcionSeis_Click(object sender, EventArgs e)
         {
+            lblTituloApp.Visible = pbAvion.Visible = false;
             CrudAviones formCroodTres = new CrudAviones(usuario, aerolinea);
             AbrirFormularios(formCroodTres);
         }
@@ -124,11 +130,11 @@ namespace FormsAerolinea
             switch (usuario.cargo)
             {
                 case "Administrador":
-                 /*   btnOpcionUno.Enabled = false;
+                    btnOpcionUno.Enabled = false;
                     btnOpcionDos.Enabled = false;
                     btnOpcionTres.Enabled = false;
                     btnOpcionCinco.Enabled = false;
-                    btnOpcionUno.ForeColor = btnOpcionDos.ForeColor = btnOpcionTres.ForeColor = btnOpcionCinco.ForeColor = Color.Gray;*/
+                    btnOpcionUno.ForeColor = btnOpcionDos.ForeColor = btnOpcionTres.ForeColor = btnOpcionCinco.ForeColor = Color.Gray; 
                     break;
                 case "Supervisor":
                     btnOpcionUno.Enabled = false;
@@ -164,13 +170,13 @@ namespace FormsAerolinea
 
             if (result == DialogResult.Yes)
             {
-                string json = JsonConvert.SerializeObject(aerolinea.listaAviones);
+                string json = JsonConvert.SerializeObject(aerolinea.ListaAviones);
                 File.WriteAllText("avionesDeAerolinea.json", json);
 
                 XmlSerializer serializer = new XmlSerializer(typeof(SerializarVuelos));
                 SerializarVuelos listaVuelosSerializar = new SerializarVuelos()
                 {
-                    Vuelos = aerolinea.listaVuelos,
+                    Vuelos = aerolinea.ListaVuelos,
                 };
 
                 using (TextWriter writer = new StreamWriter("vuelosDeAerolinea.xml"))
@@ -181,7 +187,7 @@ namespace FormsAerolinea
                 XmlSerializer serializerDos = new XmlSerializer(typeof(SerializarPersonas));
                 SerializarPersonas listaPasajerosSerializar = new SerializarPersonas()
                 {
-                    Pasajeros = aerolinea.listaPasajeros,
+                    Pasajeros = aerolinea.ListaPasajeros,
                 };
 
                 using (TextWriter writer = new StreamWriter("pasajeros.xml"))
@@ -238,7 +244,7 @@ namespace FormsAerolinea
         /// Si ya hay un formulario abierto, se elimina antes de agregar el nuevo formulario.
         /// </summary>
         /// <param name="formAUtilizar">El formulario a abrir.</param>
-        public void AbrirFormularios(object formAUtilizar)
+        private void AbrirFormularios(object formAUtilizar)
         {
            if(this.panelContenedor.Controls.Count > 0)
             {
@@ -259,9 +265,39 @@ namespace FormsAerolinea
         /// <param name="e">Los datos del evento EventArgs.</param>
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            Login formLogin = new Login();
-            this.Hide();
-            formLogin.Show();
+            DialogResult result = MessageBox.Show("¿Está seguro de que desea cerrar sesión?", "Confirmación de cierre", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+            if (result == DialogResult.Yes)
+            {
+                string json = JsonConvert.SerializeObject(aerolinea.ListaAviones);
+                File.WriteAllText("avionesDeAerolinea.json", json);
+
+                XmlSerializer serializer = new XmlSerializer(typeof(SerializarVuelos));
+                SerializarVuelos listaVuelosSerializar = new SerializarVuelos()
+                {
+                    Vuelos = aerolinea.ListaVuelos,
+                };
+
+                using (TextWriter writer = new StreamWriter("vuelosDeAerolinea.xml"))
+                {
+                    serializer.Serialize(writer, listaVuelosSerializar);
+                }
+
+                XmlSerializer serializerDos = new XmlSerializer(typeof(SerializarPersonas));
+                SerializarPersonas listaPasajerosSerializar = new SerializarPersonas()
+                {
+                    Pasajeros = aerolinea.ListaPasajeros,
+                };
+
+                using (TextWriter writer = new StreamWriter("pasajeros.xml"))
+                {
+                    serializerDos.Serialize(writer, listaPasajerosSerializar);
+                }
+                
+                Login formLogin = new Login();
+                this.Hide();
+                formLogin.Show();
+            }
         }
 
         //CODIGO PARA MOVER EL FORMULARIO CON EL MOUSE
@@ -284,11 +320,20 @@ namespace FormsAerolinea
             if (WindowState == FormWindowState.Maximized)
             {
                 Location = new Point(0, 0);
+                int xCenter = (panelContenedor.Width - lblTituloApp.Width) / 2;
+                int yCenter = ((panelContenedor.Height - lblTituloApp.Height) / 2) - 200;
+                lblTituloApp.Location = new Point(xCenter, yCenter);
+
+                xCenter = (panelContenedor.Width - pbAvion.Width) / 2;
+                yCenter = (panelContenedor.Height - pbAvion.Height) / 2;
+                pbAvion.Location = new Point(xCenter, yCenter);
             }
             else
             {
                 // Restaurar la ubicación original del formulario secundario
                 Location = new Point(100, 100); // Establece la ubicación deseada
+                lblTituloApp.Location = new Point(265, 135);
+                pbAvion.Location = new Point(198, 229);
             }
         }
 

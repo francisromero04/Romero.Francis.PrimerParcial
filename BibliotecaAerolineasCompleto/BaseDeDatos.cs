@@ -16,18 +16,9 @@ namespace BibliotecaAerolineasCompleto
     /// </summary>
     public class BaseDeDatos
     {
-        /// <summary>
-        /// Obtiene o establece el administrador de la base de datos.
-        /// </summary>
-        public Administrador administrador { get; set; }
-        /// <summary>
-        /// Obtiene o establece el supervisor de la base de datos.
-        /// </summary>
-        public Supervisor supervisor { get; set; }
-        /// <summary>
-        /// Obtiene la lista de vendedores de la base de datos.
-        /// </summary>
-        public List<Vendedor> vendedores { get; set; }
+        private Administrador administrador;
+        private Supervisor supervisor;
+        private List<Vendedor> vendedores;
 
         /// <summary>
         /// Crea una nueva instancia de la clase BaseDeDatos.
@@ -70,7 +61,7 @@ namespace BibliotecaAerolineasCompleto
         /// <summary>
         /// Extrae los datos de la base de datos desde un archivo JSON.
         /// </summary>
-        public void ExtraerDeArchivoJSON()
+        private void ExtraerDeArchivoJSON()
         {
             // Leemos el archivo JSON y lo almacenamos en una cadena de texto
             string json = File.ReadAllText("baseDatosUsuarios.json");

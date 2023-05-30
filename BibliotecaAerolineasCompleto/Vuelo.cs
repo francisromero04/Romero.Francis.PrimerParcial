@@ -9,6 +9,9 @@ using System.Xml.Serialization;
 
 namespace BibliotecaAerolineasCompleto
 {
+    /// <summary>
+    /// Representa un vuelo de una aerolínea.
+    /// </summary>
     [XmlRoot("Vuelo")]
     public class Vuelo
     {
@@ -26,6 +29,9 @@ namespace BibliotecaAerolineasCompleto
         private bool vueloNacional, vueloPasado;
         private decimal iva;
 
+        /// <summary>
+        /// Crea una nueva instancia de la clase Vuelo.
+        /// </summary>
         public Vuelo()
         {
             Pasajeros = new List<Pasajero>();
@@ -34,6 +40,9 @@ namespace BibliotecaAerolineasCompleto
 
         #region GETTERS Y SETTERS
 
+        /// <summary>
+        /// Obtiene o establece la ciudad de partida del vuelo.
+        /// </summary>
         [XmlElement("CiudadPartida")]
         public string CiudadPartida
         {
@@ -41,6 +50,9 @@ namespace BibliotecaAerolineasCompleto
             set { ciudadPartida = value; }
         }
 
+        /// <summary>
+        /// Obtiene o establece la ciudad de destino nacional del vuelo.
+        /// </summary>
         [XmlElement("CiudadDestinoNacional")]
         public DestinosNacionales CiudadDestinoNacional 
         {
@@ -48,6 +60,9 @@ namespace BibliotecaAerolineasCompleto
             set { ciudadDestinoNacional = value; }
         }
 
+        /// <summary>
+        /// Obtiene o establece la ciudad de destino internacional del vuelo.
+        /// </summary>
         [XmlElement("CiudadDestinoInternacional")]
         public DestinosInternacionales CiudadDestinoInternacional 
         {
@@ -55,6 +70,9 @@ namespace BibliotecaAerolineasCompleto
             set { ciudadDestinoInteracional = value; }
         }
 
+        /// <summary>
+        /// Obtiene o establece la fecha del vuelo.
+        /// </summary>
         [XmlElement("FechaVuelo")]
         public DateTime FechaVuelo 
         {
@@ -62,6 +80,9 @@ namespace BibliotecaAerolineasCompleto
             set { fechaVuelo = value; }
         }
 
+        /// <summary>
+        /// Obtiene o establece el avión asignado al vuelo.
+        /// </summary>
         [XmlElement("Avion")]
         public Avion Avion 
         {
@@ -69,6 +90,9 @@ namespace BibliotecaAerolineasCompleto
             set { avion = value; }
         }
 
+        /// <summary>
+        /// Obtiene o establece la cantidad de asientos premium disponibles en el vuelo.
+        /// </summary>
         [XmlElement("AsientosPremiumDisponibles")]
         public int AsientosPremiumDisponibles 
         {
@@ -76,6 +100,9 @@ namespace BibliotecaAerolineasCompleto
             set { asientosPremiumDisponibles = value; }
         }
 
+        /// <summary>
+        /// Obtiene o establece la cantidad de asientos turista disponibles en el vuelo.
+        /// </summary>
         [XmlElement("AsientosTuristaDisponibles")]
         public int AsientosTuristaDisponibles 
         {
@@ -83,6 +110,9 @@ namespace BibliotecaAerolineasCompleto
             set { asientosTuristaDisponibles = value; }
         }
 
+        /// <summary>
+        /// Obtiene o establece la cantidad de pasajeros en el vuelo.
+        /// </summary>
         [XmlElement("CantidadPasajeros")]
         public int CantidadPasajeros
         {
@@ -90,6 +120,9 @@ namespace BibliotecaAerolineasCompleto
             set { cantidadPasajeros = value; }
         }
 
+        /// <summary>
+        /// Obtiene o establece el costo premium del vuelo.
+        /// </summary>
         [XmlElement("CostoPremium")]
         public decimal CostoPremium
         {
@@ -97,6 +130,9 @@ namespace BibliotecaAerolineasCompleto
             set { costoPremium = value; }
         }
 
+        /// <summary>
+        /// Obtiene o establece el costo turista del vuelo.
+        /// </summary>
         [XmlElement("CostoTurista")]
         public decimal CostoTurista
         {
@@ -104,6 +140,9 @@ namespace BibliotecaAerolineasCompleto
             set { costoTurista = value; }
         }
 
+        /// <summary>
+        /// Obtiene o establece la duración del vuelo en horas.
+        /// </summary>
         [XmlElement("DuracionVuelo")]
         public int DuracionVuelo
         {
@@ -111,6 +150,9 @@ namespace BibliotecaAerolineasCompleto
             set { duracionVuelo = value; }
         }
 
+        /// <summary>
+        /// Obtiene o establece la lista de pasajeros del vuelo.
+        /// </summary>
         [XmlElement("Pasajeros")]
         public List<Pasajero> Pasajeros
         {
@@ -118,6 +160,9 @@ namespace BibliotecaAerolineasCompleto
             set { pasajeros = value; }
         }
 
+        /// <summary>
+        /// Obtiene o establece si el vuelo es de tipo nacional.
+        /// </summary>
         [XmlElement("VueloNacional")]
         public bool VueloNacional
         {
@@ -125,6 +170,9 @@ namespace BibliotecaAerolineasCompleto
             set { vueloNacional = value; }
         }
 
+        /// <summary>
+        /// Obtiene o establece el valor del impuesto al valor agregado (IVA) aplicado al vuelo.
+        /// </summary>
         [XmlElement("IVA")]
         public decimal IVA
         {
@@ -132,6 +180,9 @@ namespace BibliotecaAerolineasCompleto
             set { iva = value; }
         }
 
+        /// <summary>
+        /// Obtiene o establece un valor que indica si el vuelo ya ha pasado.
+        /// </summary>
         [XmlElement("VueloPasado")]
         public bool VueloPasado
         {
@@ -141,123 +192,11 @@ namespace BibliotecaAerolineasCompleto
 
         #endregion
 
-        public Vuelo GenerarVueloAleatorio(Aerolinea aerolinea) //ELIMINAR
-        {
-            Random random = new Random();
-            Avion avionSeleccionado = new Avion(); // Crear objeto Avion
-            bool hayAvionesDisponibles = false; // Verificar si hay aviones disponibles
-            DateTime fechaPartidaAleatoria;
-
-            if (random.NextDouble() < 0.1)
-            {
-                DateTime hoy = DateTime.Today;
-                fechaPartidaAleatoria = hoy.AddDays(random.Next(30));
-                // Hacer algo con la fecha aleatoria...
-                VueloPasado = false;
-            }
-            // Generar fecha aleatoria entre hoy y 3 años atrás (80% de las veces)
-            else
-            {
-                DateTime hoy_anterior = DateTime.Today;
-                fechaPartidaAleatoria = hoy_anterior.AddDays(-random.Next(1095));
-                // Hacer algo con la fecha aleatoria...
-                VueloPasado = true;
-            }
-
-            if(VueloPasado == false)
-            {
-                foreach (Avion avion in aerolinea.listaAviones)
-                {
-                    if (!avion.OcupadoEnVuelo)
-                    {
-                        hayAvionesDisponibles = true;
-                        break;
-                    }
-                }
-
-                if (!hayAvionesDisponibles)
-                {
-                    MessageBox.Show("No hay aviones disponibles para asignar al vuelo.");
-                }
-            }
-            
-            vueloNacional = random.NextDouble() < 0.75; // Seleccionar un 75% de probabilidad de vuelo nacional
-            SeleccionarDestino(vueloNacional, random); //Seleccionamos el destino
-
-            if(VueloPasado == false)
-            {
-                SeleccionarAvion(aerolinea, avionSeleccionado, random);
-                avionSeleccionado = this.Avion;
-                CalcularAsientosDisponibles(this);
-                Random rnd = new Random(DateTime.Now.Millisecond);
-                double porcentaje = rnd.Next(0, 41) / 100.0;
-                int limite = (int)(avionSeleccionado.CantidadAsientos * porcentaje);
-                FechaVuelo = fechaPartidaAleatoria;
-
-                for (int i = 0; i < limite; i++)
-                {
-                    System.Threading.Thread.Sleep(1);
-                    random = new Random(DateTime.Now.Millisecond); //lee los milisegundos de la pc y en base a eso genera el random
-                    Pasajero pasajero = new Pasajero().GenerarPasajeroAleatorio(random);
-
-                    if (VerificarDniExistente(pasajero.Dni) == false)
-                    {
-                        if(pasajero.TipoPasajero == false && AsientosPremiumDisponibles > 0)
-                        {
-                            Pasajeros.Add(pasajero);
-                            CantidadPasajeros++;
-                            AsientosPremiumDisponibles--;
-                        }
-                        else if (pasajero.TipoPasajero == true && AsientosTuristaDisponibles > 0)
-                        {
-                            Pasajeros.Add(pasajero);
-                            CantidadPasajeros++;
-                            AsientosTuristaDisponibles--;
-                        }
-                    }
-                }
-                CalcularDuracionVuelo(vueloNacional, avionSeleccionado, true);
-                CalcularCostoVuelo(this, vueloNacional);
-            }
-            else
-            {
-                SeleccionarAvion(aerolinea, avionSeleccionado, random);
-                avionSeleccionado = this.Avion;
-                CalcularAsientosDisponibles(this);
-                Random rnd = new Random(DateTime.Now.Millisecond);
-                double porcentaje = rnd.Next(80, 101) / 100.0;
-                int limite = (int)(avionSeleccionado.CantidadAsientos * porcentaje);
-                FechaVuelo = fechaPartidaAleatoria;
-
-                for (int i = 0; i < limite; i++)
-                {
-                    System.Threading.Thread.Sleep(1);
-                    random = new Random(DateTime.Now.Millisecond); //lee los milisegundos de la pc y en base a eso genera el random
-                    Pasajero pasajero = new Pasajero().GenerarPasajeroAleatorio(random);
-
-                    if (VerificarDniExistente(pasajero.Dni) == false)
-                    {
-                        if (pasajero.TipoPasajero == false && AsientosPremiumDisponibles > 0)
-                        {
-                            Pasajeros.Add(pasajero);
-                            AsientosPremiumDisponibles--;
-                            CantidadPasajeros++;
-                        }
-                        else if (pasajero.TipoPasajero == true && AsientosTuristaDisponibles > 0)
-                        {
-                            Pasajeros.Add(pasajero);
-                            AsientosTuristaDisponibles--;
-                            CantidadPasajeros++;
-                        }
-                    }
-                }
-                CalcularDuracionVuelo(vueloNacional, avionSeleccionado, false);
-                CalcularCostoVuelo(this, vueloNacional);
-            }
-
-            return this;
-        } 
-
+        /// <summary>
+        /// Verifica si el pasajero dado ya está en la lista de pasajeros del vuelo actual.
+        /// </summary>
+        /// <param name="pasajero">El objeto Pasajero a verificar.</param>
+        /// <returns>True si el pasajero está en la lista, False en caso contrario.</returns>
         public bool ContienePasajero(Pasajero pasajero)
         {
             foreach(Pasajero p in Pasajeros)
@@ -272,6 +211,12 @@ namespace BibliotecaAerolineasCompleto
             return false;
         }
 
+        /// <summary>
+        /// Vende un pasaje para el pasajero especificado y el tipo de pasajero indicado.
+        /// </summary>
+        /// <param name="pasajero">El objeto Pasajero para el cual se va a vender el pasaje.</param>
+        /// <param name="tipoPasajero">Indica si el tipo de pasajero es premium (True) o turista (False).</param>
+        /// <exception cref="ArgumentNullException">Se lanza si el objeto pasajero es nulo.</exception>
         public void VenderPasaje(Pasajero pasajero, bool tipoPasajero)
         {
             if (pasajero == null)
@@ -295,7 +240,10 @@ namespace BibliotecaAerolineasCompleto
             }
         }
 
-        public string ObtenerInformacionVuelo
+        /// <summary>
+        /// Obtiene la información completa del vuelo en formato de texto.
+        /// </summary>
+        private string ObtenerInformacionVuelo
         {
             get
             {
@@ -329,6 +277,9 @@ namespace BibliotecaAerolineasCompleto
             }
         }
 
+        /// <summary>
+        /// Obtiene la información resumida del vuelo en formato de texto.
+        /// </summary>
         public string ObtenerInformacionVueloResumida
         {
             get
@@ -355,124 +306,14 @@ namespace BibliotecaAerolineasCompleto
             }
         }
 
-        #region GENERADORES
-
-        public void SeleccionarDestino(bool vueloNacional, Random random)
+        /// <summary>
+        /// Devuelve una cadena que representa el estado del vuelo.
+        /// </summary>
+        /// <returns>Una cadena que representa el estado actual del vuelo.</returns>
+        public override string ToString()
         {
-            // Seleccionar destino
-            if (vueloNacional)
-            {
-                // Seleccionar ciudad de partida
-                int indexCiudadPartida = random.Next(Enum.GetNames(typeof(DestinosNacionales)).Length);
-                this.CiudadPartida = ((DestinosNacionales)indexCiudadPartida).ToString();
-
-                // Seleccionar ciudad de destino
-                int indexCiudadDestino;
-                do
-                {
-                    indexCiudadDestino = random.Next(Enum.GetNames(typeof(DestinosNacionales)).Length);
-                } while (indexCiudadDestino == indexCiudadPartida);
-
-                this.CiudadDestinoNacional = (DestinosNacionales)indexCiudadDestino;
-                this.vueloNacional = true;
-            }            
-            else
-            {
-                this.CiudadPartida = "Buenos Aires";
-                // Destino internacional
-                int indexDestinoInternacional = random.Next(Enum.GetNames(typeof(DestinosInternacionales)).Length);
-                this.CiudadDestinoInternacional = (DestinosInternacionales)indexDestinoInternacional;
-                this.vueloNacional = false;
-            }
+            return ObtenerInformacionVuelo;
         }
 
-        public void SeleccionarAvion(Aerolinea aerolinea, Avion avionSeleccionado, Random random)
-        {
-            int indexAvion;
-            // Asignar avión al vuelo y marcar como ocupado
-
-            if (this.VueloPasado == true)
-            {
-                indexAvion = random.Next(aerolinea.listaAviones.Count);
-                avionSeleccionado = aerolinea.listaAviones[indexAvion];
-                avionSeleccionado.OcupadoEnVuelo = false;
-            }
-            else
-            {
-                do
-                {
-                    indexAvion = random.Next(aerolinea.listaAviones.Count);
-                    avionSeleccionado = aerolinea.listaAviones[indexAvion];
-                } while (avionSeleccionado.OcupadoEnVuelo == true);
-                avionSeleccionado.OcupadoEnVuelo = true;
-            }
-            this.Avion = avionSeleccionado;
-        }
-
-        public void CalcularAsientosDisponibles(Vuelo vuelo)
-        {
-            // Calcular cantidad de asientos turista y premium
-            int totalAsientos = vuelo.Avion.CantidadAsientos;
-            vuelo.AsientosTuristaDisponibles = (int)Math.Ceiling(totalAsientos * 0.8);
-            vuelo.AsientosPremiumDisponibles = totalAsientos - vuelo.AsientosTuristaDisponibles;
-        }
-
-        public void CalcularDuracionVuelo(bool vueloNacional, Avion avion, bool esFuturo)
-        {
-            int duracionVueloHoras;
-            Random random = new Random(DateTime.Now.Millisecond);
-            System.Threading.Thread.Sleep(300);
-
-            // Calcular duración del vuelo en horas
-            if (vueloNacional == true)
-            {
-                // Duración de vuelo nacional entre 2 y 4 horas
-                duracionVueloHoras = random.Next(2, 5);
-            }
-            else
-            {
-                // Duración de vuelo internacional entre 8 y 12 horas
-                duracionVueloHoras = random.Next(8, 13);
-            }
-
-            // Asignar duración del vuelo
-            DuracionVuelo = duracionVueloHoras;
-        }
-
-        public void CalcularCostoVuelo(Vuelo vuelo, bool vueloNacional)
-        {
-            // Calcular costos del vuelo
-            decimal costoTurista, costoPremium;
-
-            if (vueloNacional == true)
-            {
-                costoTurista = 50 * (decimal)vuelo.DuracionVuelo;
-                costoPremium = costoTurista * 1.35m;
-            }
-            else
-            {
-                costoTurista = (100 * (decimal)vuelo.DuracionVuelo);
-                costoPremium = costoTurista * 1.35m;
-            }
-
-            // Asignar costos al vuelo
-            vuelo.CostoTurista = costoTurista;
-            vuelo.CostoPremium = costoPremium;
-        }
-
-        public bool VerificarDniExistente(int dni)
-        {
-            // Verificar si el DNI ya existe en la lista de pasajeros
-            foreach (Pasajero pasajero in Pasajeros)
-            {
-                if (pasajero.Dni == dni)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        #endregion
-    }
+      }
 }

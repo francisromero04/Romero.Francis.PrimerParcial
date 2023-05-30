@@ -35,10 +35,10 @@ namespace FormsAerolinea
         /// <summary>
         /// Actualiza las listas de vuelos disponibles.
         /// </summary>
-        public void ActualizarListas()
+        private void ActualizarListas()
         {
             var vuelosFuturos = new List<Vuelo>();
-            foreach (var vuelo in aerolinea.listaVuelos)
+            foreach (var vuelo in aerolinea.ListaVuelos)
             {
                 if (vuelo.FechaVuelo > DateTime.Now)
                 {

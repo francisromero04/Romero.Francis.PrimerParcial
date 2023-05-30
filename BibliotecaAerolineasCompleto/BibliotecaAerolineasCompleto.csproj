@@ -47,13 +47,10 @@
   <ItemGroup>
     <Compile Include="Administrador.cs" />
     <Compile Include="Aerolinea.cs" />
-    <Compile Include="Apellido.cs" />
     <Compile Include="Avion.cs" />
     <Compile Include="BaseDeDatos.cs" />
     <Compile Include="DestinosNacionales.cs" />
     <Compile Include="DestinosInternacionales.cs" />
-    <Compile Include="NombresDeHombre.cs" />
-    <Compile Include="NombresDeMujer.cs" />
     <Compile Include="Pasaje.cs" />
     <Compile Include="Pasajero.cs" />
     <Compile Include="Persona.cs" />
@@ -66,6 +63,7 @@
     <Compile Include="Vuelo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

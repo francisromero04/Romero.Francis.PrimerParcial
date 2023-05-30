@@ -30,6 +30,7 @@ namespace FormsAerolinea
             this.usuario = usuario;
             this.aerolinea = aerolinea;
             ActualizarListas();
+            EstablecerLocacion();
             ConfigurarDgvYgroupBox();
         }
 
@@ -62,7 +63,13 @@ namespace FormsAerolinea
             gbxModificarViaje.Top = ((this.ClientSize.Height - gbxModificarViaje.Height) / 2) - 90;
             gbxModificarViaje.Visible = true;
         }
-        
+
+        /// <summary>
+        /// Maneja el evento click del botón btnOpcionTres.
+        /// Muestra el grupo de controles gbxEliminarViaje y oculta otros elementos de la interfaz de usuario.
+        /// </summary>
+        /// <param name="sender">El objeto que generó el evento.</param>
+        /// <param name="e">Los argumentos del evento.</param>
         private void btnOpcionTres_Click(object sender, EventArgs e)
         {
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvVuelos.Visible = false;
@@ -84,24 +91,28 @@ namespace FormsAerolinea
         private void btnCrearVuelo_Click(object sender, EventArgs e)
         {
             // Verificar si la lista de aviones tiene al menos un avión
-            if (aerolinea.listaAviones.Count == 0)
+            if (aerolinea.ListaAviones.Count == 0)
             {
                 MessageBox.Show("Debe agregar al menos un avión antes de crear un vuelo.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!CamposCompletosValidos(cmbxOrigen.Text, cmbxDestino.Text, txtCostoPremium.Text, txtCostoTurista.Text, txtAsientosTuristas.Text))
+            if (!CamposCompletosValidos(cmbxOrigen.Text, cmbxDestino.Text, txtCostoTurista.Text))
             {
                 return;
             }
 
-            if (!decimal.TryParse(txtCostoPremium.Text, out decimal costoPremium) ||
-                !decimal.TryParse(txtCostoTurista.Text, out decimal costoTurista) ||
-                !PrecioValido(costoPremium, costoTurista))
+            if (!decimal.TryParse(txtCostoTurista.Text, out decimal costoTurista) ||
+                !PrecioValido(costoTurista))
             {
                 return;
             }
-           
+
+            decimal porcentajeCostoPremium = CalcularPorcentajeCostoTurista(costoTurista);
+            decimal costoPremium = costoTurista * porcentajeCostoPremium;
+            txtCostoPremium.Text = costoPremium.ToString();
+            txtCostoPremium.ReadOnly = true;
+
             Avion avionSeleccionado = (Avion)cmbxMatriculaAviones.SelectedItem;
             int limiteAsientos = avionSeleccionado.CantidadAsientos;
 
@@ -120,6 +131,7 @@ namespace FormsAerolinea
             txtAsientosPremium.ReadOnly = true;
 
             DateTime fechaVuelo = dtpFechaVuelo.Value;
+            DateTime soloFecha = fechaVuelo.Date;
 
             if (!ValidarFechaSeleccionada(fechaVuelo, false))
             {
@@ -127,13 +139,13 @@ namespace FormsAerolinea
             }
 
             // Verificar si el avión seleccionado ya ha sido utilizado en otro vuelo
-            foreach (Vuelo vuelo in aerolinea.listaVuelos)
+            foreach (Vuelo vuelo in aerolinea.ListaVuelos)
             {
-                if (vuelo.Avion.Equals(avionSeleccionado) && vuelo.FechaVuelo > fechaVuelo && vuelo.FechaVuelo == fechaVuelo)
+                if (vuelo.Avion.Equals(avionSeleccionado) && vuelo.FechaVuelo > soloFecha && vuelo.FechaVuelo == soloFecha)
                 {
                     MessageBox.Show("El avión seleccionado ya ha sido utilizado en otro vuelo. Por favor, seleccione otro avión.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
-                }
+                }   
                 else
                 {
                     continue;
@@ -163,9 +175,9 @@ namespace FormsAerolinea
                         CiudadDestinoNacional = destinoNacional,
                         CostoPremium = costoPremium,
                         CostoTurista = costoTurista,
-                        AsientosPremiumDisponibles = asientosPremium,
                         AsientosTuristaDisponibles = asientosTurista,
-                        FechaVuelo = fechaVuelo,
+                        AsientosPremiumDisponibles = asientosPremium,
+                        FechaVuelo = soloFecha,
                         Avion = avionSeleccionado, // usar el avión seleccionado en el combo box
                         //PONER EL AVION EN OCUPADO
                     };
@@ -189,7 +201,7 @@ namespace FormsAerolinea
                         CostoTurista = costoTurista,
                         AsientosPremiumDisponibles = asientosPremium,
                         AsientosTuristaDisponibles = asientosTurista,
-                        FechaVuelo = fechaVuelo,
+                        FechaVuelo = soloFecha,
                         Avion = avionSeleccionado // usar el avión seleccionado en el combo box
                     };
                     avionSeleccionado.OcupadoEnVuelo = true;
@@ -214,40 +226,27 @@ namespace FormsAerolinea
             aerolinea.eliminarVuelo(vueloSeleccionado);
 
             // Verificar si la lista de aviones tiene al menos un avión
-            if (aerolinea.listaAviones.Count == 0)
+            if (aerolinea.ListaAviones.Count == 0)
             {
                 MessageBox.Show("Debe agregar al menos un avión antes de crear un vuelo.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!CamposCompletosValidos(cmbxOrigenDos.Text, cmbxDestinoDos.Text, txtCostoPremiumDos.Text, txtCostoTuristaDos.Text, txtAsientosTuristasDos.Text))
+            if (!CamposCompletosValidos(cmbxOrigenDos.Text, cmbxDestinoDos.Text, txtCostoTuristaDos.Text))
             {
                 return;
             }
 
-            if (!decimal.TryParse(txtCostoPremiumDos.Text, out decimal costoPremium) ||
-                !decimal.TryParse(txtCostoTuristaDos.Text, out decimal costoTurista) ||
-                !PrecioValido(costoPremium, costoTurista))
+            if (!decimal.TryParse(txtCostoTuristaDos.Text, out decimal costoTurista) ||
+                !PrecioValido(costoTurista))
             {
                 return;
             }
 
-            // Validar que la cantidad de asientos sea un número válido
-            if (!int.TryParse(txtAsientosTuristasDos.Text, out int asientosTurista))
-            {
-                MessageBox.Show("La cantidad de asientos debe ser un número válido mayor o igual a cero", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // Calcular el 20% de los asientos turistas
-            decimal veintePorcientoTuristas = CalcularVeintePorcientoAsientosTuristas(asientosTurista);
-
-            // Asignar el valor del 20% a los asientos premium
-            int asientosPremium = (int)veintePorcientoTuristas;
-
-            // Cargar el valor en el TextBox txtAsientosPremium y establecerlo como solo lectura
-            txtAsientosPremiumDos.Text = asientosPremium.ToString();
-            txtAsientosPremiumDos.ReadOnly = true;
+            decimal porcentajeCostoPremium = CalcularPorcentajeCostoTurista(costoTurista);
+            decimal costoPremium = costoTurista * porcentajeCostoPremium;
+            txtCostoPremiumDos.Text = "35% Costo Turista: " + costoPremium.ToString();
+            txtCostoPremiumDos.ReadOnly = true;
 
             DateTime fechaVuelo = dtpFechaVueloDos.Value;
             
@@ -258,7 +257,7 @@ namespace FormsAerolinea
 
             // Verificar si el avión seleccionado ya ha sido utilizado en otro vuelo
             Avion avionSeleccionado = (Avion)cmbxMatriculaDos.SelectedItem;
-            foreach (Vuelo vuelo in aerolinea.listaVuelos)
+            foreach (Vuelo vuelo in aerolinea.ListaVuelos)
             {
                 if (vuelo.Avion.Equals(avionSeleccionado))
                 {
@@ -296,8 +295,6 @@ namespace FormsAerolinea
                     vueloSeleccionado.CiudadDestinoNacional = destinoNacional;
                     vueloSeleccionado.CostoPremium = costoPremium;
                     vueloSeleccionado.CostoTurista = costoTurista;
-                    vueloSeleccionado.AsientosPremiumDisponibles = asientosPremium;
-                    vueloSeleccionado.AsientosTuristaDisponibles = asientosTurista;
                     vueloSeleccionado.FechaVuelo = fechaVuelo;
                     vueloSeleccionado.Avion = avionSeleccionado;                  
                     avionSeleccionado.OcupadoEnVuelo = true;
@@ -315,8 +312,6 @@ namespace FormsAerolinea
                     vueloSeleccionado.CiudadDestinoInternacional = destinoInternacional;
                     vueloSeleccionado.CostoPremium = costoPremium;
                     vueloSeleccionado.CostoTurista = costoTurista;
-                    vueloSeleccionado.AsientosPremiumDisponibles = asientosPremium;
-                    vueloSeleccionado.AsientosTuristaDisponibles = asientosTurista;
                     vueloSeleccionado.FechaVuelo = fechaVuelo;
                     vueloSeleccionado.Avion = avionSeleccionado;                                      
                     avionSeleccionado.OcupadoEnVuelo = true;
@@ -340,9 +335,9 @@ namespace FormsAerolinea
             string viajeAEliminar = cmbxViajes.Text; // Obtener el viaje de la combobox
             Vuelo vueloEliminar = null; //buscar el vuelo seleccionado en la cmbx
 
-            foreach (Vuelo v in aerolinea.listaVuelos)
+            foreach (Vuelo v in aerolinea.ListaVuelos)
             {
-                if (v.ObtenerInformacionVuelo == viajeAEliminar)
+                if (v.ToString() == viajeAEliminar)
                 {
                     vueloEliminar = v;
                     break;
@@ -376,6 +371,7 @@ namespace FormsAerolinea
         private void btnCerrarUno_Click(object sender, EventArgs e)
         {
             gbxCrearViajes.Visible = false;
+            ConfigurarDgvYgroupBox();
             btnOpcionUno.Visible = btnOpcionDos.Visible =  btnOpcionTres.Visible = dgvVuelos.Visible = true;
         }
 
@@ -388,6 +384,7 @@ namespace FormsAerolinea
         private void btnCerrarDos_Click(object sender, EventArgs e)
         {
             gbxModificarViaje.Visible = false;
+            ConfigurarDgvYgroupBox();
             btnOpcionUno.Visible =btnOpcionDos.Visible = btnOpcionTres.Visible = dgvVuelos.Visible = true;
         }
 
@@ -400,6 +397,7 @@ namespace FormsAerolinea
         private void btnCerrarTres_Click(object sender, EventArgs e)
         {
             gbxEliminarViaje.Visible = false;
+            ConfigurarDgvYgroupBox();
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvVuelos.Visible = true;
         }
 
@@ -411,10 +409,20 @@ namespace FormsAerolinea
         /// Actualiza las listas de visualización en la interfaz.
         /// </summary>
         private void ActualizarListas()
-        {         
+        {
             cmbxMatriculaAviones.DataSource = null;
-            cmbxMatriculaAviones.DataSource = aerolinea.listaAviones;
-            cmbxMatriculaAviones.DisplayMember = "Matricula";
+            List<Avion> avionesDisponibles = new List<Avion>();
+
+            foreach (Avion avion in aerolinea.ListaAviones)
+            {
+                if (!avion.OcupadoEnVuelo)
+                {
+                    avionesDisponibles.Add(avion);
+                }
+            }
+
+            cmbxMatriculaAviones.DataSource = avionesDisponibles;
+            cmbxMatriculaAviones.DisplayMember = nameof(Avion.ToString);
             cmbxMatriculaAviones.Refresh();
 
             cmbxTipoViaje.DataSource = null;
@@ -432,7 +440,7 @@ namespace FormsAerolinea
             List<Vuelo> vuelosFuturos = new List<Vuelo>();
 
             // Itera sobre la lista de vuelos y agrega solo los vuelos futuros a la nueva lista
-            foreach (Vuelo vuelo in aerolinea.listaVuelos)
+            foreach (Vuelo vuelo in aerolinea.ListaVuelos)
             {
                 if (vuelo.FechaVuelo > fechaActual)
                 {
@@ -451,19 +459,9 @@ namespace FormsAerolinea
             cmbxViajes.DisplayMember = "ObtenerInformacionVuelo";
             cmbxViajes.Refresh();
 
-            List<Avion> avionesDisponibles = new List<Avion>();
-
-            foreach (Avion avion in aerolinea.listaAviones)
-            {
-                if (!avion.OcupadoEnVuelo)
-                {
-                    avionesDisponibles.Add(avion);
-                }
-            }
-
             cmbxMatriculaDos.DataSource = null;
             cmbxMatriculaDos.DataSource = avionesDisponibles;
-            cmbxMatriculaDos.DisplayMember = "Matricula";
+            cmbxMatriculaDos.DisplayMember = nameof(Avion.ToString);
             cmbxMatriculaDos.Refresh();
 
             cmbxTipoViajeDos.DataSource = null;
@@ -498,7 +496,7 @@ namespace FormsAerolinea
         /// <returns>True si la fecha es válida; False en caso contrario.</returns>
         private bool ValidarFechaSeleccionada(DateTime fechaSeleccionada, bool esModificar)
         {
-            DateTime fechaActual = DateTime.Now.Date;
+            DateTime fechaActual = DateTime.Today;
             DateTime fechaLimite = fechaActual.AddDays(30).Date;
             DateTime fechaMaxima = fechaActual.AddYears(1).Date;
 
@@ -545,13 +543,11 @@ namespace FormsAerolinea
         /// <param name="costoTurista">El costo del boleto de clase turista.</param>
         /// <param name="asientosTurista">El número de asientos disponibles en clase turista.</param>
         /// <returns>True si todos los campos están completos y válidos; False en caso contrario.</returns>
-        private bool CamposCompletosValidos(string origen, string destino, string costoPremium, string costoTurista, string asientosTurista)
+        private bool CamposCompletosValidos(string origen, string destino, string costoTurista)
         {
             if (string.IsNullOrWhiteSpace(origen) ||
                 string.IsNullOrWhiteSpace(destino) ||
-                string.IsNullOrWhiteSpace(costoPremium) ||
-                string.IsNullOrWhiteSpace(costoTurista) ||
-                string.IsNullOrWhiteSpace(asientosTurista))
+                string.IsNullOrWhiteSpace(costoTurista))
             {
                 MessageBox.Show("Debe completar todos los campos, hay campos vacios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -565,9 +561,9 @@ namespace FormsAerolinea
         /// <param name="costoPremium">El costo del boleto premium.</param>
         /// <param name="costoTurista">El costo del boleto de clase turista.</param>
         /// <returns>True si el precio es válido; False en caso contrario.</returns>
-        private bool PrecioValido(decimal costoPremium, decimal costoTurista)
+        private bool PrecioValido(decimal costoTurista)
         {
-            if (costoPremium < 0 || costoTurista < 0)
+            if (costoTurista < 0)
             {
                 MessageBox.Show("El precio debe ser un número válido mayor o igual a cero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -583,6 +579,16 @@ namespace FormsAerolinea
         private decimal CalcularVeintePorcientoAsientosTuristas(int asientosTurista)
         {
             return asientosTurista * 0.2m;
+        }
+
+        /// <summary>
+        /// Calcula el treinta y cinco por ciento del costo en clase turista.
+        /// </summary>
+        /// <param name="costoTurista">El costo de la clase turista.</param>
+        /// <returns>El treinta y cinco por ciento de la clase turista.</returns>
+        private decimal CalcularPorcentajeCostoTurista(decimal costoTurista)
+        {
+            return costoTurista * 0.35m;
         }
 
         /// <summary>
@@ -692,8 +698,6 @@ namespace FormsAerolinea
                 cmbxOrigenDos.Text = vueloSeleccionado.CiudadPartida.ToString();
                 cmbxDestinoDos.Text = vueloSeleccionado.VueloNacional ? vueloSeleccionado.CiudadDestinoNacional.ToString() : vueloSeleccionado.CiudadDestinoInternacional.ToString();
                 dtpFechaVueloDos.Text = vueloSeleccionado.FechaVuelo.ToString();
-                txtAsientosTuristasDos.Text = vueloSeleccionado.AsientosTuristaDisponibles.ToString();
-                txtAsientosPremiumDos.Text = vueloSeleccionado.AsientosPremiumDisponibles.ToString();
             }
         }
 
@@ -711,22 +715,29 @@ namespace FormsAerolinea
         }
 
         /// <summary>
+        /// Configura la locacion del DataGridView.
+        /// </summary>
+        private void EstablecerLocacion()
+        {
+            // Centrar el DataGridView en la pantalla
+            dgvVuelos.Left = (this.ClientSize.Width - dgvVuelos.Width) / 2;
+            dgvVuelos.Top = ((this.ClientSize.Height - dgvVuelos.Height) / 2) + 40;
+        }
+
+        /// <summary>
         /// Configura los controles de la interfaz de usuario para mostrar la información de los vuelos  de una aerolínea en un DataGridView.
         /// </summary>
         private void ConfigurarDgvYgroupBox()
-        {
-            gbxCrearViajes.Visible = false;
-            gbxModificarViaje.Visible = false;
-            gbxEliminarViaje.Visible = false;
+        {           
             dgvVuelos.Visible = true;
 
             dgvVuelos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvVuelos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
             dgvVuelos.Columns.Clear(); // Limpiar las columnas existentes
-            dgvVuelos.DataSource = aerolinea.listaVuelos;           
+            dgvVuelos.DataSource = aerolinea.ListaVuelos;           
   
             // Mostrar solo los atributos en el DataGridView
-            dgvVuelos.DataSource = aerolinea.listaVuelos.Select(vuelo => new
+            dgvVuelos.DataSource = aerolinea.ListaVuelos.Select(vuelo => new
             { 
                 Origen = vuelo.CiudadPartida,
                 Destino = vuelo.VueloNacional ?
@@ -744,10 +755,7 @@ namespace FormsAerolinea
             dgvVuelos.Columns["AsientosTuristas"].HeaderText = "Asientos Turistas Disp.";
             dgvVuelos.Columns["AsientosPremium"].HeaderText = "Asientos Premium Disp.";
 
-            dgvVuelos.Refresh();
-            // Centrar el DataGridView en la pantalla
-            dgvVuelos.Left = (this.ClientSize.Width - dgvVuelos.Width) / 2;
-            dgvVuelos.Top = ((this.ClientSize.Height - dgvVuelos.Height) / 2) + 40;
+            dgvVuelos.Refresh();           
         }
 
         /// <summary>

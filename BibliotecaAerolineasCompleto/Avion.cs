@@ -138,29 +138,6 @@ namespace BibliotecaAerolineasCompleto
         #endregion
 
         /// <summary>
-        /// Genera un avión aleatorio con valores aleatorios para cada propiedad.
-        /// </summary>
-        /// <returns>Una instancia de la clase <see cref="Avion"/> con valores aleatorios.</returns>
-        public Avion GenerarAvionAleatorio() //ELIMINAR
-        {
-            Random rnd = new Random(DateTime.Now.Millisecond); //lee los milisegundos de la pc y en base a eso genera el random
-            const string letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            string matricula = new string(
-                Enumerable.Range(1, 8)
-                    .Select(x => x <= 4 ? letras[rnd.Next(letras.Length)] : Char.Parse(rnd.Next(10).ToString()))
-                    .ToArray()
-            );
-            int cantidadAsientos = rnd.Next(50, 300);
-            int cantidadBanos = rnd.Next(1, 5);
-            bool servicioInternet = rnd.Next(2) == 1;
-            bool ofreceComida = rnd.Next(2) == 1;
-            decimal capacidadBodega = rnd.Next(1000, 10000);
-            OcupadoEnVuelo = false;
-            horasVueloHistoricas = 0;
-            return new Avion(matricula, cantidadAsientos, cantidadBanos, servicioInternet, ofreceComida, capacidadBodega, horasVueloHistoricas, true);
-        }
-
-        /// <summary>
         /// Obtiene el estado actual del avión en formato de cadena.
         /// </summary>
         /// <value>Una cadena que describe el estado actual del avión.</value>
@@ -171,6 +148,15 @@ namespace BibliotecaAerolineasCompleto
                 string ocupado = OcupadoEnVuelo ? "Ocupado" : "Disponible";
                 return $"Avión con matrícula {Matricula}  |  Estado: {ocupado}  |  Asientos: {CantidadAsientos}";
             }
+        }
+
+        /// <summary>
+        /// Devuelve una cadena que representa el estado del avión.
+        /// </summary>
+        /// <returns>Una cadena que representa el estado actual del avión.</returns>
+        public override string ToString()
+        {
+            return ObtenerEstadoAvion;
         }
 
         /// <summary>

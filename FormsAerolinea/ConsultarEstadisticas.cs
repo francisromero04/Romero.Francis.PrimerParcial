@@ -30,17 +30,17 @@ namespace FormsAerolinea
             this.aerolinea = aerolinea;
             InitializeComponent();
             ActualizarListas();
-            lblDineroTotal.Text += "Nacional: " + aerolinea.dineroTotalNacional + " | Internacional: " + aerolinea.dineroTotalInternacional;
+            lblDineroTotal.Text += "Nacional: " + aerolinea.DineroTotalNacional + " | Internacional: " + aerolinea.DineroTotalInternacional;
             lblDestino.Text += aerolinea.DestinoMasSeleccionado();
         }
 
         /// <summary>
         /// Actualiza las listas y los ComboBox mostrados en el formulario.
         /// </summary> 
-        public void ActualizarListas()
+        private void ActualizarListas()
         {
             var vuelosRealizados = new List<Vuelo>();
-            foreach (var vuelo in aerolinea.listaVuelos)
+            foreach (var vuelo in aerolinea.ListaVuelos)
             {
                 if (vuelo.FechaVuelo < DateTime.Now)
                 {
@@ -54,11 +54,11 @@ namespace FormsAerolinea
             cmbxListaViajesRealizados.Refresh();
 
             cmbxAviones.DataSource = null;
-            cmbxAviones.DataSource = aerolinea.listaAviones;
-            cmbxAviones.DisplayMember = "ObtenerEstadoAvion";
+            cmbxAviones.DataSource = aerolinea.ListaAviones;
+            cmbxAviones.DisplayMember = nameof(Avion.ToString);
             cmbxAviones.Refresh();
 
-            List<Pasajero> pasajerosOrdenados = aerolinea.listaPasajeros.OrderByDescending(p => p.CantidadVuelosHistoricos).ToList();
+            List<Pasajero> pasajerosOrdenados = aerolinea.ListaPasajeros.OrderByDescending(p => p.CantidadVuelosHistoricos).ToList();
             lstPasajerosOrdenados.DataSource = null;
             lstPasajerosOrdenados.DataSource = pasajerosOrdenados;
             lstPasajerosOrdenados.DisplayMember = "NombreCompletoyDniyViajes";

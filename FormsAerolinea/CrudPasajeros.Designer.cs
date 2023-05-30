@@ -48,10 +48,6 @@
             this.btnCrearPasajero = new System.Windows.Forms.Button();
             this.gbxEliminarPasajero = new System.Windows.Forms.GroupBox();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnCerrarTres = new System.Windows.Forms.Button();
-            this.lblListaPasajeros = new System.Windows.Forms.Label();
-            this.cmbxPasajerosDos = new System.Windows.Forms.ComboBox();
-            this.dgvPasajeros = new System.Windows.Forms.DataGridView();
             this.gbxModificarPasajero = new System.Windows.Forms.GroupBox();
             this.cmbxGeneroDos = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -69,10 +65,22 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txtApellidoDos = new System.Windows.Forms.TextBox();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.btnCerrarTres = new System.Windows.Forms.Button();
+            this.lblListaPasajeros = new System.Windows.Forms.Label();
+            this.cmbxPasajerosDos = new System.Windows.Forms.ComboBox();
+            this.dgvPasajeros = new System.Windows.Forms.DataGridView();
+            this.btnOpcionCuatro = new System.Windows.Forms.Button();
+            this.gbxConsultarPasajero = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtNombreAbuscar = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.lstPasajerosFiltrados = new System.Windows.Forms.ListBox();
             this.gbxCrearPasajero.SuspendLayout();
             this.gbxEliminarPasajero.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPasajeros)).BeginInit();
             this.gbxModificarPasajero.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPasajeros)).BeginInit();
+            this.gbxConsultarPasajero.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOpcionTres
@@ -86,9 +94,9 @@
             this.btnOpcionTres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpcionTres.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpcionTres.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnOpcionTres.Location = new System.Drawing.Point(698, 613);
+            this.btnOpcionTres.Location = new System.Drawing.Point(698, 566);
             this.btnOpcionTres.Name = "btnOpcionTres";
-            this.btnOpcionTres.Size = new System.Drawing.Size(355, 55);
+            this.btnOpcionTres.Size = new System.Drawing.Size(355, 51);
             this.btnOpcionTres.TabIndex = 52;
             this.btnOpcionTres.Text = "Eliminar un pasajero.";
             this.btnOpcionTres.UseVisualStyleBackColor = false;
@@ -105,9 +113,9 @@
             this.btnOpcionDos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpcionDos.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpcionDos.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnOpcionDos.Location = new System.Drawing.Point(329, 613);
+            this.btnOpcionDos.Location = new System.Drawing.Point(329, 566);
             this.btnOpcionDos.Name = "btnOpcionDos";
-            this.btnOpcionDos.Size = new System.Drawing.Size(363, 55);
+            this.btnOpcionDos.Size = new System.Drawing.Size(363, 51);
             this.btnOpcionDos.TabIndex = 51;
             this.btnOpcionDos.Text = "Modificar un pasajero.";
             this.btnOpcionDos.UseVisualStyleBackColor = false;
@@ -124,9 +132,9 @@
             this.btnOpcionUno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpcionUno.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpcionUno.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnOpcionUno.Location = new System.Drawing.Point(13, 613);
+            this.btnOpcionUno.Location = new System.Drawing.Point(10, 566);
             this.btnOpcionUno.Name = "btnOpcionUno";
-            this.btnOpcionUno.Size = new System.Drawing.Size(310, 55);
+            this.btnOpcionUno.Size = new System.Drawing.Size(313, 51);
             this.btnOpcionUno.TabIndex = 53;
             this.btnOpcionUno.Text = "Crear un pasajero.";
             this.btnOpcionUno.UseVisualStyleBackColor = false;
@@ -153,7 +161,7 @@
             this.gbxCrearPasajero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxCrearPasajero.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxCrearPasajero.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbxCrearPasajero.Location = new System.Drawing.Point(1063, 675);
+            this.gbxCrearPasajero.Location = new System.Drawing.Point(85, 677);
             this.gbxCrearPasajero.Name = "gbxCrearPasajero";
             this.gbxCrearPasajero.Size = new System.Drawing.Size(798, 465);
             this.gbxCrearPasajero.TabIndex = 56;
@@ -322,6 +330,7 @@
             this.gbxEliminarPasajero.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.gbxEliminarPasajero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.gbxEliminarPasajero.Controls.Add(this.btnEliminar);
+            this.gbxEliminarPasajero.Controls.Add(this.gbxModificarPasajero);
             this.gbxEliminarPasajero.Controls.Add(this.btnCerrarTres);
             this.gbxEliminarPasajero.Controls.Add(this.lblListaPasajeros);
             this.gbxEliminarPasajero.Controls.Add(this.cmbxPasajerosDos);
@@ -351,6 +360,216 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // gbxModificarPasajero
+            // 
+            this.gbxModificarPasajero.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gbxModificarPasajero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.gbxModificarPasajero.Controls.Add(this.cmbxGeneroDos);
+            this.gbxModificarPasajero.Controls.Add(this.label4);
+            this.gbxModificarPasajero.Controls.Add(this.txtDniDos);
+            this.gbxModificarPasajero.Controls.Add(this.label8);
+            this.gbxModificarPasajero.Controls.Add(this.btnCerrarDos);
+            this.gbxModificarPasajero.Controls.Add(this.txtSegundoApellidoDos);
+            this.gbxModificarPasajero.Controls.Add(this.label9);
+            this.gbxModificarPasajero.Controls.Add(this.txtNombreDos);
+            this.gbxModificarPasajero.Controls.Add(this.label10);
+            this.gbxModificarPasajero.Controls.Add(this.label11);
+            this.gbxModificarPasajero.Controls.Add(this.cmbxPasajeros);
+            this.gbxModificarPasajero.Controls.Add(this.txtSegundoNombreDos);
+            this.gbxModificarPasajero.Controls.Add(this.label12);
+            this.gbxModificarPasajero.Controls.Add(this.label13);
+            this.gbxModificarPasajero.Controls.Add(this.txtApellidoDos);
+            this.gbxModificarPasajero.Controls.Add(this.btnModificar);
+            this.gbxModificarPasajero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.gbxModificarPasajero.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxModificarPasajero.ForeColor = System.Drawing.SystemColors.Control;
+            this.gbxModificarPasajero.Location = new System.Drawing.Point(71, 0);
+            this.gbxModificarPasajero.Name = "gbxModificarPasajero";
+            this.gbxModificarPasajero.Size = new System.Drawing.Size(798, 472);
+            this.gbxModificarPasajero.TabIndex = 71;
+            this.gbxModificarPasajero.TabStop = false;
+            this.gbxModificarPasajero.Text = "Modificar un Pasajero";
+            this.gbxModificarPasajero.Visible = false;
+            this.gbxModificarPasajero.VisibleChanged += new System.EventHandler(this.gbxModificarPasajero_VisibleChanged);
+            // 
+            // cmbxGeneroDos
+            // 
+            this.cmbxGeneroDos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxGeneroDos.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxGeneroDos.FormattingEnabled = true;
+            this.cmbxGeneroDos.Location = new System.Drawing.Point(272, 313);
+            this.cmbxGeneroDos.Name = "cmbxGeneroDos";
+            this.cmbxGeneroDos.Size = new System.Drawing.Size(520, 29);
+            this.cmbxGeneroDos.TabIndex = 63;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(9, 308);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(102, 34);
+            this.label4.TabIndex = 62;
+            this.label4.Text = "Genero";
+            // 
+            // txtDniDos
+            // 
+            this.txtDniDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtDniDos.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDniDos.ForeColor = System.Drawing.SystemColors.Window;
+            this.txtDniDos.Location = new System.Drawing.Point(272, 260);
+            this.txtDniDos.Name = "txtDniDos";
+            this.txtDniDos.Size = new System.Drawing.Size(520, 41);
+            this.txtDniDos.TabIndex = 61;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.Control;
+            this.label8.Location = new System.Drawing.Point(9, 267);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(212, 34);
+            this.label8.TabIndex = 60;
+            this.label8.Text = "DNI (sin puntos)";
+            // 
+            // btnCerrarDos
+            // 
+            this.btnCerrarDos.FlatAppearance.BorderSize = 0;
+            this.btnCerrarDos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnCerrarDos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarDos.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarDos.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCerrarDos.Location = new System.Drawing.Point(6, 406);
+            this.btnCerrarDos.Name = "btnCerrarDos";
+            this.btnCerrarDos.Size = new System.Drawing.Size(786, 50);
+            this.btnCerrarDos.TabIndex = 52;
+            this.btnCerrarDos.Text = "Guardar y cerrar";
+            this.btnCerrarDos.UseVisualStyleBackColor = true;
+            this.btnCerrarDos.Click += new System.EventHandler(this.btnCerrarDos_Click);
+            // 
+            // txtSegundoApellidoDos
+            // 
+            this.txtSegundoApellidoDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtSegundoApellidoDos.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSegundoApellidoDos.ForeColor = System.Drawing.SystemColors.Window;
+            this.txtSegundoApellidoDos.Location = new System.Drawing.Point(272, 213);
+            this.txtSegundoApellidoDos.Name = "txtSegundoApellidoDos";
+            this.txtSegundoApellidoDos.Size = new System.Drawing.Size(520, 41);
+            this.txtSegundoApellidoDos.TabIndex = 59;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.Control;
+            this.label9.Location = new System.Drawing.Point(9, 220);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(257, 34);
+            this.label9.TabIndex = 58;
+            this.label9.Text = "Apellido Secundario";
+            // 
+            // txtNombreDos
+            // 
+            this.txtNombreDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtNombreDos.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreDos.ForeColor = System.Drawing.SystemColors.Window;
+            this.txtNombreDos.Location = new System.Drawing.Point(272, 72);
+            this.txtNombreDos.Name = "txtNombreDos";
+            this.txtNombreDos.Size = new System.Drawing.Size(520, 41);
+            this.txtNombreDos.TabIndex = 55;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(9, 32);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(229, 34);
+            this.label10.TabIndex = 39;
+            this.label10.Text = "Lista de Pasajeros";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.Control;
+            this.label11.Location = new System.Drawing.Point(9, 126);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(249, 34);
+            this.label11.TabIndex = 50;
+            this.label11.Text = "Nombre Secundario";
+            // 
+            // cmbxPasajeros
+            // 
+            this.cmbxPasajeros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.cmbxPasajeros.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxPasajeros.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxPasajeros.FormattingEnabled = true;
+            this.cmbxPasajeros.Location = new System.Drawing.Point(272, 32);
+            this.cmbxPasajeros.Name = "cmbxPasajeros";
+            this.cmbxPasajeros.Size = new System.Drawing.Size(520, 29);
+            this.cmbxPasajeros.TabIndex = 38;
+            this.cmbxPasajeros.SelectedIndexChanged += new System.EventHandler(this.cmbxPasajeros_SelectedIndexChanged_1);
+            // 
+            // txtSegundoNombreDos
+            // 
+            this.txtSegundoNombreDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtSegundoNombreDos.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSegundoNombreDos.ForeColor = System.Drawing.SystemColors.Window;
+            this.txtSegundoNombreDos.Location = new System.Drawing.Point(272, 119);
+            this.txtSegundoNombreDos.Name = "txtSegundoNombreDos";
+            this.txtSegundoNombreDos.Size = new System.Drawing.Size(520, 41);
+            this.txtSegundoNombreDos.TabIndex = 51;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.Control;
+            this.label12.Location = new System.Drawing.Point(9, 79);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(107, 34);
+            this.label12.TabIndex = 54;
+            this.label12.Text = "Nombre";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.Control;
+            this.label13.Location = new System.Drawing.Point(9, 173);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(115, 34);
+            this.label13.TabIndex = 52;
+            this.label13.Text = "Apellido";
+            // 
+            // txtApellidoDos
+            // 
+            this.txtApellidoDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtApellidoDos.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellidoDos.ForeColor = System.Drawing.SystemColors.Window;
+            this.txtApellidoDos.Location = new System.Drawing.Point(272, 166);
+            this.txtApellidoDos.Name = "txtApellidoDos";
+            this.txtApellidoDos.Size = new System.Drawing.Size(520, 41);
+            this.txtApellidoDos.TabIndex = 53;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnModificar.Location = new System.Drawing.Point(6, 356);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(786, 44);
+            this.btnModificar.TabIndex = 39;
+            this.btnModificar.Text = "Modificar Pasajero";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnCerrarTres
             // 
@@ -415,216 +634,108 @@
             this.dgvPasajeros.VirtualMode = true;
             this.dgvPasajeros.Visible = false;
             this.dgvPasajeros.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvPasajeros_CellFormatting);
+            this.dgvPasajeros.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvPasajeros_DataError);
             // 
-            // gbxModificarPasajero
+            // btnOpcionCuatro
             // 
-            this.gbxModificarPasajero.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.gbxModificarPasajero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.gbxModificarPasajero.Controls.Add(this.cmbxGeneroDos);
-            this.gbxModificarPasajero.Controls.Add(this.label4);
-            this.gbxModificarPasajero.Controls.Add(this.txtDniDos);
-            this.gbxModificarPasajero.Controls.Add(this.label8);
-            this.gbxModificarPasajero.Controls.Add(this.btnCerrarDos);
-            this.gbxModificarPasajero.Controls.Add(this.txtSegundoApellidoDos);
-            this.gbxModificarPasajero.Controls.Add(this.label9);
-            this.gbxModificarPasajero.Controls.Add(this.txtNombreDos);
-            this.gbxModificarPasajero.Controls.Add(this.label10);
-            this.gbxModificarPasajero.Controls.Add(this.label11);
-            this.gbxModificarPasajero.Controls.Add(this.cmbxPasajeros);
-            this.gbxModificarPasajero.Controls.Add(this.txtSegundoNombreDos);
-            this.gbxModificarPasajero.Controls.Add(this.label12);
-            this.gbxModificarPasajero.Controls.Add(this.label13);
-            this.gbxModificarPasajero.Controls.Add(this.txtApellidoDos);
-            this.gbxModificarPasajero.Controls.Add(this.btnModificar);
-            this.gbxModificarPasajero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbxModificarPasajero.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxModificarPasajero.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbxModificarPasajero.Location = new System.Drawing.Point(12, 685);
-            this.gbxModificarPasajero.Name = "gbxModificarPasajero";
-            this.gbxModificarPasajero.Size = new System.Drawing.Size(798, 465);
-            this.gbxModificarPasajero.TabIndex = 71;
-            this.gbxModificarPasajero.TabStop = false;
-            this.gbxModificarPasajero.Text = "Modificar un Pasajero";
-            this.gbxModificarPasajero.Visible = false;
-            this.gbxModificarPasajero.VisibleChanged += new System.EventHandler(this.gbxModificarPasajero_VisibleChanged);
+            this.btnOpcionCuatro.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnOpcionCuatro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnOpcionCuatro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpcionCuatro.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnOpcionCuatro.FlatAppearance.BorderSize = 0;
+            this.btnOpcionCuatro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnOpcionCuatro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpcionCuatro.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcionCuatro.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnOpcionCuatro.Location = new System.Drawing.Point(329, 623);
+            this.btnOpcionCuatro.Name = "btnOpcionCuatro";
+            this.btnOpcionCuatro.Size = new System.Drawing.Size(363, 55);
+            this.btnOpcionCuatro.TabIndex = 71;
+            this.btnOpcionCuatro.Text = "Consultar un pasajero.";
+            this.btnOpcionCuatro.UseVisualStyleBackColor = false;
+            this.btnOpcionCuatro.Click += new System.EventHandler(this.btnOpcionCuatro_Click);
             // 
-            // cmbxGeneroDos
+            // gbxConsultarPasajero
             // 
-            this.cmbxGeneroDos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxGeneroDos.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbxGeneroDos.FormattingEnabled = true;
-            this.cmbxGeneroDos.Location = new System.Drawing.Point(272, 312);
-            this.cmbxGeneroDos.Name = "cmbxGeneroDos";
-            this.cmbxGeneroDos.Size = new System.Drawing.Size(520, 29);
-            this.cmbxGeneroDos.TabIndex = 63;
+            this.gbxConsultarPasajero.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gbxConsultarPasajero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.gbxConsultarPasajero.Controls.Add(this.lstPasajerosFiltrados);
+            this.gbxConsultarPasajero.Controls.Add(this.button1);
+            this.gbxConsultarPasajero.Controls.Add(this.txtNombreAbuscar);
+            this.gbxConsultarPasajero.Controls.Add(this.label6);
+            this.gbxConsultarPasajero.Controls.Add(this.btnConsultar);
+            this.gbxConsultarPasajero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.gbxConsultarPasajero.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxConsultarPasajero.ForeColor = System.Drawing.SystemColors.Control;
+            this.gbxConsultarPasajero.Location = new System.Drawing.Point(1057, 677);
+            this.gbxConsultarPasajero.Name = "gbxConsultarPasajero";
+            this.gbxConsultarPasajero.Size = new System.Drawing.Size(798, 465);
+            this.gbxConsultarPasajero.TabIndex = 72;
+            this.gbxConsultarPasajero.TabStop = false;
+            this.gbxConsultarPasajero.Text = "Consultar un Pasajero";
+            this.gbxConsultarPasajero.Visible = false;
             // 
-            // label4
+            // button1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(9, 307);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 34);
-            this.label4.TabIndex = 62;
-            this.label4.Text = "Genero";
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Location = new System.Drawing.Point(6, 402);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(786, 53);
+            this.button1.TabIndex = 52;
+            this.button1.Text = "Guardar y cerrar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnCerrarCuatro_Click);
             // 
-            // txtDniDos
+            // txtNombreAbuscar
             // 
-            this.txtDniDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.txtDniDos.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDniDos.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtDniDos.Location = new System.Drawing.Point(272, 259);
-            this.txtDniDos.Name = "txtDniDos";
-            this.txtDniDos.Size = new System.Drawing.Size(520, 41);
-            this.txtDniDos.TabIndex = 61;
+            this.txtNombreAbuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtNombreAbuscar.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreAbuscar.ForeColor = System.Drawing.SystemColors.Window;
+            this.txtNombreAbuscar.Location = new System.Drawing.Point(481, 45);
+            this.txtNombreAbuscar.Name = "txtNombreAbuscar";
+            this.txtNombreAbuscar.Size = new System.Drawing.Size(311, 32);
+            this.txtNombreAbuscar.TabIndex = 55;
             // 
-            // label8
+            // label6
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(9, 266);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(212, 34);
-            this.label8.TabIndex = 60;
-            this.label8.Text = "DNI (sin puntos)";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(9, 45);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(466, 34);
+            this.label6.TabIndex = 54;
+            this.label6.Text = "Ingrese nombre del pasajero a buscar:";
             // 
-            // btnCerrarDos
+            // btnConsultar
             // 
-            this.btnCerrarDos.FlatAppearance.BorderSize = 0;
-            this.btnCerrarDos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnCerrarDos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarDos.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarDos.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCerrarDos.Location = new System.Drawing.Point(6, 405);
-            this.btnCerrarDos.Name = "btnCerrarDos";
-            this.btnCerrarDos.Size = new System.Drawing.Size(786, 50);
-            this.btnCerrarDos.TabIndex = 52;
-            this.btnCerrarDos.Text = "Guardar y cerrar";
-            this.btnCerrarDos.UseVisualStyleBackColor = true;
-            this.btnCerrarDos.Click += new System.EventHandler(this.btnCerrarDos_Click);
+            this.btnConsultar.FlatAppearance.BorderSize = 0;
+            this.btnConsultar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultar.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnConsultar.Location = new System.Drawing.Point(6, 343);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(786, 53);
+            this.btnConsultar.TabIndex = 39;
+            this.btnConsultar.Text = "Consultar Pasajero";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
-            // txtSegundoApellidoDos
+            // lstPasajerosFiltrados
             // 
-            this.txtSegundoApellidoDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.txtSegundoApellidoDos.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSegundoApellidoDos.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtSegundoApellidoDos.Location = new System.Drawing.Point(272, 212);
-            this.txtSegundoApellidoDos.Name = "txtSegundoApellidoDos";
-            this.txtSegundoApellidoDos.Size = new System.Drawing.Size(520, 41);
-            this.txtSegundoApellidoDos.TabIndex = 59;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.Control;
-            this.label9.Location = new System.Drawing.Point(9, 219);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(257, 34);
-            this.label9.TabIndex = 58;
-            this.label9.Text = "Apellido Secundario";
-            // 
-            // txtNombreDos
-            // 
-            this.txtNombreDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.txtNombreDos.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreDos.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtNombreDos.Location = new System.Drawing.Point(272, 71);
-            this.txtNombreDos.Name = "txtNombreDos";
-            this.txtNombreDos.Size = new System.Drawing.Size(520, 41);
-            this.txtNombreDos.TabIndex = 55;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(9, 31);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(229, 34);
-            this.label10.TabIndex = 39;
-            this.label10.Text = "Lista de Pasajeros";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.Control;
-            this.label11.Location = new System.Drawing.Point(9, 125);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(249, 34);
-            this.label11.TabIndex = 50;
-            this.label11.Text = "Nombre Secundario";
-            // 
-            // cmbxPasajeros
-            // 
-            this.cmbxPasajeros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.cmbxPasajeros.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxPasajeros.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbxPasajeros.FormattingEnabled = true;
-            this.cmbxPasajeros.Location = new System.Drawing.Point(272, 31);
-            this.cmbxPasajeros.Name = "cmbxPasajeros";
-            this.cmbxPasajeros.Size = new System.Drawing.Size(520, 29);
-            this.cmbxPasajeros.TabIndex = 38;
-            this.cmbxPasajeros.SelectedIndexChanged += new System.EventHandler(this.cmbxPasajeros_SelectedIndexChanged_1);
-            // 
-            // txtSegundoNombreDos
-            // 
-            this.txtSegundoNombreDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.txtSegundoNombreDos.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSegundoNombreDos.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtSegundoNombreDos.Location = new System.Drawing.Point(272, 118);
-            this.txtSegundoNombreDos.Name = "txtSegundoNombreDos";
-            this.txtSegundoNombreDos.Size = new System.Drawing.Size(520, 41);
-            this.txtSegundoNombreDos.TabIndex = 51;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.Control;
-            this.label12.Location = new System.Drawing.Point(9, 78);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(107, 34);
-            this.label12.TabIndex = 54;
-            this.label12.Text = "Nombre";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.Control;
-            this.label13.Location = new System.Drawing.Point(9, 172);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(115, 34);
-            this.label13.TabIndex = 52;
-            this.label13.Text = "Apellido";
-            // 
-            // txtApellidoDos
-            // 
-            this.txtApellidoDos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.txtApellidoDos.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellidoDos.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtApellidoDos.Location = new System.Drawing.Point(272, 165);
-            this.txtApellidoDos.Name = "txtApellidoDos";
-            this.txtApellidoDos.Size = new System.Drawing.Size(520, 41);
-            this.txtApellidoDos.TabIndex = 53;
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.FlatAppearance.BorderSize = 0;
-            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnModificar.Location = new System.Drawing.Point(6, 355);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(786, 44);
-            this.btnModificar.TabIndex = 39;
-            this.btnModificar.Text = "Modificar Pasajero";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.lstPasajerosFiltrados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.lstPasajerosFiltrados.ForeColor = System.Drawing.SystemColors.Control;
+            this.lstPasajerosFiltrados.FormattingEnabled = true;
+            this.lstPasajerosFiltrados.ItemHeight = 16;
+            this.lstPasajerosFiltrados.Location = new System.Drawing.Point(25, 101);
+            this.lstPasajerosFiltrados.Name = "lstPasajerosFiltrados";
+            this.lstPasajerosFiltrados.Size = new System.Drawing.Size(760, 212);
+            this.lstPasajerosFiltrados.TabIndex = 56;
             // 
             // CrudPasajeros
             // 
@@ -632,7 +743,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(1064, 680);
-            this.Controls.Add(this.gbxModificarPasajero);
+            this.Controls.Add(this.gbxConsultarPasajero);
+            this.Controls.Add(this.btnOpcionCuatro);
             this.Controls.Add(this.dgvPasajeros);
             this.Controls.Add(this.gbxEliminarPasajero);
             this.Controls.Add(this.gbxCrearPasajero);
@@ -646,9 +758,11 @@
             this.gbxCrearPasajero.PerformLayout();
             this.gbxEliminarPasajero.ResumeLayout(false);
             this.gbxEliminarPasajero.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPasajeros)).EndInit();
             this.gbxModificarPasajero.ResumeLayout(false);
             this.gbxModificarPasajero.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPasajeros)).EndInit();
+            this.gbxConsultarPasajero.ResumeLayout(false);
+            this.gbxConsultarPasajero.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -695,5 +809,12 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtApellidoDos;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnOpcionCuatro;
+        private System.Windows.Forms.GroupBox gbxConsultarPasajero;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtNombreAbuscar;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.ListBox lstPasajerosFiltrados;
     }
 }

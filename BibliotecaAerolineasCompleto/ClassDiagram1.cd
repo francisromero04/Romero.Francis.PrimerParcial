@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BibliotecaAerolineasCompleto.Aerolinea">
+    <Position X="0.5" Y="1.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AIAAEAAARAAADCAIAEUCAABAAJBgAACACAAAJAgKIAA=</HashCode>
+      <FileName>Aerolinea.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BibliotecaAerolineasCompleto.Avion">
+    <Position X="6.5" Y="1.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAEAIQAABEkABIAQAAQAECIIAAAgAAAhAAAAA=</HashCode>
+      <FileName>Avion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BibliotecaAerolineasCompleto.Vuelo">
+    <Position X="3.5" Y="1.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AUCoAAAgoAAAAKQMAAGECAAQAAAAIAgQACoUMAECKiQ=</HashCode>
+      <FileName>Vuelo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BibliotecaAerolineasCompleto.Persona">
+    <Position X="14" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACEAAACAAAAAAAAAACAAAAAAQAAAAA=</HashCode>
+      <FileName>Persona.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BibliotecaAerolineasCompleto.Administrador">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <InheritanceLine Type="BibliotecaAerolineasCompleto.Persona" ManuallyRouted="true">
+      <Path>
+        <Point X="15.25" Y="4.074" />
+        <Point X="15.25" Y="4.318" />
+        <Point X="13.5" Y="4.318" />
+        <Point X="13.5" Y="5.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Administrador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BibliotecaAerolineasCompleto.Supervisor">
+    <Position X="16.25" Y="5.5" Width="1.5" />
+    <InheritanceLine Type="BibliotecaAerolineasCompleto.Persona" ManuallyRouted="true">
+      <Path>
+        <Point X="15.25" Y="4.074" />
+        <Point X="15.25" Y="4.34" />
+        <Point X="17" Y="4.34" />
+        <Point X="17" Y="5.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Supervisor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BibliotecaAerolineasCompleto.Vendedor">
+    <Position X="14.5" Y="5.5" Width="1.5" />
+    <InheritanceLine Type="BibliotecaAerolineasCompleto.Persona" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="15.25" Y="4.074" />
+        <Point X="15.25" Y="4.787" />
+        <Point X="15.25" Y="4.787" />
+        <Point X="15.25" Y="5.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vendedor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BibliotecaAerolineasCompleto.Pasajero">
+    <Position X="9.5" Y="1.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>ACEQqAAhkAQAAASEgAAEoAIAACACEICAAAAAgAAAAig=</HashCode>
+      <FileName>Pasajero.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
