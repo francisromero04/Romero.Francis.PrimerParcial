@@ -1,13 +1,3 @@
-<style>
-  h1 {
-    color: #007BFF; /* Azul claro */
-  }
-  
-  h2 {
-    color: #17A2B8; /* Celeste oscuro */
-  }
-</style>
-
 # AirwayTech Development
 
 ## Sobre mí
@@ -17,7 +7,8 @@ Mi nombre es Francis Romero, estudiante de la cátedra de la materia: Laboratori
 En pocas palabras, el programa se encarga de gestionar los vuelos de una aerolínea. Utiliza métodos CRUD para la creación, eliminación y modificación de aviones, pasajeros y vuelos.
 
 ## Diagrama de clases
-![Diagrama de Clases](ruta/de/la/diagramaDeClases.jpg)
+![Diagrama de Clases](./diagramaDeClases.png)
+![Diagrama de Clases](./diagramaDeClasesDos.png)
 
 ## Justificación técnica
 
@@ -63,4 +54,5 @@ En pocas palabras, el programa se encarga de gestionar los vuelos de una aerolí
   - PRO: La aplicación de herencia en las clases de usuario (administrador, supervisor y vendedor) facilitó la programación y el uso de cada una de ellas.
 
 ## Propuesta de valor agregado para promoción
-El proyecto se entregará posterior a la construcción de la solución, lo que nos permitirá presentarlo con un archivo ejecutable (.exe). Esto proporciona una mayor comodidad para el uso del programa, ya que los usuarios podrán ejecutarlo directamente sin necesidad de compilar el código fuente.
+-El proyecto se entregará posterior a la construcción de la solución, lo que nos permitirá presentarlo con un archivo ejecutable (.exe). Esto proporciona una mayor comodidad para el uso del programa, ya que los usuarios podrán ejecutarlo directamente sin necesidad de compilar el código fuente.
+-Utilización del control DataGridView para mostrar elementos de listas: El programa cuenta con una función que utiliza el control DataGridView para mostrar los elementos de las listas de forma mucho mas organizada. Con este control se pueden apreciar todos los datos sobre aviones, pasajeros y vuelos en una tabla bien distribuida. El motivo del uso fue, por gusto personal, tener la capacidad de añadir una hoja de calculo en mi programa.
