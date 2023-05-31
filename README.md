@@ -54,6 +54,6 @@ En pocas palabras, el programa se encarga de gestionar los vuelos de una aerolí
   - PRO: La aplicación de herencia en las clases de usuario (administrador, supervisor y vendedor) facilitó la programación y el uso de cada una de ellas.
 
 ## Propuesta de valor agregado para promoción
--El proyecto se entregará posterior a la construcción de la solución, lo que nos permitirá presentarlo con un archivo ejecutable (.exe). Esto proporciona una mayor comodidad para el uso del programa, ya que los usuarios podrán ejecutarlo directamente sin necesidad de compilar el código fuente.
+- El proyecto se entregará posterior a la construcción de la solución, lo que nos permitirá presentarlo con un archivo ejecutable (.exe). Esto proporciona una mayor comodidad para el uso del programa, ya que los usuarios podrán ejecutarlo directamente sin necesidad de compilar el código fuente.
 
--Utilización del control DataGridView para mostrar elementos de listas: El programa cuenta con una función que utiliza el control DataGridView para mostrar los elementos de las listas de forma mucho mas organizada. Con este control se pueden apreciar todos los datos sobre aviones, pasajeros y vuelos en una tabla bien distribuida. El motivo del uso fue, por gusto personal, tener la capacidad de añadir una hoja de calculo en mi programa.
+- Utilización del control DataGridView para mostrar elementos de listas: El programa cuenta con una función que utiliza el control DataGridView para mostrar los elementos de las listas de forma mucho mas organizada. Con este control se pueden apreciar todos los datos sobre aviones, pasajeros y vuelos en una tabla bien distribuida. El motivo del uso fue, por gusto personal, tener la capacidad de añadir una hoja de calculo en mi programa.
