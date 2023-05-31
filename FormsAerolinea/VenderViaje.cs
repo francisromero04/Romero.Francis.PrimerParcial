@@ -110,7 +110,7 @@ namespace FormsAerolinea
 
             if(chbTipoPasajero.Checked == true)
             {
-                lblIngresar.Visible = txtPesoEquipajeTurista.Visible = rdbBolsoMano.Visible = false;
+                lblIngresar.Visible = txtPesoEquipajeTurista.Visible = false;
                 lblIngresarDos.Location = new Point(455, 495);
                 txtPesoEquipajePuno.Location = new Point(620, 495);
                 lblIngresarTres.Location = new Point(770, 495);
@@ -120,10 +120,9 @@ namespace FormsAerolinea
             else
             {
                 lblIngresarDos.Visible = lblIngresarTres.Visible = txtPesoEquipajePuno.Visible = txtPesoEquipajePdos.Visible = false;
-                lblIngresar.Location = new Point(515, 495);
-                rdbBolsoMano.Location = new Point(330, 495);
-                txtPesoEquipajeTurista.Location = new Point(680, 495);
-                lblIngresar.Visible = txtPesoEquipajeTurista.Visible = rdbBolsoMano.Visible = true;
+                lblIngresar.Location = new Point(360, 485);
+                txtPesoEquipajeTurista.Location = new Point(525, 485);
+                lblIngresar.Visible = txtPesoEquipajeTurista.Visible = true;
             }
         }
 
@@ -160,13 +159,13 @@ namespace FormsAerolinea
 
             if (chbTipoPasajero.Checked == true) {
                 lblPrecioPasaje.Text = $"{vueloSeleccionado.CostoPremium} | Costo del Pasaje + IVA = " + vueloSeleccionado.CostoPremium * vueloSeleccionado.IVA;
-                txtPesoEquipajeTurista.Visible = rdbBolsoMano.Visible = lblIngresar.Visible = false;
+                txtPesoEquipajeTurista.Visible = lblIngresar.Visible = false;
                 lblIngresarDos.Visible = lblIngresarTres.Visible = txtPesoEquipajePuno.Visible = txtPesoEquipajePdos.Visible = true;
             }
             else { 
                 lblPrecioPasaje.Text = $"{vueloSeleccionado.CostoTurista} | Costo del Pasaje + IVA = " + vueloSeleccionado.CostoTurista * vueloSeleccionado.IVA;
                 lblIngresarDos.Visible = lblIngresarTres.Visible = txtPesoEquipajePuno.Visible = txtPesoEquipajePdos.Visible = false;
-                txtPesoEquipajeTurista.Visible = lblIngresar.Visible = rdbBolsoMano.Visible = true;
+                txtPesoEquipajeTurista.Visible = lblIngresar.Visible = true;
             }
         }
 

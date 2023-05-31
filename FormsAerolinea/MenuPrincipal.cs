@@ -48,8 +48,7 @@ namespace FormsAerolinea
         /// <param name="sender">El objeto que generó el evento.</param>
         /// <param name="e">Los argumentos del evento.</param>
         private void btnOpcionUno_Click(object sender, EventArgs e)
-        {
-            lblTituloApp.Visible = pbAvion.Visible = false;
+        {         
             AbrirFormularios(new ViajesDisponibles(usuario, aerolinea));
         }
 
@@ -61,9 +60,7 @@ namespace FormsAerolinea
         /// <param name="e">Los argumentos del evento.</param>
         private void btnOpcionDos_Click(object sender, EventArgs e)
         {
-            lblTituloApp.Visible = pbAvion.Visible = false;
-            VenderViaje formVender = new VenderViaje(usuario, aerolinea);
-            AbrirFormularios(formVender);
+            AbrirFormularios(new VenderViaje(usuario, aerolinea));
         }
 
         /// <summary>
@@ -74,9 +71,7 @@ namespace FormsAerolinea
         /// <param name="e">Los argumentos del evento.</param>
         private void btnOpcionTres_Click(object sender, EventArgs e)
         {
-            lblTituloApp.Visible = pbAvion.Visible = false;
-            ConsultarEstadisticas formConsultar = new ConsultarEstadisticas(usuario, aerolinea);
-            AbrirFormularios(formConsultar);
+            AbrirFormularios(new ConsultarEstadisticas(usuario, aerolinea));
         }
 
         /// <summary>
@@ -87,9 +82,7 @@ namespace FormsAerolinea
         /// <param name="e">Los argumentos del evento.</param>
         private void btnOpcionCuatro_Click(object sender, EventArgs e)
         {
-            lblTituloApp.Visible = pbAvion.Visible = false;
-            CrudViajes formCroodUno = new CrudViajes(usuario, aerolinea);
-            AbrirFormularios(formCroodUno);
+            AbrirFormularios(new CrudViajes(usuario, aerolinea));
         }
 
         /// <summary>
@@ -100,9 +93,7 @@ namespace FormsAerolinea
         /// <param name="e">Los argumentos del evento.</param>
         private void btnOpcionCinco_Click(object sender, EventArgs e)
         {
-            lblTituloApp.Visible = pbAvion.Visible = false;
-            CrudPasajeros formCroodDos = new CrudPasajeros(usuario, aerolinea);
-            AbrirFormularios(formCroodDos);
+            AbrirFormularios(new CrudPasajeros(usuario, aerolinea));
         }
 
         /// <summary>
@@ -113,9 +104,7 @@ namespace FormsAerolinea
         /// <param name="e">Los argumentos del evento.</param>
         private void btnOpcionSeis_Click(object sender, EventArgs e)
         {
-            lblTituloApp.Visible = pbAvion.Visible = false;
-            CrudAviones formCroodTres = new CrudAviones(usuario, aerolinea);
-            AbrirFormularios(formCroodTres);
+            AbrirFormularios(new CrudAviones(usuario, aerolinea));
         }
 
         #endregion
@@ -246,15 +235,25 @@ namespace FormsAerolinea
         /// <param name="formAUtilizar">El formulario a abrir.</param>
         private void AbrirFormularios(object formAUtilizar)
         {
-           if(this.panelContenedor.Controls.Count > 0)
+            lblTituloApp.Visible = pbAvion.Visible = false;
+
+            if (this.panelContenedor.Controls.Count > 0)
             {
-                this.panelContenedor.Controls.RemoveAt(0);
+                // Liberar los recursos del formulario anterior
+                if (this.panelContenedor.Controls[0] is Form formularioAnterior)
+                {
+                    formularioAnterior.Dispose();
+                }
+                this.panelContenedor.Controls.Clear();
             }
-            Form fh = formAUtilizar as Form;
-            fh.TopLevel = false;
-            fh.Dock = DockStyle.Fill;
-            this.panelContenedor.Controls.Add(fh);
-            fh.Show();
+
+            if (formAUtilizar is Form fh)
+            {
+                fh.TopLevel = false;
+                fh.Dock = DockStyle.Fill;
+                this.panelContenedor.Controls.Add(fh);
+                fh.Show();
+            }
         }
 
         /// <summary>

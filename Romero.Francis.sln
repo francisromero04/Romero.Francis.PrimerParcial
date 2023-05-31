@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormsAerolinea", "FormsAero
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaAerolineasCompleto", "BibliotecaAerolineasCompleto\BibliotecaAerolineasCompleto.csproj", "{F4A6EBC5-9140-4154-AEDE-694F465567A7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{E2E604CF-49A8-4C88-BA84-78FC160A6F68}"
+	ProjectSection(SolutionItems) = preProject
+		D:\icono AirwayTech.png = D:\icono AirwayTech.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

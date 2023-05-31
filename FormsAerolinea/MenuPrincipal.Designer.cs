@@ -51,8 +51,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnOpcionUno = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.pbAvion = new System.Windows.Forms.PictureBox();
             this.lblTituloApp = new System.Windows.Forms.Label();
+            this.pbAvion = new System.Windows.Forms.PictureBox();
             this.barraTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -385,17 +385,6 @@
             this.panelContenedor.TabIndex = 50;
             this.panelContenedor.Resize += new System.EventHandler(this.panelContenedor_Resize);
             // 
-            // pbAvion
-            // 
-            this.pbAvion.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pbAvion.Image = ((System.Drawing.Image)(resources.GetObject("pbAvion.Image")));
-            this.pbAvion.Location = new System.Drawing.Point(198, 229);
-            this.pbAvion.Name = "pbAvion";
-            this.pbAvion.Size = new System.Drawing.Size(644, 360);
-            this.pbAvion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbAvion.TabIndex = 0;
-            this.pbAvion.TabStop = false;
-            // 
             // lblTituloApp
             // 
             this.lblTituloApp.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -407,6 +396,17 @@
             this.lblTituloApp.Size = new System.Drawing.Size(599, 150);
             this.lblTituloApp.TabIndex = 1;
             this.lblTituloApp.Text = "AirwayTech\r\n          Development";
+            // 
+            // pbAvion
+            // 
+            this.pbAvion.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pbAvion.Image = ((System.Drawing.Image)(resources.GetObject("pbAvion.Image")));
+            this.pbAvion.Location = new System.Drawing.Point(198, 229);
+            this.pbAvion.Name = "pbAvion";
+            this.pbAvion.Size = new System.Drawing.Size(644, 360);
+            this.pbAvion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAvion.TabIndex = 0;
+            this.pbAvion.TabStop = false;
             // 
             // MenuPrincipal
             // 

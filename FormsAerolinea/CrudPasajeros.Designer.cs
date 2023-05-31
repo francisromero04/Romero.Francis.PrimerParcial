@@ -71,11 +71,11 @@
             this.dgvPasajeros = new System.Windows.Forms.DataGridView();
             this.btnOpcionCuatro = new System.Windows.Forms.Button();
             this.gbxConsultarPasajero = new System.Windows.Forms.GroupBox();
+            this.lstPasajerosFiltrados = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txtNombreAbuscar = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnConsultar = new System.Windows.Forms.Button();
-            this.lstPasajerosFiltrados = new System.Windows.Forms.ListBox();
             this.gbxCrearPasajero.SuspendLayout();
             this.gbxEliminarPasajero.SuspendLayout();
             this.gbxModificarPasajero.SuspendLayout();
@@ -330,7 +330,6 @@
             this.gbxEliminarPasajero.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.gbxEliminarPasajero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.gbxEliminarPasajero.Controls.Add(this.btnEliminar);
-            this.gbxEliminarPasajero.Controls.Add(this.gbxModificarPasajero);
             this.gbxEliminarPasajero.Controls.Add(this.btnCerrarTres);
             this.gbxEliminarPasajero.Controls.Add(this.lblListaPasajeros);
             this.gbxEliminarPasajero.Controls.Add(this.cmbxPasajerosDos);
@@ -384,7 +383,7 @@
             this.gbxModificarPasajero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxModificarPasajero.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxModificarPasajero.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbxModificarPasajero.Location = new System.Drawing.Point(71, 0);
+            this.gbxModificarPasajero.Location = new System.Drawing.Point(1051, 64);
             this.gbxModificarPasajero.Name = "gbxModificarPasajero";
             this.gbxModificarPasajero.Size = new System.Drawing.Size(798, 472);
             this.gbxModificarPasajero.TabIndex = 71;
@@ -675,6 +674,17 @@
             this.gbxConsultarPasajero.Text = "Consultar un Pasajero";
             this.gbxConsultarPasajero.Visible = false;
             // 
+            // lstPasajerosFiltrados
+            // 
+            this.lstPasajerosFiltrados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.lstPasajerosFiltrados.ForeColor = System.Drawing.SystemColors.Control;
+            this.lstPasajerosFiltrados.FormattingEnabled = true;
+            this.lstPasajerosFiltrados.ItemHeight = 16;
+            this.lstPasajerosFiltrados.Location = new System.Drawing.Point(25, 101);
+            this.lstPasajerosFiltrados.Name = "lstPasajerosFiltrados";
+            this.lstPasajerosFiltrados.Size = new System.Drawing.Size(760, 212);
+            this.lstPasajerosFiltrados.TabIndex = 56;
+            // 
             // button1
             // 
             this.button1.FlatAppearance.BorderSize = 0;
@@ -726,17 +736,6 @@
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
-            // lstPasajerosFiltrados
-            // 
-            this.lstPasajerosFiltrados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.lstPasajerosFiltrados.ForeColor = System.Drawing.SystemColors.Control;
-            this.lstPasajerosFiltrados.FormattingEnabled = true;
-            this.lstPasajerosFiltrados.ItemHeight = 16;
-            this.lstPasajerosFiltrados.Location = new System.Drawing.Point(25, 101);
-            this.lstPasajerosFiltrados.Name = "lstPasajerosFiltrados";
-            this.lstPasajerosFiltrados.Size = new System.Drawing.Size(760, 212);
-            this.lstPasajerosFiltrados.TabIndex = 56;
-            // 
             // CrudPasajeros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -744,6 +743,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(1064, 680);
             this.Controls.Add(this.gbxConsultarPasajero);
+            this.Controls.Add(this.gbxModificarPasajero);
             this.Controls.Add(this.btnOpcionCuatro);
             this.Controls.Add(this.dgvPasajeros);
             this.Controls.Add(this.gbxEliminarPasajero);

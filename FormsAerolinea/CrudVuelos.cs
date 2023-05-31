@@ -46,7 +46,7 @@ namespace FormsAerolinea
         {
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = dgvVuelos.Visible = false;
             gbxCrearViajes.Left = (this.ClientSize.Width - gbxCrearViajes.Width) / 2;
-            gbxCrearViajes.Top = ((this.ClientSize.Height - gbxCrearViajes.Height) / 2) - 90;
+            gbxCrearViajes.Top = ((this.ClientSize.Height - gbxCrearViajes.Height) / 2) - 120;
             gbxCrearViajes.Visible = true;
         }
 

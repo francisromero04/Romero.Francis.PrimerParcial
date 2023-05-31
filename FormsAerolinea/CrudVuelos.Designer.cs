@@ -178,7 +178,7 @@
             this.gbxCrearViajes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxCrearViajes.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxCrearViajes.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbxCrearViajes.Location = new System.Drawing.Point(234, 678);
+            this.gbxCrearViajes.Location = new System.Drawing.Point(116, 678);
             this.gbxCrearViajes.Name = "gbxCrearViajes";
             this.gbxCrearViajes.Size = new System.Drawing.Size(799, 553);
             this.gbxCrearViajes.TabIndex = 62;
@@ -211,11 +211,11 @@
             // cmbxMatriculaAviones
             // 
             this.cmbxMatriculaAviones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxMatriculaAviones.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxMatriculaAviones.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxMatriculaAviones.FormattingEnabled = true;
             this.cmbxMatriculaAviones.Location = new System.Drawing.Point(329, 384);
             this.cmbxMatriculaAviones.Name = "cmbxMatriculaAviones";
-            this.cmbxMatriculaAviones.Size = new System.Drawing.Size(464, 35);
+            this.cmbxMatriculaAviones.Size = new System.Drawing.Size(464, 29);
             this.cmbxMatriculaAviones.TabIndex = 71;
             // 
             // lblAvion
@@ -274,21 +274,21 @@
             // cmbxDestino
             // 
             this.cmbxDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxDestino.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxDestino.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxDestino.FormattingEnabled = true;
             this.cmbxDestino.Location = new System.Drawing.Point(329, 220);
             this.cmbxDestino.Name = "cmbxDestino";
-            this.cmbxDestino.Size = new System.Drawing.Size(464, 35);
+            this.cmbxDestino.Size = new System.Drawing.Size(464, 29);
             this.cmbxDestino.TabIndex = 65;
             // 
             // cmbxOrigen
             // 
             this.cmbxOrigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxOrigen.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxOrigen.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxOrigen.FormattingEnabled = true;
-            this.cmbxOrigen.Location = new System.Drawing.Point(329, 179);
+            this.cmbxOrigen.Location = new System.Drawing.Point(329, 185);
             this.cmbxOrigen.Name = "cmbxOrigen";
-            this.cmbxOrigen.Size = new System.Drawing.Size(464, 35);
+            this.cmbxOrigen.Size = new System.Drawing.Size(464, 29);
             this.cmbxOrigen.TabIndex = 64;
             // 
             // lblAsientosTuristas
@@ -654,7 +654,7 @@
             this.gbxEliminarViaje.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbxEliminarViaje.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxEliminarViaje.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbxEliminarViaje.Location = new System.Drawing.Point(1063, 275);
+            this.gbxEliminarViaje.Location = new System.Drawing.Point(1054, 292);
             this.gbxEliminarViaje.Name = "gbxEliminarViaje";
             this.gbxEliminarViaje.Size = new System.Drawing.Size(860, 226);
             this.gbxEliminarViaje.TabIndex = 70;

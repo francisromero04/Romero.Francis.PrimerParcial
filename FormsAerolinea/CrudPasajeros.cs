@@ -111,7 +111,7 @@ namespace FormsAerolinea
         {
             btnOpcionUno.Visible = btnOpcionDos.Visible = btnOpcionTres.Visible = btnOpcionCuatro.Visible = dgvPasajeros.Visible = false;
             gbxConsultarPasajero.Left = (this.ClientSize.Width - gbxEliminarPasajero.Width) / 2;
-            gbxConsultarPasajero.Top = ((this.ClientSize.Height - gbxEliminarPasajero.Height) / 2)-150;
+            gbxConsultarPasajero.Top = ((this.ClientSize.Height - gbxEliminarPasajero.Height) / 2)-200;
             gbxConsultarPasajero.Visible = true;
         }
         
@@ -603,6 +603,6 @@ namespace FormsAerolinea
             }
         }
 
-        #endregion       
+        #endregion
     }
 }

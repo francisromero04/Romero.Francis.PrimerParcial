@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0EB31DB5-CC94-4F04-8C3E-7AC2D4691937}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>FormsAerolinea</RootNamespace>
+    <RootNamespace>AirwayTech</RootNamespace>
     <AssemblyName>FormsAerolinea</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icono AirwayTech.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -156,6 +159,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Download premium png of Account png line icon user symbol by Aew about profile icon, person icon, person icon png, profile, and profile png 3012376.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icono AirwayTech.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

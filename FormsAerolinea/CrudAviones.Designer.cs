@@ -32,11 +32,6 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnCerrarDos = new System.Windows.Forms.Button();
             this.txtBodega = new System.Windows.Forms.TextBox();
-            this.gbxEliminarAeronave = new System.Windows.Forms.GroupBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnCerrarTres = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmbxAvionesDos = new System.Windows.Forms.ComboBox();
             this.lblBodegaDos = new System.Windows.Forms.Label();
             this.chkComida = new System.Windows.Forms.CheckBox();
             this.chkWifi = new System.Windows.Forms.CheckBox();
@@ -48,6 +43,11 @@
             this.lblMatricula2 = new System.Windows.Forms.Label();
             this.lblCantBañosDos = new System.Windows.Forms.Label();
             this.txtCantBaños = new System.Windows.Forms.TextBox();
+            this.gbxEliminarAeronave = new System.Windows.Forms.GroupBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnCerrarTres = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbxAvionesDos = new System.Windows.Forms.ComboBox();
             this.btnOpcionTres = new System.Windows.Forms.Button();
             this.btnOpcionDos = new System.Windows.Forms.Button();
             this.btnOpcionUno = new System.Windows.Forms.Button();
@@ -139,80 +139,6 @@
             this.txtBodega.Name = "txtBodega";
             this.txtBodega.Size = new System.Drawing.Size(522, 41);
             this.txtBodega.TabIndex = 49;
-            // 
-            // gbxEliminarAeronave
-            // 
-            this.gbxEliminarAeronave.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.gbxEliminarAeronave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.gbxEliminarAeronave.Controls.Add(this.btnEliminar);
-            this.gbxEliminarAeronave.Controls.Add(this.btnCerrarTres);
-            this.gbxEliminarAeronave.Controls.Add(this.label4);
-            this.gbxEliminarAeronave.Controls.Add(this.cmbxAvionesDos);
-            this.gbxEliminarAeronave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbxEliminarAeronave.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxEliminarAeronave.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbxEliminarAeronave.Location = new System.Drawing.Point(1061, 252);
-            this.gbxEliminarAeronave.Name = "gbxEliminarAeronave";
-            this.gbxEliminarAeronave.Size = new System.Drawing.Size(798, 226);
-            this.gbxEliminarAeronave.TabIndex = 43;
-            this.gbxEliminarAeronave.TabStop = false;
-            this.gbxEliminarAeronave.Text = "Eliminar un Avión";
-            this.gbxEliminarAeronave.Visible = false;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnEliminar.Location = new System.Drawing.Point(6, 111);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(786, 45);
-            this.btnEliminar.TabIndex = 49;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnCerrarTres
-            // 
-            this.btnCerrarTres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btnCerrarTres.FlatAppearance.BorderSize = 0;
-            this.btnCerrarTres.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnCerrarTres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarTres.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarTres.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCerrarTres.Location = new System.Drawing.Point(6, 162);
-            this.btnCerrarTres.Name = "btnCerrarTres";
-            this.btnCerrarTres.Size = new System.Drawing.Size(786, 45);
-            this.btnCerrarTres.TabIndex = 48;
-            this.btnCerrarTres.Text = "Guardar y cerrar";
-            this.btnCerrarTres.UseVisualStyleBackColor = false;
-            this.btnCerrarTres.Click += new System.EventHandler(this.btnCerrarTres_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(6, 44);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(215, 34);
-            this.label4.TabIndex = 39;
-            this.label4.Text = "Lista de aviones:";
-            // 
-            // cmbxAvionesDos
-            // 
-            this.cmbxAvionesDos.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.cmbxAvionesDos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxAvionesDos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbxAvionesDos.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cmbxAvionesDos.FormattingEnabled = true;
-            this.cmbxAvionesDos.Location = new System.Drawing.Point(263, 51);
-            this.cmbxAvionesDos.Name = "cmbxAvionesDos";
-            this.cmbxAvionesDos.Size = new System.Drawing.Size(529, 27);
-            this.cmbxAvionesDos.TabIndex = 38;
             // 
             // lblBodegaDos
             // 
@@ -333,6 +259,80 @@
             this.txtCantBaños.Name = "txtCantBaños";
             this.txtCantBaños.Size = new System.Drawing.Size(522, 41);
             this.txtCantBaños.TabIndex = 43;
+            // 
+            // gbxEliminarAeronave
+            // 
+            this.gbxEliminarAeronave.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gbxEliminarAeronave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.gbxEliminarAeronave.Controls.Add(this.btnEliminar);
+            this.gbxEliminarAeronave.Controls.Add(this.btnCerrarTres);
+            this.gbxEliminarAeronave.Controls.Add(this.label4);
+            this.gbxEliminarAeronave.Controls.Add(this.cmbxAvionesDos);
+            this.gbxEliminarAeronave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.gbxEliminarAeronave.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxEliminarAeronave.ForeColor = System.Drawing.SystemColors.Control;
+            this.gbxEliminarAeronave.Location = new System.Drawing.Point(1061, 252);
+            this.gbxEliminarAeronave.Name = "gbxEliminarAeronave";
+            this.gbxEliminarAeronave.Size = new System.Drawing.Size(798, 226);
+            this.gbxEliminarAeronave.TabIndex = 43;
+            this.gbxEliminarAeronave.TabStop = false;
+            this.gbxEliminarAeronave.Text = "Eliminar un Avión";
+            this.gbxEliminarAeronave.Visible = false;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnEliminar.Location = new System.Drawing.Point(6, 111);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(786, 45);
+            this.btnEliminar.TabIndex = 49;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnCerrarTres
+            // 
+            this.btnCerrarTres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnCerrarTres.FlatAppearance.BorderSize = 0;
+            this.btnCerrarTres.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnCerrarTres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarTres.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarTres.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCerrarTres.Location = new System.Drawing.Point(6, 162);
+            this.btnCerrarTres.Name = "btnCerrarTres";
+            this.btnCerrarTres.Size = new System.Drawing.Size(786, 45);
+            this.btnCerrarTres.TabIndex = 48;
+            this.btnCerrarTres.Text = "Guardar y cerrar";
+            this.btnCerrarTres.UseVisualStyleBackColor = false;
+            this.btnCerrarTres.Click += new System.EventHandler(this.btnCerrarTres_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(6, 44);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(215, 34);
+            this.label4.TabIndex = 39;
+            this.label4.Text = "Lista de aviones:";
+            // 
+            // cmbxAvionesDos
+            // 
+            this.cmbxAvionesDos.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.cmbxAvionesDos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxAvionesDos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxAvionesDos.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cmbxAvionesDos.FormattingEnabled = true;
+            this.cmbxAvionesDos.Location = new System.Drawing.Point(263, 51);
+            this.cmbxAvionesDos.Name = "cmbxAvionesDos";
+            this.cmbxAvionesDos.Size = new System.Drawing.Size(529, 27);
+            this.cmbxAvionesDos.TabIndex = 38;
             // 
             // btnOpcionTres
             // 
