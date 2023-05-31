@@ -54,6 +54,14 @@ En pocas palabras, el programa se encarga de gestionar los vuelos de una aerolí
   - PRO: La aplicación de herencia en las clases de usuario (administrador, supervisor y vendedor) facilitó la programación y el uso de cada una de ellas.
 
 ## Propuesta de valor agregado para promoción
-- El proyecto se entregará posterior a la construcción de la solución, lo que nos permitirá presentarlo con un archivo ejecutable (.exe). Esto proporciona una mayor comodidad para el uso del programa, ya que los usuarios podrán ejecutarlo directamente sin necesidad de compilar el código fuente. El archivo ejecutable se encuentra [aquí](C:\Users\User\source\repos\Romero.Francis\FormsAerolinea\bin\Debug) en nuestro repositorio.
+- El proyecto se entregará posterior a la construcción de la solución, lo que nos permitirá presentarlo con un archivo ejecutable (.exe). Esto proporciona una mayor comodidad para el uso del programa, ya que los usuarios podrán ejecutarlo directamente sin necesidad de compilar el código fuente. El archivo ejecutable se encuentra ubicado en la carpeta principal.
 
 - Utilización del control DataGridView para mostrar elementos de listas: El programa cuenta con una función que utiliza el control DataGridView para mostrar los elementos de las listas de forma mucho mas organizada. Con este control se pueden apreciar todos los datos sobre aviones, pasajeros y vuelos en una tabla bien distribuida. El motivo del uso fue, por gusto personal, tener la capacidad de añadir una hoja de calculo en mi programa.
+
+## ACLARACION
+- Correos y contraseñas de las cuentas de la App (respetar minusculas).
+ - Cuenta ADMINISTRADOR: Correo: admin@mail.com | Contraseña: 1234
+ - Cuenta VENDEDOR 1: vendedor1@mail.com | Contraseña: abcd
+ - Cuenta VENDEDOR 2: vendedor2@mail.com | Contraseña: efgh
+ - Cuenta VENDEDOR 3: vendedor3@mail.com | Contraseña: zzz
+ - Cuenta SUPERVISOR: supervisor@mail.com | Contraseña: 5678
