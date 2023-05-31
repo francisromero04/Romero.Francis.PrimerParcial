@@ -1,3 +1,13 @@
+<style>
+  h1 {
+    color: #007BFF; /* Azul claro */
+  }
+  
+  h2 {
+    color: #17A2B8; /* Celeste oscuro */
+  }
+</style>
+
 # AirwayTech Development
 
 ## Sobre mí
